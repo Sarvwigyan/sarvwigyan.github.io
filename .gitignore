@@ -1,0 +1,4 @@
+# Ignore index.html
+index.html
+#Ignore .gitignore
+.gitignore
