@@ -1,6 +1,12 @@
 # Ignore index.html
 index.html
-#Ignore .gitignore
-.gitignore
-# Ignore Sarvpedia
-Sarvpedia.html
+
+# Node modules
+node_modules/
+
+# Logs
+*.log
+
+# Build files
+dist/
+build/
