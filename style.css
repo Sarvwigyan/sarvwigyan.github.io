@@ -1,39 +1,80 @@
-/* Paragraph Styling for a specific paragraph with the class 'styled-paragraph' */
+/********************************************************************************************************************************** */
 .styled-paragraph {
     background: linear-gradient(
-        120deg,
-        rgba(255, 0, 0, 0.7), /* Red */
-        rgb(3, 3, 108),        /* Dark Blue */
-        rgba(255, 255, 255, 0.8) /* White */
+        135deg,
+        rgba(45, 45, 45, 0.9),  /* Elegant Dark Gray */
+        rgba(60, 90, 150, 0.85) /* Subtle Deep Blue */
     );
-    color: white;          /* White text for contrast */
+    color: #f5f5f5;  /* Soft off-white for readability */
     border-radius: 12px;
-    font-size: 1.2rem;     /* Slightly larger text for readability */
-    line-height: 1.6;
-    text-align: center;    /* Center-align text */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
-    margin: 20px auto;    /* Center align the paragraph with margin */
-    width: fit-content;     /* Set max-width for better text formatting */
+    font-size: 1.2rem;  /* Optimal readability */
+    line-height: 1.7;
+    text-align: center;
+    padding: 15px 5%;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); /* Soft, natural shadow */
+    transition: all 0.3s ease-in-out;
+    margin: 20px auto;
+    width: fit-content;
 }
-
-/* Hover Effect for Paragraph */
-.styled-paragraph:hover {
-    background: linear-gradient(
-        120deg,
-        rgba(255, 0, 0, 0.9),   /* Slightly darker red */
-        rgba(1, 1, 54, 0.9),   /* Darker Blue */
-        rgba(255, 255, 255, 0.9) /* White with slight opacity */
-    );
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
-    transform: translateY(-2.5px); /* Slight upward shift on hover */
-}
+/********************************************************************************************************************************** */
 blockquote {
-    color: rgb(225, 36, 36);
-    font-size: 160%;
-    font-weight: lighter;
+    color: rgba(224, 153, 167, 0.86); /* Slightly brighter red */
+    font-size: 200%;
+    font-weight: 500;
     line-height: 1.6;
-    background: #1a1e5e; 
+    background: linear-gradient(90deg, rgb(6, 13, 117), rgb(35, 35, 118)); /* Gradient for depth */
     text-align: center;
     font-family: "Bahnschrift Light";
-  }
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+/********************************************************************************************************************************** */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9)); 
+    color: white;
+}
+/********************************************************************************************************************************** */
+header {
+    background: linear-gradient(90deg, rgb(1, 1, 54), rgb(3, 3, 108));
+    color: #ffffff;
+    text-align: left;
+    padding: 15px;
+}
+/********************************************************************************************************************************** */
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+/********************************************************************************************************************************** */
+nav ul li {
+    display: inline-block;
+    margin: 0 12px;
+}
+/********************************************************************************************************************************** */
+nav ul li button {
+    background: linear-gradient(90deg, rgb(1, 1, 54), rgb(3, 3, 108));
+    color: #ffffff;
+    font-size: 1.4rem;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+/********************************************************************************************************************************** */
+nav ul li button:hover {
+    background: #3232e2;
+    box-shadow: 0px 5px 12px rgba(50, 50, 200, 0.5);
+    transform: scale(1.05);
+    color: black;
+}
+/********************************************************************************************************************************** */
+nav ul li button:active {
+    background: #2a2ab5;
+    transform: scale(0.98);
+}
+/********************************************************************************************************************************** */
