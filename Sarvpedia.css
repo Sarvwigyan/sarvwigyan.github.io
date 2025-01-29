@@ -1,35 +1,28 @@
 /********************************************************************************************************************************** */
 body { 
-    background: linear-gradient(
-        120deg,
-        rgba(3, 63, 126, 0.8),    /* Blue */
-        rgba(11, 9, 137, 0.8), /* Sky Blue */
-        rgba(58, 8, 110, 0.8),    /* Red */
-        rgba(116, 24, 95, 0.8) /* White */
-    );
-    background-attachment: fixed; /* Fixed background */
-    background-size: cover;       /* Covers entire viewport */
-    height: fit-content;                /* Full height */
+    background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9));
+    background-attachment: fixed; 
+    background-size: cover;      
+    height: fit-content;             
     margin: 0;
     padding: 0;
-    font-family: 'Roboto', Arial, sans-serif; /* Professional font */
-    color: black; /* High-contrast text */
+    font-family: 'Roboto', Arial, sans-serif; 
+    color: black;
 }
 /********************************************************************************************************************************** */
 h1 {
     background: linear-gradient(
-        120deg,
-        rgba(136, 6, 6, 0.7), /* Red */
-        rgb(3, 3, 108),        /* Dark Blue */
-        rgba(158, 155, 155, 0.8)   /* Yellow */
+        135deg,
+        rgba(45, 45, 45, 0.9),
+        rgba(60, 90, 150, 0.85) 
     );
     color: white;
     text-align: center;
     padding: 20px;
     font-size: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
-    opacity: 0.98; /* Slight transparency */
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5); 
+    opacity: 0.98; 
     margin: 20px;
 }
 /********************************************************************************************************************************** */
@@ -40,7 +33,7 @@ h1 {
     font-size: 16px;
     border: 2px solid #007bff;
     border-radius: 12px;
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); 
     outline: none;
     transition: all 0.3s ease;
     align-self: center;
@@ -48,7 +41,7 @@ h1 {
 /********************************************************************************************************************************** */
 #search-bar:focus {
     border-color: #0056b3;
-    box-shadow: 0 6px 12px rgba(0, 91, 187, 0.5); /* Glow effect on focus */
+    box-shadow: 0 6px 12px rgba(0, 91, 187, 0.5); 
 }
 /********************************************************************************************************************************** */
 #suggestions-list {
@@ -59,15 +52,15 @@ h1 {
     border: 2px solid #ddd;
     border-radius: 12px;
     display: none;
-    width: 100%; /* Ensure no horizontal scrollbar */
+    width: 100%; 
     max-width: 600px;
     max-height: 300px;
     overflow-y: auto;
-    overflow-x: hidden; /* Hide horizontal overflow */
-    box-sizing: border-box; /* Include padding and border in width calculation */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Prominent shadow for depth */
+    overflow-x: hidden; 
+    box-sizing: border-box; 
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
     position: absolute;
-    top: 25%;  /* Position below the search bar */
+    top: 25%;  
     left: 50%;
     transform: translateX(-50%);
 }
@@ -78,21 +71,25 @@ h1 {
     color: #333;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    text-align: center; /* Center-align items */
+    text-align: center;
 }
 /********************************************************************************************************************************** */
 .suggestion-item:hover {
-    background-color: #f0f8ff; /* Light blue hover effect */
-    transform: translateX(2px); /* Slight shift for interactivity */
+    background-color: #f0f8ff;
+    transform: translateX(2px);
 }
 /********************************************************************************************************************************** */
 .suggestion-button {
     display: block;
-    width: calc(100% - 24px); /* Fit inside container */
+    width: calc(100% - 24px);
     margin: 6px auto;
     padding: 14px;
     font-size: 16px;
-    background-color: #007bff;
+    background: linear-gradient(
+        135deg,
+        rgba(45, 45, 45, 0.9),
+        rgba(60, 90, 150, 0.85) 
+    );
     color: white;
     border: none;
     border-radius: 8px;
@@ -102,8 +99,8 @@ h1 {
 }
 /********************************************************************************************************************************** */
 .suggestion-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-    transform: scale(1.02); /* Slight enlargement */
+    background-color: #0056b3;
+    transform: scale(1.02);
 }
 /********************************************************************************************************************************** */
 .suggestion-button:active {
