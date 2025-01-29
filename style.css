@@ -1,0 +1,39 @@
+/* Paragraph Styling for a specific paragraph with the class 'styled-paragraph' */
+.styled-paragraph {
+    background: linear-gradient(
+        120deg,
+        rgba(255, 0, 0, 0.7), /* Red */
+        rgb(3, 3, 108),        /* Dark Blue */
+        rgba(255, 255, 255, 0.8) /* White */
+    );
+    color: white;          /* White text for contrast */
+    border-radius: 12px;
+    font-size: 1.2rem;     /* Slightly larger text for readability */
+    line-height: 1.6;
+    text-align: center;    /* Center-align text */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    margin: 20px auto;    /* Center align the paragraph with margin */
+    width: fit-content;     /* Set max-width for better text formatting */
+}
+
+/* Hover Effect for Paragraph */
+.styled-paragraph:hover {
+    background: linear-gradient(
+        120deg,
+        rgba(255, 0, 0, 0.9),   /* Slightly darker red */
+        rgba(1, 1, 54, 0.9),   /* Darker Blue */
+        rgba(255, 255, 255, 0.9) /* White with slight opacity */
+    );
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3); /* More prominent shadow on hover */
+    transform: translateY(-2.5px); /* Slight upward shift on hover */
+}
+blockquote {
+    color: rgb(225, 36, 36);
+    font-size: 160%;
+    font-weight: lighter;
+    line-height: 1.6;
+    background: #1a1e5e; 
+    text-align: center;
+    font-family: "Bahnschrift Light";
+  }

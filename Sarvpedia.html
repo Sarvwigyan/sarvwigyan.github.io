@@ -4,112 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvpedia</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-
-        .search-container {
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            text-align: center;
-        }
-
-        input[type="text"] {
-            padding: 10px;
-            width: 80%;
-            font-size: 18px;
-            border-radius: 5px;
-            border: 2px solid #ccc;
-            outline: none;
-            transition: border-color 0.3s;
-        }
-
-        input[type="text"]:focus {
-            border-color: #4CAF50;
-        }
-
-        .suggestions-list {
-            margin-top: 20px;
-            max-height: 300px;
-            overflow-y: auto;
-            border-top: 2px solid #ccc;
-            padding-top: 10px;
-        }
-
-        .suggestion-item {
-            padding: 10px;
-            background-color: #f9f9f9;
-            border-radius: 5px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .suggestion-item:hover {
-            background-color: #e0e0e0;
-        }
-
-        .suggestion-item a {
-            text-decoration: none;
-            color: #333;
-            font-weight: bold;
-        }
-
-        .suggestion-item a:hover {
-            color: #4CAF50;
-        }
-    </style>
+    <link rel="stylesheet" href="Sarvpedia.css">
+    <script src="Sarvpedia.js"></script>
 </head>
 <body>
-
-<div class="search-container">
-    <h2>Welcome to Sarvpedia</h2>
-    <input type="text" id="search-bar" placeholder="Search..." onkeyup="filterSuggestions()">
-    <div class="suggestions-list" id="suggestions-list">
-        <!-- Suggestions will appear here -->
+    <h1>Sarvpedia</h1>
+    <hr>
+    <div class="search-container" style="text-align: center;">
+        <input type="text" id="search-bar" oninput="filterSuggestions()" placeholder="Search...">
+        <div id="suggestions-list"></div>
     </div>
-</div>
+    <hr>
 
-<script>
-    const data = [
-        { title: 'Light', link: 'Light.html' },
-        { title: 'Apple', link: 'Apple.html' },
-        { title: 'Energy', link: 'Energy.html' },
-        { title: 'Apple Pie', link: 'Apple-Pie.html' },
-        { title: 'Aerodynamics', link: 'Aerodynamics.html' },
-        { title: 'Artificial Intelligence', link: 'Artificial-Intelligence.html' },
-        { title: 'Astronomy', link: 'Astronomy.html' },
-        { title: 'Energy Efficiency', link: 'Energy-Efficiency.html' },
-        // Add more items here
-    ];
-
-    function filterSuggestions() {
-        const query = document.getElementById('search-bar').value.toLowerCase();
-        const filteredData = data.filter(item => item.title.toLowerCase().includes(query));
-        
-        const suggestionsList = document.getElementById('suggestions-list');
-        suggestionsList.innerHTML = '';
-
-        filteredData.forEach(item => {
-            const div = document.createElement('div');
-            div.classList.add('suggestion-item');
-            div.innerHTML = `<a href="${item.link}">${item.title}</a>`;
-            suggestionsList.appendChild(div);
-        });
-    }
-</script>
-
+    <script src="Sarvpedia.js"></script>
 </body>
 </html>

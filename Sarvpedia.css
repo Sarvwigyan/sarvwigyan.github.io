@@ -1,0 +1,153 @@
+/* General Body Styling */
+body {
+    background: linear-gradient(
+        120deg,
+        rgba(0, 123, 255, 0.8),    /* Blue */
+        rgba(11, 8, 195, 0.8), /* Sky Blue */
+        rgba(69, 10, 133, 0.8),    /* Red */
+        rgba(168, 33, 136, 0.8) /* White */
+    );
+    background-attachment: fixed; /* Fixed background */
+    background-size: cover;       /* Covers entire viewport */
+    height: fit-content;                /* Full height */
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', Arial, sans-serif; /* Professional font */
+    color: black; /* High-contrast text */
+}
+
+/* Header Styling */
+h1 {
+    background: linear-gradient(
+        120deg,
+        rgba(255, 0, 0, 0.7), /* Red */
+        rgb(3, 3, 108),        /* Dark Blue */
+        rgba(255, 255, 255, 0.8)   /* Yellow */
+    );
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    opacity: 0.98; /* Slight transparency */
+    margin: 20px;
+}
+
+h1:hover {
+    background: linear-gradient(
+        120deg,
+        rgba(255, 0, 0, 0.9),   /* Slightly darker red */
+        rgba(1, 1, 54, 0.9),   /* Darker Blue */
+        rgba(255, 255, 255, 0.9)
+        );
+        transform: translateY(-2.5px);
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Search Bar */
+#search-bar {
+    padding: 14px 18px;
+    width: 100%;
+    max-width: 600px;
+    font-size: 16px;
+    border: 2px solid #007bff;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft shadow */
+    outline: none;
+    transition: all 0.3s ease;
+    align-self: center;
+}
+
+#search-bar:focus {
+    border-color: #0056b3;
+    box-shadow: 0 6px 12px rgba(0, 91, 187, 0.5); /* Glow effect on focus */
+}
+
+#suggestions-list {
+    margin-top: 12px;
+    padding: 10px 0;
+    list-style: none;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    display: none;
+    width: 100%; /* Ensure no horizontal scrollbar */
+    max-width: 600px;
+    max-height: 300px;
+    overflow-y: auto;
+    overflow-x: hidden; /* Hide horizontal overflow */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Prominent shadow for depth */
+    position: absolute;
+    top: 25%;  /* Position below the search bar */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* Suggestion Item Styling */
+.suggestion-item {
+    padding: 14px;
+    font-size: 16px;
+    color: #333;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center; /* Center-align items */
+}
+
+.suggestion-item:hover {
+    background-color: #f0f8ff; /* Light blue hover effect */
+    transform: translateX(5px); /* Slight shift for interactivity */
+}
+
+/* Suggestion Button */
+.suggestion-button {
+    display: block;
+    width: calc(100% - 24px); /* Fit inside container */
+    margin: 6px auto;
+    padding: 14px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.suggestion-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: scale(1.05); /* Slight enlargement */
+}
+
+.suggestion-button:active {
+    transform: scale(1);
+}
+
+/* Smooth fade-in animation for suggestions */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar Styling */
+#suggestions-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#suggestions-list::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+#suggestions-list::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
