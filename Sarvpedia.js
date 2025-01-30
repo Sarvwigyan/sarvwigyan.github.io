@@ -3,7 +3,9 @@ const data = [
     { title: 'Argon Sarvpedia', link: 'Argon_sarvpedia.html' },
     // Add more items here
 ];
-
+function Expsarvwigyan(){
+    window.open('index.html', '_blank')
+}
 function filterSuggestions() {
     const query = document.getElementById('search-bar').value.toLowerCase();
     const filteredData = data.filter(item => item.title.toLowerCase().includes(query));

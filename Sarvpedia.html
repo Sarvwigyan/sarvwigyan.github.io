@@ -1,27 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
-<!------------------------------------------------------------------------------------------------------------------------------->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvpedia</title>
-    <link rel="stylesheet" href="Sarvpedia.css">
-    <script src="Sarvpedia.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9)); 
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+        .section p {
+            text-align: justify;
+        }
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .section table, .section th, .section td {
+            border: 1px solid #ddd;
+        }
+        .section th, .section td {
+            padding: 8px;
+            text-align: left;
+        }
+        .section th {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 1%;
+            
+        }
+        .glow-button {
+            background: #f5a623;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(245, 166, 35, 0.8);
+            transform: scale(1.1);
+        }
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        #search-bar {
+            width: 80%;
+            padding: 10px;
+            font-size: 1em;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: all 0.3s ease;
+            box-shadow: 0px 3px 6px rgba(3, 13, 23, 0.758);
+            outline: none;
+        }
+        #search-bar:focus {
+            border-color: #0056b3;
+            box-shadow: 0px 6px 12px rgba(0, 91, 187, 0.5);
+}
+        #suggestions-list {
+            margin-top: 10px;
+            text-align: left;
+            max-width: 80%;
+            width: 80%;
+            margin: 10px auto;
+            list-style: none;
+            background: white;
+            display: none;
+            overflow-y: auto;
+            background: white;
+            overflow-x: hidden;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            position: relative;
+            max-height: 30vh;
+        }
+        .suggestion-item{
+            padding: 0.2rem;
+            font-size: 1rem;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease; 
+            text-align: center;
+        }
+        .suggestion-item:hover {
+            background-color: #f0f8ff;
+            transform: translateX(0.125rem);
+        }
+        .suggestion-button {
+    display: block;
+    width: calc(100% - 2.5rem);
+    margin: 0.375rem auto;
+    padding: 0.875rem;
+    font-size: 1rem;
+    background: linear-gradient(135deg, rgba(45, 45, 45, 0.9), rgba(60, 90, 150, 0.85));
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+    </style>
 </head>
-<!------------------------------------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------->
 <body>
-    <h1>Sarvpedia</h1>
-    <hr>
-    <div class="search-container" style="text-align: center;">
-        <input type="text" id="search-bar" oninput="filterSuggestions()" placeholder="Search...">
-        <div id="suggestions-list"></div>
+
+    <header>
+        <h1>Sarvpedia</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Search the World of Knowledge with Sarvpedia</h2>
+            <p>
+                Welcome to <i><strong>Sarvpedia!</strong></i> Our interactive search feature allows you to explore a wealth of information at your fingertips. Simply type in the topic you’re interested in, and let the search bar provide instant suggestions to guide you through a comprehensive collection of articles.
+                <i>Start typing to discover more!</i>
+            </p>
+        </div>
+
+        <div class="search-container">
+            <input type="text" id="search-bar" oninput="filterSuggestions()" placeholder="Search...">
+            <div id="suggestions-list"></div>
+        </div>
+
+        <a style="text-decoration: none;"><button class="glow-button" onclick="Expsarvwigyan()">Explore Sarvwigyan</button></a>
     </div>
-    <hr>
+    
+    <footer>
+        <p>&copy; Sarvwigyan - Sarvpedia. All rights reserved.</p>
+    </footer>
 
     <script src="Sarvpedia.js"></script>
-<!------------------------------------------------------------------------------------------------------------------------------->
+
 </body>
-<!------------------------------------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------->
 </html>

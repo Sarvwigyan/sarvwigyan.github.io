@@ -1093,5 +1093,24 @@
     <footer>
         <p>&copy;  Sarvpedia. All Rights Reserved.</p>
     </footer>
+    <script>
+        // Function to check if the device is in landscape mode
+        function checkOrientation() {
+            var rotateMessage = document.getElementById('rotateMessage');
+            if (window.innerWidth > window.innerHeight) {
+                // Hide message in landscape mode
+                rotateMessage.style.display = 'none';
+            } else {
+                // Show message in portrait mode
+                rotateMessage.style.display = 'block';
+            }
+        }
+    
+        // Check orientation on page load
+        window.onload = checkOrientation;
+    
+        // Check orientation on window resize (when user rotates the device)
+        window.onresize = checkOrientation;
+    </script>    
 </body>
 </html>
