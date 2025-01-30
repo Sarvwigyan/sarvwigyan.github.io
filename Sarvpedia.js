@@ -1,5 +1,5 @@
 const data = [
-    { title: 'Elements', link: 'Elements' },
+    { title: 'Elements', link: 'Elements.js' },
     { title: 'Argon Sarvpedia', link: 'Argon_sarvpedia.html' },
     // Add more items here
 ];

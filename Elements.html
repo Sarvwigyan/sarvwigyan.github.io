@@ -5,97 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Periodic Table with Details</title>
     <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9));
-        margin: 0;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100vh;
-        text-align: center;
-    }
-    
-    h1, h2 {
-        margin-top: 20px;
-        color: #ffffff;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: #2c3e50;
+            color: #fff;
+            padding: 15px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            font-size: 1.5em;
+        }
+        .section p {
+            text-align: justify;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
 
-    footer {
-        padding: 10px;
-        background-color: #34495e;
-        color: white;
-        font-size: 14px;
-    }
-
-/* Styling the <hr> line */
-    hr {
-        width: 80%;
-        height: 2px;
-        background-color: #ffffff;
-        border: none;
-        margin: 20px auto;
-    }
-
-    .table-container {
-        width: 90%;
-        margin: 20px auto;
-        overflow-x: auto;
-        padding: 10px;
-        background-color: white;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        max-height: 500px; /* Add max height */
-        overflow-y: auto; /* Enable vertical scrolling */
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-        table-layout: fixed;
-    }
-    
-    th, td {
-        padding: 12px;
-        text-align: center;
-        border: 1px solid #ddd;
-        word-wrap: break-word;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-    
-    th {
-        background-color: #3498db;
-        color: white;
-        position: sticky; /* Make the header sticky */
-        top: 0;
-        z-index: 1; /* Ensure the header is above the table content */
-    }
-    
-    td {
-        background-color: #ecf0f1;
-        font-size: 14px;
-    }
-    
-    tr:nth-child(even) td {
-        background-color: #f4f4f4;
-    }
-    
-    tr:hover td {
-        background-color: #d5dbdb;
-    }
-    
-    .rotate-message {
+        .table-container::-webkit-scrollbar {
         display: none;
-        background-color: #ffcc00;
-        padding: 10px;
-        font-weight: bold;
-        color: #333;
-        margin-bottom: 10px;
-        border-radius: 5px;
-    }
+        }
 
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+        .glow-button {
+            background: #f5a623;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(245, 166, 35, 0.8);
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .glow-button {
+                font-size: 0.9em;
+                padding: 10px 18px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -105,7 +125,7 @@
 
     <!-- Landscape Rotation Message -->
     <div id="rotateMessage" class="rotate-message">
-        For better viewing experience, please rotate your device to landscape mode.
+        For better viewing experience, rotate your device to landscape mode.
     </div>
 
     <!-- Table -->
@@ -1073,21 +1093,5 @@
     <footer>
         <p>&copy;  Sarvpedia. All Rights Reserved.</p>
     </footer>
-
-    <script>
-        function checkOrientation() {
-            const rotateMessage = document.getElementById("rotateMessage");
-            if (window.innerHeight > window.innerWidth) {
-                rotateMessage.style.display = "block";
-                document.body.style.overflow = "hidden"; 
-            } else {
-                rotateMessage.style.display = "none";
-                document.body.style.overflow = "auto";
-            }
-        }
-
-        window.onload = checkOrientation;
-        window.onresize = checkOrientation;
-    </script>
 </body>
 </html>
