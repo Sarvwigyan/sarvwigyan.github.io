@@ -114,12 +114,103 @@
             background: #2a2ab5;
             transform: scale(0.98);
         }
+       #menu__toggle {
+            opacity: 0;
+        }
+
+        #menu__toggle:checked ~ .menu__btn > span {
+          transform: rotate(45deg);
+        }
+        #menu__toggle:checked ~ .menu__btn > span::before {
+          top: 0;
+          transform: rotate(0);
+        }
+        #menu__toggle:checked ~ .menu__btn > span::after {
+          top: 0;
+          transform: rotate(90deg);
+        }
+        #menu__toggle:checked ~ .menu__box {
+          visibility: visible;
+          left: 0;
+        }
+        
+        .menu__btn {
+          display: flex;
+          align-items: left;
+          position: fixed;
+          top: 20px;
+          left: 20px;
+          width: 1.5rem;
+          height: 1.5rem;
+          cursor: pointer;
+          z-index: 1;
+          }
+        
+          .menu__btn::before {
+          content: '⋮⋮⋮';
+          font-size: 36px;
+          color: white;
+        }
+  
+        #menu__toggle {
+          display: none;
+        }
+  
+        #menu__toggle:checked ~ .menu__btn::before {
+          content: '×';
+          font-size: 3rem;
+        }
+        
+        .menu__box {
+          display: block;
+          position: fixed;
+          visibility: hidden;
+          top: 0;
+          left: -100%; 
+          width: calc(100vw - 60%);
+          max-width: 400px;
+          height: 100%;
+          margin: 0;
+          padding: 80px 0;
+          list-style: none;
+          background-color: #c3c1cb;
+          box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
+          transition-duration: .25s;
+        }
+        
+        .menu__item {
+          display: block;
+          padding: 12px 24px;
+          color: #000000;
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.5rem;
+          font-weight: 600;
+          text-decoration: none;
+          transition-duration: .25s;
+        }
+        .menu__item:hover {
+          background-color: #c2d7e0;
+        }
 
     </style>
 </head>
 <body>
 
     <header>
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <ul class="menu__box">
+              <hr>
+              <li><a class="menu__item" href="index.html" target="_self" style="color: red;">Home</a></li>
+              <hr>
+              <li><a class="menu__item" href="Sarvpedia.html" target="_blank">Sarvpedia</a></li>
+              <hr>
+            </ul>
+          </div>
         <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" 
         target="_blank" title="Sarvwigyan Youtube HomePage" style="text-decoration: none;">
             <img src="Sarvwigyan.png" alt="Sarvwigyan" width="fit-content"
@@ -127,15 +218,6 @@
              onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
         </a><h1>Sarvwigyan</h1>
     </header>
-    <div class="container">
-        <nav>
-        <ul>    
-        <li><button onclick="sarvwigyan()" style="color: rgb(188, 3, 3); transition: all 0.3s ease-in-out;" 
-            onmouseover="this.style.color='rgb(255, 255, 255)'" 
-            onmouseout="this.style.color= 'rgb(188, 3, 3)'">Sarvwigan</button></li>  
-        <li><button onclick="sarvpedia()" >Sarvpedia</button></li>
-        </ul>
-    </nav> 
 <!------------------------------------------------------------------------------------------------------------------------------->
 <script>
     function sarvwigyan(){window.open('index.html')}
@@ -253,6 +335,15 @@
         function Element(){
             window.location.href = 'Elements.html'
         }
+        document.addEventListener('click', function(event) {
+        const menuToggle = document.getElementById('menu__toggle');
+        const menuBox = document.querySelector('.menu__box');
+        const menuButton = document.querySelector('.menu__btn');
+
+        if (!menuBox.contains(event.target) && !menuToggle.contains(event.target) && !menuButton.contains(event.target)) {
+                menuToggle.checked = false;
+            }
+    });
     </script>
 
 </body>
