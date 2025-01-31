@@ -1,59 +1,259 @@
 <!DOCTYPE html>
 <html lang="en">
-<!------------------------------------------------------------------------------------------------------------------------------->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvwigyan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 1.5rem;
+        }
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9)); 
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        header a {
+            display: flex; /* Keeps the image inline with text */
+            align-items: center;
+            text-decoration: none;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+        .section p {
+            text-align: justify;
+        }
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .section table, .section th, .section td {
+            border: 1px solid #ddd;
+        }
+        .section th, .section td {
+            padding: 8px;
+            text-align: left;
+        }
+        .section th {
+            background-color: #f2f2f2;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #2c3e50;
+            color: #fff;
+            margin-top: 20px;
+        }
+        .glow-button {
+            background: #f5a623;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 30px;
+            transition: all 0.3s;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(245, 166, 35, 0.8);
+            transform: scale(1.1);
+        }
+        nav ul li {
+            display: inline-block;
+            margin: 0 1%px;
+        }
+        nav ul li button {
+            background: linear-gradient(90deg, rgb(1, 1, 54), rgb(3, 3, 108));
+            color: #ffffff;
+            font-size: 170%;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        nav ul li button:hover {
+            background: #3232e2;
+            box-shadow: 0px 5px 12px rgba(50, 50, 200, 0.5);
+            transform: scale(1.05);
+            color: black;
+        }
+        nav ul li button:active {
+            background: #2a2ab5;
+            transform: scale(0.98);
+        }
+
+    </style>
 </head>
-    <link rel="stylesheet" href="style.css">
+<body>
+
+    <header>
+        <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" 
+        target="_blank" title="Sarvwigyan Youtube HomePage" style="text-decoration: none;">
+            <img src="Sarvwigyan.png" alt="Sarvwigyan" width="fit-content"
+             height="80" style="text-align: right;"
+             onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
+        </a><h1>Sarvwigyan</h1>
+    </header>
+    <div class="container">
+        <nav>
+        <ul>    
+        <li><button onclick="sarvwigyan()" style="color: rgb(188, 3, 3); transition: all 0.3s ease-in-out;" 
+            onmouseover="this.style.color='rgb(255, 255, 255)'" 
+            onmouseout="this.style.color= 'rgb(188, 3, 3)'">Sarvwigan</button></li>  
+        <li><button onclick="sarvpedia()" >Sarvpedia</button></li>
+        </ul>
+    </nav> 
 <!------------------------------------------------------------------------------------------------------------------------------->
+<script>
+    function sarvwigyan(){window.open('index.html')}
+    function sarvpedia(){window.open('Sarvpedia.html')}
+</script>
 <!------------------------------------------------------------------------------------------------------------------------------->
-        <body>
-<!------------------------------------------------------------------------------------------------------------------------------->
-            <p class="styled-paragraph">
-                <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" 
-                target="_blank" title="Sarvwigyan Youtube HomePage" style="text-decoration: none;">
-                    <img src="Sarvwigyan.png" alt="Sarvwigyan" width="fit-content"
-                     height="80" style="text-align: right;"
-                     onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
-                </a>
-                <strong style="font-size: 490%; font-family: Bahnschrift; color: rgb(209, 212, 255); width: fit-content;">Sarvwigyan:    </strong>
-                <strong style="font-size: 250%; font-family: Goudy Old Style;">Embracing growth through free knowledge</strong>
+    </div>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Sarvwigyan is more than just a platform; it is a movement dedicated to the pursuit of universal knowledge. Rooted in the belief that wisdom belongs to all, Sarvwigyan is committed to breaking barriers, fostering intellectual curiosity, and making education accessible to every individual, regardless of background or resources. We envision a world where learning is limitless, curiosity is encouraged, and innovation thrives through the power of shared knowledge.
             </p>
-            <hr>
-        <header>
-            <nav>
-                <ul>
-                    </style>
-                    <li><button onclick="sarvwigyan()" style="color: rgb(188, 3, 3); transition: all 0.3s ease-in-out;" 
-                        onmouseover="this.style.color='rgb(255, 255, 255)'" 
-                        onmouseout="this.style.color= 'rgb(188, 3, 3)'">Sarvwigan</button></li>  
-                    <li><button onclick="sarvpedia()" >Sarvpedia</button></li>  
-                </ul>
-            </nav>
-        </header>
-        <hr>
-<!------------------------------------------------------------------------------------------------------------------------------->
-        <script>
-            function sarvwigyan(){window.open('index.html')}
-            function sarvpedia(){window.open('Sarvpedia.html')}
-        </script>
-<!------------------------------------------------------------------------------------------------------------------------------->
-            <blockquote>
-                Empowering minds with the infinite wealth of knowledge, for wisdom belongs to everyone.
-            </blockquote>
-<!------------------------------------------------------------------------------------------------------------------------------->
-            <p style="font-size: 170%; font-weight: lighter; font-family: Bahnschrift Light;
-            color: rgb(236, 237, 250); text-align: center; padding: 0 5%;">
-                At Sarvwigyan, we believe that knowledge is not just power, it is the essence of progress, enlightenment, and transformation. 
-                Our mission is to break the barriers of access and deliver the boundless wealth of wisdom to every corner of society. 
-                By providing free knowledge, we aim to inspire minds, ignite curiosity, and create a world where learning knows no limits. 
-                Together, let's build a future where wisdom is truly universal and shared for the betterment of humanity.
+        </div>
+            
+        <div class="section">
+            <h2>Our Mission</h2>
+            <i>
+                At Sarvwigyan, our mission is simple yet profound:
+            </i>
+            <ul>
+                <li>To provide free, high-quality knowledge to everyone.</li>
+                <li>To inspire and nurture intellectual curiosity among learners of all ages.</li>
+                <li>To create an ecosystem where scientific temper, technological advancements, and critical thinking are at the forefront.</li>
+                <li>To bridge the gap between theoretical learning and practical implementation through interactive tools, discussions, and hands-on projects.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Our Vision</h2>
+            <p>
+                We believe that knowledge is the cornerstone of progress. Our vision is to empower individuals with the information and skills they need to make meaningful contributions to science, technology, and society. By removing barriers to education, we aspire to build a world where innovation and wisdom are not confined to a privileged few but are accessible to all.
             </p>
-            <hr>
-<!------------------------------------------------------------------------------------------------------------------------------->
-        </body>
-<!------------------------------------------------------------------------------------------------------------------------------->
-<!------------------------------------------------------------------------------------------------------------------------------->
+        </div>
+
+        <div class="section">
+            <h2>Core Values</h2>
+            <ul>
+                <li><b>Universal Accessibility –</b> Knowledge should be free and available to everyone, everywhere.</li>
+                <li><b>Scientific Integrity –</b> We emphasize accurate, research-backed, and unbiased knowledge.</li>
+                <li><b>Innovation & Creativity –</b> We promote new ideas and foster environments where innovation can flourish.</li>
+                <li><b>Empowerment through Education –</b> We believe that an educated mind is the most powerful tool for societal transformation.</li>
+                <li><b>Community-Driven Learning –</b> Learning is best achieved collectively, through shared insights and collaborative exploration.</li>
+            </ul>
+            </div>
+
+        <div class="section">
+            <h2>What We Offer</h2>
+            <h3>1. Educational Content</h3>
+            <ul>
+                <li><b>Articles & Research Papers:</b> In-depth insights into various fields of science, technology, and beyond.</li>
+                <li><b>Interactive Courses:</b> Structured modules to help learners master complex topics.</li>
+                <li><b>Infographics & Visual Learning:</b> Engaging graphics and videos to simplify intricate concepts.</li>
+                <li><b>Latest Breakthroughs:</b> Stay updated with cutting-edge scientific advancements.</li>
+            </ul>
+            <h3>2. Technology & Innovation</h3>
+            <ul>
+                <li><b>AI & Machine Learning:</b> Deep dive into the future of artificial intelligence.</li>
+                <li><b>Quantum Technology:</b> Explore the endless possibilities of quantum mechanics.</li>
+                <li><b>Biotechnology & Medical Sciences:</b> Understand the next frontiers in healthcare and genetics.</li>
+                <li><b>Robotics & Automation:</b> Learn how automation is shaping the future.</li>
+            </ul>
+            <h3>3. Open-Source Learning Tools</h3>
+            <ul>
+                <li><b>Simulations & Models:</b> Hands-on projects for a practical understanding of scientific principles.</li>
+                <li><b>Coding & Development Resources:</b> Programming guides and open-source software for tech enthusiasts.</li>
+                <li><b>DIY Projects & Experiments:</b> Step-by-step guides for building tech-driven innovations at home.</li>
+            </ul>
+            
+            </div>
+
+        <div class="section">
+            <h2>Our Commitment to Society</h2>
+            <p>
+                Sarvwigyan is not just about learning—it is about creating impact. By making knowledge universally accessible, we aim to drive:
+            </p>
+            <ul>
+                <li><b>Youth Empowerment:</b> Encouraging young minds to explore, create, and innovate.</li>
+                <li><b>Technological Advancements:</b> Helping individuals and organizations leverage knowledge for progress.</li>
+                <li><b>Sustainable Development:</b> Aligning our mission with the broader goal of global betterment through science and technology.</li>
+                <li><b>Ethical AI & Innovation:</b> Ensuring that the future of technology remains humane, ethical, and sustainable.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Join the Movement</h2>
+            <p>
+                Sarvwigyan is not just an initiative; it is a revolution of knowledge. Whether you are a student, researcher, scientist, or an enthusiast with a thirst for knowledge, there is a place for you here.</p>
+            <p><b>✅Subscribe to Our YouTube Channel:<a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" style="color: red; text-decoration: none;"> Sarvwigyan Youtube</a></b></p>
+            <p></p><b>✅Join our Facebook channel:<a href="https://www.facebook.com/profile.php?id=61570026324353" style="color: blue; text-decoration: none;"> Sarvwigyan Facebook Page</a></b></p>
+            <ul>
+                <li><b>Engage in Discussions:</b> Join our forums and collaborative learning sessions.</li>
+                <li><b>Contribute & Collaborate:</b> Share your knowledge, ideas, and research with the world.</li>
+                <li><b>Stay Updated:</b>Follow us on social media and never miss an insight.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Final Words: Knowledge Without Limits</h2>
+            <p>
+                At Sarvwigyan, we believe in the boundless power of knowledge. With the right information, minds are liberated, societies evolve, and the future is transformed. Join us in this journey of enlightenment, where wisdom is free, innovation is limitless, and learning never stops.
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; Sarvwigyan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Argon page loaded!');
+        });
+        function Element(){
+            window.location.href = 'Elements.html'
+        }
+    </script>
+
+</body>
 </html>
