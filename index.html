@@ -32,87 +32,12 @@
             margin: 0;
             font-size: 2.5em;
         }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section h2 {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-        .section p {
-            text-align: justify;
-        }
-        .section table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 10px 0;
-        }
-        .section table, .section th, .section td {
-            border: 1px solid #ddd;
-        }
-        .section th, .section td {
-            padding: 8px;
-            text-align: left;
-        }
-        .section th {
-            background-color: #f2f2f2;
-        }
         footer {
             text-align: center;
             padding: 10px 0;
             background-color: #2c3e50;
             color: #fff;
             margin-top: 20px;
-        }
-        .glow-button {
-            background: #f5a623;
-            color: white;
-            padding: 12px 25px;
-            font-size: 1.2em;
-            border: none;
-            cursor: pointer;
-            border-radius: 30px;
-            transition: all 0.3s;
-            display: block;
-            margin: 20px auto;
-            box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
-        }
-        .glow-button:hover {
-            box-shadow: 0 0 25px rgba(245, 166, 35, 0.8);
-            transform: scale(1.1);
-        }
-        nav ul li {
-            display: inline-block;
-            margin: 0 1%px;
-        }
-        nav ul li button {
-            background: linear-gradient(90deg, rgb(1, 1, 54), rgb(3, 3, 108));
-            color: #ffffff;
-            font-size: 170%;
-            padding: 8px 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-        }
-        nav ul li button:hover {
-            background: #3232e2;
-            box-shadow: 0px 5px 12px rgba(50, 50, 200, 0.5);
-            transform: scale(1.05);
-            color: black;
-        }
-        nav ul li button:active {
-            background: #2a2ab5;
-            transform: scale(0.98);
         }
        #menu__toggle {
             opacity: 0;
@@ -147,7 +72,7 @@
           }
         
           .menu__btn::before {
-          content: '⋮⋮⋮';
+          content: '☰';
           font-size: 36px;
           color: white;
         }
@@ -173,25 +98,147 @@
           margin: 0;
           padding: 80px 0;
           list-style: none;
-          background-color: #c3c1cb;
-          box-shadow: 1px 0px 6px rgba(0, 0, 0, .2);
-          transition-duration: .25s;
+          background: radial-gradient(circle, rgba(0, 0, 80, 0.987), rgba(0, 0, 40, 0.987));
+          box-shadow: 1px 0px 6px rgba(2, 10, 49, 0.614);
+          transition-duration: .35s;
         }
         
         .menu__item {
           display: block;
           padding: 12px 24px;
-          color: #000000;
+          color: rgb(255, 255, 255);
           font-family: 'Roboto', sans-serif;
           font-size: 1.5rem;
           font-weight: 600;
           text-decoration: none;
-          transition-duration: .25s;
+          transition-duration: .35s;
         }
         .menu__item:hover {
-          background-color: #c2d7e0;
+          background-color: #0c0b28;
+        }
+        .submenu {
+            display: none;
+            background-color: #444;
+            width:100%;
+            margin-top: 10px;
+        }
+        
+        .submenu a {
+            padding: 10px;
+            display: block;
+            color: white;
+            text-decoration: none;
         }
 
+        .submenu a:hover {
+            background-color: #555;
+        }
+        
+        .hamburger-menu .submenu {
+            display: none;
+        }
+        
+        .hamburger-menu.active .submenu {
+            display: block;
+        }
+        .hover_btn {
+          display: block;
+          color: rgb(255, 255, 255);
+          font-family: 'Roboto', sans-serif;
+          font-size: 1.5rem;
+          width: 100%;
+          border: none;
+          color: red;
+          background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9));
+          cursor: pointer;
+          font-weight: 600;
+          text-decoration: none;
+          transition-duration: .35s;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        /* Container for the slider */
+        .slider-container {
+            width: 100%;
+            height: 50vh;
+            max-width: 1500px;
+            max-height: 1500px;
+            margin: 0 auto; /* Center the slider */
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Slider */
+        .slider {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Slides */
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        /* Individual slide */
+        .slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Background for letterboxing */
+        }
+
+        /* Slide images */
+        .slide img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            height: auto;
+            object-fit: contain; /* Ensures the full image is visible */
+        }
+
+        /* Navigation buttons */
+        button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slider-container {
+                max-width: 100%; /* Full width on small screens */
+                max-height: 300px; /* Adjust height for smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
@@ -205,7 +252,12 @@
         
             <ul class="menu__box">
               <hr>
-              <li><a class="menu__item" href="index.html" target="_self" style="color: red;">Home</a></li>
+              <li><button class="hover_btn" id="sarvwigyan-btn">Sarvwigyan</button>
+                <div class="submenu">
+                    <a href="index.html" target="_self">Home</a>
+                    <a href="about.html" target="_blank">About Us</a>
+                </div>
+              </li>
               <hr>
               <li><a class="menu__item" href="Sarvpedia.html" target="_blank">Sarvpedia</a></li>
               <hr>
@@ -218,120 +270,33 @@
              onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
         </a><h1>Sarvwigyan</h1>
     </header>
+    <div class="container">
+      <div class="slider-container">
+        <div class="slider">
+            <div class="slides">
+                <div class="slide"><img src="Sarvwigyan.png" alt="Image 1"></div>
+                <div class="slide"><img src="Sarvwigyan.png" alt="Image 2"></div>
+                <div class="slide"><img src="Sarvwigyan.png" alt="Image 3"></div>
+            </div>
+            <button class="prev" onclick="prevSlide()">&#10094;</button>
+            <button class="next" onclick="nextSlide()">&#10095;</button>
+        </div>
+      </div>
+    </div>
 <!------------------------------------------------------------------------------------------------------------------------------->
 <script>
     function sarvwigyan(){window.open('index.html')}
     function sarvpedia(){window.open('Sarvpedia.html')}
 </script>
 <!------------------------------------------------------------------------------------------------------------------------------->
-    </div>
 
-    <div class="container">
-        <div class="section">
-            <h2>Introduction</h2>
-            <p>
-                Sarvwigyan is more than just a platform; it is a movement dedicated to the pursuit of universal knowledge. Rooted in the belief that wisdom belongs to all, Sarvwigyan is committed to breaking barriers, fostering intellectual curiosity, and making education accessible to every individual, regardless of background or resources. We envision a world where learning is limitless, curiosity is encouraged, and innovation thrives through the power of shared knowledge.
-            </p>
-        </div>
-            
-        <div class="section">
-            <h2>Our Mission</h2>
-            <i>
-                At Sarvwigyan, our mission is simple yet profound:
-            </i>
-            <ul>
-                <li>To provide free, high-quality knowledge to everyone.</li>
-                <li>To inspire and nurture intellectual curiosity among learners of all ages.</li>
-                <li>To create an ecosystem where scientific temper, technological advancements, and critical thinking are at the forefront.</li>
-                <li>To bridge the gap between theoretical learning and practical implementation through interactive tools, discussions, and hands-on projects.</li>
-            </ul>
-        </div>
 
-        <div class="section">
-            <h2>Our Vision</h2>
-            <p>
-                We believe that knowledge is the cornerstone of progress. Our vision is to empower individuals with the information and skills they need to make meaningful contributions to science, technology, and society. By removing barriers to education, we aspire to build a world where innovation and wisdom are not confined to a privileged few but are accessible to all.
-            </p>
-        </div>
-
-        <div class="section">
-            <h2>Core Values</h2>
-            <ul>
-                <li><b>Universal Accessibility –</b> Knowledge should be free and available to everyone, everywhere.</li>
-                <li><b>Scientific Integrity –</b> We emphasize accurate, research-backed, and unbiased knowledge.</li>
-                <li><b>Innovation & Creativity –</b> We promote new ideas and foster environments where innovation can flourish.</li>
-                <li><b>Empowerment through Education –</b> We believe that an educated mind is the most powerful tool for societal transformation.</li>
-                <li><b>Community-Driven Learning –</b> Learning is best achieved collectively, through shared insights and collaborative exploration.</li>
-            </ul>
-            </div>
-
-        <div class="section">
-            <h2>What We Offer</h2>
-            <h3>1. Educational Content</h3>
-            <ul>
-                <li><b>Articles & Research Papers:</b> In-depth insights into various fields of science, technology, and beyond.</li>
-                <li><b>Interactive Courses:</b> Structured modules to help learners master complex topics.</li>
-                <li><b>Infographics & Visual Learning:</b> Engaging graphics and videos to simplify intricate concepts.</li>
-                <li><b>Latest Breakthroughs:</b> Stay updated with cutting-edge scientific advancements.</li>
-            </ul>
-            <h3>2. Technology & Innovation</h3>
-            <ul>
-                <li><b>AI & Machine Learning:</b> Deep dive into the future of artificial intelligence.</li>
-                <li><b>Quantum Technology:</b> Explore the endless possibilities of quantum mechanics.</li>
-                <li><b>Biotechnology & Medical Sciences:</b> Understand the next frontiers in healthcare and genetics.</li>
-                <li><b>Robotics & Automation:</b> Learn how automation is shaping the future.</li>
-            </ul>
-            <h3>3. Open-Source Learning Tools</h3>
-            <ul>
-                <li><b>Simulations & Models:</b> Hands-on projects for a practical understanding of scientific principles.</li>
-                <li><b>Coding & Development Resources:</b> Programming guides and open-source software for tech enthusiasts.</li>
-                <li><b>DIY Projects & Experiments:</b> Step-by-step guides for building tech-driven innovations at home.</li>
-            </ul>
-            
-            </div>
-
-        <div class="section">
-            <h2>Our Commitment to Society</h2>
-            <p>
-                Sarvwigyan is not just about learning—it is about creating impact. By making knowledge universally accessible, we aim to drive:
-            </p>
-            <ul>
-                <li><b>Youth Empowerment:</b> Encouraging young minds to explore, create, and innovate.</li>
-                <li><b>Technological Advancements:</b> Helping individuals and organizations leverage knowledge for progress.</li>
-                <li><b>Sustainable Development:</b> Aligning our mission with the broader goal of global betterment through science and technology.</li>
-                <li><b>Ethical AI & Innovation:</b> Ensuring that the future of technology remains humane, ethical, and sustainable.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Join the Movement</h2>
-            <p>
-                Sarvwigyan is not just an initiative; it is a revolution of knowledge. Whether you are a student, researcher, scientist, or an enthusiast with a thirst for knowledge, there is a place for you here.</p>
-            <p><b>✅Subscribe to Our YouTube Channel:<a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" style="color: red; text-decoration: none;"> Sarvwigyan Youtube</a></b></p>
-            <p></p><b>✅Join our Facebook channel:<a href="https://www.facebook.com/profile.php?id=61570026324353" style="color: blue; text-decoration: none;"> Sarvwigyan Facebook Page</a></b></p>
-            <ul>
-                <li><b>Engage in Discussions:</b> Join our forums and collaborative learning sessions.</li>
-                <li><b>Contribute & Collaborate:</b> Share your knowledge, ideas, and research with the world.</li>
-                <li><b>Stay Updated:</b>Follow us on social media and never miss an insight.</li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Final Words: Knowledge Without Limits</h2>
-            <p>
-                At Sarvwigyan, we believe in the boundless power of knowledge. With the right information, minds are liberated, societies evolve, and the future is transformed. Join us in this journey of enlightenment, where wisdom is free, innovation is limitless, and learning never stops.
-            </p>
-        </div>
-    </div>
-    
+<!------------------------------------------------------------------------------------------------------------------------------->
     <footer>
-        <p>&copy; Sarvwigyan. All rights reserved.</p>
+        <p>Copyright &copy; Sarvwigyan. All rights reserved.</p>
     </footer>
-
+<!------------------------------------------------------------------------------------------------------------------------------->
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Argon page loaded!');
-        });
         function Element(){
             window.location.href = 'Elements.html'
         }
@@ -344,6 +309,51 @@
                 menuToggle.checked = false;
             }
     });
+    // Get elements
+        const sarvwigyanButton = document.getElementById('sarvwigyan-btn');
+        const submenu = document.querySelector('.submenu');
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+
+        // Toggle submenu when Sarvwigyan button is clicked
+        sarvwigyanButton.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent the event from propagating to the body
+
+            // Toggle the 'active' class on the hamburger menu
+            hamburgerMenu.classList.toggle('active');
+        });
+
+        // Close submenu when clicked outside the menu
+        document.body.addEventListener('click', function () {
+            hamburgerMenu.classList.remove('active');
+        });
+
+// Prevent clicking inside the hamburger menu from closing it
+        hamburgerMenu.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+        let currentSlide = 0;
+        const slides = document.querySelector('.slides');
+        const totalSlides = document.querySelectorAll('.slide').length;
+
+        function showSlide(index) {
+            if (index >= totalSlides) currentSlide = 0;
+            if (index < 0) currentSlide = totalSlides - 1;
+            slides.style.transform = `translateX(${-currentSlide * 100}%)`;
+        }
+
+        function nextSlide() {
+            currentSlide++;
+            showSlide(currentSlide);
+        }
+
+        function prevSlide() {
+            currentSlide--;
+            showSlide(currentSlide);
+        }
+
+        // Automatically slide every 3 seconds
+        setInterval(nextSlide, 3000);
+        
     </script>
 
 </body>
