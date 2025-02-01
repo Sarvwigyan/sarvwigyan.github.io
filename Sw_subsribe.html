@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
+  <title>Contact Form with reCAPTCHA</title>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
-    /* Simple styling */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -65,7 +64,10 @@
 
       <label for="message">Message</label>
       <textarea id="message" name="message" required></textarea>
-      <div class="g-recaptcha" data-sitekey="6Ld9-skqAAAAAEjrQwidQMWBjRiKlnjqYXJIg9Ca"></div>
+
+      <!-- Google reCAPTCHA -->
+      <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+
       <button type="submit">Send Message</button>
     </form>
   </div>
@@ -77,10 +79,20 @@
 
     document.getElementById('contactForm').addEventListener('submit', function(event) {
       event.preventDefault();
+
+      // Get reCAPTCHA response
+      var captchaResponse = grecaptcha.getResponse();
+
+      // Check if reCAPTCHA is verified
+      if (captchaResponse.length === 0) {
+        alert("Please verify that you are a human.");
+        return; // Stop form submission if CAPTCHA is not solved
+      }
+
       const form = event.target;
 
       // Send the email through EmailJS
-      emailjs.sendForm('service_yqc5l1m', 'template_xi6usec', form)
+      emailjs.sendForm('service_yqc5l1m', 'template_8jbqejs', form)
         .then(function(response) {
           alert("Your message has been sent successfully!");
         }, function(error) {
