@@ -18,19 +18,53 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9)); 
+            background: rgb(39, 35, 131); 
             color: #fff;
             padding: 10px 0;
             text-align: center;
         }
         header a {
-            display: flex; /* Keeps the image inline with text */
+            display: flex;
             align-items: center;
             text-decoration: none;
         }
         header h1 {
             margin: 0;
             font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            margin-bottom: 10px;
+            font-size: 1.8em;
+        }
+        .section p {
+            text-align: justify;
+        }
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 10px 0;
+        }
+        .section table, .section th, .section td {
+            border: 1px solid #ddd;
+        }
+        .section th, .section td {
+            padding: 8px;
+            text-align: left;
+        }
+        .section th {
+            background-color: #f2f2f2;
         }
         footer {
             text-align: center;
@@ -74,7 +108,7 @@
           .menu__btn::before {
           content: '☰';
           font-size: 36px;
-          color: white;
+          color: rgb(160, 155, 155);
         }
   
         #menu__toggle {
@@ -98,7 +132,7 @@
           margin: 0;
           padding: 80px 0;
           list-style: none;
-          background: radial-gradient(circle, rgba(0, 0, 80, 0.987), rgba(0, 0, 40, 0.987));
+          background: rgb(39, 35, 131);
           box-shadow: 1px 0px 6px rgba(2, 10, 49, 0.614);
           transition-duration: .35s;
         }
@@ -114,7 +148,7 @@
           transition-duration: .35s;
         }
         .menu__item:hover {
-          background-color: #0c0b28;
+          background-color: rgb(45, 40, 184);
         }
         .submenu {
             display: none;
@@ -149,96 +183,51 @@
           width: 100%;
           border: none;
           color: red;
-          background: radial-gradient(circle, rgba(0, 0, 80, 0.95), rgba(0, 0, 40, 0.9));
+          background: rgb(26, 23, 122);
           cursor: pointer;
           font-weight: 600;
           text-decoration: none;
           transition-duration: .35s;
         }
-        .container {
-            width: 90%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        /* Container for the slider */
-        .slider-container {
-            width: 100%;
-            height: 50vh;
-            max-width: 1500px;
-            max-height: 1500px;
-            margin: 0 auto; /* Center the slider */
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Slider */
-        .slider {
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* Slides */
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
-        }
-
-        /* Individual slide */
-        .slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #000; /* Background for letterboxing */
-        }
-
-        /* Slide images */
-        .slide img {
-            max-width: 100%;
-            max-height: 100%;
-            width: auto;
-            height: auto;
-            object-fit: contain; /* Ensures the full image is visible */
-        }
-
-        /* Navigation buttons */
-        button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .prev {
-            left: 10px;
-        }
-
-        .next {
-            right: 10px;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .slider-container {
-                max-width: 100%; /* Full width on small screens */
-                max-height: 300px; /* Adjust height for smaller screens */
-            }
-        }
+        .card-container {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin: 20px 0;
+    }
+    .card {
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 300px;
+        margin: 10px;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+    .card:hover {
+        transform: scale(1.05);
+    }
+    .card img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+    .card-content {
+        padding: 15px;
+        text-align: center;
+    }
+    .card-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #2c3e50;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+    .card-button:hover {
+        background-color: #1a252f;
+    }
     </style>
 </head>
 <body>
@@ -256,6 +245,7 @@
                 <div class="submenu">
                     <a href="index.html" target="_self">Home</a>
                     <a href="about.html" target="_blank">About Us</a>
+                    <a href="Sw_subsribe.html" target="_blank">Subscribe Us</a>
                 </div>
               </li>
               <hr>
@@ -270,32 +260,39 @@
              onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
         </a><h1>Sarvwigyan</h1>
     </header>
-    <div class="container">
-      <div class="slider-container">
-        <div class="slider">
-            <div class="slides">
-                <div class="slide"><img src="Sarvwigyan.png" alt="Image 1"></div>
-                <div class="slide"><img src="Sarvwigyan.png" alt="Image 2"></div>
-                <div class="slide"><img src="Sarvwigyan.png" alt="Image 3"></div>
-            </div>
-            <button class="prev" onclick="prevSlide()">&#10094;</button>
-            <button class="next" onclick="nextSlide()">&#10095;</button>
-        </div>
-      </div>
-    </div>
 <!------------------------------------------------------------------------------------------------------------------------------->
 <script>
     function sarvwigyan(){window.open('index.html')}
     function sarvpedia(){window.open('Sarvpedia.html')}
 </script>
 <!------------------------------------------------------------------------------------------------------------------------------->
-
-
-<!------------------------------------------------------------------------------------------------------------------------------->
+    <div class="container">
+        <div class="card-container">
+            <div class="card">
+                <img src="SarvwigyanYt.png" alt="Sarvwigyan Youtube">
+                <div class="card-content">
+                    <h3>Youtube(Sw)</h3>
+                    <p>Don't forget to follow us on Youtube to access the world of knowledge.</p>
+                    <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" target="_blank" class="card-button" style="background-color: red;">Visit on Youtube</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="SarvwigyanFb.png" alt="Card 2">
+                <div class="card-content">
+                    <h3>Facebook(Sw)</h3>
+                    <p>Join our Facebook community to stay in connect with us.</p>
+                    <a href="https://www.facebook.com/profile.php?id=61570026324353" target="_blank" class="card-button" style="background-color: blue;">Visit on Facebook</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        
+    </div>
+    
     <footer>
         <p>Copyright &copy; Sarvwigyan. All rights reserved.</p>
     </footer>
-<!------------------------------------------------------------------------------------------------------------------------------->
+
     <script>
         function Element(){
             window.location.href = 'Elements.html'
@@ -310,50 +307,29 @@
             }
     });
     // Get elements
-        const sarvwigyanButton = document.getElementById('sarvwigyan-btn');
-        const submenu = document.querySelector('.submenu');
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
+const sarvwigyanButton = document.getElementById('sarvwigyan-btn');
+const submenu = document.querySelector('.submenu');
+const hamburgerMenu = document.querySelector('.hamburger-menu');
 
-        // Toggle submenu when Sarvwigyan button is clicked
-        sarvwigyanButton.addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevent the event from propagating to the body
+// Toggle submenu when Sarvwigyan button is clicked
+sarvwigyanButton.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent the event from propagating to the body
 
-            // Toggle the 'active' class on the hamburger menu
-            hamburgerMenu.classList.toggle('active');
-        });
+    // Toggle the 'active' class on the hamburger menu
+    hamburgerMenu.classList.toggle('active');
+});
 
-        // Close submenu when clicked outside the menu
-        document.body.addEventListener('click', function () {
-            hamburgerMenu.classList.remove('active');
-        });
+// Close submenu when clicked outside the menu
+document.body.addEventListener('click', function () {
+    hamburgerMenu.classList.remove('active');
+});
 
 // Prevent clicking inside the hamburger menu from closing it
-        hamburgerMenu.addEventListener('click', function (event) {
-            event.stopPropagation();
-        });
-        let currentSlide = 0;
-        const slides = document.querySelector('.slides');
-        const totalSlides = document.querySelectorAll('.slide').length;
+hamburgerMenu.addEventListener('click', function (event) {
+    event.stopPropagation();
+});
 
-        function showSlide(index) {
-            if (index >= totalSlides) currentSlide = 0;
-            if (index < 0) currentSlide = totalSlides - 1;
-            slides.style.transform = `translateX(${-currentSlide * 100}%)`;
-        }
 
-        function nextSlide() {
-            currentSlide++;
-            showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide--;
-            showSlide(currentSlide);
-        }
-
-        // Automatically slide every 3 seconds
-        setInterval(nextSlide, 3000);
-        
     </script>
 
 </body>
