@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form with reCAPTCHA</title>
+  <title>Sarvwigyan - Subscribe</title>
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
@@ -54,7 +54,7 @@
 <body>
 
   <div class="container">
-    <h2>Contact Us</h2>
+    <h2>Subscribe Us</h2>
     <form id="contactForm">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
@@ -70,6 +70,11 @@
 
       <button type="submit">Send Message</button>
     </form>
+  </div>
+  <div class="container">
+    <em>By submitting your e-mail details you hereby proivde consent to receive necessary e-mail from our Sarvwigyan team.</em>
+    <p><b>Thankyou,</b></p>
+    <p><b>Sarvwigyan</b></p>
   </div>
 
   <script>
@@ -95,10 +100,15 @@
       emailjs.sendForm('service_yqc5l1m', 'template_xi6usec', form)
         .then(function(response) {
           alert("Your message has been sent successfully!");
-        }, function(error) {
-          alert("Sorry, there was an error sending your message. Please try again.");
-        });
-    });
+        // Redirect to index.html after 2 seconds
+      setTimeout(function() {
+        window.location.href = "index.html";
+      }, 2000); // 2000ms = 2 seconds
+
+      }, function(error) {
+      alert("Sorry, there was an error sending your message. Please try again.");
+      });
+      });
   </script>
 
 </body>
