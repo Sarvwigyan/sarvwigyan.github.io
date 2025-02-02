@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarvwigyan - About Section</title>
+    <title>Sarvwigyan - About</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,19 +12,31 @@
             padding: 0;
             background-color: #f9f9f9;
             color: #333;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            zoom: 1.5; /* Adjust zoom level to simulate desktop */
+            transform-origin: top left;
+        }
+        @media (max-width: 768px) {
+            body {
+                zoom: 1;
+            }
         }
         header {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between; /* Ensure space between elements */
             background: rgb(39, 35, 131); 
             color: #fff;
-            padding: 10px 0;
+            padding: 10px 20px; /* Add padding to the sides */
             text-align: center;
         }
+        .header-group {
+            display: flex;
+            align-items: center; /* Align image and text vertically */
+            gap: 10px; /* Add space between image and text */
+        }
         header a {
-            display: flex; /* Keeps the image inline with text */
+            display: flex;
             align-items: center;
             text-decoration: none;
         }
@@ -73,121 +85,150 @@
             color: #fff;
             margin-top: 20px;
         }
-       #menu__toggle {
+        #menu__toggle {
             opacity: 0;
         }
-
         #menu__toggle:checked ~ .menu__btn > span {
-          transform: rotate(45deg);
+            transform: rotate(45deg);
         }
         #menu__toggle:checked ~ .menu__btn > span::before {
-          top: 0;
-          transform: rotate(0);
+            top: 0;
+            transform: rotate(0);
         }
         #menu__toggle:checked ~ .menu__btn > span::after {
-          top: 0;
-          transform: rotate(90deg);
+            top: 0;
+            transform: rotate(90deg);
         }
         #menu__toggle:checked ~ .menu__box {
-          visibility: visible;
-          left: 0;
+            visibility: visible;
+            left: 0;
         }
-        
         .menu__btn {
-          display: flex;
-          align-items: left;
-          position: fixed;
-          top: 20px;
-          left: 20px;
-          width: 1.5rem;
-          height: 1.5rem;
-          cursor: pointer;
-          z-index: 1;
-          }
-        
-          .menu__btn::before {
-          content: '☰';
-          font-size: 36px;
-          color: rgb(160, 155, 155);
+            display: flex;
+            align-items: center;
+            position: relative; /* Change to relative */
+            top: 0;
+            left: 0;
+            width: 1.5rem;
+            height: 1.5rem;
+            cursor: pointer;
+            z-index: 1;
+            margin-right: 20px; /* Add margin to the right */
         }
-  
+        .menu__btn::before {
+            content: '☰';
+            font-size: 36px;
+            color: rgb(160, 155, 155);
+        }
         #menu__toggle {
-          display: none;
+            display: none;
         }
-  
         #menu__toggle:checked ~ .menu__btn::before {
-          content: '×';
-          font-size: 3rem;
+            content: '×';
+            font-size: 3rem;
         }
-        
         .menu__box {
-          display: block;
-          position: fixed;
-          visibility: hidden;
-          top: 0;
-          left: -100%; 
-          width: calc(100vw - 60%);
-          max-width: 400px;
-          height: 100%;
-          margin: 0;
-          padding: 80px 0;
-          list-style: none;
-          background: rgb(39, 35, 131);
-          box-shadow: 1px 0px 6px rgba(2, 10, 49, 0.614);
-          transition-duration: .35s;
+            display: block;
+            position: fixed;
+            visibility: hidden;
+            top: 0;
+            left: -100%; 
+            width: calc(100vw - 60%);
+            max-width: 400px;
+            height: 100%;
+            margin: 0;
+            padding: 80px 0;
+            list-style: none;
+            background: rgb(39, 35, 131);
+            box-shadow: 1px 0px 6px rgba(2, 10, 49, 0.614);
+            transition-duration: .35s;
         }
-        
         .menu__item {
-          display: block;
-          padding: 12px 24px;
-          color: rgb(255, 255, 255);
-          font-family: 'Roboto', sans-serif;
-          font-size: 1.5rem;
-          font-weight: 600;
-          text-decoration: none;
-          transition-duration: .35s;
+            display: block;
+            padding: 12px 24px;
+            color: rgb(255, 255, 255);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition-duration: .35s;
         }
         .menu__item:hover {
-          background-color: rgb(45, 40, 184);
+            background-color: rgb(45, 40, 184);
         }
         .submenu {
             display: none;
-            background-color: #444;
+            background-color: rgb(35,39,131);
             width:100%;
             margin-top: 10px;
         }
-        
         .submenu a {
             padding: 10px;
             display: block;
             color: white;
             text-decoration: none;
         }
-
         .submenu a:hover {
             background-color: #555;
         }
-        
         .hamburger-menu .submenu {
             display: none;
         }
-        
         .hamburger-menu.active .submenu {
             display: block;
         }
         .hover_btn {
-          display: block;
-          color: rgb(255, 255, 255);
-          font-family: 'Roboto', sans-serif;
-          font-size: 1.5rem;
-          width: 100%;
-          border: none;
-          color: red;
-          background: rgb(45, 40, 184);
-          cursor: pointer;
-          font-weight: 600;
-          text-decoration: none;
-          transition-duration: .35s;
+            display: block;
+            color: rgb(255, 255, 255);
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.5rem;
+            width: 100%;
+            border: none;
+            color: red;
+            background: rgb(26, 23, 122);
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            transition-duration: .35s;
+        }
+        .card-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            margin: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: scale(1.05);
+        }
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+        .card-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .card-button:hover {
+            background-color: #1a252f;
         }
     </style>
 </head>
@@ -204,10 +245,9 @@
               <hr>
               <li><button class="hover_btn" id="sarvwigyan-btn">Sarvwigyan</button>
                 <div class="submenu">
-                    <a href="index.html" target="_blank">Home</a>
+                    <a href="index.html" target="_self">Home</a>
                     <a href="about.html" target="_self">About Us</a>
-                    <a href="#">Projects</a>
-                    <a href="#">Social Media</a>
+                    <a href="Sw_subsribe.html" target="_blank">Subscribe Us</a>
                 </div>
               </li>
               <hr>
@@ -215,12 +255,15 @@
               <hr>
             </ul>
           </div>
-        <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" 
-        target="_blank" title="Sarvwigyan Youtube HomePage" style="text-decoration: none;">
-            <img src="Sarvwigyan.png" alt="Sarvwigyan" width="fit-content"
-             height="80" style="text-align: right;"
-             onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
-        </a><h1>Sarvwigyan</h1>
+        <div class="header-group">
+            <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" 
+            target="_blank" title="Sarvwigyan Youtube HomePage" style="text-decoration: none;">
+                <img src="Sarvwigyan.png" alt="Sarvwigyan" width="fit-content"
+                 height="80" style="text-align: right;"
+                 onerror='this.onerror=null; this.src="https://yt3.googleusercontent.com/ykQvF-1DLK5079DipmFftQcw5R8clJvL2iTqtxsEiw_mZHIMPy_72F1lvoFebtmaQw3o4bie=s160-c-k-c0x00ffffff-no-rj"'>
+            </a>
+            <h1>Sarvwigyan</h1>
+        </div>
     </header>
 <!------------------------------------------------------------------------------------------------------------------------------->
 <script>
@@ -229,7 +272,7 @@
 </script>
 <!------------------------------------------------------------------------------------------------------------------------------->
     <div class="container">
-        <h5 style="text-align: center;">Sarvwigyan - About Section</h5>
+    <h5 style="text-align: center;">Sarvwigyan - About Section</h5>
         <div class="section">
             <h2>Introduction</h2>
             <p>
@@ -325,8 +368,6 @@
                 At Sarvwigyan, we believe in the boundless power of knowledge. With the right information, minds are liberated, societies evolve, and the future is transformed. Join us in this journey of enlightenment, where wisdom is free, innovation is limitless, and learning never stops.
             </p>
         </div>
-    </div>
-    
     <footer>
         <p>Copyright &copy; Sarvwigyan. All rights reserved.</p>
     </footer>
@@ -343,30 +384,32 @@
         if (!menuBox.contains(event.target) && !menuToggle.contains(event.target) && !menuButton.contains(event.target)) {
                 menuToggle.checked = false;
             }
-    });
-    // Get elements
-const sarvwigyanButton = document.getElementById('sarvwigyan-btn');
-const submenu = document.querySelector('.submenu');
-const hamburgerMenu = document.querySelector('.hamburger-menu');
+        });
+        // Get elements
+        const sarvwigyanButton = document.getElementById('sarvwigyan-btn');
+        const submenu = document.querySelector('.submenu');
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
 
-// Toggle submenu when Sarvwigyan button is clicked
-sarvwigyanButton.addEventListener('click', function (event) {
-    event.stopPropagation(); // Prevent the event from propagating to the body
+        // Toggle submenu when Sarvwigyan button is clicked
+        sarvwigyanButton.addEventListener('click', function (event) {
+            event.stopPropagation(); // Prevent the event from propagating to the body
+        
+            // Toggle the 'active' class on the hamburger menu
+            hamburgerMenu.classList.toggle('active');
+        });
+        
+        // Close submenu when clicked outside the menu
+        document.body.addEventListener('click', function () {
+            hamburgerMenu.classList.remove('active');
+        });
 
-    // Toggle the 'active' class on the hamburger menu
-    hamburgerMenu.classList.toggle('active');
-});
-
-// Close submenu when clicked outside the menu
-document.body.addEventListener('click', function () {
-    hamburgerMenu.classList.remove('active');
-});
-
-// Prevent clicking inside the hamburger menu from closing it
-hamburgerMenu.addEventListener('click', function (event) {
-    event.stopPropagation();
-});
-
+        // Prevent clicking inside the hamburger menu from closing it
+        hamburgerMenu.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
+        if (/Mobi|Android/i.test(navigator.userAgent)) {
+            document.querySelector('meta[name="viewport"]').setAttribute("content", "width=1280");
+          }
 
     </script>
 
