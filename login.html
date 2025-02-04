@@ -46,11 +46,14 @@
 <head><title>Sarvwigyan - Login</title>
     <meta name="google-signin-client_id" content="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"></head>
 <!-- 306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com -->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<!-- Replace the old script with: -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
     <body>
-        <div class="g-signin2" data-onsuccess="onSignIn">
-            <button type="button" class="login-with-google-btn" >Sign in with Google</button>
-        </div>        
+        <div id="g_id_onload"
+     data-client_id="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"
+     data-callback="onSignIn">
+</div>
+<div class="g_id_signin" data-type="standard"></div>        
     </body>
     <script>
         function onSignIn(googleUser) {
