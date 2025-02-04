@@ -7,51 +7,133 @@
   <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <style>
+    :root {
+        --primary-color: #1f204f;
+        --accent-color: #00b4d8;
+        --dark-bg: #1a232e;
+        --light-text: #f8f9fa;
+        --menu-hover-bg: rgba(255, 255, 255, 0.05);
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: rgb(35,39,131);
+        font-family: 'Segoe UI', sans-serif;
+        line-height: 1.6;
+        margin: 0;
+        padding: 80px 20px 20px;
+        background-color: var(--dark-bg);
+        color: var(--light-text);
     }
+
     .container {
-      max-width: 600px;
-      margin: 50px auto;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        margin: 2rem auto;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 8px;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
+
     h2 {
-      text-align: center;
-      margin-bottom: 20px;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        font-size: 2.2rem;
+        color: var(--accent-color);
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
     }
+
+    h5 {
+        text-align: center;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
     label {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 5px;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        display: block;
+        color: var(--accent-color);
     }
+
     input, textarea {
-      text-align: left;
-      width: 90%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-      resize: none;
+        width: 90%;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 4px;
+        color: var(--light-text);
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        resize: none;
     }
+
+    input:focus, textarea:focus {
+        outline: none;
+        border-color: var(--accent-color);
+        box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        
+    }
+
     button {
-      width: 90%;
-      padding: 10px;
-      background-color: red;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
+        padding: 1rem 2rem;
+        background-color: var(--accent-color);
+        color: var(--light-text);
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
     }
+
     button:hover {
-      background-color: rgb(249, 11, 11);
+        transform: translateY(-2px);
     }
-  </style>
+
+    .g-recaptcha {
+        margin: 1.5rem 0;
+        display: flex;
+        justify-content: center;
+    }
+
+    .container em {
+        display: block;
+        margin: 1.5rem 0;
+        font-size: 0.9rem;
+        opacity: 0.8;
+        line-height: 1.4;
+    }
+
+    .container p {
+        margin: 0.5rem 0;
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            margin: 1rem auto;
+            padding: 1.5rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+        }
+
+        button {
+            width: 100%;
+        }
+    }
+</style>
 </head>
 <body>
 
@@ -66,7 +148,7 @@
       <input type="email" id="email" name="email" required>
 
       <label for="message">Feedback</label>
-      <textarea id="message" name="message" required></textarea>
+      <textarea id="message" name="message">Deep regards!</textarea>
 
       <!-- Google reCAPTCHA -->
       <div class="g-recaptcha" data-sitekey="6LeLQ8oqAAAAABaKcrO-TcGpWtuij7tTf-KqjJtA"></div>
@@ -76,8 +158,8 @@
   </div>
   <div class="container">
     <em>By submitting your e-mail details you hereby proivde consent to receive necessary e-mails from our Sarvwigyan team.</em>
-    <p><b>Thankyou,</b></p>
-    <p><b>Sarvwigyan</b></p>
+    <p>Thankyou,</p>
+    <p>Sarvwigyan</p>
   </div>
 
   <script>
@@ -87,6 +169,12 @@
 
     document.getElementById('contactForm').addEventListener('submit', function(event) {
       event.preventDefault();
+
+      // Ensure that the feedback field has a default value if left empty
+      var feedback = document.getElementById('message').value.trim();
+      if (feedback === "") {
+        document.getElementById('message').value = "Deep regards!";
+      }
 
       // Get reCAPTCHA response
       var captchaResponse = grecaptcha.getResponse();
