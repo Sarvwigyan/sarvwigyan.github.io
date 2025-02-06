@@ -8,7 +8,7 @@
 </head>
 <style>
 :root {
-    --primary-color: #1f204f;
+    --primary-color: rgba(0, 0, 0, 0.5);
     --accent-color: #00b4d8;
     --dark-bg: #1a232e;
     --light-text: #f8f9fa;
@@ -329,31 +329,40 @@ body {
         <div class="nav-container">
             <a href="index.html" class="logo">Sarvwigyan</a>
             <ul class="nav-menu">
-                <li><a href="index.html" target="_self"><b>&#x1F3E0;</b> Home</a></li>
-                <li class="dropdown">
-                    <a href="#"><b>&#x1F9ED;</b>Explore</a>
+                <li><a href="index.html" target="_self">🏠︎ Home</a></li>
+                <li class="dropdown"><a href="#">🌐Explore</a>
                     <ul class="dropdown-menu">
                         <hr>
-                        <a href="Sarvpedia.html" target="_blank">📖 Sarvpedia</a>
-                        <a href="#">🧠 Sarv-AI</a>
+                        <a href="Sarvpedia.html" target="_blank">🕮 Sarvpedia</a>
+                        <a href="#" onclick="showdevMessage()">𖠩 Sarv Store</a>
+                        <a href="#" onclick="showdevMessage()">☢ Squantum</a>
+                        <a href="#" onclick="showdevMessage()">🔎 Shodh</a>
                         <hr>
                     </ul>
                 </li>
                 <li class="dropdown">
-                <a href="#">ℹ️ About</a>
+                <a href="#">✆ Support</a>
                 <ul class="dropdown-menu">
                     <hr>
-                    <a href="about.html">ℹ️ About Page</a>
-                    <a href="Sw_subsribe.html" target="_self">🔔 Subscribe Us</a>
+                    <a href="about.html">ⓘ About Page</a>
+                    <a href="feedback.html" target="_self">✉ Message/Feedback</a>
                     <hr>
                 </ul>
                 </li>
-                <li class="dropdown"><a href="#">👤 Account</a>
-                    <ul class="dropdown-menu">
+                <li class="dropdown"><a href="#" onclick="showdevMessage()">💬Community</a></li>
+                <li class="dropdown"> <a href="#" onclick="showdevMessage()">👤 Account</a>
+
+                    <script>
+                      function showdevMessage() {
+                        alert("Sorry, we are currently working on this feature. Kindly co-operate.");
+                      }
+                    </script>
+                    <!--<ul class="dropdown-menu">
                         <hr>
+                        <a href="profile.html"> Profile</a>
                         <a href="login.html">🔒 Login</a>
                         <hr>
-                    </ul> 
+                    </ul>--> 
                 </li>
             </ul>
             <div class="hamburger">
