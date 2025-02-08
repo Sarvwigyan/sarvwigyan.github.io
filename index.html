@@ -435,58 +435,62 @@ body {
 <script>
     // Add this slider script before the existing DOMContentLoaded listener
     let currentSlide = 0;
-        let autoSlideInterval;
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('#slider-dots');
+let autoSlideInterval;
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.querySelector('#slider-dots');
+const slider = document.querySelector('.hero-slider');
 
-        // Create slider dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('slider-dot');
-            if(index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => showSlide(index));
-            dotsContainer.appendChild(dot);
-        });
+// Create slider dots
+slides.forEach((_, index) => {
+    const dot = document.createElement('button');
+    dot.classList.add('slider-dot');
+    if (index === 0) dot.classList.add('active');
+    dot.addEventListener('click', () => showSlide(index));
+    dotsContainer.appendChild(dot);
+});
 
-        function showSlide(index) {
-            // Reset auto-slide timer
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextSlide, 3000);
+function showSlide(index) {
+    // Handle index boundaries
+    if (index >= slides.length) index = 0;
+    if (index < 0) index = slides.length - 1;
 
-            // Handle index boundaries
-            if(index >= slides.length) index = 0;
-            if(index < 0) index = slides.length - 1;
-            
-            // Update slides
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('active', i === index);
-            });
-            
-            // Update dots
-            document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-            });
-            
-            currentSlide = index;
-        }
+    // Update slides
+    slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+    });
 
-        function nextSlide() {
-            showSlide(currentSlide + 1) % totalSlides;
-        }
+    // Update dots
+    document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
 
-        function prevSlide() {
-            showSlide(currentSlide - 1) % totalSlides;
-        }
+    currentSlide = index;
 
-        // Start auto-slide
-        autoSlideInterval = setInterval(nextSlide, 3500);
+    // Reset auto-slide timer with fixed timing
+    restartAutoSlide();
+}
 
-        // Pause auto-slide on hover
-        const slider = document.querySelector('.hero-slider');
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        slider.addEventListener('mouseleave', () => {
-            autoSlideInterval = setInterval(nextSlide, 1500);
-        });
+function nextSlide() {
+    showSlide((currentSlide + 1) % slides.length);
+}
+
+function prevSlide() {
+    showSlide((currentSlide - 1 + slides.length) % slides.length);
+}
+
+// Function to restart auto-slide
+function restartAutoSlide() {
+    clearInterval(autoSlideInterval);
+    autoSlideInterval = setInterval(nextSlide, 2500);
+}
+
+// Start auto-slide
+restartAutoSlide();
+
+// Pause auto-slide on hover and resume with fixed timing
+slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+slider.addEventListener('mouseleave', restartAutoSlide);
+
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
