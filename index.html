@@ -4,164 +4,149 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvwigyan</title>
+    <style>
+        :root {
+            --primary-color: rgba(0, 0, 0, 0.5);
+            --accent-color: #00b4d8;
+            --dark-bg: #1a232e;
+            --light-text: #f8f9fa;
+            --menu-hover-bg: rgba(255, 255, 255, 0.05);
+        }
 
-</head>
-<style>
-:root {
-    --primary-color: rgba(0, 0, 0, 0.5);
-    --accent-color: #00b4d8;
-    --dark-bg: #1a232e;
-    --light-text: #f8f9fa;
-    --menu-hover-bg: rgba(255, 255, 255, 0.05);
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+        body {
+            line-height: 1.6;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+        }
 
-body {
-    line-height: 1.6;
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-}
+        .navbar {
+            background-color: rgba(26, 35, 46, 0.95);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
 
-.navbar {
-    background-color: rgba(26, 35, 46, 0.95);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
 
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
+        .logo {
+            color: var(--light-text);
+            font-size: 1.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
 
-.logo {
-    color: var(--light-text);
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
+        .logo::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background-image: url('Sarvwigyan.png');
+            background-size: cover;
+            background-position: center;
+        }
 
-.logo::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-image: url('Sarvwigyan.png');
-    background-size: cover;
-    background-position: center;
-}
+        .nav-menu {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+        }
 
-.nav-menu {
-    display: flex;
-    gap: 0.5rem;
-    list-style: none;
-}
+        .nav-menu > li {
+            position: relative;
+        }
 
-.nav-menu > li {
-    position: relative;
-}
+        .nav-menu a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-radius: 4px;
+            position: relative;
+        }
 
-.nav-menu a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    border-radius: 4px;
-    position: relative;
-}
+        .nav-menu a:hover {
+            background-color: var(--menu-hover-bg);
+            color: var(--accent-color);
+        }
 
-.nav-menu a:hover {
-    background-color: var(--menu-hover-bg);
-    color: var(--accent-color);
-}
+        .nav-menu a i:first-child {
+            width: 20px;
+            text-align: center;
+        }
 
-.nav-menu a i:first-child {
-    width: 20px;
-    text-align: center;
-}
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--primary-color);
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+        }
 
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: var(--primary-color);
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    top: 100%;
-    left: 0;
-    min-width: 200px;
-}
+        .dropdown-menu.active {
+            display: block;
+        }
 
-.dropdown:hover .dropdown-menu {
-    display: none;
-    animation: slideDown 0.3s ease;
-}
+        .dropdown-menu li {
+            padding: 0.5rem;
+        }
 
-.dropdown-menu li {
-    padding: 0.5rem;
-}
+        .dropdown-menu a {
+            padding: 0.75rem 1rem;
+            border-radius: 3px;
+        }
 
-.dropdown-menu a {
-    padding: 0.75rem 1rem;
-    border-radius: 3px;
-}
+        .dropdown-menu a:hover {
+            background-color: var(--menu-hover-bg);
+        }
 
-.dropdown-menu a:hover {
-    background-color: var(--menu-hover-bg);
-}
+        .nav-menu a.active {
+            color: var(--accent-color);
+            background-color: var(--menu-hover-bg);
+        }
 
-/* Active menu item styling */
-.nav-menu a.active {
-    color: var(--accent-color);
-    background-color: var(--menu-hover-bg);
-}
+        .hamburger.active .bar:nth-child(2) {
+            opacity: 0;
+        }
 
-/* Hamburger menu animations */
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
+        .hamburger.active .bar:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
 
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
+        .hamburger.active .bar:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
 
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
+        .hero {
+            height: auto;
+        }
 
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.hero {
-    height: auto;
-}
-.hero-slider {
+        .hero-slider {
             position: relative;
             height: 100vh;
             overflow: hidden;
@@ -246,123 +231,128 @@ body {
             background: var(--accent-color);
         }
 
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 0 1rem;
+            font-size: 1.2rem;
+        }
 
-.hero-content {
-    text-align: center;
-    max-width: 800px;
-    padding: 0 1rem;
-    font-size: 1.2rem;
-}
+        .hero-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
 
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: 4px;
+            margin-top: 2rem;
+            transition: transform 0.3s ease;
+        }
 
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--accent-color);
-    color: var(--light-text);
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 2rem;
-    transition: transform 0.3s ease;
-}
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
 
-.cta-button:hover {
-    transform: translateY(-2px);
-}
+        .content-section {
+            padding: 5rem 2rem;
+        }
 
-.content-section {
-    padding: 5rem 2rem;
-}
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: var(--dark-bg);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                height: calc(100vh - 70px);
+                overflow-y: auto;
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+            }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--dark-bg);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
+            .nav-menu::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, and Opera */
+            }
 
-    .nav-menu.active {
-        left: 0;
-    }
+            .nav-menu.active {
+                left: 0;
+            }
 
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
 
-    .hamburger .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: var(--light-text);
-        transition: all 0.3s ease;
-    }
+            .hamburger .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                background-color: var(--light-text);
+                transition: all 0.3s ease;
+            }
 
-    .dropdown-menu {
-        position: static;
-        display: none;
-        background-color: transparent;
-        box-shadow: none;
-    }
-}
-</style>
+            .dropdown-menu {
+                position: static;
+                display: none;
+                background-color: transparent;
+                box-shadow: none;
+                width: 100%;
+            }
+
+            .dropdown-menu.active {
+                display: block;
+            }
+        }
+    </style>
+</head>
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">Sarvwigyan</a>
             <ul class="nav-menu">
-                <li><a href="index.html" target="_self">🏠︎ Home</a></li>
-                <li class="dropdown"><a href="#">🌐Explore</a>
+                <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')">🏠︎ Home</a></li>
+                <li class="dropdown"><a style="cursor: pointer;">🌐Explore</a>
                     <ul class="dropdown-menu">
                         <hr>
-                        <a href="Sarvpedia.html" target="_blank">🕮 Sarvpedia</a>
-                        <a href="#" onclick="showdevMessage()">𖠩 Sarv Store</a>
-                        <a href="#" onclick="showdevMessage()">☢ Squantum</a>
-                        <a href="#" onclick="showdevMessage()">🔎 Shodh</a>
+                        <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')">🕮 Sarvpedia</a>
+                        <a style="cursor: pointer;" onclick="showdevMessage()">𖠩 Sarv Store</a>
+                        <a style="cursor: pointer;" onclick="showdevMessage()">☢ Squantum</a>
+                        <a style="cursor: pointer;" onclick="showdevMessage()">🔎 Shodh</a>
                         <hr>
                     </ul>
                 </li>
                 <li class="dropdown">
-                <a href="#">✆ Support</a>
-                <ul class="dropdown-menu">
-                    <hr>
-                    <a href="about.html">ⓘ About Page</a>
-                    <a href="feedback.html" target="_self">✉ Message/Feedback</a>
-                    <hr>
-                </ul>
+                    <a style="cursor: pointer;">✆ Support</a>
+                    <ul class="dropdown-menu">
+                        <hr>
+                        <a style="cursor: pointer;" onclick="window.open('about.html', '_self')">ⓘ About Page</a>
+                        <a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')">✉ Message/Feedback</a>
+                        <hr>
+                    </ul>
                 </li>
-                <li class="dropdown"><a href="#" onclick="showdevMessage()">💬Community</a></li>
-                <li class="dropdown"> <a href="#" onclick="showdevMessage()">👤 Account</a>
-
+                <li class="dropdown"><a style="cursor: pointer;" onclick="showdevMessage()">💬Community</a></li>
+                <li class="dropdown"> <a style="cursor: pointer;" onclick="showdevMessage()">👤 Account</a>
                     <script>
-                      function showdevMessage() {
-                        alert("Sorry, we are currently working on this feature. Kindly co-operate.");
-                      }
+                        function showdevMessage() {
+                            alert("Sorry, we are currently working on this feature. Kindly co-operate.");
+                        }
                     </script>
-                    <!--<ul class="dropdown-menu">
-                        <hr>
-                        <a href="profile.html"> Profile</a>
-                        <a href="login.html">🔒 Login</a>
-                        <hr>
-                    </ul>--> 
                 </li>
             </ul>
             <div class="hamburger">
@@ -425,132 +415,116 @@ body {
     </section>
 
     <!-- Footer -->
-     <hr>
+    <hr>
     <footer class="industrial-footer">
         <div class="footer-container">
             <p style="text-align: center;"> &copy; Sarvwigyan. All rights reserved.</p>
         </div>
     </footer>
 
-<script>
-    // Add this slider script before the existing DOMContentLoaded listener
-    let currentSlide = 0;
-let autoSlideInterval;
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.querySelector('#slider-dots');
-const slider = document.querySelector('.hero-slider');
+    <script>
+        let currentSlide = 0;
+        let autoSlideInterval;
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('#slider-dots');
+        const slider = document.querySelector('.hero-slider');
 
-// Create slider dots
-slides.forEach((_, index) => {
-    const dot = document.createElement('button');
-    dot.classList.add('slider-dot');
-    if (index === 0) dot.classList.add('active');
-    dot.addEventListener('click', () => showSlide(index));
-    dotsContainer.appendChild(dot);
-});
-
-function showSlide(index) {
-    // Handle index boundaries
-    if (index >= slides.length) index = 0;
-    if (index < 0) index = slides.length - 1;
-
-    // Update slides
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
-    });
-
-    // Update dots
-    document.querySelectorAll('.slider-dot').forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-
-    currentSlide = index;
-
-    // Reset auto-slide timer with fixed timing
-    restartAutoSlide();
-}
-
-function nextSlide() {
-    showSlide((currentSlide + 1) % slides.length);
-}
-
-function prevSlide() {
-    showSlide((currentSlide - 1 + slides.length) % slides.length);
-}
-
-// Function to restart auto-slide
-function restartAutoSlide() {
-    clearInterval(autoSlideInterval);
-    autoSlideInterval = setInterval(nextSlide, 2500);
-}
-
-// Start auto-slide
-restartAutoSlide();
-
-// Pause auto-slide on hover and resume with fixed timing
-slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-slider.addEventListener('mouseleave', restartAutoSlide);
-
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const dropdowns = document.querySelectorAll('.dropdown');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-
-    // Mobile menu toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-    });
-
-    // Click handler for all dropdowns
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        const submenu = dropdown.querySelector('.dropdown-menu');
-
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isOpen = submenu.style.display === 'block';
-            
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(s => {
-                s.style.display = 'none';
-            });
-            
-            // Toggle current dropdown
-            submenu.style.display = isOpen ? 'none' : 'block';
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => showSlide(index));
+            dotsContainer.appendChild(dot);
         });
-    });
 
-    // Close menus when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-container')) {
-            // Close mobile menu
-            if (window.innerWidth <= 768) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-            // Close all dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(submenu => {
-                submenu.style.display = 'none';
+        function showSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
             });
+
+            document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+
+            currentSlide = index;
+            restartAutoSlide();
         }
-    });
 
-    // Smooth scrolling with offset
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.hash);
-            const offset = 80; // Adjust for header height
-            window.scrollTo({
-                top: target.offsetTop - offset,
-                behavior: 'smooth'
+        function nextSlide() {
+            showSlide((currentSlide + 1) % slides.length);
+        }
+
+        function prevSlide() {
+            showSlide((currentSlide - 1 + slides.length) % slides.length);
+        }
+
+        function restartAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 2500);
+        }
+
+        restartAutoSlide();
+
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slider.addEventListener('mouseleave', restartAutoSlide);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const dropdowns = document.querySelectorAll('.dropdown');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.classList.toggle('no-scroll');
+            });
+
+            dropdowns.forEach(dropdown => {
+                const link = dropdown.querySelector('a');
+                const submenu = dropdown.querySelector('.dropdown-menu');
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = submenu.classList.contains('active');
+                    
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown-menu').forEach(s => {
+                        s.classList.remove('active');
+                    });
+                    
+                    // Toggle current dropdown
+                    if (!isOpen) {
+                        submenu.classList.add('active');
+                    }
+                });
+            });
+
+            // Close dropdowns when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.dropdown')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(submenu => {
+                        submenu.classList.remove('active');
+                    });
+                }
+            });
+
+            // Smooth scrolling with offset
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.hash);
+                    const offset = 80; // Adjust for header height
+                    window.scrollTo({
+                        top: target.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                });
             });
         });
-    });
-});
-</script>
+    </script>
 </body>
 </html>
