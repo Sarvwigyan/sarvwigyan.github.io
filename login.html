@@ -5,127 +5,175 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-signin-client_id" content="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com">
     <title>Sarvwigyan - Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         /* Global Styles */
         body, html {
             margin: 0;
             padding: 0;
-            font-family: 'Arial', sans-serif;
-            background-color: #f3f4f6;
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            overflow: hidden;
         }
-        
-        /* Container Styling */
+
+        /* Particle Effects */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            background-color: #4285F4;
+            border-radius: 50%;
+            opacity: 0.5;
+        }
+
+        .particle:nth-child(1) { width: 5px; height: 5px; left: 10%; top: 20%; animation: moveHorizontal 15s infinite linear; }
+        .particle:nth-child(2) { width: 8px; height: 8px; left: 30%; top: 50%; animation: moveVertical 20s infinite linear; }
+        .particle:nth-child(3) { width: 12px; height: 12px; left: 70%; top: 30%; animation: moveDiagonal 25s infinite linear; }
+        .particle:nth-child(4) { width: 6px; height: 6px; left: 50%; top: 10%; animation: moveHorizontal 18s infinite linear; }
+        .particle:nth-child(5) { width: 10px; height: 10px; left: 20%; top: 80%; animation: moveDiagonal 22s infinite linear; }
+
+        @keyframes moveHorizontal {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(100vw); }
+        }
+
+        @keyframes moveVertical {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(100vh); }
+        }
+
+        @keyframes moveDiagonal {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(100vw, 100vh); }
+        }
+
+        /* Login Container */
         .login-container {
-            background-color: white;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             padding: 40px 50px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             width: 100%;
             max-width: 400px;
             text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-container h1, .login-container p {
+            color: white;
         }
 
         .login-container h1 {
             font-size: 28px;
-            color: #333;
             margin-bottom: 20px;
         }
 
         .login-container p {
-            color: #757575;
             margin-bottom: 30px;
         }
 
-        /* Google Button Styling */
-        .login-with-google-btn {
-            display: inline-block;
-            width: 100%;
-            padding: 12px;
-            border-radius: 5px;
-            background-color: #4285F4;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-            box-sizing: border-box;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        /* Logo Styling */
+        .logo {
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto 20px;
+        }
+
+        .logo i {
+            color: #4285F4;
+            text-shadow: 0 0 10px #4285F4;
+            font-size: 60px;
+        }
+
+        /* Google Sign-In Button */
+        .g_id_signin {
             margin-bottom: 20px;
         }
 
-        .login-with-google-btn:hover {
-            background-color: #357ae8;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .login-with-google-btn:active {
-            background-color: #3367d6;
-        }
-
-        .login-with-google-btn:focus {
-            outline: none;
-        }
-
-        /* Add some spacing between the form and footer */
+        /* Footer */
         .footer {
             margin-top: 20px;
-            color: #888;
+            color: #aaa;
+            font-size: 12px;
         }
 
-        /* Mobile Responsiveness */
+        /* Responsive Design */
         @media (max-width: 600px) {
             .login-container {
                 padding: 20px 30px;
             }
-
             .login-container h1 {
                 font-size: 24px;
             }
-
-            .login-with-google-btn {
-                font-size: 14px;
+            .particle {
+                width: 5px;
+                height: 5px;
             }
         }
     </style>
 </head>
 <body>
-  <div class="login-container">
-      <h1>Welcome to Sarvwigyan</h1>
-      <p>Sign in to continue</p>
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+    <div class="login-container">
+        <div class="logo">
+            <i class="material-icons">lightbulb</i>
+        </div>
+        <h1>Welcome to Sarvwigyan</h1>
+        <p>Sign in to continue</p>
+        <div id="g_id_onload"
+             data-client_id="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"
+             data-callback="onSignIn">
+        </div>
+        <div class="g_id_signin" data-type="standard" data-shape="pill" data-size="large"></div>
+        <div class="footer">
+            <p>© 2025 Sarvwigyan. All rights reserved.</p>
+        </div>
+    </div>
 
-      <div id="g_id_onload"
-           data-client_id="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"
-           data-callback="onSignIn">
-      </div>
-      <div class="g_id_signin" data-type="standard"></div>
-
-      <div class="footer">
-          <p>© 2025 Sarvwigyan. All rights reserved.</p>
-      </div>
-  </div>
-
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
-
-  <script>
-      function onSignIn(response) {
-          // Decode the JWT credential
-          const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
-
-          // Store user data in localStorage
-          const userData = {
-              id: responsePayload.sub,
-              name: responsePayload.name,
-              email: responsePayload.email,
-              picture: responsePayload.picture
-          };
-          localStorage.setItem('user', JSON.stringify(userData));
-
-          // Redirect to index.html
-          window.location.href = "index.html";
-      }
-  </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function onSignIn(response) {
+            const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
+            const userData = {
+                id: responsePayload.sub,
+                name: responsePayload.name,
+                email: responsePayload.email,
+                picture: responsePayload.picture
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
+            window.location.href = "index.html";
+        }
+    </script>
 </body>
 </html>
