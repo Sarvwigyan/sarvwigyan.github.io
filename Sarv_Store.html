@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarv Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #202124;
+            line-height: 1.6;
+            overflow-x: hidden;
+            overflow-y: auto; /* Main scrollbar visible by default */
+        }
+
+        /* Custom Scrollbar for Main View */
+        body::-webkit-scrollbar {
+            width: 8px; /* Reduced width */
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: #bdc1c6;
+            border-radius: 4px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: #f5f5f5;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 16px 24px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a73e8;
+            margin-right: 24px;
+            letter-spacing: 1px;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 720px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 16px;
+            border: none;
+            border-radius: 24px;
+            background-color: #f1f3f4;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-bar input:focus {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transform: scale(1.02);
+        }
+
+        /* Tabs */
+        .tabs {
+            background-color: #fff;
+            padding: 8px 24px;
+            border-bottom: 1px solid #e0e0e0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+
+        .tab-list {
+            display: inline-flex;
+            gap: 32px;
+        }
+
+        .tab {
+            padding: 10px 0;
+            font-size: 14px;
+            font-weight: 500;
+            color: #5f6368;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab:hover {
+            color: #1a73e8;
+        }
+
+        .tab.active {
+            color: #1a73e8;
+            border-bottom: 3px solid #1a73e8;
+        }
+
+        /* Content */
+        .content {
+            padding: 24px;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        .section-title {
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: #3c4043;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 16px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-logo {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            object-fit: cover;
+            margin-bottom: 12px;
+        }
+
+        .card-title {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-type {
+            font-size: 12px;
+            color: #bdc1c6;
+            margin-bottom: 12px;
+        }
+
+        .card-download {
+            padding: 8px 20px;
+            background: #1a73e8;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .card-download:hover {
+            background: #135cc5;
+        }
+
+        .no-results {
+            text-align: center;
+            color: #5f6368;
+            font-size: 16px;
+            margin-top: 24px;
+            display: none;
+        }
+
+        /* Detail View */
+        .detail-view {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            padding: 24px;
+            overflow-y: auto;
+            overflow-x: hidden; /* Ensure no horizontal scroll in detail view */
+            z-index: 1001;
+            animation: slideIn 0.3s ease;
+        }
+
+        .detail-view.active {
+            display: block;
+        }
+
+        /* Custom Scrollbar for Detail View */
+        .detail-view::-webkit-scrollbar {
+            width: 8px; /* Reduced width */
+        }
+
+        .detail-view::-webkit-scrollbar-thumb {
+            background-color: #bdc1c6;
+            border-radius: 4px;
+        }
+
+        .detail-view::-webkit-scrollbar-track {
+            background-color: #f5f5f5;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: #fff;
+            border: none;
+            font-size: 28px;
+            color: #5f6368;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            z-index: 1002;
+        }
+
+        .back-btn:hover {
+            color: #1a73e8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .detail-container {
+            max-width: 800px;
+            margin: 60px auto 40px;
+        }
+
+        .detail-header {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .detail-logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .detail-info {
+            flex: 1;
+        }
+
+        .detail-title {
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            color: #202124;
+        }
+
+        .detail-type {
+            font-size: 14px;
+            color: #bdc1c6;
+            margin-bottom: 10px;
+        }
+
+        .detail-verified {
+            font-size: 14px;
+            color: #1a73e8;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .detail-verified::before {
+            content: "✔";
+            margin-right: 6px;
+            font-size: 16px;
+        }
+
+        .detail-download {
+            padding: 12px 32px;
+            background: #1a73e8;
+            color: #fff;
+            border: none;
+            border-radius: 24px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .detail-download:hover {
+            background: #135cc5;
+            transform: scale(1.05);
+        }
+
+        .detail-description {
+            margin-top: 24px;
+        }
+
+        .detail-short-desc {
+            font-size: 16px;
+            color: #3c4043;
+            margin-bottom: 20px;
+        }
+
+        .detail-long-desc {
+            font-size: 14px;
+            color: #5f6368;
+            line-height: 1.8;
+        }
+
+        .detail-images {
+            margin-top: 32px;
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 16px;
+            background: #fff;
+            border: 1px solid #e0e0e0; /* Very thin border */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Lifted effect */
+            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .detail-images::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, and Opera */
+        }
+
+        .detail-images img {
+            width: 200px;
+            height: 120px;
+            border-radius: 12px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .detail-images img:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo">Sarv Store</div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search apps..." id="searchInput">
+        </div>
+    </div>
+
+    <div class="tabs">
+        <div class="tab-list">
+            <div class="tab active" data-tab="all">All</div>
+            <div class="tab" data-tab="apps">Apps</div>
+            <div class="tab" data-tab="books">Books</div>
+            <div class="tab" data-tab="chelp">Support</div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="section active" id="all">
+            <h2 class="section-title">All</h2>
+            <div class="card-grid" id="allGrid"></div>
+            <div class="no-results" id="allNoResults">No results found</div>
+        </div>
+        <div class="section" id="apps">
+            <h2 class="section-title">Apps</h2>
+            <div class="card-grid" id="appsGrid"></div>
+            <div class="no-results" id="appsNoResults">No results found</div>
+        </div>
+        <div class="section" id="books">
+            <h2 class="section-title">Books</h2>
+            <div class="card-grid" id="booksGrid"></div>
+            <div class="no-results" id="booksNoResults">No results found</div>
+        </div>
+        <div class="section" id="chelp">
+            <h2 class="section-title">Support</h2>
+            <div class="card-grid" id="chelpGrid"></div>
+            <div class="no-results" id="chelpNoResults">No results found</div>
+        </div>
+    </div>
+
+    <div class="detail-view" id="detailView">
+        <button class="back-btn" id="backBtn">←</button>
+        <div class="detail-container">
+            <div class="detail-header">
+                <img class="detail-logo" id="detailLogo" src="">
+                <div class="detail-info">
+                    <div class="detail-title" id="detailTitle"></div>
+                    <div class="detail-type" id="detailType"></div>
+                    <div class="detail-verified" id="detailVerified"></div>
+                    <button class="detail-download" id="detailDownload">Download</button>
+                </div>
+            </div>
+            <div class="detail-description">
+                <div class="detail-short-desc" id="detailShortDesc"></div>
+                <div class="detail-long-desc" id="detailLongDesc"></div>
+                <div class="detail-images" id="detailImages"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const storeData = {
+            all: [
+                { id: 1, title: "Productivity Master", type: "Productivity", verified: true, logo: "Sarvwigyan.png", shortDesc: "Boost your workflow with smart tools.", longDesc: "Boost your workflow with smart tools and seamless task management. This app offers a variety of features to enhance your productivity, including task scheduling, reminders, and collaboration tools.", images: ["https://via.placeholder.com/200x120", "https://via.placeholder.com/200x120"], file: "productivity.apk" },
+                { id: 2, title: "ConnectSphere", type: "Social", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Stay connected with friends.", longDesc: "Stay connected with friends and share your moments. ConnectSphere allows you to chat, post updates, and join communities effortlessly.", images: ["https://via.placeholder.com/200x120"], file: "social.apk" },
+                { id: 5, title: "Epic Tales", type: "Books & Reference", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Gripping stories await.", longDesc: "Dive into gripping stories and epic adventures with Epic Tales. Explore a vast library of novels and references.", images: ["https://via.placeholder.com/200x120"], file: "novel.pdf" },
+                { id: 6, title: "MindLift", type: "Books & Reference", verified: false, logo: "https://via.placeholder.com/64", shortDesc: "Elevate your life.", longDesc: "Elevate your life with practical self-help insights. MindLift provides actionable advice and motivation.", images: ["https://via.placeholder.com/200x120"], file: "selfhelp.pdf" },
+                { id: 7, title: "HelpHub", type: "Tools", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Quick assistance guide.", longDesc: "Your go-to guide for quick assistance and support. HelpHub offers tutorials and troubleshooting tips.", images: ["https://via.placeholder.com/200x120"], file: "guide.apk" },
+                { id: 8, title: "TechAid", type: "Tools", verified: false, logo: "https://via.placeholder.com/64", shortDesc: "Solve tech issues.", longDesc: "Solve tech issues with this handy support app. TechAid is your companion for technical support.", images: ["https://via.placeholder.com/200x120"], file: "support.apk" }
+            ],
+            apps: [
+                { id: 1, title: "Productivity Master", type: "Productivity", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Boost your workflow with smart tools.", longDesc: "Boost your workflow with smart tools and seamless task management.", images: ["https://via.placeholder.com/200x120"], file: "productivity.apk" },
+                { id: 2, title: "ConnectSphere", type: "Social", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Stay connected with friends.", longDesc: "Stay connected with friends and share your moments.", images: ["https://via.placeholder.com/200x120"], file: "social.apk" }
+            ],
+            books: [
+                { id: 5, title: "Epic Tales", type: "Books & Reference", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Gripping stories await.", longDesc: "Dive into gripping stories and epic adventures.", images: ["https://via.placeholder.com/200x120"], file: "novel.pdf" },
+                { id: 6, title: "MindLift", type: "Books & Reference", verified: false, logo: "https://via.placeholder.com/64", shortDesc: "Elevate your life.", longDesc: "Elevate your life with practical self-help insights.", images: ["https://via.placeholder.com/200x120"], file: "selfhelp.pdf" }
+            ],
+            chelp: [
+                { id: 7, title: "HelpHub", type: "Tools", verified: true, logo: "https://via.placeholder.com/64", shortDesc: "Quick assistance guide.", longDesc: "Your go-to guide for quick assistance and support.", images: ["https://via.placeholder.com/200x120"], file: "guide.apk" },
+                { id: 8, title: "TechAid", type: "Tools", verified: false, logo: "https://via.placeholder.com/64", shortDesc: "Solve tech issues.", longDesc: "Solve tech issues with this handy support app.", images: ["https://via.placeholder.com/200x120"], file: "support.apk" }
+            ]
+        };
+
+        function renderCards(data, containerId) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = '';
+            data.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'card';
+                card.innerHTML = `
+                    <img class="card-logo" src="${item.logo}" alt="${item.title}">
+                    <div class="card-title">${item.title}</div>
+                    <div class="card-type">${item.type}</div>
+                    <button class="card-download">Download</button>
+                `;
+                card.addEventListener('click', (e) => {
+                    if (e.target.className !== 'card-download') showDetail(item);
+                });
+                card.querySelector('.card-download').addEventListener('click', () => downloadFile(item));
+                container.appendChild(card);
+            });
+        }
+
+        function downloadFile(item) {
+            const link = document.createElement('a');
+            link.href = item.file;
+            link.download = item.file;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            alert(`Downloading ${item.title}`);
+        }
+
+        renderCards(storeData.all, 'allGrid');
+        renderCards(storeData.apps, 'appsGrid');
+        renderCards(storeData.books, 'booksGrid');
+        renderCards(storeData.chelp, 'chelpGrid');
+
+        const tabs = document.querySelectorAll('.tab');
+        const sections = document.querySelectorAll('.section');
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                tabs.forEach(t => t.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                tab.classList.add('active');
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+                document.getElementById('detailView').classList.remove('active');
+                document.body.style.overflowY = 'auto'; // Restore main scrollbar
+                performSearch();
+            });
+        });
+
+        const searchInput = document.getElementById('searchInput');
+        searchInput.addEventListener('input', performSearch);
+
+        function performSearch() {
+            const query = searchInput.value.toLowerCase();
+            const activeSection = document.querySelector('.section.active');
+            const cards = activeSection.querySelectorAll('.card');
+            const noResults = activeSection.querySelector('.no-results');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                card.style.display = title.includes(query) ? 'block' : 'none';
+                if (title.includes(query)) hasResults = true;
+            });
+
+            noResults.style.display = hasResults ? 'none' : 'block';
+        }
+
+        function showDetail(item) {
+            const detailView = document.getElementById('detailView');
+            document.getElementById('detailLogo').src = item.logo;
+            document.getElementById('detailTitle').textContent = item.title;
+            document.getElementById('detailType').textContent = item.type;
+            document.getElementById('detailVerified').textContent = item.verified ? 'Verified' : '';
+            document.getElementById('detailShortDesc').textContent = item.shortDesc;
+            document.getElementById('detailLongDesc').textContent = item.longDesc;
+
+            const imagesContainer = document.getElementById('detailImages');
+            imagesContainer.innerHTML = '';
+            item.images.forEach(imgSrc => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                imagesContainer.appendChild(img);
+            });
+
+            detailView.classList.add('active');
+            document.body.style.overflowY = 'hidden'; // Hide main scrollbar
+            document.getElementById('detailDownload').onclick = () => downloadFile(item);
+        }
+
+        document.getElementById('backBtn').addEventListener('click', () => {
+            const detailView = document.getElementById('detailView');
+            detailView.style.animation = 'slideOut 0.3s ease';
+            setTimeout(() => {
+                detailView.classList.remove('active');
+                detailView.style.animation = 'slideIn 0.3s ease';
+                document.body.style.overflowY = 'auto'; // Restore main scrollbar
+                const activeTab = document.querySelector('.tab.active').getAttribute('data-tab');
+                renderCards(storeData[activeTab], `${activeTab}Grid`);
+                performSearch();
+            }, 300);
+        });
+
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes slideOut {
+                from { transform: translateY(0); }
+                to { transform: translateY(100%); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
