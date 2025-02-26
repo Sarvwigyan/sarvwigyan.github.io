@@ -441,7 +441,7 @@
             <div class="slide-content">
                 <h1>Empowering Knowledge, Shaping the Future</h1>
                 <p>Discover the world of innovation with Sarvwigyan...</p>
-                <a href="Sarvpedia.html" target="_blank" class="cta-button">Discover Sarvpedia</a>
+                <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')" class="cta-button">Discover Sarvpedia</a>
             </div>
         </div>
 
@@ -450,7 +450,7 @@
             <div class="slide-content">
                 <h1>Explore AI Innovations</h1>
                 <p>Dive into the future of artificial intelligence...</p>
-                <a href="#" class="cta-button">Explore Sarv-AI</a>
+                <a style="cursor: pointer;" onclick="showdevMessage()" class="cta-button">Explore Sarv-AI</a>
             </div>
         </div>
 
@@ -459,7 +459,7 @@
             <div class="slide-content">
                 <h1>About Our Vision</h1>
                 <p>Learn more about our mission and goals...</p>
-                <a href="about.html" class="cta-button">About Us</a>
+                <a style="cursor: pointer;" onclick="window.open('about.html', '_self')" class="cta-button">About Us</a>
             </div>
         </div>
 
@@ -511,7 +511,7 @@
                             <span class="profile-name">${user.name}</span>
                         </div>
                         <ul class="profile-menu">
-                            <li><a href="#">Profile</a></li>
+                            <li><a style="cursor: pointer;" onclick="showdevMessage()">Profile</a></li>
                             <li><button onclick="logout()">Logout</button></li>
                         </ul>
                     </div>
