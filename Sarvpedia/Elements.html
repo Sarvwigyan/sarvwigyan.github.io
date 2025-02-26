@@ -3,135 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Periodic Table with Details</title>
+    <title>Sarvpedia - Periodic Table</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            font-size: 1.1rem;
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
-            text-align: center;
-        }
-        header {
-            background-color: rgb(39, 35, 131);
-            color: #fff;
-            padding: 15px 0;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        .container {
-            width: 90%;
-            max-width: 800px;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-        .section h2 {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-            font-size: 1.5em;
-        }
-        .section p {
-            text-align: justify;
-        }
-        .section img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 10px auto;
-            border-radius: 5px;
-        }
-        .table-container {
-            width: 100%;
-            overflow-x: auto;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            padding: 10px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
         }
 
-        .table-container::-webkit-scrollbar {
-        display: none;
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .search-container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        #searchBar {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        #searchBar:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        #suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            color: #333;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+        }
+
+        #suggestions div {
+            padding: 10px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        #suggestions div:hover {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .table-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            overflow-x: auto;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            table-layout: auto;
+            animation: fadeIn 0.5s ease-in;
         }
+
         th, td {
-            padding: 10px;
-            text-align: left;
-            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
         }
+
         th {
-            background-color: #3498db;
-            color: white;
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
         tr:nth-child(even) {
-            background-color: #f4f4f4;
+            background: rgba(255, 255, 255, 0.03);
         }
-        .glow-button {
-            background: #f5a623;
-            color: white;
-            padding: 12px 20px;
-            font-size: 1em;
-            border: none;
-            cursor: pointer;
-            border-radius: 25px;
-            transition: all 0.3s;
-            display: block;
-            margin: 20px auto;
-            box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
+
+        tr:hover {
+            background: rgba(52, 152, 219, 0.2);
         }
-        .glow-button:hover {
-            box-shadow: 0 0 25px rgba(245, 166, 35, 0.8);
-            transform: scale(1.05);
+
+        td a {
+            color: #f5a623;
+            text-decoration: none;
+            transition: color 0.3s;
         }
+
+        td a:hover {
+            color: #fff;
+        }
+
         footer {
-            background-color: #2c3e50;
-            color: white;
-            padding: 10px;
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
             margin-top: 20px;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
         }
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            .container {
-                width: 95%;
-                padding: 15px;
-            }
-            .glow-button {
-                font-size: 0.9em;
-                padding: 10px 18px;
-            }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            #searchBar { font-size: 1em; padding: 12px; }
+            th, td { padding: 8px; font-size: 0.9em; }
         }
     </style>
 </head>
 <body>
     <header>
-    <h1>Sarvpedia</h1>
+        <h1>Sarvpedia</h1>
     </header>
-    <hr>
-    <h2>Periodic Table Elements with Details</h2>
 
-    <!-- Landscape Rotation Message -->
-    <div id="rotateMessage" class="rotate-message">
-        For better viewing experience, rotate your device to landscape mode.
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search elements...">
+        <div id="suggestions"></div>
     </div>
 
-    <!-- Table -->
     <div class="table-container">
         <table>
             <thead>
@@ -139,981 +171,205 @@
                     <th>Atomic No.</th>
                     <th>Element</th>
                     <th>Atomic Mass</th>
-                    <th>No. of Electrons</th>
-                    <th>No. of Protons</th>
-                    <th>No. of Neutrons</th>
+                    <th>Electrons</th>
+                    <th>Protons</th>
+                    <th>Neutrons</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Hydrogen</td>
-                    <td>1.008</td>
-                    <td>1</td>
-                    <td>1</td>
-                    <td>0</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Helium</td>
-                    <td>4.0026</td>
-                    <td>2</td>
-                    <td>2</td>
-                    <td>2</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Lithium</td>
-                    <td>6.94</td>
-                    <td>3</td>
-                    <td>3</td>
-                    <td>4</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Beryllium</td>
-                    <td>9.0122</td>
-                    <td>4</td>
-                    <td>4</td>
-                    <td>5</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Boron</td>
-                    <td>10.81</td>
-                    <td>5</td>
-                    <td>5</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>Carbon</td>
-                    <td>12.011</td>
-                    <td>6</td>
-                    <td>6</td>
-                    <td>6</td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>Nitrogen</td>
-                    <td>14.007</td>
-                    <td>7</td>
-                    <td>7</td>
-                    <td>7</td>
-                </tr>
-                <tr>
-                    <td>8</td>
-                    <td>Oxygen</td>
-                    <td>15.999</td>
-                    <td>8</td>
-                    <td>8</td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>Fluorine</td>
-                    <td>18.998</td>
-                    <td>9</td>
-                    <td>9</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>10</td>
-                    <td>Neon</td>
-                    <td>20.180</td>
-                    <td>10</td>
-                    <td>10</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>11</td>
-                    <td>Sodium</td>
-                    <td>22.990</td>
-                    <td>11</td>
-                    <td>11</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>12</td>
-                    <td>Magnesium</td>
-                    <td>24.305</td>
-                    <td>12</td>
-                    <td>12</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>13</td>
-                    <td>Aluminium</td>
-                    <td>26.982</td>
-                    <td>13</td>
-                    <td>13</td>
-                    <td>14</td>
-                </tr>
-                <tr>
-                    <td>14</td>
-                    <td>Silicon</td>
-                    <td>28.085</td>
-                    <td>14</td>
-                    <td>14</td>
-                    <td>14</td>
-                </tr>
-                <tr>
-                    <td>15</td>
-                    <td>Phosphorus</td>
-                    <td>30.974</td>
-                    <td>15</td>
-                    <td>15</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td>Sulfur</td>
-                    <td>32.06</td>
-                    <td>16</td>
-                    <td>16</td>
-                    <td>16</td>
-                </tr>
-                <tr>
-                    <td>17</td>
-                    <td>Chlorine</td>
-                    <td>35.45</td>
-                    <td>17</td>
-                    <td>17</td>
-                    <td>18</td>
-                </tr>
-                <tr>
-                    <td>18</td>
-                    <td><a href="Argon_sarvpedia.html" target="_blank">Argon</a></td>
-                    <td>39.948</td>
-                    <td>18</td>
-                    <td>18</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td>19</td>
-                    <td>Potassium</td>
-                    <td>39.098</td>
-                    <td>19</td>
-                    <td>19</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>20</td>
-                    <td>Calcium</td>
-                    <td>40.078</td>
-                    <td>20</td>
-                    <td>20</td>
-                    <td>20</td>
-                </tr>
-                <tr>
-                    <td>21</td>
-                    <td>Scandium</td>
-                    <td>44.956</td>
-                    <td>21</td>
-                    <td>21</td>
-                    <td>24</td>
-                </tr>
-                <tr>
-                    <td>22</td>
-                    <td>Titanium</td>
-                    <td>47.867</td>
-                    <td>22</td>
-                    <td>22</td>
-                    <td>25</td>
-                </tr>
-                <tr>
-                    <td>23</td>
-                    <td>Vanadium</td>
-                    <td>50.9415</td>
-                    <td>23</td>
-                    <td>23</td>
-                    <td>28</td>
-                </tr>
-                <tr>
-                    <td>24</td>
-                    <td>Chromium</td>
-                    <td>52.0</td>
-                    <td>24</td>
-                    <td>24</td>
-                    <td>28</td>
-                </tr>
-                <tr>
-                    <td>25</td>
-                    <td>Manganese</td>
-                    <td>54.938044</td>
-                    <td>25</td>
-                    <td>25</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>26</td>
-                    <td>Iron</td>
-                    <td>55.845</td>
-                    <td>26</td>
-                    <td>26</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td>27</td>
-                    <td>Cobalt</td>
-                    <td>58.933</td>
-                    <td>27</td>
-                    <td>27</td>
-                    <td>32</td>
-                </tr>
-                <tr>
-                    <td>28</td>
-                    <td>Nickel</td>
-                    <td>58.6934</td>
-                    <td>28</td>
-                    <td>28</td>
-                    <td>31</td>
-                </tr>
-                <tr>
-                    <td>29</td>
-                    <td>Copper</td>
-                    <td>63.546</td>
-                    <td>29</td>
-                    <td>29</td>
-                    <td>35</td>
-                </tr>
-                <tr>
-                    <td>30</td>
-                    <td>Zinc</td>
-                    <td>65.38</td>
-                    <td>30</td>
-                    <td>30</td>
-                    <td>35</td>
-                </tr>
-                <tr>
-                    <td>31</td>
-                    <td>Gallium</td>
-                    <td>69.723</td>
-                    <td>31</td>
-                    <td>31</td>
-                    <td>38</td>
-                </tr>
-                <tr>
-                    <td>32</td>
-                    <td>Germanium</td>
-                    <td>72.63</td>
-                    <td>32</td>
-                    <td>32</td>
-                    <td>41</td>
-                </tr>
-                <tr>
-                    <td>33</td>
-                    <td>Arsenic</td>
-                    <td>74.921595</td>
-                    <td>33</td>
-                    <td>33</td>
-                    <td>42</td>
-                </tr>
-                <tr>
-                    <td>34</td>
-                    <td>Selenium</td>
-                    <td>78.971</td>
-                    <td>34</td>
-                    <td>34</td>
-                    <td>45</td>
-                </tr>
-                <tr>
-                    <td>35</td>
-                    <td>Bromine</td>
-                    <td>79.904</td>
-                    <td>35</td>
-                    <td>35</td>
-                    <td>45</td>
-                </tr>
-                <tr>
-                    <td>36</td>
-                    <td>Krypton</td>
-                    <td>83.798</td>
-                    <td>36</td>
-                    <td>36</td>
-                    <td>48</td>
-                </tr>
-                <tr>
-                    <td>37</td>
-                    <td>Rubidium</td>
-                    <td>85.4678</td>
-                    <td>37</td>
-                    <td>37</td>
-                    <td>48</td>
-                </tr>
-                <tr>
-                    <td>38</td>
-                    <td>Strontium</td>
-                    <td>87.62</td>
-                    <td>38</td>
-                    <td>38</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>39</td>
-                    <td>Yttrium</td>
-                    <td>88.90584</td>
-                    <td>39</td>
-                    <td>39</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>40</td>
-                    <td>Zirconium</td>
-                    <td>91.224</td>
-                    <td>40</td>
-                    <td>40</td>
-                    <td>51</td>
-                </tr>
-                <tr>
-                    <td>41</td>
-                    <td>Niobium</td>
-                    <td>92.90638</td>
-                    <td>41</td>
-                    <td>41</td>
-                    <td>52</td>
-                </tr>
-                <tr>
-                    <td>42</td>
-                    <td>Molybdenum</td>
-                    <td>95.95</td>
-                    <td>42</td>
-                    <td>42</td>
-                    <td>54</td>
-                </tr>
-                <tr>
-                    <td>43</td>
-                    <td>Technetium</td>
-                    <td>98</td>
-                    <td>43</td>
-                    <td>43</td>
-                    <td>55</td>
-                </tr>
-                <tr>
-                    <td>44</td>
-                    <td>Ruthenium</td>
-                    <td>101.07</td>
-                    <td>44</td>
-                    <td>44</td>
-                    <td>57</td>
-                </tr>
-                <tr>
-                    <td>45</td>
-                    <td>Rhodium</td>
-                    <td>102.91</td>
-                    <td>45</td>
-                    <td>45</td>
-                    <td>58</td>
-                </tr>
-                <tr>
-                    <td>46</td>
-                    <td>Palladium</td>
-                    <td>106.42</td>
-                    <td>46</td>
-                    <td>46</td>
-                    <td>60</td>
-                </tr>
-                <tr>
-                    <td>47</td>
-                    <td>Silver</td>
-                    <td>107.8682</td>
-                    <td>47</td>
-                    <td>47</td>
-                    <td>61</td>
-                </tr>
-                <tr>
-                    <td>48</td>
-                    <td>Cadmium</td>
-                    <td>112.414</td>
-                    <td>48</td>
-                    <td>48</td>
-                    <td>64</td>
-                </tr>
-                <tr>
-                    <td>49</td>
-                    <td>Indium</td>
-                    <td>114.818</td>
-                    <td>49</td>
-                    <td>49</td>
-                    <td>66</td>
-                </tr>
-                <tr>
-                    <td>50</td>
-                    <td>Tin</td>
-                    <td>118.71</td>
-                    <td>50</td>
-                    <td>50</td>
-                    <td>69</td>
-                </tr>
-                <tr>
-                    <td>51</td>
-                    <td>Antimony</td>
-                    <td>121.76</td>
-                    <td>51</td>
-                    <td>51</td>
-                    <td>71</td>
-                </tr>
-                <tr>
-                    <td>52</td>
-                    <td>Tellurium</td>
-                    <td>127.6</td>
-                    <td>52</td>
-                    <td>52</td>
-                    <td>73</td>
-                </tr>
-                <tr>
-                    <td>53</td>
-                    <td>Iodine</td>
-                    <td>126.90447</td>
-                    <td>53</td>
-                    <td>53</td>
-                    <td>74</td>
-                </tr>
-                <tr>
-                    <td>54</td>
-                    <td>Xenon</td>
-                    <td>131.293</td>
-                    <td>54</td>
-                    <td>54</td>
-                    <td>77</td>
-                </tr>
-                <tr>
-                    <td>55</td>
-                    <td>Caesium</td>
-                    <td>132.90545196</td>
-                    <td>55</td>
-                    <td>55</td>
-                    <td>78</td>
-                </tr>
-                <tr>
-                    <td>56</td>
-                    <td>Barium</td>
-                    <td>137.327</td>
-                    <td>56</td>
-                    <td>56</td>
-                    <td>80</td>
-                </tr>
-                <tr>
-                    <td>57</td>
-                    <td>Lanthanum</td>
-                    <td>138.90547</td>
-                    <td>57</td>
-                    <td>57</td>
-                    <td>82</td>
-                </tr>
-                <tr>
-                    <td>58</td>
-                    <td>Cerium</td>
-                    <td>140.116</td>
-                    <td>58</td>
-                    <td>58</td>
-                    <td>83</td>
-                </tr>
-                <tr>
-                    <td>59</td>
-                    <td>Praseodymium</td>
-                    <td>140.90766</td>
-                    <td>59</td>
-                    <td>59</td>
-                    <td>84</td>
-                </tr>
-                <tr>
-                    <td>60</td>
-                    <td>Neodymium</td>
-                    <td>144.242</td>
-                    <td>60</td>
-                    <td>60</td>
-                    <td>86</td>
-                </tr>
-                <tr>
-                    <td>61</td>
-                    <td>Promethium</td>
-                    <td>145</td>
-                    <td>61</td>
-                    <td>61</td>
-                    <td>88</td>
-                </tr>
-                <tr>
-                    <td>62</td>
-                    <td>Samarian</td>
-                    <td>150.36</td>
-                    <td>62</td>
-                    <td>62</td>
-                    <td>89</td>
-                </tr>
-                <tr>
-                    <td>63</td>
-                    <td>Europium</td>
-                    <td>151.964</td>
-                    <td>63</td>
-                    <td>63</td>
-                    <td>92</td>
-                </tr>
-                <tr>
-                    <td>64</td>
-                    <td>Gadolinium</td>
-                    <td>157.25</td>
-                    <td>64</td>
-                    <td>64</td>
-                    <td>93</td>
-                </tr>
-                <tr>
-                    <td>65</td>
-                    <td>Terbium</td>
-                    <td>158.92535</td>
-                    <td>65</td>
-                    <td>65</td>
-                    <td>94</td>
-                </tr>
-                <tr>
-                    <td>66</td>
-                    <td>Dysprosium</td>
-                    <td>162.5</td>
-                    <td>66</td>
-                    <td>66</td>
-                    <td>96</td>
-                </tr>
-                <tr>
-                    <td>67</td>
-                    <td>Holmium</td>
-                    <td>164.93033</td>
-                    <td>67</td>
-                    <td>67</td>
-                    <td>97</td>
-                </tr>
-                <tr>
-                    <td>68</td>
-                    <td>Erbium</td>
-                    <td>167.259</td>
-                    <td>68</td>
-                    <td>68</td>
-                    <td>99</td>
-                </tr>
-                <tr>
-                    <td>69</td>
-                    <td>Thulium</td>
-                    <td>168.93422</td>
-                    <td>69</td>
-                    <td>69</td>
-                    <td>100</td>
-                </tr>
-                <tr>
-                    <td>70</td>
-                    <td>Ytterbium</td>
-                    <td>173.04</td>
-                    <td>70</td>
-                    <td>70</td>
-                    <td>103</td>
-                </tr>
-                <tr>
-                    <td>71</td>
-                    <td>Lutetium</td>
-                    <td>175.0</td>
-                    <td>71</td>
-                    <td>71</td>
-                    <td>104</td>
-                </tr>
-                <tr>
-                    <td>72</td>
-                    <td>Hafnium</td>
-                    <td>178.49</td>
-                    <td>72</td>
-                    <td>72</td>
-                    <td>106</td>
-                </tr>
-                <tr>
-                    <td>73</td>
-                    <td>Tantalum</td>
-                    <td>180.94788</td>
-                    <td>73</td>
-                    <td>73</td>
-                    <td>108</td>
-                </tr>
-                <tr>
-                    <td>74</td>
-                    <td>Wolfram</td>
-                    <td>183.84</td>
-                    <td>74</td>
-                    <td>74</td>
-                    <td>110</td>
-                </tr>
-                <tr>
-                    <td>75</td>
-                    <td>Rhenium</td>
-                    <td>186.207</td>
-                    <td>75</td>
-                    <td>75</td>
-                    <td>111</td>
-                </tr>
-                <tr>
-                    <td>76</td>
-                    <td>Osmium</td>
-                    <td>190.23</td>
-                    <td>76</td>
-                    <td>76</td>
-                    <td>113</td>
-                </tr>
-                <tr>
-                    <td>77</td>
-                    <td>Iridium</td>
-                    <td>192.217</td>
-                    <td>77</td>
-                    <td>77</td>
-                    <td>115</td>
-                </tr>
-                <tr>
-                    <td>78</td>
-                    <td>Platinum</td>
-                    <td>195.084</td>
-                    <td>78</td>
-                    <td>78</td>
-                    <td>117</td>
-                </tr>
-                <tr>
-                    <td>79</td>
-                    <td>Gold</td>
-                    <td>196.966569</td>
-                    <td>79</td>
-                    <td>79</td>
-                    <td>118</td>
-                </tr>
-                <tr>
-                    <td>80</td>
-                    <td>Mercury</td>
-                    <td>200.592</td>
-                    <td>80</td>
-                    <td>80</td>
-                    <td>120</td>
-                </tr>
-                <tr>
-                    <td>81</td>
-                    <td>Thallium</td>
-                    <td>204.38</td>
-                    <td>81</td>
-                    <td>81</td>
-                    <td>121</td>
-                </tr>
-                <tr>
-                    <td>82</td>
-                    <td>Lead</td>
-                    <td>207.2</td>
-                    <td>82</td>
-                    <td>82</td>
-                    <td>123</td>
-                </tr>
-                <tr>
-                    <td>83</td>
-                    <td>Bismuth</td>
-                    <td>208.9804</td>
-                    <td>83</td>
-                    <td>83</td>
-                    <td>126</td>
-                </tr>
-                <tr>
-                    <td>84</td>
-                    <td>Polonium</td>
-                    <td>209</td>
-                    <td>84</td>
-                    <td>84</td>
-                    <td>127</td>
-                </tr>
-                <tr>
-                    <td>85</td>
-                    <td>Astatine</td>
-                    <td>210</td>
-                    <td>85</td>
-                    <td>85</td>
-                    <td>130</td>
-                </tr>
-                <tr>
-                    <td>86</td>
-                    <td>Radon</td>
-                    <td>222</td>
-                    <td>86</td>
-                    <td>86</td>
-                    <td>132</td>
-                </tr>
-                <tr>
-                    <td>87</td>
-                    <td>Francium</td>
-                    <td>223</td>
-                    <td>87</td>
-                    <td>87</td>
-                    <td>133</td>
-                </tr>
-                <tr>
-                    <td>88</td>
-                    <td>Radium</td>
-                    <td>226.0254</td>
-                    <td>88</td>
-                    <td>88</td>
-                    <td>136</td>
-                </tr>
-                <tr>
-                    <td>89</td>
-                    <td>Actinium</td>
-                    <td>227</td>
-                    <td>89</td>
-                    <td>89</td>
-                    <td>138</td>
-                </tr>
-                <tr>
-                    <td>90</td>
-                    <td>Thorium</td>
-                    <td>232.03805</td>
-                    <td>90</td>
-                    <td>90</td>
-                    <td>140</td>
-                </tr>
-                <tr>
-                    <td>91</td>
-                    <td>Protactinium</td>
-                    <td>231.03588</td>
-                    <td>91</td>
-                    <td>91</td>
-                    <td>143</td>
-                </tr>
-                <tr>
-                    <td>92</td>
-                    <td>Uranium</td>
-                    <td>238.02891</td>
-                    <td>92</td>
-                    <td>92</td>
-                    <td>145</td>
-                </tr>
-                <tr>
-                    <td>93</td>
-                    <td>Neptunium</td>
-                    <td>237</td>
-                    <td>93</td>
-                    <td>93</td>
-                    <td>148</td>
-                </tr>
-                <tr>
-                    <td>94</td>
-                    <td>Plutonium</td>
-                    <td>244</td>
-                    <td>94</td>
-                    <td>94</td>
-                    <td>150</td>
-                </tr>
-                <tr>
-                    <td>95</td>
-                    <td>Americium</td>
-                    <td>243</td>
-                    <td>95</td>
-                    <td>95</td>
-                    <td>152</td>
-                </tr>
-                <tr>
-                    <td>96</td>
-                    <td>Curium</td>
-                    <td>247</td>
-                    <td>96</td>
-                    <td>96</td>
-                    <td>155</td>
-                </tr>
-                <tr>
-                    <td>97</td>
-                    <td>Berkelium</td>
-                    <td>247</td>
-                    <td>97</td>
-                    <td>97</td>
-                    <td>157</td>
-                </tr>
-                <tr>
-                    <td>98</td>
-                    <td>Californium</td>
-                    <td>251</td>
-                    <td>98</td>
-                    <td>98</td>
-                    <td>159</td>
-                </tr>
-                <tr>
-                    <td>99</td>
-                    <td>Einsteinium</td>
-                    <td>252</td>
-                    <td>99</td>
-                    <td>99</td>
-                    <td>161</td>
-                </tr>
-                <tr>
-                    <td>100</td>
-                    <td>Fermium</td>
-                    <td>257</td>
-                    <td>100</td>
-                    <td>100</td>
-                    <td>164</td>
-                </tr>
-                <tr>
-                    <td>101</td>
-                    <td>Mendelevium</td>
-                    <td>258</td>
-                    <td>101</td>
-                    <td>101</td>
-                    <td>165</td>
-                </tr>
-                <tr>
-                    <td>102</td>
-                    <td>Nobelium</td>
-                    <td>259</td>
-                    <td>102</td>
-                    <td>102</td>
-                    <td>167</td>
-                </tr>
-                <tr>
-                    <td>103</td>
-                    <td>Lawrencium</td>
-                    <td>262</td>
-                    <td>103</td>
-                    <td>103</td>
-                    <td>169</td>
-                </tr>
-                <tr>
-                    <td>104</td>
-                    <td<Rutherfordium</td>
-                    <td>267</td>
-                    <td>104</td>
-                    <td>104</td>
-                    <td>170</td>
-                </tr>
-                <tr>
-                    <td>105</td>
-                    <td>Dubnium</td>
-                    <td>270</td>
-                    <td>105</td>
-                    <td>105</td>
-                    <td>173</td>
-                </tr>
-                <tr>
-                    <td>106</td>
-                    <td>Seaborgium</td>
-                    <td>271</td>
-                    <td>106</td>
-                    <td>106</td>
-                    <td>175</td>
-                </tr>
-                <tr>
-                    <td>107</td>
-                    <td>Bohrium</td>
-                    <td>270</td>
-                    <td>107</td>
-                    <td>107</td>
-                    <td>177</td>
-                </tr>
-                <tr>
-                    <td>108</td>
-                    <td>Hassium</td>
-                    <td>277</td>
-                    <td>108</td>
-                    <td>108</td>
-                    <td>178</td>
-                </tr>
-                <tr>
-                    <td>109</td>
-                    <td>Meitnerium</td>
-                    <td>278</td>
-                    <td>109</td>
-                    <td>109</td>
-                    <td>180</td>
-                </tr>
-                <tr>
-                    <td>110</td>
-                    <td>Darmstadtium</td>
-                    <td>281</td>
-                    <td>110</td>
-                    <td>110</td>
-                    <td>181</td>
-                </tr>
-                <tr>
-                    <td>111</td>
-                    <td>Roentgenium</td>
-                    <td>280</td>
-                    <td>111</td>
-                    <td>111</td>
-                    <td>183</td>
-                </tr>
-                <tr>
-                    <td>112</td>
-                    <td>Copernicium</td>
-                    <td>285</td>
-                    <td>112</td>
-                    <td>112</td>
-                    <td>185</td>
-                </tr>
-                <tr>
-                    <td>113</td>
-                    <td>Nihonium</td>
-                    <td>284</td>
-                    <td>113</td>
-                    <td>113</td>
-                    <td>187</td>
-                </tr>
-                <tr>
-                    <td>114</td>
-                    <td>Flerovium</td>
-                    <td>289</td>
-                    <td>114</td>
-                    <td>114</td>
-                    <td>188</td>
-                </tr>
-                <tr>
-                    <td>115</td>
-                    <td>Mcnium</td>
-                    <td>288</td>
-                    <td>115</td>
-                    <td>115</td>
-                    <td>190</td>
-                </tr>
-                <tr>
-                    <td>116</td>
-                    <td>Livermorium</td>
-                    <td>293</td>
-                    <td>116</td>
-                    <td>116</td>
-                    <td>191</td>
-                </tr>
-                <tr>
-                    <td>117</td>
-                    <td>Tennessine</td>
-                    <td>294</td>
-                    <td>117</td>
-                    <td>117</td>
-                    <td>193</td>
-                </tr>                                
-                <tr>
-                    <td>118</td>
-                    <td>Oganesson</td>
-                    <td>294</td>
-                    <td>118</td>
-                    <td>118</td>
-                    <td>176</td>
-                </tr>
+            <tbody id="elementTable">
+                <!-- Table populated dynamically via JavaScript -->
             </tbody>
         </table>
     </div>
 
     <footer>
-        <p>Copyright &copy;  Sarvpedia. All Rights Reserved.</p>
+        <p>Copyright © Sarvpedia. All Rights Reserved.</p>
     </footer>
+
     <script>
-        // Function to check if the device is in landscape mode
-        function checkOrientation() {
-            var rotateMessage = document.getElementById('rotateMessage');
-            if (window.innerWidth > window.innerHeight) {
-                // Hide message in landscape mode
-                rotateMessage.style.display = 'none';
-            } else {
-                // Show message in portrait mode
-                rotateMessage.style.display = 'block';
-            }
+        const elements = [
+            { atomicNo: 1, name: "Hydrogen", mass: "1.008", electrons: 1, protons: 1, neutrons: 0 },
+            { atomicNo: 2, name: "Helium", mass: "4.0026", electrons: 2, protons: 2, neutrons: 2 },
+            { atomicNo: 3, name: "Lithium", mass: "6.94", electrons: 3, protons: 3, neutrons: 4 },
+            { atomicNo: 4, name: "Beryllium", mass: "9.0122", electrons: 4, protons: 4, neutrons: 5 },
+            { atomicNo: 5, name: "Boron", mass: "10.81", electrons: 5, protons: 5, neutrons: 6 },
+            { atomicNo: 6, name: "Carbon", mass: "12.011", electrons: 6, protons: 6, neutrons: 6 },
+            { atomicNo: 7, name: "Nitrogen", mass: "14.007", electrons: 7, protons: 7, neutrons: 7 },
+            { atomicNo: 8, name: "Oxygen", mass: "15.999", electrons: 8, protons: 8, neutrons: 8 },
+            { atomicNo: 9, name: "Fluorine", mass: "18.998", electrons: 9, protons: 9, neutrons: 10 },
+            { atomicNo: 10, name: "Neon", mass: "20.180", electrons: 10, protons: 10, neutrons: 10 },
+            { atomicNo: 11, name: "Sodium", mass: "22.990", electrons: 11, protons: 11, neutrons: 12 },
+            { atomicNo: 12, name: "Magnesium", mass: "24.305", electrons: 12, protons: 12, neutrons: 12 },
+            { atomicNo: 13, name: "Aluminium", mass: "26.982", electrons: 13, protons: 13, neutrons: 14 },
+            { atomicNo: 14, name: "Silicon", mass: "28.085", electrons: 14, protons: 14, neutrons: 14 },
+            { atomicNo: 15, name: "Phosphorus", mass: "30.974", electrons: 15, protons: 15, neutrons: 16 },
+            { atomicNo: 16, name: "Sulfur", mass: "32.06", electrons: 16, protons: 16, neutrons: 16 },
+            { atomicNo: 17, name: "Chlorine", mass: "35.45", electrons: 17, protons: 17, neutrons: 18 },
+            { atomicNo: 18, name: "Argon", mass: "39.948", electrons: 18, protons: 18, neutrons: 22, link: "Argon_sarvpedia.html" },
+            { atomicNo: 19, name: "Potassium", mass: "39.098", electrons: 19, protons: 19, neutrons: 20 },
+            { atomicNo: 20, name: "Calcium", mass: "40.078", electrons: 20, protons: 20, neutrons: 20 },
+            { atomicNo: 21, name: "Scandium", mass: "44.956", electrons: 21, protons: 21, neutrons: 24 },
+            { atomicNo: 22, name: "Titanium", mass: "47.867", electrons: 22, protons: 22, neutrons: 25 },
+            { atomicNo: 23, name: "Vanadium", mass: "50.9415", electrons: 23, protons: 23, neutrons: 28 },
+            { atomicNo: 24, name: "Chromium", mass: "52.0", electrons: 24, protons: 24, neutrons: 28 },
+            { atomicNo: 25, name: "Manganese", mass: "54.938044", electrons: 25, protons: 25, neutrons: 30 },
+            { atomicNo: 26, name: "Iron", mass: "55.845", electrons: 26, protons: 26, neutrons: 30 },
+            { atomicNo: 27, name: "Cobalt", mass: "58.933", electrons: 27, protons: 27, neutrons: 32 },
+            { atomicNo: 28, name: "Nickel", mass: "58.6934", electrons: 28, protons: 28, neutrons: 31 },
+            { atomicNo: 29, name: "Copper", mass: "63.546", electrons: 29, protons: 29, neutrons: 35 },
+            { atomicNo: 30, name: "Zinc", mass: "65.38", electrons: 30, protons: 30, neutrons: 35 },
+            { atomicNo: 31, name: "Gallium", mass: "69.723", electrons: 31, protons: 31, neutrons: 38 },
+            { atomicNo: 32, name: "Germanium", mass: "72.63", electrons: 32, protons: 32, neutrons: 41 },
+            { atomicNo: 33, name: "Arsenic", mass: "74.921595", electrons: 33, protons: 33, neutrons: 42 },
+            { atomicNo: 34, name: "Selenium", mass: "78.971", electrons: 34, protons: 34, neutrons: 45 },
+            { atomicNo: 35, name: "Bromine", mass: "79.904", electrons: 35, protons: 35, neutrons: 45 },
+            { atomicNo: 36, name: "Krypton", mass: "83.798", electrons: 36, protons: 36, neutrons: 48 },
+            { atomicNo: 37, name: "Rubidium", mass: "85.4678", electrons: 37, protons: 37, neutrons: 48 },
+            { atomicNo: 38, name: "Strontium", mass: "87.62", electrons: 38, protons: 38, neutrons: 50 },
+            { atomicNo: 39, name: "Yttrium", mass: "88.90584", electrons: 39, protons: 39, neutrons: 50 },
+            { atomicNo: 40, name: "Zirconium", mass: "91.224", electrons: 40, protons: 40, neutrons: 51 },
+            { atomicNo: 41, name: "Niobium", mass: "92.90638", electrons: 41, protons: 41, neutrons: 52 },
+            { atomicNo: 42, name: "Molybdenum", mass: "95.95", electrons: 42, protons: 42, neutrons: 54 },
+            { atomicNo: 43, name: "Technetium", mass: "98", electrons: 43, protons: 43, neutrons: 55 },
+            { atomicNo: 44, name: "Ruthenium", mass: "101.07", electrons: 44, protons: 44, neutrons: 57 },
+            { atomicNo: 45, name: "Rhodium", mass: "102.91", electrons: 45, protons: 45, neutrons: 58 },
+            { atomicNo: 46, name: "Palladium", mass: "106.42", electrons: 46, protons: 46, neutrons: 60 },
+            { atomicNo: 47, name: "Silver", mass: "107.8682", electrons: 47, protons: 47, neutrons: 61 },
+            { atomicNo: 48, name: "Cadmium", mass: "112.414", electrons: 48, protons: 48, neutrons: 64 },
+            { atomicNo: 49, name: "Indium", mass: "114.818", electrons: 49, protons: 49, neutrons: 66 },
+            { atomicNo: 50, name: "Tin", mass: "118.71", electrons: 50, protons: 50, neutrons: 69 },
+            { atomicNo: 51, name: "Antimony", mass: "121.76", electrons: 51, protons: 51, neutrons: 71 },
+            { atomicNo: 52, name: "Tellurium", mass: "127.6", electrons: 52, protons: 52, neutrons: 73 },
+            { atomicNo: 53, name: "Iodine", mass: "126.90447", electrons: 53, protons: 53, neutrons: 74 },
+            { atomicNo: 54, name: "Xenon", mass: "131.293", electrons: 54, protons: 54, neutrons: 77 },
+            { atomicNo: 55, name: "Caesium", mass: "132.90545196", electrons: 55, protons: 55, neutrons: 78 },
+            { atomicNo: 56, name: "Barium", mass: "137.327", electrons: 56, protons: 56, neutrons: 80 },
+            { atomicNo: 57, name: "Lanthanum", mass: "138.90547", electrons: 57, protons: 57, neutrons: 82 },
+            { atomicNo: 58, name: "Cerium", mass: "140.116", electrons: 58, protons: 58, neutrons: 83 },
+            { atomicNo: 59, name: "Praseodymium", mass: "140.90766", electrons: 59, protons: 59, neutrons: 84 },
+            { atomicNo: 60, name: "Neodymium", mass: "144.242", electrons: 60, protons: 60, neutrons: 86 },
+            { atomicNo: 61, name: "Promethium", mass: "145", electrons: 61, protons: 61, neutrons: 88 },
+            { atomicNo: 62, name: "Samarium", mass: "150.36", electrons: 62, protons: 62, neutrons: 89 },
+            { atomicNo: 63, name: "Europium", mass: "151.964", electrons: 63, protons: 63, neutrons: 92 },
+            { atomicNo: 64, name: "Gadolinium", mass: "157.25", electrons: 64, protons: 64, neutrons: 93 },
+            { atomicNo: 65, name: "Terbium", mass: "158.92535", electrons: 65, protons: 65, neutrons: 94 },
+            { atomicNo: 66, name: "Dysprosium", mass: "162.5", electrons: 66, protons: 66, neutrons: 96 },
+            { atomicNo: 67, name: "Holmium", mass: "164.93033", electrons: 67, protons: 67, neutrons: 97 },
+            { atomicNo: 68, name: "Erbium", mass: "167.259", electrons: 68, protons: 68, neutrons: 99 },
+            { atomicNo: 69, name: "Thulium", mass: "168.93422", electrons: 69, protons: 69, neutrons: 100 },
+            { atomicNo: 70, name: "Ytterbium", mass: "173.04", electrons: 70, protons: 70, neutrons: 103 },
+            { atomicNo: 71, name: "Lutetium", mass: "175.0", electrons: 71, protons: 71, neutrons: 104 },
+            { atomicNo: 72, name: "Hafnium", mass: "178.49", electrons: 72, protons: 72, neutrons: 106 },
+            { atomicNo: 73, name: "Tantalum", mass: "180.94788", electrons: 73, protons: 73, neutrons: 108 },
+            { atomicNo: 74, name: "Tungsten", mass: "183.84", electrons: 74, protons: 74, neutrons: 110 },
+            { atomicNo: 75, name: "Rhenium", mass: "186.207", electrons: 75, protons: 75, neutrons: 111 },
+            { atomicNo: 76, name: "Osmium", mass: "190.23", electrons: 76, protons: 76, neutrons: 113 },
+            { atomicNo: 77, name: "Iridium", mass: "192.217", electrons: 77, protons: 77, neutrons: 115 },
+            { atomicNo: 78, name: "Platinum", mass: "195.084", electrons: 78, protons: 78, neutrons: 117 },
+            { atomicNo: 79, name: "Gold", mass: "196.966569", electrons: 79, protons: 79, neutrons: 118 },
+            { atomicNo: 80, name: "Mercury", mass: "200.592", electrons: 80, protons: 80, neutrons: 120 },
+            { atomicNo: 81, name: "Thallium", mass: "204.38", electrons: 81, protons: 81, neutrons: 121 },
+            { atomicNo: 82, name: "Lead", mass: "207.2", electrons: 82, protons: 82, neutrons: 123 },
+            { atomicNo: 83, name: "Bismuth", mass: "208.9804", electrons: 83, protons: 83, neutrons: 126 },
+            { atomicNo: 84, name: "Polonium", mass: "209", electrons: 84, protons: 84, neutrons: 127 },
+            { atomicNo: 85, name: "Astatine", mass: "210", electrons: 85, protons: 85, neutrons: 130 },
+            { atomicNo: 86, name: "Radon", mass: "222", electrons: 86, protons: 86, neutrons: 132 },
+            { atomicNo: 87, name: "Francium", mass: "223", electrons: 87, protons: 87, neutrons: 133 },
+            { atomicNo: 88, name: "Radium", mass: "226.0254", electrons: 88, protons: 88, neutrons: 136 },
+            { atomicNo: 89, name: "Actinium", mass: "227", electrons: 89, protons: 89, neutrons: 138 },
+            { atomicNo: 90, name: "Thorium", mass: "232.03805", electrons: 90, protons: 90, neutrons: 140 },
+            { atomicNo: 91, name: "Protactinium", mass: "231.03588", electrons: 91, protons: 91, neutrons: 143 },
+            { atomicNo: 92, name: "Uranium", mass: "238.02891", electrons: 92, protons: 92, neutrons: 145 },
+            { atomicNo: 93, name: "Neptunium", mass: "237", electrons: 93, protons: 93, neutrons: 148 },
+            { atomicNo: 94, name: "Plutonium", mass: "244", electrons: 94, protons: 94, neutrons: 150 },
+            { atomicNo: 95, name: "Americium", mass: "243", electrons: 95, protons: 95, neutrons: 152 },
+            { atomicNo: 96, name: "Curium", mass: "247", electrons: 96, protons: 96, neutrons: 155 },
+            { atomicNo: 97, name: "Berkelium", mass: "247", electrons: 97, protons: 97, neutrons: 157 },
+            { atomicNo: 98, name: "Californium", mass: "251", electrons: 98, protons: 98, neutrons: 159 },
+            { atomicNo: 99, name: "Einsteinium", mass: "252", electrons: 99, protons: 99, neutrons: 161 },
+            { atomicNo: 100, name: "Fermium", mass: "257", electrons: 100, protons: 100, neutrons: 164 },
+            { atomicNo: 101, name: "Mendelevium", mass: "258", electrons: 101, protons: 101, neutrons: 165 },
+            { atomicNo: 102, name: "Nobelium", mass: "259", electrons: 102, protons: 102, neutrons: 167 },
+            { atomicNo: 103, name: "Lawrencium", mass: "262", electrons: 103, protons: 103, neutrons: 169 },
+            { atomicNo: 104, name: "Rutherfordium", mass: "267", electrons: 104, protons: 104, neutrons: 170 },
+            { atomicNo: 105, name: "Dubnium", mass: "270", electrons: 105, protons: 105, neutrons: 173 },
+            { atomicNo: 106, name: "Seaborgium", mass: "271", electrons: 106, protons: 106, neutrons: 175 },
+            { atomicNo: 107, name: "Bohrium", mass: "270", electrons: 107, protons: 107, neutrons: 177 },
+            { atomicNo: 108, name: "Hassium", mass: "277", electrons: 108, protons: 108, neutrons: 178 },
+            { atomicNo: 109, name: "Meitnerium", mass: "278", electrons: 109, protons: 109, neutrons: 180 },
+            { atomicNo: 110, name: "Darmstadtium", mass: "281", electrons: 110, protons: 110, neutrons: 181 },
+            { atomicNo: 111, name: "Roentgenium", mass: "280", electrons: 111, protons: 111, neutrons: 183 },
+            { atomicNo: 112, name: "Copernicium", mass: "285", electrons: 112, protons: 112, neutrons: 185 },
+            { atomicNo: 113, name: "Nihonium", mass: "284", electrons: 113, protons: 113, neutrons: 187 },
+            { atomicNo: 114, name: "Flerovium", mass: "289", electrons: 114, protons: 114, neutrons: 188 },
+            { atomicNo: 115, name: "Moscovium", mass: "288", electrons: 115, protons: 115, neutrons: 190 },
+            { atomicNo: 116, name: "Livermorium", mass: "293", electrons: 116, protons: 116, neutrons: 191 },
+            { atomicNo: 117, name: "Tennessine", mass: "294", electrons: 117, protons: 117, neutrons: 193 },
+            { atomicNo: 118, name: "Oganesson", mass: "294", electrons: 118, protons: 118, neutrons: 176 }
+        ];
+
+        const searchBar = document.getElementById("searchBar");
+        const suggestions = document.getElementById("suggestions");
+        const tableBody = document.getElementById("elementTable");
+
+        // Populate table initially
+        function populateTable(data) {
+            tableBody.innerHTML = "";
+            data.forEach(el => {
+                const row = document.createElement("tr");
+                const nameCell = el.link 
+                    ? `<td><a href="${el.link}" target="_blank">${el.name}</a></td>` 
+                    : `<td>${el.name}</td>`;
+                row.innerHTML = `
+                    <td>${el.atomicNo}</td>
+                    ${nameCell}
+                    <td>${el.mass}</td>
+                    <td>${el.electrons}</td>
+                    <td>${el.protons}</td>
+                    <td>${el.neutrons}</td>
+                `;
+                tableBody.appendChild(row);
+            });
         }
-    
-        // Check orientation on page load
-        window.onload = checkOrientation;
-    
-        // Check orientation on window resize (when user rotates the device)
-        window.onresize = checkOrientation;
-    </script>    
+
+        populateTable(elements);
+
+        // Search and filter with suggestions
+        searchBar.addEventListener("input", () => {
+            const query = searchBar.value.toLowerCase();
+            const filtered = elements.filter(el => 
+                el.name.toLowerCase().includes(query) || 
+                el.atomicNo.toString().includes(query)
+            );
+
+            // Update table
+            populateTable(filtered);
+
+            // Show suggestions
+            if (query.length > 0) {
+                suggestions.style.display = "block";
+                suggestions.innerHTML = "";
+                filtered.slice(0, 5).forEach(el => {
+                    const suggestion = document.createElement("div");
+                    suggestion.textContent = `${el.atomicNo}. ${el.name}`;
+                    suggestion.addEventListener("click", () => {
+                        searchBar.value = el.name;
+                        populateTable([el]);
+                        suggestions.style.display = "none";
+                    });
+                    suggestions.appendChild(suggestion);
+                });
+            } else {
+                suggestions.style.display = "none";
+            }
+        });
+
+        // Hide suggestions when clicking outside
+        document.addEventListener("click", (e) => {
+            if (!searchBar.contains(e.target) && !suggestions.contains(e.target)) {
+                suggestions.style.display = "none";
+            }
+        });
+    </script>
 </body>
 </html>
