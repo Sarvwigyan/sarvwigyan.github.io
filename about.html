@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvwigyan - About Page</title>
-
 </head>
 <style>
 :root {
@@ -94,96 +93,10 @@ body {
     color: var(--accent-color);
 }
 
-.nav-menu a i:first-child {
-    width: 20px;
-    text-align: center;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    background-color: var(--primary-color);
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    top: 100%;
-    left: 0;
-    min-width: 200px;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: none;
-    animation: slideDown 0.3s ease;
-}
-
-.dropdown-menu li {
-    padding: 0.5rem;
-}
-
-.dropdown-menu a {
-    padding: 0.75rem 1rem;
-    border-radius: 3px;
-}
-
-.dropdown-menu a:hover {
-    background-color: var(--menu-hover-bg);
-}
-
 /* Active menu item styling */
 .nav-menu a.active {
     color: var(--accent-color);
     background-color: var(--menu-hover-bg);
-}
-
-/* Hamburger menu animations */
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-@keyframes slideDown {
-    0% {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.cta-button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    background-color: var(--accent-color);
-    color: var(--light-text);
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 2rem;
-    transition: transform 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-}
-
-.content-section {
-    padding: 5rem 2rem;
-    background: #f8f9fa;
-    font-size: 1.2rem;
-}
-
-.section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #f8f9fa;
-    color: black;
 }
 
 /* Mobile Styles */
@@ -216,59 +129,44 @@ body {
         background-color: var(--light-text);
         transition: all 0.3s ease;
     }
+}
 
-    .dropdown-menu {
-        position: static;
-        display: none;
-        background-color: transparent;
-        box-shadow: none;
-    }
-    .ab-section {
-            margin-bottom: 20px;
-        }
-        .ab-section h2 {
-            border-bottom: 2px solid #2c3e50;
-            padding-bottom: 5px;
-            margin-bottom: 10px;
-            font-size: 1.8em;
-        }
-        .ab-section p {
-            text-align: justify;
-        }
+.content-section {
+    padding: 5rem 2rem;
+    background: #f8f9fa;
+    font-size: 1.2rem;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #f8f9fa;
+    color: black;
+}
+
+.ab-section {
+    margin-bottom: 20px;
+}
+
+.ab-section h2 {
+    border-bottom: 2px solid #2c3e50;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.ab-section p {
+    text-align: justify;
 }
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="logo">Sarvwigyan</a>
+            <a style="cursor: pointer;" onclick="window.open('index.html', '_self')"" class="logo">Sarvwigyan</a>
             <ul class="nav-menu">
-                <li><a href="index.html" target="_self"><b>&#x1F3E0;</b> Home</a></li>
-                <li class="dropdown">
-                    <a href="#"><b>&#x1F9ED;</b>Explore</a>
-                    <ul class="dropdown-menu">
-                        <hr>
-                        <a href="Sarvpedia.html" target="_blank">📖 Sarvpedia</a>
-                        <a href="#">🧠 Sarv-AI</a>
-                        <hr>
-                    </ul>
-                </li>
-                <li class="dropdown">
-                <a href="#">ℹ️ About</a>
-                <ul class="dropdown-menu">
-                    <hr>
-                    <a href="about.html">ℹ️ About Page</a>
-                    <a href="Sw_subsribe.html" target="_self">🔔 Subscribe Us</a>
-                    <hr>
-                </ul>
-                </li>
-                <li class="dropdown"><a href="#">👤 Account</a>
-                    <ul class="dropdown-menu">
-                        <hr>
-                        <a href="login.html">🔒 Login</a>
-                        <hr>
-                    </ul> 
-                </li>
+                <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')"><b>🏠︎</b> Home</a></li>
             </ul>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -277,11 +175,12 @@ body {
             </div>
         </div>
     </nav>
+
     <!-- Main Content Sections -->
     <section class="content-section" id="about">
         <div class="section-container">
-            <h1 style="text-align: center; padding-top: 2%;">Sarvwigyan - About Page</h2>
-                <br>
+            <h1 style="text-align: center; padding-top: 2%;">Sarvwigyan - About Page</h1>
+            <br>
             <h3 style="text-align: center;">About Us</h3>
             <div class="ab-section">
                 <hr>
@@ -291,7 +190,7 @@ body {
                 </p>
                 <hr>
             </div>
-                
+
             <div class="ab-section">
                 <h2>Our Mission</h2>
                 <i>
@@ -305,14 +204,14 @@ body {
                 </ul>
                 <hr>
             </div>
-    
+
             <div class="ab-section">
                 <h2>Our Vision</h2>
                 <p>
                     We believe that knowledge is the cornerstone of progress. Our vision is to empower individuals with the information and skills they need to make meaningful contributions to science, technology, and society. By removing barriers to education, we aspire to build a world where innovation and wisdom are not confined to a privileged few but are accessible to all.
                 </p>
             </div>
-    
+
             <div class="ab-section">
                 <h2>Core Values</h2>
                 <ul>
@@ -323,8 +222,8 @@ body {
                     <li><b>Community-Driven Learning –</b> Learning is best achieved collectively, through shared insights and collaborative exploration.</li>
                 </ul>
                 <hr>
-                </div>
-    
+            </div>
+
             <div class="ab-section">
                 <h2>What We Offer</h2>
                 <h3>1. Educational Content</h3>
@@ -348,9 +247,8 @@ body {
                     <li><b>DIY Projects & Experiments:</b> Step-by-step guides for building tech-driven innovations at home.</li>
                 </ul>
                 <hr>
-                
-                </div>
-    
+            </div>
+
             <div class="ab-section">
                 <h2>Our Commitment to Society</h2>
                 <p>
@@ -364,13 +262,13 @@ body {
                 </ul>
                 <hr>
             </div>
-    
+
             <div class="ab-section">
                 <h2>Join the Movement</h2>
                 <p>
                     Sarvwigyan is not just an initiative; it is a revolution of knowledge. Whether you are a student, researcher, scientist, or an enthusiast with a thirst for knowledge, there is a place for you here.</p>
-                <p><b>✅Subscribe to Our YouTube Channel:<a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" style="color: rgb(177, 26, 26); text-decoration: none;"> Sarvwigyan Youtube</a></b></p>
-                <p></p><b>✅Join our Facebook channel:<a href="https://www.facebook.com/profile.php?id=61570026324353" style="color: rgb(40, 40, 141); text-decoration: none;"> Sarvwigyan Facebook Page</a></b></p>
+                <p><b>✅Subscribe to Our YouTube Channel:<a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" style="color: rgb(177, 26, 26); text-decoration: underline;"><i class="fa-brands fa-youtube fa-beat" style="text-decoration: none;"></i> Sarvwigyan Youtube</a></b></p>
+                <p></p><b>✅Join our Facebook channel:<a href="https://www.facebook.com/profile.php?id=61570026324353" style="color: rgb(40, 40, 141); text-decoration: underline;"><i class="fa-brands fa-facebook fa-beat"></i> Sarvwigyan Facebook Page</a></b></p>
                 <ul>
                     <li><b>Engage in Discussions:</b> Join our forums and collaborative learning sessions.</li>
                     <li><b>Contribute & Collaborate:</b> Share your knowledge, ideas, and research with the world.</li>
@@ -378,7 +276,7 @@ body {
                 </ul>
                 <hr>
             </div>
-    
+
             <div class="ab-section">
                 <h2>Final Words: Knowledge Without Limits</h2>
                 <p>
@@ -390,10 +288,13 @@ body {
     </section>
 
     <!-- Footer -->
-     <hr>
+    <hr>
     <footer class="industrial-footer">
         <div class="footer-container">
             <p style="text-align: center;"> &copy; Sarvwigyan. All rights reserved.</p>
+            <span style="font-size: 100%; color: #ffffff; padding-left: 5%;" >
+                <a style="cursor: pointer;" onclick="window.open('https://fontawesome.com/')"><i class="fa-solid fa-font-awesome fa-beat fa-lg" style="color: #0ea493;"></i></a> Icons by <a href="https://fontawesome.com/" target="_blank" style="color: #ffffff; text-decoration: underline;">Font Awesome</a>
+            </span>
         </div>
     </footer>
 
@@ -401,33 +302,12 @@ body {
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
-    const dropdowns = document.querySelectorAll('.dropdown');
-    const navLinks = document.querySelectorAll('.nav-menu a');
 
     // Mobile menu toggle
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
-    });
-
-    // Click handler for all dropdowns
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        const submenu = dropdown.querySelector('.dropdown-menu');
-
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const isOpen = submenu.style.display === 'block';
-            
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(s => {
-                s.style.display = 'none';
-            });
-            
-            // Toggle current dropdown
-            submenu.style.display = isOpen ? 'none' : 'block';
-        });
     });
 
     // Close menus when clicking outside
@@ -438,24 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 hamburger.classList.remove('active');
                 navMenu.classList.remove('active');
             }
-            // Close all dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(submenu => {
-                submenu.style.display = 'none';
-            });
         }
-    });
-
-    // Smooth scrolling with offset
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.hash);
-            const offset = 80; // Adjust for header height
-            window.scrollTo({
-                top: target.offsetTop - offset,
-                behavior: 'smooth'
-            });
-        });
     });
 });
 </script>

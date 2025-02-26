@@ -136,10 +136,10 @@
 </style>
 </head>
 <body>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <div class="container">
     <h2>Message</h2>
-    <h5 style="text-align: center;"><strong>Message us and share your feedback.</strong></h5>
+    <h5 style="text-align: center;"><strong>Your opinion is valuable for us!</strong></h5>
     <form id="contactForm">
       <label for="name">Name</label>
       <input type="text" id="name" name="name" required>
@@ -153,11 +153,13 @@
       <!-- Google reCAPTCHA -->
       <div class="g-recaptcha" data-sitekey="6LeLQ8oqAAAAABaKcrO-TcGpWtuij7tTf-KqjJtA"></div>
 
-      <button type="submit">Send Message</button>
+      <button type="submit"><i class="fa-solid fa-message"></i> Send Message</button>
     </form>
   </div>
   <div class="container">
     <em>Help us improve by providing your valuable feedback, so that we could provide you the best resources.</em>
+    <button onclick="window.open('index.html', '_self')"><a style="cursor: pointer;" >🏠︎ Home</a></button>
+    <button onclick="window.open('feedback.html', '_self')"><a style="cursor: pointer;"><i class="fa-solid fa-rotate-right fa-spin" style="color: #ffffff;"></i> Reload</a></button>
   </div>
 
   <script>
