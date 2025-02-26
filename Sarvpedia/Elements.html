@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Periodic Table with Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 1.1rem;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            text-align: center;
+        }
+        header {
+            background-color: rgb(39, 35, 131);
+            color: #fff;
+            padding: 15px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        .container {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        .section h2 {
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 5px;
+            font-size: 1.5em;
+        }
+        .section p {
+            text-align: justify;
+        }
+        .section img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+            border-radius: 5px;
+        }
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            padding: 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .table-container::-webkit-scrollbar {
+        display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: auto;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+        .glow-button {
+            background: #f5a623;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1em;
+            border: none;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: all 0.3s;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 0 15px rgba(245, 166, 35, 0.5);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 25px rgba(245, 166, 35, 0.8);
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .glow-button {
+                font-size: 0.9em;
+                padding: 10px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+    <h1>Sarvpedia</h1>
+    </header>
+    <hr>
+    <h2>Periodic Table Elements with Details</h2>
+
+    <!-- Landscape Rotation Message -->
+    <div id="rotateMessage" class="rotate-message">
+        For better viewing experience, rotate your device to landscape mode.
+    </div>
+
+    <!-- Table -->
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Atomic No.</th>
+                    <th>Element</th>
+                    <th>Atomic Mass</th>
+                    <th>No. of Electrons</th>
+                    <th>No. of Protons</th>
+                    <th>No. of Neutrons</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Hydrogen</td>
+                    <td>1.008</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Helium</td>
+                    <td>4.0026</td>
+                    <td>2</td>
+                    <td>2</td>
+                    <td>2</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Lithium</td>
+                    <td>6.94</td>
+                    <td>3</td>
+                    <td>3</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Beryllium</td>
+                    <td>9.0122</td>
+                    <td>4</td>
+                    <td>4</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Boron</td>
+                    <td>10.81</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>Carbon</td>
+                    <td>12.011</td>
+                    <td>6</td>
+                    <td>6</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>Nitrogen</td>
+                    <td>14.007</td>
+                    <td>7</td>
+                    <td>7</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>8</td>
+                    <td>Oxygen</td>
+                    <td>15.999</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>Fluorine</td>
+                    <td>18.998</td>
+                    <td>9</td>
+                    <td>9</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>Neon</td>
+                    <td>20.180</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>Sodium</td>
+                    <td>22.990</td>
+                    <td>11</td>
+                    <td>11</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>12</td>
+                    <td>Magnesium</td>
+                    <td>24.305</td>
+                    <td>12</td>
+                    <td>12</td>
+                    <td>12</td>
+                </tr>
+                <tr>
+                    <td>13</td>
+                    <td>Aluminium</td>
+                    <td>26.982</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>Silicon</td>
+                    <td>28.085</td>
+                    <td>14</td>
+                    <td>14</td>
+                    <td>14</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>Phosphorus</td>
+                    <td>30.974</td>
+                    <td>15</td>
+                    <td>15</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>Sulfur</td>
+                    <td>32.06</td>
+                    <td>16</td>
+                    <td>16</td>
+                    <td>16</td>
+                </tr>
+                <tr>
+                    <td>17</td>
+                    <td>Chlorine</td>
+                    <td>35.45</td>
+                    <td>17</td>
+                    <td>17</td>
+                    <td>18</td>
+                </tr>
+                <tr>
+                    <td>18</td>
+                    <td><a href="Argon_sarvpedia.html" target="_blank">Argon</a></td>
+                    <td>39.948</td>
+                    <td>18</td>
+                    <td>18</td>
+                    <td>22</td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>Potassium</td>
+                    <td>39.098</td>
+                    <td>19</td>
+                    <td>19</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>Calcium</td>
+                    <td>40.078</td>
+                    <td>20</td>
+                    <td>20</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>Scandium</td>
+                    <td>44.956</td>
+                    <td>21</td>
+                    <td>21</td>
+                    <td>24</td>
+                </tr>
+                <tr>
+                    <td>22</td>
+                    <td>Titanium</td>
+                    <td>47.867</td>
+                    <td>22</td>
+                    <td>22</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>23</td>
+                    <td>Vanadium</td>
+                    <td>50.9415</td>
+                    <td>23</td>
+                    <td>23</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>24</td>
+                    <td>Chromium</td>
+                    <td>52.0</td>
+                    <td>24</td>
+                    <td>24</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>25</td>
+                    <td>Manganese</td>
+                    <td>54.938044</td>
+                    <td>25</td>
+                    <td>25</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>26</td>
+                    <td>Iron</td>
+                    <td>55.845</td>
+                    <td>26</td>
+                    <td>26</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>27</td>
+                    <td>Cobalt</td>
+                    <td>58.933</td>
+                    <td>27</td>
+                    <td>27</td>
+                    <td>32</td>
+                </tr>
+                <tr>
+                    <td>28</td>
+                    <td>Nickel</td>
+                    <td>58.6934</td>
+                    <td>28</td>
+                    <td>28</td>
+                    <td>31</td>
+                </tr>
+                <tr>
+                    <td>29</td>
+                    <td>Copper</td>
+                    <td>63.546</td>
+                    <td>29</td>
+                    <td>29</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>30</td>
+                    <td>Zinc</td>
+                    <td>65.38</td>
+                    <td>30</td>
+                    <td>30</td>
+                    <td>35</td>
+                </tr>
+                <tr>
+                    <td>31</td>
+                    <td>Gallium</td>
+                    <td>69.723</td>
+                    <td>31</td>
+                    <td>31</td>
+                    <td>38</td>
+                </tr>
+                <tr>
+                    <td>32</td>
+                    <td>Germanium</td>
+                    <td>72.63</td>
+                    <td>32</td>
+                    <td>32</td>
+                    <td>41</td>
+                </tr>
+                <tr>
+                    <td>33</td>
+                    <td>Arsenic</td>
+                    <td>74.921595</td>
+                    <td>33</td>
+                    <td>33</td>
+                    <td>42</td>
+                </tr>
+                <tr>
+                    <td>34</td>
+                    <td>Selenium</td>
+                    <td>78.971</td>
+                    <td>34</td>
+                    <td>34</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>35</td>
+                    <td>Bromine</td>
+                    <td>79.904</td>
+                    <td>35</td>
+                    <td>35</td>
+                    <td>45</td>
+                </tr>
+                <tr>
+                    <td>36</td>
+                    <td>Krypton</td>
+                    <td>83.798</td>
+                    <td>36</td>
+                    <td>36</td>
+                    <td>48</td>
+                </tr>
+                <tr>
+                    <td>37</td>
+                    <td>Rubidium</td>
+                    <td>85.4678</td>
+                    <td>37</td>
+                    <td>37</td>
+                    <td>48</td>
+                </tr>
+                <tr>
+                    <td>38</td>
+                    <td>Strontium</td>
+                    <td>87.62</td>
+                    <td>38</td>
+                    <td>38</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>39</td>
+                    <td>Yttrium</td>
+                    <td>88.90584</td>
+                    <td>39</td>
+                    <td>39</td>
+                    <td>50</td>
+                </tr>
+                <tr>
+                    <td>40</td>
+                    <td>Zirconium</td>
+                    <td>91.224</td>
+                    <td>40</td>
+                    <td>40</td>
+                    <td>51</td>
+                </tr>
+                <tr>
+                    <td>41</td>
+                    <td>Niobium</td>
+                    <td>92.90638</td>
+                    <td>41</td>
+                    <td>41</td>
+                    <td>52</td>
+                </tr>
+                <tr>
+                    <td>42</td>
+                    <td>Molybdenum</td>
+                    <td>95.95</td>
+                    <td>42</td>
+                    <td>42</td>
+                    <td>54</td>
+                </tr>
+                <tr>
+                    <td>43</td>
+                    <td>Technetium</td>
+                    <td>98</td>
+                    <td>43</td>
+                    <td>43</td>
+                    <td>55</td>
+                </tr>
+                <tr>
+                    <td>44</td>
+                    <td>Ruthenium</td>
+                    <td>101.07</td>
+                    <td>44</td>
+                    <td>44</td>
+                    <td>57</td>
+                </tr>
+                <tr>
+                    <td>45</td>
+                    <td>Rhodium</td>
+                    <td>102.91</td>
+                    <td>45</td>
+                    <td>45</td>
+                    <td>58</td>
+                </tr>
+                <tr>
+                    <td>46</td>
+                    <td>Palladium</td>
+                    <td>106.42</td>
+                    <td>46</td>
+                    <td>46</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>47</td>
+                    <td>Silver</td>
+                    <td>107.8682</td>
+                    <td>47</td>
+                    <td>47</td>
+                    <td>61</td>
+                </tr>
+                <tr>
+                    <td>48</td>
+                    <td>Cadmium</td>
+                    <td>112.414</td>
+                    <td>48</td>
+                    <td>48</td>
+                    <td>64</td>
+                </tr>
+                <tr>
+                    <td>49</td>
+                    <td>Indium</td>
+                    <td>114.818</td>
+                    <td>49</td>
+                    <td>49</td>
+                    <td>66</td>
+                </tr>
+                <tr>
+                    <td>50</td>
+                    <td>Tin</td>
+                    <td>118.71</td>
+                    <td>50</td>
+                    <td>50</td>
+                    <td>69</td>
+                </tr>
+                <tr>
+                    <td>51</td>
+                    <td>Antimony</td>
+                    <td>121.76</td>
+                    <td>51</td>
+                    <td>51</td>
+                    <td>71</td>
+                </tr>
+                <tr>
+                    <td>52</td>
+                    <td>Tellurium</td>
+                    <td>127.6</td>
+                    <td>52</td>
+                    <td>52</td>
+                    <td>73</td>
+                </tr>
+                <tr>
+                    <td>53</td>
+                    <td>Iodine</td>
+                    <td>126.90447</td>
+                    <td>53</td>
+                    <td>53</td>
+                    <td>74</td>
+                </tr>
+                <tr>
+                    <td>54</td>
+                    <td>Xenon</td>
+                    <td>131.293</td>
+                    <td>54</td>
+                    <td>54</td>
+                    <td>77</td>
+                </tr>
+                <tr>
+                    <td>55</td>
+                    <td>Caesium</td>
+                    <td>132.90545196</td>
+                    <td>55</td>
+                    <td>55</td>
+                    <td>78</td>
+                </tr>
+                <tr>
+                    <td>56</td>
+                    <td>Barium</td>
+                    <td>137.327</td>
+                    <td>56</td>
+                    <td>56</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>57</td>
+                    <td>Lanthanum</td>
+                    <td>138.90547</td>
+                    <td>57</td>
+                    <td>57</td>
+                    <td>82</td>
+                </tr>
+                <tr>
+                    <td>58</td>
+                    <td>Cerium</td>
+                    <td>140.116</td>
+                    <td>58</td>
+                    <td>58</td>
+                    <td>83</td>
+                </tr>
+                <tr>
+                    <td>59</td>
+                    <td>Praseodymium</td>
+                    <td>140.90766</td>
+                    <td>59</td>
+                    <td>59</td>
+                    <td>84</td>
+                </tr>
+                <tr>
+                    <td>60</td>
+                    <td>Neodymium</td>
+                    <td>144.242</td>
+                    <td>60</td>
+                    <td>60</td>
+                    <td>86</td>
+                </tr>
+                <tr>
+                    <td>61</td>
+                    <td>Promethium</td>
+                    <td>145</td>
+                    <td>61</td>
+                    <td>61</td>
+                    <td>88</td>
+                </tr>
+                <tr>
+                    <td>62</td>
+                    <td>Samarian</td>
+                    <td>150.36</td>
+                    <td>62</td>
+                    <td>62</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td>63</td>
+                    <td>Europium</td>
+                    <td>151.964</td>
+                    <td>63</td>
+                    <td>63</td>
+                    <td>92</td>
+                </tr>
+                <tr>
+                    <td>64</td>
+                    <td>Gadolinium</td>
+                    <td>157.25</td>
+                    <td>64</td>
+                    <td>64</td>
+                    <td>93</td>
+                </tr>
+                <tr>
+                    <td>65</td>
+                    <td>Terbium</td>
+                    <td>158.92535</td>
+                    <td>65</td>
+                    <td>65</td>
+                    <td>94</td>
+                </tr>
+                <tr>
+                    <td>66</td>
+                    <td>Dysprosium</td>
+                    <td>162.5</td>
+                    <td>66</td>
+                    <td>66</td>
+                    <td>96</td>
+                </tr>
+                <tr>
+                    <td>67</td>
+                    <td>Holmium</td>
+                    <td>164.93033</td>
+                    <td>67</td>
+                    <td>67</td>
+                    <td>97</td>
+                </tr>
+                <tr>
+                    <td>68</td>
+                    <td>Erbium</td>
+                    <td>167.259</td>
+                    <td>68</td>
+                    <td>68</td>
+                    <td>99</td>
+                </tr>
+                <tr>
+                    <td>69</td>
+                    <td>Thulium</td>
+                    <td>168.93422</td>
+                    <td>69</td>
+                    <td>69</td>
+                    <td>100</td>
+                </tr>
+                <tr>
+                    <td>70</td>
+                    <td>Ytterbium</td>
+                    <td>173.04</td>
+                    <td>70</td>
+                    <td>70</td>
+                    <td>103</td>
+                </tr>
+                <tr>
+                    <td>71</td>
+                    <td>Lutetium</td>
+                    <td>175.0</td>
+                    <td>71</td>
+                    <td>71</td>
+                    <td>104</td>
+                </tr>
+                <tr>
+                    <td>72</td>
+                    <td>Hafnium</td>
+                    <td>178.49</td>
+                    <td>72</td>
+                    <td>72</td>
+                    <td>106</td>
+                </tr>
+                <tr>
+                    <td>73</td>
+                    <td>Tantalum</td>
+                    <td>180.94788</td>
+                    <td>73</td>
+                    <td>73</td>
+                    <td>108</td>
+                </tr>
+                <tr>
+                    <td>74</td>
+                    <td>Wolfram</td>
+                    <td>183.84</td>
+                    <td>74</td>
+                    <td>74</td>
+                    <td>110</td>
+                </tr>
+                <tr>
+                    <td>75</td>
+                    <td>Rhenium</td>
+                    <td>186.207</td>
+                    <td>75</td>
+                    <td>75</td>
+                    <td>111</td>
+                </tr>
+                <tr>
+                    <td>76</td>
+                    <td>Osmium</td>
+                    <td>190.23</td>
+                    <td>76</td>
+                    <td>76</td>
+                    <td>113</td>
+                </tr>
+                <tr>
+                    <td>77</td>
+                    <td>Iridium</td>
+                    <td>192.217</td>
+                    <td>77</td>
+                    <td>77</td>
+                    <td>115</td>
+                </tr>
+                <tr>
+                    <td>78</td>
+                    <td>Platinum</td>
+                    <td>195.084</td>
+                    <td>78</td>
+                    <td>78</td>
+                    <td>117</td>
+                </tr>
+                <tr>
+                    <td>79</td>
+                    <td>Gold</td>
+                    <td>196.966569</td>
+                    <td>79</td>
+                    <td>79</td>
+                    <td>118</td>
+                </tr>
+                <tr>
+                    <td>80</td>
+                    <td>Mercury</td>
+                    <td>200.592</td>
+                    <td>80</td>
+                    <td>80</td>
+                    <td>120</td>
+                </tr>
+                <tr>
+                    <td>81</td>
+                    <td>Thallium</td>
+                    <td>204.38</td>
+                    <td>81</td>
+                    <td>81</td>
+                    <td>121</td>
+                </tr>
+                <tr>
+                    <td>82</td>
+                    <td>Lead</td>
+                    <td>207.2</td>
+                    <td>82</td>
+                    <td>82</td>
+                    <td>123</td>
+                </tr>
+                <tr>
+                    <td>83</td>
+                    <td>Bismuth</td>
+                    <td>208.9804</td>
+                    <td>83</td>
+                    <td>83</td>
+                    <td>126</td>
+                </tr>
+                <tr>
+                    <td>84</td>
+                    <td>Polonium</td>
+                    <td>209</td>
+                    <td>84</td>
+                    <td>84</td>
+                    <td>127</td>
+                </tr>
+                <tr>
+                    <td>85</td>
+                    <td>Astatine</td>
+                    <td>210</td>
+                    <td>85</td>
+                    <td>85</td>
+                    <td>130</td>
+                </tr>
+                <tr>
+                    <td>86</td>
+                    <td>Radon</td>
+                    <td>222</td>
+                    <td>86</td>
+                    <td>86</td>
+                    <td>132</td>
+                </tr>
+                <tr>
+                    <td>87</td>
+                    <td>Francium</td>
+                    <td>223</td>
+                    <td>87</td>
+                    <td>87</td>
+                    <td>133</td>
+                </tr>
+                <tr>
+                    <td>88</td>
+                    <td>Radium</td>
+                    <td>226.0254</td>
+                    <td>88</td>
+                    <td>88</td>
+                    <td>136</td>
+                </tr>
+                <tr>
+                    <td>89</td>
+                    <td>Actinium</td>
+                    <td>227</td>
+                    <td>89</td>
+                    <td>89</td>
+                    <td>138</td>
+                </tr>
+                <tr>
+                    <td>90</td>
+                    <td>Thorium</td>
+                    <td>232.03805</td>
+                    <td>90</td>
+                    <td>90</td>
+                    <td>140</td>
+                </tr>
+                <tr>
+                    <td>91</td>
+                    <td>Protactinium</td>
+                    <td>231.03588</td>
+                    <td>91</td>
+                    <td>91</td>
+                    <td>143</td>
+                </tr>
+                <tr>
+                    <td>92</td>
+                    <td>Uranium</td>
+                    <td>238.02891</td>
+                    <td>92</td>
+                    <td>92</td>
+                    <td>145</td>
+                </tr>
+                <tr>
+                    <td>93</td>
+                    <td>Neptunium</td>
+                    <td>237</td>
+                    <td>93</td>
+                    <td>93</td>
+                    <td>148</td>
+                </tr>
+                <tr>
+                    <td>94</td>
+                    <td>Plutonium</td>
+                    <td>244</td>
+                    <td>94</td>
+                    <td>94</td>
+                    <td>150</td>
+                </tr>
+                <tr>
+                    <td>95</td>
+                    <td>Americium</td>
+                    <td>243</td>
+                    <td>95</td>
+                    <td>95</td>
+                    <td>152</td>
+                </tr>
+                <tr>
+                    <td>96</td>
+                    <td>Curium</td>
+                    <td>247</td>
+                    <td>96</td>
+                    <td>96</td>
+                    <td>155</td>
+                </tr>
+                <tr>
+                    <td>97</td>
+                    <td>Berkelium</td>
+                    <td>247</td>
+                    <td>97</td>
+                    <td>97</td>
+                    <td>157</td>
+                </tr>
+                <tr>
+                    <td>98</td>
+                    <td>Californium</td>
+                    <td>251</td>
+                    <td>98</td>
+                    <td>98</td>
+                    <td>159</td>
+                </tr>
+                <tr>
+                    <td>99</td>
+                    <td>Einsteinium</td>
+                    <td>252</td>
+                    <td>99</td>
+                    <td>99</td>
+                    <td>161</td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>Fermium</td>
+                    <td>257</td>
+                    <td>100</td>
+                    <td>100</td>
+                    <td>164</td>
+                </tr>
+                <tr>
+                    <td>101</td>
+                    <td>Mendelevium</td>
+                    <td>258</td>
+                    <td>101</td>
+                    <td>101</td>
+                    <td>165</td>
+                </tr>
+                <tr>
+                    <td>102</td>
+                    <td>Nobelium</td>
+                    <td>259</td>
+                    <td>102</td>
+                    <td>102</td>
+                    <td>167</td>
+                </tr>
+                <tr>
+                    <td>103</td>
+                    <td>Lawrencium</td>
+                    <td>262</td>
+                    <td>103</td>
+                    <td>103</td>
+                    <td>169</td>
+                </tr>
+                <tr>
+                    <td>104</td>
+                    <td<Rutherfordium</td>
+                    <td>267</td>
+                    <td>104</td>
+                    <td>104</td>
+                    <td>170</td>
+                </tr>
+                <tr>
+                    <td>105</td>
+                    <td>Dubnium</td>
+                    <td>270</td>
+                    <td>105</td>
+                    <td>105</td>
+                    <td>173</td>
+                </tr>
+                <tr>
+                    <td>106</td>
+                    <td>Seaborgium</td>
+                    <td>271</td>
+                    <td>106</td>
+                    <td>106</td>
+                    <td>175</td>
+                </tr>
+                <tr>
+                    <td>107</td>
+                    <td>Bohrium</td>
+                    <td>270</td>
+                    <td>107</td>
+                    <td>107</td>
+                    <td>177</td>
+                </tr>
+                <tr>
+                    <td>108</td>
+                    <td>Hassium</td>
+                    <td>277</td>
+                    <td>108</td>
+                    <td>108</td>
+                    <td>178</td>
+                </tr>
+                <tr>
+                    <td>109</td>
+                    <td>Meitnerium</td>
+                    <td>278</td>
+                    <td>109</td>
+                    <td>109</td>
+                    <td>180</td>
+                </tr>
+                <tr>
+                    <td>110</td>
+                    <td>Darmstadtium</td>
+                    <td>281</td>
+                    <td>110</td>
+                    <td>110</td>
+                    <td>181</td>
+                </tr>
+                <tr>
+                    <td>111</td>
+                    <td>Roentgenium</td>
+                    <td>280</td>
+                    <td>111</td>
+                    <td>111</td>
+                    <td>183</td>
+                </tr>
+                <tr>
+                    <td>112</td>
+                    <td>Copernicium</td>
+                    <td>285</td>
+                    <td>112</td>
+                    <td>112</td>
+                    <td>185</td>
+                </tr>
+                <tr>
+                    <td>113</td>
+                    <td>Nihonium</td>
+                    <td>284</td>
+                    <td>113</td>
+                    <td>113</td>
+                    <td>187</td>
+                </tr>
+                <tr>
+                    <td>114</td>
+                    <td>Flerovium</td>
+                    <td>289</td>
+                    <td>114</td>
+                    <td>114</td>
+                    <td>188</td>
+                </tr>
+                <tr>
+                    <td>115</td>
+                    <td>Mcnium</td>
+                    <td>288</td>
+                    <td>115</td>
+                    <td>115</td>
+                    <td>190</td>
+                </tr>
+                <tr>
+                    <td>116</td>
+                    <td>Livermorium</td>
+                    <td>293</td>
+                    <td>116</td>
+                    <td>116</td>
+                    <td>191</td>
+                </tr>
+                <tr>
+                    <td>117</td>
+                    <td>Tennessine</td>
+                    <td>294</td>
+                    <td>117</td>
+                    <td>117</td>
+                    <td>193</td>
+                </tr>                                
+                <tr>
+                    <td>118</td>
+                    <td>Oganesson</td>
+                    <td>294</td>
+                    <td>118</td>
+                    <td>118</td>
+                    <td>176</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>Copyright &copy;  Sarvpedia. All Rights Reserved.</p>
+    </footer>
+    <script>
+        // Function to check if the device is in landscape mode
+        function checkOrientation() {
+            var rotateMessage = document.getElementById('rotateMessage');
+            if (window.innerWidth > window.innerHeight) {
+                // Hide message in landscape mode
+                rotateMessage.style.display = 'none';
+            } else {
+                // Show message in portrait mode
+                rotateMessage.style.display = 'block';
+            }
+        }
+    
+        // Check orientation on page load
+        window.onload = checkOrientation;
+    
+        // Check orientation on window resize (when user rotates the device)
+        window.onresize = checkOrientation;
+    </script>    
+</body>
+</html>
