@@ -59,6 +59,8 @@
             flex: 1;
             max-width: 720px;
             position: relative;
+            display: flex;
+            align-items: center;
         }
 
         .search-bar input {
@@ -377,6 +379,30 @@
         .detail-images img:hover {
             transform: scale(1.05);
         }
+        .clear-btn {
+            position: absolute;
+            right: 8px;
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 50%;
+            background-color: #bdc1c6;
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            cursor: pointer;
+            display: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background-color: #a0a5aa;
+        }
+
+        .clear-btn.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -384,6 +410,7 @@
         <div class="header-logo">Sarv Store</div>
         <div class="search-bar">
             <input type="text" placeholder="Search apps..." id="searchInput">
+            <button class="clear-btn" id="clearBtn">×</button>
         </div>
     </div>
 
@@ -514,7 +541,20 @@
         });
 
         const searchInput = document.getElementById('searchInput');
-        searchInput.addEventListener('input', performSearch);
+        const clearBtn = document.getElementById('clearBtn');
+
+        searchInput.addEventListener('input', function() {
+            performSearch();
+            clearBtn.classList.toggle('active', this.value.length > 0);
+        });
+
+        clearBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            clearBtn.classList.remove('active');
+            const activeTab = document.querySelector('.tab.active').getAttribute('data-tab');
+            renderCards(storeData[activeTab], `${activeTab}Grid`);
+            document.querySelector('.section.active .no-results').style.display = 'none';
+        });
 
         function performSearch() {
             const query = searchInput.value.toLowerCase();
