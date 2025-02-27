@@ -40,11 +40,14 @@
             width: 90%;
             max-width: 600px;
             position: relative;
+            display: flex;
+            align-items: center;
         }
 
         #searchBar {
             width: 100%;
             padding: 15px;
+            padding-right: 45px; /* Space for clear button */
             border: none;
             border-radius: 25px;
             font-size: 1.1em;
@@ -60,6 +63,31 @@
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
+        .clear-btn {
+            position: absolute;
+            right: 10px;
+            width: 24px;
+            height: 24px;
+            border: none;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #fff;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            cursor: pointer;
+            display: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .clear-btn:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .clear-btn.active {
+            display: block;
+        }
+
         #suggestions {
             position: absolute;
             top: 100%;
@@ -72,6 +100,7 @@
             color: #333;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             display: none;
+            z-index: 1000;
         }
 
         #suggestions div {
@@ -149,8 +178,9 @@
 
         @media (max-width: 768px) {
             header h1 { font-size: 2em; }
-            #searchBar { font-size: 1em; padding: 12px; }
+            #searchBar { font-size: 1em; padding: 12px; padding-right: 40px; }
             th, td { padding: 8px; font-size: 0.9em; }
+            .clear-btn { right: 8px; }
         }
     </style>
 </head>
@@ -161,6 +191,7 @@
 
     <div class="search-container">
         <input type="text" id="searchBar" placeholder="Search elements...">
+        <button class="clear-btn" id="clearBtn">×</button>
         <div id="suggestions"></div>
     </div>
 
@@ -309,10 +340,11 @@
         ];
 
         const searchBar = document.getElementById("searchBar");
+        const clearBtn = document.getElementById("clearBtn");
         const suggestions = document.getElementById("suggestions");
         const tableBody = document.getElementById("elementTable");
 
-        // Populate table initially
+        // Populate table
         function populateTable(data) {
             tableBody.innerHTML = "";
             data.forEach(el => {
@@ -332,11 +364,12 @@
             });
         }
 
+        // Initial population
         populateTable(elements);
 
         // Search and filter with suggestions
-        searchBar.addEventListener("input", () => {
-            const query = searchBar.value.toLowerCase();
+        searchBar.addEventListener("input", function() {
+            const query = this.value.toLowerCase();
             const filtered = elements.filter(el => 
                 el.name.toLowerCase().includes(query) || 
                 el.atomicNo.toString().includes(query)
@@ -344,6 +377,9 @@
 
             // Update table
             populateTable(filtered);
+
+            // Show/hide clear button
+            clearBtn.classList.toggle("active", this.value.length > 0);
 
             // Show suggestions
             if (query.length > 0) {
@@ -356,6 +392,7 @@
                         searchBar.value = el.name;
                         populateTable([el]);
                         suggestions.style.display = "none";
+                        clearBtn.classList.add("active");
                     });
                     suggestions.appendChild(suggestion);
                 });
@@ -364,9 +401,18 @@
             }
         });
 
+        // Clear button functionality
+        clearBtn.addEventListener("click", () => {
+            searchBar.value = "";
+            clearBtn.classList.remove("active");
+            suggestions.style.display = "none";
+            populateTable(elements);
+            searchBar.focus();
+        });
+
         // Hide suggestions when clicking outside
         document.addEventListener("click", (e) => {
-            if (!searchBar.contains(e.target) && !suggestions.contains(e.target)) {
+            if (!searchBar.contains(e.target) && !suggestions.contains(e.target) && !clearBtn.contains(e.target)) {
                 suggestions.style.display = "none";
             }
         });
