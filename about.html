@@ -4,323 +4,401 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvwigyan - About Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #00b4d8;
+            --dark-bg: #0f172a;
+            --light-text: #f8f9fa;
+            --menu-hover-bg: rgba(255, 255, 255, 0.1);
+            --gradient-bg: linear-gradient(135deg, #1e3a8a, #00b4d8);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--gradient-bg);
+            padding: 1.5rem 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--light-text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .logo::before {
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-image: url('Resources/Sarvwigyan.png');
+            background-size: cover;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-menu a:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 8rem 2rem 5rem;
+            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--dark-bg));
+        }
+
+        .section-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .section-container h1 {
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .intro-text {
+            font-size: 1.3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #d1d5db;
+        }
+
+        .ab-section {
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .ab-section:hover {
+            transform: translateY(-5px);
+        }
+
+        .ab-section h2 {
+            font-size: 1.9rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .ab-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent-color);
+        }
+
+        .ab-section h3 {
+            font-size: 1.5rem;
+            color: var(--light-text);
+            margin: 1rem 0 0.75rem;
+        }
+
+        .ab-section p {
+            font-size: 1.1rem;
+            color: #d1d5db;
+            margin-bottom: 1rem;
+        }
+
+        .ab-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .ab-section ul li {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #d1d5db;
+        }
+
+        .ab-section ul li::before {
+            content: "➤";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 1rem;
+        }
+
+        .ab-section i {
+            font-style: italic;
+            color: #a1a1aa;
+        }
+
+        .ab-section a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .ab-section a:hover {
+            color: #0288a0;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            font-size: 1rem;
+            color: #d1d5db;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--accent-color);
+            color: var(--light-text);
+            padding: 0.8rem;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .section-container {
+                padding: 2rem;
+            }
+
+            .section-container h1 {
+                font-size: 2.2rem;
+            }
+
+            .intro-text {
+                font-size: 1.1rem;
+            }
+
+            .ab-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .ab-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .ab-section p, .ab-section ul li {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
-<style>
-:root {
-    --primary-color: rgba(0, 0, 0, 0.5);
-    --accent-color: #00b4d8;
-    --dark-bg: #1a232e;
-    --light-text: #f8f9fa;
-    --menu-hover-bg: rgba(255, 255, 255, 0.05);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-body {
-    line-height: 1.6;
-    background-color: var(--dark-bg);
-    color: var(--light-text);
-}
-
-.navbar {
-    background-color: rgba(26, 35, 46, 0.95);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-}
-
-.logo {
-    color: var(--light-text);
-    font-size: 1.8rem;
-    font-weight: 700;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.logo::before {
-    content: '';
-    display: inline-block;
-    width: 24px;
-    height: 24px;
-    background-image: url('Sarvwigyan.png');
-    background-size: cover;
-    background-position: center;
-}
-
-.nav-menu {
-    display: flex;
-    gap: 0.5rem;
-    list-style: none;
-}
-
-.nav-menu > li {
-    position: relative;
-}
-
-.nav-menu a {
-    color: var(--light-text);
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    padding: 1rem 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    border-radius: 4px;
-    position: relative;
-}
-
-.nav-menu a:hover {
-    background-color: var(--menu-hover-bg);
-    color: var(--accent-color);
-}
-
-/* Active menu item styling */
-.nav-menu a.active {
-    color: var(--accent-color);
-    background-color: var(--menu-hover-bg);
-}
-
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .nav-menu {
-        position: fixed;
-        left: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: var(--dark-bg);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-    }
-
-    .nav-menu.active {
-        left: 0;
-    }
-
-    .hamburger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .hamburger .bar {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px auto;
-        background-color: var(--light-text);
-        transition: all 0.3s ease;
-    }
-}
-
-.content-section {
-    padding: 5rem 2rem;
-    background: #f8f9fa;
-    font-size: 1.2rem;
-}
-
-.section-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: #f8f9fa;
-    color: black;
-}
-
-.ab-section {
-    margin-bottom: 20px;
-}
-
-.ab-section h2 {
-    border-bottom: 2px solid #2c3e50;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
-    font-size: 1.8em;
-}
-
-.ab-section p {
-    text-align: justify;
-}
-</style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a style="cursor: pointer;" onclick="window.open('index.html', '_self')"" class="logo">Sarvwigyan</a>
+            <a href="index.html" class="logo">Sarvwigyan</a>
             <ul class="nav-menu">
-                <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')"><b>🏠︎</b> Home</a></li>
+                <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')"><i class="fas fa-home"></i> Home</a></li>
             </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
         </div>
     </nav>
 
     <!-- Main Content Sections -->
     <section class="content-section" id="about">
         <div class="section-container">
-            <h1 style="text-align: center; padding-top: 2%;">Sarvwigyan - About Page</h1>
-            <br>
-            <h3 style="text-align: center;">About Us</h3>
+            <h1>About Sarvwigyan</h1>
+            <p class="intro-text">Learn about our mission, vision, and commitment to making knowledge accessible to all.</p>
+
             <div class="ab-section">
-                <hr>
                 <h2>Introduction</h2>
                 <p>
-                    Sarvwigyan is more than just a platform; it is a movement dedicated to the pursuit of universal knowledge. Rooted in the belief that wisdom belongs to all, Sarvwigyan is committed to breaking barriers, fostering intellectual curiosity, and making education accessible to every individual, regardless of background or resources. We envision a world where learning is limitless, curiosity is encouraged, and innovation thrives through the power of shared knowledge.
+                    Sarvwigyan is more than just a platform—it’s a movement dedicated to the pursuit of universal knowledge. We believe wisdom belongs to everyone, and we’re committed to breaking down barriers, sparking intellectual curiosity, and ensuring education is accessible to all, regardless of background or resources. Our vision is a world where learning knows no limits, curiosity is celebrated, and innovation thrives through shared knowledge.
                 </p>
-                <hr>
             </div>
 
             <div class="ab-section">
                 <h2>Our Mission</h2>
-                <i>
-                    At Sarvwigyan, our mission is simple yet profound:
-                </i>
+                <p><i>At Sarvwigyan, our mission is simple yet profound:</i></p>
                 <ul>
-                    <li>To provide free, high-quality knowledge to everyone.</li>
-                    <li>To inspire and nurture intellectual curiosity among learners of all ages.</li>
-                    <li>To create an ecosystem where scientific temper, technological advancements, and critical thinking are at the forefront.</li>
-                    <li>To bridge the gap between theoretical learning and practical implementation through interactive tools, discussions, and hands-on projects.</li>
+                    <li>Provide free, high-quality knowledge to everyone.</li>
+                    <li>Inspire and nurture intellectual curiosity among learners of all ages.</li>
+                    <li>Create an ecosystem where scientific temper, technological advancements, and critical thinking lead the way.</li>
+                    <li>Bridge the gap between theory and practice with interactive tools, discussions, and hands-on projects.</li>
                 </ul>
-                <hr>
             </div>
 
             <div class="ab-section">
                 <h2>Our Vision</h2>
                 <p>
-                    We believe that knowledge is the cornerstone of progress. Our vision is to empower individuals with the information and skills they need to make meaningful contributions to science, technology, and society. By removing barriers to education, we aspire to build a world where innovation and wisdom are not confined to a privileged few but are accessible to all.
+                    Knowledge is the foundation of progress. We aim to empower individuals with the information and skills needed to contribute meaningfully to science, technology, and society. By removing educational barriers, we strive to create a world where innovation and wisdom are accessible to everyone—not just a privileged few.
                 </p>
             </div>
 
             <div class="ab-section">
                 <h2>Core Values</h2>
                 <ul>
-                    <li><b>Universal Accessibility –</b> Knowledge should be free and available to everyone, everywhere.</li>
-                    <li><b>Scientific Integrity –</b> We emphasize accurate, research-backed, and unbiased knowledge.</li>
-                    <li><b>Innovation & Creativity –</b> We promote new ideas and foster environments where innovation can flourish.</li>
-                    <li><b>Empowerment through Education –</b> We believe that an educated mind is the most powerful tool for societal transformation.</li>
-                    <li><b>Community-Driven Learning –</b> Learning is best achieved collectively, through shared insights and collaborative exploration.</li>
+                    <li><b>Universal Accessibility:</b> Knowledge should be free and available to all, everywhere.</li>
+                    <li><b>Scientific Integrity:</b> We prioritize accurate, research-backed, and unbiased information.</li>
+                    <li><b>Innovation & Creativity:</b> We encourage new ideas and environments where innovation can flourish.</li>
+                    <li><b>Empowerment through Education:</b> An educated mind is the most powerful tool for societal change.</li>
+                    <li><b>Community-Driven Learning:</b> We believe learning is best when it’s collective, built on shared insights and collaboration.</li>
                 </ul>
-                <hr>
             </div>
 
             <div class="ab-section">
                 <h2>What We Offer</h2>
-                <h3>1. Educational Content</h3>
+                <h3>Educational Content</h3>
                 <ul>
-                    <li><b>Articles & Research Papers:</b> In-depth insights into various fields of science, technology, and beyond.</li>
-                    <li><b>Interactive Courses:</b> Structured modules to help learners master complex topics.</li>
-                    <li><b>Infographics & Visual Learning:</b> Engaging graphics and videos to simplify intricate concepts.</li>
-                    <li><b>Latest Breakthroughs:</b> Stay updated with cutting-edge scientific advancements.</li>
+                    <li><b>Articles & Research Papers:</b> In-depth insights into science, technology, and more.</li>
+                    <li><b>Interactive Courses:</b> Structured modules to master complex topics.</li>
+                    <li><b>Infographics & Visual Learning:</b> Engaging visuals to simplify intricate concepts.</li>
+                    <li><b>Latest Breakthroughs:</b> Updates on cutting-edge scientific advancements.</li>
                 </ul>
-                <h3>2. Technology & Innovation</h3>
+                <h3>Technology & Innovation</h3>
                 <ul>
-                    <li><b>AI & Machine Learning:</b> Deep dive into the future of artificial intelligence.</li>
-                    <li><b>Quantum Technology:</b> Explore the endless possibilities of quantum mechanics.</li>
-                    <li><b>Biotechnology & Medical Sciences:</b> Understand the next frontiers in healthcare and genetics.</li>
-                    <li><b>Robotics & Automation:</b> Learn how automation is shaping the future.</li>
+                    <li><b>AI & Machine Learning:</b> Explore the future of artificial intelligence.</li>
+                    <li><b>Quantum Technology:</b> Dive into the possibilities of quantum mechanics.</li>
+                    <li><b>Biotechnology & Medical Sciences:</b> Discover advancements in healthcare and genetics.</li>
+                    <li><b>Robotics & Automation:</b> Learn how automation is shaping tomorrow.</li>
                 </ul>
-                <h3>3. Open-Source Learning Tools</h3>
+                <h3>Open-Source Learning Tools</h3>
                 <ul>
-                    <li><b>Simulations & Models:</b> Hands-on projects for a practical understanding of scientific principles.</li>
-                    <li><b>Coding & Development Resources:</b> Programming guides and open-source software for tech enthusiasts.</li>
-                    <li><b>DIY Projects & Experiments:</b> Step-by-step guides for building tech-driven innovations at home.</li>
+                    <li><b>Simulations & Models:</b> Hands-on projects for practical understanding.</li>
+                    <li><b>Coding & Development Resources:</b> Guides and software for tech enthusiasts.</li>
+                    <li><b>DIY Projects & Experiments:</b> Step-by-step guides for tech-driven innovations.</li>
                 </ul>
-                <hr>
             </div>
 
             <div class="ab-section">
                 <h2>Our Commitment to Society</h2>
                 <p>
-                    Sarvwigyan is not just about learning—it is about creating impact. By making knowledge universally accessible, we aim to drive:
+                    Sarvwigyan isn’t just about learning—it’s about impact. By making knowledge universally accessible, we aim to:
                 </p>
                 <ul>
-                    <li><b>Youth Empowerment:</b> Encouraging young minds to explore, create, and innovate.</li>
-                    <li><b>Technological Advancements:</b> Helping individuals and organizations leverage knowledge for progress.</li>
-                    <li><b>Sustainable Development:</b> Aligning our mission with the broader goal of global betterment through science and technology.</li>
-                    <li><b>Ethical AI & Innovation:</b> Ensuring that the future of technology remains humane, ethical, and sustainable.</li>
+                    <li><b>Empower Youth:</b> Encourage young minds to explore, create, and innovate.</li>
+                    <li><b>Advance Technology:</b> Equip individuals and organizations for progress.</li>
+                    <li><b>Promote Sustainability:</b> Align with global betterment through science and tech.</li>
+                    <li><b>Ensure Ethical Innovation:</b> Keep technology humane, ethical, and sustainable.</li>
                 </ul>
-                <hr>
             </div>
 
             <div class="ab-section">
                 <h2>Join the Movement</h2>
                 <p>
-                    Sarvwigyan is not just an initiative; it is a revolution of knowledge. Whether you are a student, researcher, scientist, or an enthusiast with a thirst for knowledge, there is a place for you here.</p>
-                <p><b>✅Subscribe to Our YouTube Channel:<a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt" style="color: rgb(177, 26, 26); text-decoration: underline;"><i class="fa-brands fa-youtube fa-beat" style="text-decoration: none;"></i> Sarvwigyan Youtube</a></b></p>
-                <p></p><b>✅Join our Facebook channel:<a href="https://www.facebook.com/profile.php?id=61570026324353" style="color: rgb(40, 40, 141); text-decoration: underline;"><i class="fa-brands fa-facebook fa-beat"></i> Sarvwigyan Facebook Page</a></b></p>
+                    Sarvwigyan is a revolution of knowledge. Whether you’re a student, researcher, scientist, or enthusiast, there’s a place for you here. Connect with us:
+                </p>
+                <p><b>Subscribe to Our YouTube Channel:</b> <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt"><i class="fa-brands fa-youtube fa-beat"></i> Sarvwigyan Youtube</a></p>
+                <p><b>Join Our Facebook Page:</b> <a href="https://www.facebook.com/profile.php?id=61570026324353"><i class="fa-brands fa-facebook fa-beat"></i> Sarvwigyan Facebook</a></p>
                 <ul>
-                    <li><b>Engage in Discussions:</b> Join our forums and collaborative learning sessions.</li>
-                    <li><b>Contribute & Collaborate:</b> Share your knowledge, ideas, and research with the world.</li>
-                    <li><b>Stay Updated:</b>Follow us on social media and never miss an insight.</li>
+                    <li><b>Engage:</b> Join our forums and learning sessions.</li>
+                    <li><b>Contribute:</b> Share your knowledge and ideas.</li>
+                    <li><b>Stay Updated:</b> Follow us for the latest insights.</li>
                 </ul>
-                <hr>
             </div>
 
             <div class="ab-section">
                 <h2>Final Words: Knowledge Without Limits</h2>
                 <p>
-                    At Sarvwigyan, we believe in the boundless power of knowledge. With the right information, minds are liberated, societies evolve, and the future is transformed. Join us in this journey of enlightenment, where wisdom is free, innovation is limitless, and learning never stops.
+                    At Sarvwigyan, we believe in the boundless power of knowledge. With the right information, minds are freed, societies evolve, and the future transforms. Join us on this journey of enlightenment—where wisdom is free, innovation is limitless, and learning never ends.
                 </p>
-                <hr>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <hr>
-    <footer class="industrial-footer">
-        <div class="footer-container">
-            <p style="text-align: center;"> &copy; Sarvwigyan. All rights reserved.</p>
-            <span style="font-size: 100%; color: #ffffff; padding-left: 5%;" >
-                <a style="cursor: pointer;" onclick="window.open('https://fontawesome.com/')"><i class="fa-solid fa-font-awesome fa-beat fa-lg" style="color: #0ea493;"></i></a> Icons by <a href="https://fontawesome.com/" target="_blank" style="color: #ffffff; text-decoration: underline;">Font Awesome</a>
-            </span>
-        </div>
+    <footer>
+        <p>© 2025 Sarvwigyan. All rights reserved.</p>
     </footer>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
 
-    // Mobile menu toggle
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        document.body.classList.toggle('no-scroll');
-    });
-
-    // Close menus when clicking outside
-    document.addEventListener('click', (e) => {
-        if (!e.target.closest('.nav-container')) {
-            // Close mobile menu
-            if (window.innerWidth <= 768) {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('active');
+    <script>
+        // Show/hide Back to Top button based on scroll position
+        window.onscroll = function() {
+            const backToTop = document.getElementById('backToTop');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
             }
-        }
-    });
-});
-</script>
+        };
+
+        // Scroll to top when button is clicked
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
