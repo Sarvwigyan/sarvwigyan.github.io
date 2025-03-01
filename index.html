@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sarvwigyan</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -101,7 +100,8 @@
             transform: translateY(-2px);
         }
 
-        .dropdown-menu {
+        .dropdown-menu,
+        .profile-menu {
             display: none;
             position: absolute;
             background: var(--primary-color);
@@ -113,22 +113,33 @@
             min-width: 220px;
             padding: 0.5rem 0;
             z-index: 1000;
+            list-style: none; /* Removes bullets */
         }
 
-        .dropdown-menu.active {
+        .dropdown-menu.active,
+        .profile-menu.active {
             display: block;
         }
 
-        .dropdown-menu a {
+        .dropdown-menu a,
+        .profile-menu a {
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
+            display: block; /* Ensures full clickable area */
         }
 
-        .profile-dropdown .profile-container {
+        .profile-container {
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-container:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
         }
 
         .profile-pic {
@@ -137,19 +148,8 @@
             border-radius: 50%;
         }
 
-        .profile-menu {
-            display: none;
-            position: absolute;
-            background: var(--primary-color);
-            border-radius: 8px;
-            top: 100%;
-            right: 0;
-            min-width: 180px;
-            z-index: 1000;
-        }
-
-        .profile-menu.active {
-            display: block;
+        .profile-name {
+            margin-left: 0.5rem;
         }
 
         .hamburger {
@@ -431,21 +431,21 @@
                 <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')"><i class="fas fa-home"></i> Home</a></li>
                 <li class="dropdown"><a style="cursor: pointer;"><i class="fas fa-globe"></i> Explore</a>
                     <ul class="dropdown-menu">
-                        <hr>
-                        <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')"><i class="fas fa-book"></i> Sarvpedia</a>
-                        <a style="cursor: pointer;" onclick="window.open('Sarv_Store.html','_blank')"><i class="fas fa-store"></i> Sarv Store</a>
-                        <a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-atom"></i> Squantum</a>
-                        <a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-search"></i> Shodh</a>
-                        <hr>
+                        <li><a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')"><i class="fas fa-book"></i> Sarvpedia</a></li>
+                        <li><a style="cursor: pointer;" onclick="window.open('Sarv_Store.html','_blank')"><i class="fas fa-store"></i> Sarv Store</a></li>
+                        <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-atom"></i> Squantum</a></li>
+                        <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-search"></i> Shodh</a></li>
+
+
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a style="cursor: pointer;"><i class="fas fa-headset"></i> Support</a>
                     <ul class="dropdown-menu">
-                        <hr>
-                        <a style="cursor: pointer;" onclick="window.open('about.html', '_self')"><i class="fas fa-info-circle"></i> About Page</a>
-                        <a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')"><i class="fas fa-envelope"></i> Message/Feedback</a>
-                        <hr>
+                        <li><a style="cursor: pointer;" onclick="window.open('about.html', '_self')"><i class="fas fa-info-circle"></i> About Page</a></li>
+                        <li><a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')"><i class="fas fa-envelope"></i> Message/Feedback</a></li>
+
+
                     </ul>
                 </li>
                 <li class="dropdown"><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-users"></i> Community</a></li>
@@ -545,23 +545,42 @@
         function updateNav() {
             const user = JSON.parse(localStorage.getItem('user'));
             const accountItem = document.getElementById('account-item');
+            
             if (user) {
                 accountItem.innerHTML = `
-                    <div class="profile-dropdown">
-                        <div class="profile-container">
+                    <div class="dropdown profile-dropdown">
+                        <a class="profile-container" style="cursor: pointer;">
                             <img src="${user.picture}" alt="Profile" class="profile-pic">
                             <span class="profile-name">${user.name}</span>
-                        </div>
-                        <ul class="profile-menu">
-                            <hr>
-                            <li><a style="cursor: pointer;" onclick="showdevMessage()">Profile</a></li>
-                            <li><button onclick="logout()">Logout</button></li>
-                            <hr>
+                        </a>
+                        <ul class="profile-menu dropdown-menu">
+                            <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-user-circle"></i> Profile</a></li>
+                            <li><a style="cursor: pointer;" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+
+
                         </ul>
                     </div>
                 `;
+                
+                // Add event listener for the new dropdown
+                const profileContainer = accountItem.querySelector('.profile-container');
+                const profileMenu = accountItem.querySelector('.profile-menu');
+                
+                if (profileContainer && profileMenu) {
+                    profileContainer.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const isOpen = profileMenu.classList.contains('active');
+                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
+                        if (!isOpen) profileMenu.classList.add('active');
+                    });
+                }
             } else {
-                accountItem.innerHTML = `<a style="cursor: pointer;" onclick="window.open('login.html','_self')"><i class="fas fa-user"></i> Account</a>`;
+                accountItem.innerHTML = `
+                    <a style="cursor: pointer;" onclick="window.open('login.html','_self')">
+                        <i class="fas fa-user"></i> Account
+                    </a>
+                `;
             }
         }
 
@@ -632,28 +651,15 @@
                         e.preventDefault();
                         const isOpen = submenu.classList.contains('active');
                         document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-                        document.querySelectorAll('.profile-menu').forEach(s => s.classList.remove('active'));
+
                         if (!isOpen) submenu.classList.add('active');
                     });
                 }
             });
-
-            const profileContainer = document.querySelector('.profile-container');
-            const profileMenu = document.querySelector('.profile-menu');
-            if (profileContainer && profileMenu) {
-                profileContainer.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    const isOpen = profileMenu.classList.contains('active');
-                    document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-                    document.querySelectorAll('.profile-menu').forEach(s => s.classList.remove('active'));
-                    if (!isOpen) profileMenu.classList.add('active');
-                });
-            }
-
-            document.addEventListener('click', (e) => {
+document.addEventListener('click', (e) => {
                 if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
-                    document.querySelectorAll('.profile-menu').forEach(submenu => submenu.classList.remove('active'));
+
                 }
             });
 
@@ -673,4 +679,3 @@
         };
     </script>
 </body>
-</html>
