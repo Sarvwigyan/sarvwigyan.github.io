@@ -8,6 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- iOS support -->
+    <link rel="apple-touch-startup-image" href="Resources/Sarvwigyan.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
     <style>
         :root {
             --primary-color: #1e3a8a;
@@ -30,6 +33,53 @@
             color: var(--light-text);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        /* Intro Screen Styles */
+        .intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--dark-bg);
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 1;
+            transition: opacity 0.5s ease;
+        }
+
+        .intro-screen.active {
+            display: flex; /* Shown only when active */
+        }
+
+        .intro-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .intro-logo {
+            width: 150px;
+            height: 150px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Hide main content initially only in standalone mode */
+        body.standalone:not(.loaded) .navbar,
+        body.standalone:not(.loaded) .hero-slider,
+        body.standalone:not(.loaded) .featured-section,
+        body.standalone:not(.loaded) footer,
+        body.standalone:not(.loaded) .back-to-top {
+            display: none;
         }
 
         /* Navbar */
@@ -115,7 +165,7 @@
             min-width: 220px;
             padding: 0.5rem 0;
             z-index: 1000;
-            list-style: none; /* Removes bullets */
+            list-style: none;
         }
 
         .dropdown-menu.active,
@@ -127,7 +177,7 @@
         .profile-menu a {
             padding: 0.75rem 1.5rem;
             border-radius: 5px;
-            display: block; /* Ensures full clickable area */
+            display: block;
         }
 
         .profile-container {
@@ -425,6 +475,12 @@
     </style>
 </head>
 <body>
+    <!-- Intro Screen Overlay -->
+    <div id="intro-screen" class="intro-screen">
+        <img src="Resources/Sarvwigyan.png" alt="Sarvwigyan Logo" class="intro-logo">
+        <h1>Sarvwigyan</h1>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -437,8 +493,6 @@
                         <li><a style="cursor: pointer;" onclick="window.open('https://sarvwigyan.github.io/sarvstore/','_blank')"><i class="fas fa-store"></i> Sarv Store</a></li>
                         <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-atom"></i> Squantum</a></li>
                         <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-search"></i> Shodh</a></li>
-
-
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -446,8 +500,6 @@
                     <ul class="dropdown-menu">
                         <li><a style="cursor: pointer;" onclick="window.open('about.html', '_self')"><i class="fas fa-info-circle"></i> About Page</a></li>
                         <li><a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')"><i class="fas fa-envelope"></i> Message/Feedback</a></li>
-
-
                     </ul>
                 </li>
                 <li class="dropdown"><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-users"></i> Community</a></li>
@@ -558,13 +610,10 @@
                         <ul class="profile-menu dropdown-menu">
                             <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-user-circle"></i> Profile</a></li>
                             <li><a style="cursor: pointer;" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-
-
                         </ul>
                     </div>
                 `;
                 
-                // Add event listener for the new dropdown
                 const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
                 
@@ -634,6 +683,28 @@
         slider.addEventListener('mouseleave', restartAutoSlide);
 
         document.addEventListener('DOMContentLoaded', function() {
+            // Detect standalone mode (PWA launched from home screen)
+            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
+                                 ('standalone' in window.navigator && window.navigator.standalone);
+
+            const introScreen = document.getElementById('intro-screen');
+            const body = document.body;
+
+            if (isStandalone) {
+                // Add 'standalone' class to body and show intro screen
+                body.classList.add('standalone');
+                introScreen.classList.add('active');
+
+                // Fade out intro screen after 3 seconds
+                setTimeout(() => {
+                    introScreen.classList.add('hidden');
+                    body.classList.add('loaded');
+                }, 1100); // 3-second intro screen
+            } else {
+                // In browser mode, skip intro screen and show content immediately
+                body.classList.add('loaded');
+            }
+
             updateNav();
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
@@ -653,15 +724,14 @@
                         e.preventDefault();
                         const isOpen = submenu.classList.contains('active');
                         document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-
                         if (!isOpen) submenu.classList.add('active');
                     });
                 }
             });
+
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
-
                 }
             });
 
@@ -680,4 +750,6 @@
             }
         };
     </script>
+    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91aa8f51c95653e6',t:'MTc0MTAxOTg2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
+</html>
