@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <style>
         /* Global Styles */
+        * {
+            box-sizing: border-box;
+        }
+
         body, html {
             margin: 0;
             padding: 0;
@@ -17,11 +21,18 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            overflow: hidden;
+            min-height: 100vh; /* Allow content to extend beyond viewport */
+            overflow: auto; /* Enable scrolling */
+            -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
+            scrollbar-width: none; /* Hide scrollbar in Firefox */
         }
 
-        /* Particle Effects */
+        /* Hide scrollbar in WebKit browsers (Chrome, Safari, Edge) */
+        body::-webkit-scrollbar, html::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Enhanced Particle Effects */
         .particles {
             position: fixed;
             top: 0;
@@ -34,128 +45,159 @@
 
         .particle {
             position: absolute;
-            background-color: #4285F4;
+            background: radial-gradient(circle, #4285F4, transparent);
             border-radius: 50%;
-            opacity: 0.5;
+            opacity: 0.7;
+            animation: float 12s infinite ease-in-out;
         }
 
-        .particle:nth-child(1) { width: 5px; height: 5px; left: 10%; top: 20%; animation: moveHorizontal 15s infinite linear; }
-        .particle:nth-child(2) { width: 8px; height: 8px; left: 30%; top: 50%; animation: moveVertical 20s infinite linear; }
-        .particle:nth-child(3) { width: 12px; height: 12px; left: 70%; top: 30%; animation: moveDiagonal 25s infinite linear; }
-        .particle:nth-child(4) { width: 6px; height: 6px; left: 50%; top: 10%; animation: moveHorizontal 18s infinite linear; }
-        .particle:nth-child(5) { width: 10px; height: 10px; left: 20%; top: 80%; animation: moveDiagonal 22s infinite linear; }
+        .particle:nth-child(odd) { animation-duration: 15s; }
+        .particle:nth-child(even) { animation-duration: 18s; }
 
-        @keyframes moveHorizontal {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(100vw); }
-        }
-
-        @keyframes moveVertical {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(100vh); }
-        }
-
-        @keyframes moveDiagonal {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(100vw, 100vh); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-25vh) translateX(15vw) scale(1.2); }
         }
 
         /* Login Container */
         .login-container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-            padding: 40px 50px;
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
+            padding: 50px;
+            border-radius: 20px;
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             text-align: center;
             position: relative;
             z-index: 1;
-            animation: fadeInUp 0.5s ease-out;
+            animation: fadeInScale 0.8s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .login-container:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
         }
 
-        .login-container h1, .login-container p {
-            color: white;
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .login-container h1 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            color: #fff;
+            font-size: 34px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
         }
 
         .login-container p {
-            margin-bottom: 30px;
+            color: #ddd;
+            font-size: 18px;
+            margin-bottom: 40px;
         }
 
         /* Logo Styling */
         .logo {
             width: 120px;
             height: 120px;
+            margin: 0 auto 30px;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 0 auto 20px;
+            justify-content: center;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.2), transparent);
+            border-radius: 50%;
+            animation: glow 3s infinite ease-in-out;
         }
 
         .logo i {
             color: #4285F4;
-            text-shadow: 0 0 10px #4285F4;
             font-size: 60px;
+            text-shadow: 0 0 20px rgba(66, 133, 244, 0.6);
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(66, 133, 244, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(66, 133, 244, 0.6); }
         }
 
         /* Google Sign-In Button */
         .g_id_signin {
-            margin-bottom: 20px;
+            margin: 0 auto;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
+        }
+
+        .g_id_signin:hover {
+            transform: scale(1.15);
         }
 
         /* Footer */
         .footer {
-            margin-top: 20px;
-            color: #aaa;
-            font-size: 12px;
+            margin-top: 40px;
+            color: #bbb;
+            font-size: 14px;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
         }
 
         /* Responsive Design */
-        @media (max-width: 600px) {
+        @media (max-width: 480px) {
             .login-container {
-                padding: 20px 30px;
+                padding: 30px;
+                max-width: 90%;
             }
             .login-container h1 {
-                font-size: 24px;
+                font-size: 28px;
+            }
+            .login-container p {
+                font-size: 16px;
+            }
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+            .logo i {
+                font-size: 50px;
             }
             .particle {
-                width: 5px;
-                height: 5px;
+                width: 6px !important;
+                height: 6px !important;
+            }
+            .g_id_signin {
+                transform: scale(1);
+            }
+            .g_id_signin:hover {
+                transform: scale(1.05);
             }
         }
     </style>
 </head>
 <body>
     <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
+        <div class="particle" style="width: 12px; height: 12px; top: 15%; left: 25%;"></div>
+        <div class="particle" style="width: 8px; height: 8px; top: 45%; left: 65%;"></div>
+        <div class="particle" style="width: 10px; height: 10px; top: 75%; left: 35%;"></div>
+        <div class="particle" style="width: 7px; height: 7px; top: 25%; left: 85%;"></div>
+        <div class="particle" style="width: 9px; height: 9px; top: 55%; left: 15%;"></div>
     </div>
+
     <div class="login-container">
         <div class="logo">
             <i class="material-icons">lightbulb</i>
         </div>
         <h1>Welcome to Sarvwigyan</h1>
-        <p>Sign in to continue</p>
+        <p>Sign in with Google to continue</p>
+
+        <!-- Google Sign-In -->
         <div id="g_id_onload"
              data-client_id="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"
              data-callback="onSignIn">
         </div>
         <div class="g_id_signin" data-type="standard" data-shape="pill" data-size="large"></div>
+
+        <!-- Footer -->
         <div class="footer">
             <p>© 2025 Sarvwigyan. All rights reserved.</p>
         </div>
@@ -163,6 +205,7 @@
 
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
+        // Google Sign-In Callback
         function onSignIn(response) {
             const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
             const userData = {
