@@ -3,15 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Manifest and Favicon -->
     <link rel="manifest" href="Resources/sarvwigyan.json">
-    <title>Sarvwigyan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png">
+    
+    <title>Sarvwigyan</title>
+    
+    <!-- External Stylesheets -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- iOS support -->
-    <link rel="apple-touch-startup-image" href="Resources/Sarvwigyan.png">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+
     <style>
+        /* CSS Variables */
         :root {
             --primary-color: #1e3a8a;
             --accent-color: #00b4d8;
@@ -21,6 +25,7 @@
             --gradient-bg: linear-gradient(135deg, #1e3a8a, #00b4d8);
         }
 
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -35,54 +40,7 @@
             overflow-x: hidden;
         }
 
-        /* Intro Screen Styles */
-        .intro-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--dark-bg);
-            display: none; /* Hidden by default */
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 2000;
-            opacity: 1;
-            transition: opacity 0.5s ease;
-        }
-
-        .intro-screen.active {
-            display: flex; /* Shown only when active */
-        }
-
-        .intro-screen.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .intro-logo {
-            width: 150px;
-            height: 150px;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        /* Hide main content initially only in standalone mode */
-        body.standalone:not(.loaded) .navbar,
-        body.standalone:not(.loaded) .hero-slider,
-        body.standalone:not(.loaded) .featured-section,
-        body.standalone:not(.loaded) footer,
-        body.standalone:not(.loaded) .back-to-top {
-            display: none;
-        }
-
-        /* Navbar */
+        /* Navbar Styles */
         .navbar {
             background: var(--gradient-bg);
             padding: 1rem 0;
@@ -152,6 +110,7 @@
             transform: translateY(-2px);
         }
 
+        /* Dropdown Menus */
         .dropdown-menu,
         .profile-menu {
             display: none;
@@ -180,6 +139,7 @@
             display: block;
         }
 
+        /* Profile Container */
         .profile-container {
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
@@ -204,6 +164,7 @@
             margin-left: 0.5rem;
         }
 
+        /* Hamburger Menu */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -230,7 +191,7 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Hero Section */
+        /* Hero Slider */
         .hero-slider {
             position: relative;
             height: 100vh;
@@ -298,6 +259,7 @@
             background: #0288a0;
         }
 
+        /* Slider Controls */
         .slider-buttons {
             position: absolute;
             top: 50%;
@@ -349,7 +311,7 @@
             transform: scale(1.3);
         }
 
-        /* Featured Content */
+        /* Featured Section */
         .featured-section {
             padding: 5rem 2rem;
             background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--dark-bg));
@@ -405,7 +367,7 @@
             text-align: center;
         }
 
-        /* Back to Top */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -423,7 +385,7 @@
             transform: scale(1.1);
         }
 
-        /* Media Queries */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
@@ -474,39 +436,79 @@
         }
     </style>
 </head>
-<body>
-    <!-- Intro Screen Overlay -->
-    <div id="intro-screen" class="intro-screen">
-        <img src="Resources/Sarvwigyan.png" alt="Sarvwigyan Logo" class="intro-logo">
-        <h1>Sarvwigyan</h1>
-    </div>
 
-    <!-- Navigation -->
+<body>
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">Sarvwigyan</a>
+            
             <ul class="nav-menu">
-                <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')"><i class="fas fa-home"></i> Home</a></li>
-                <li class="dropdown"><a style="cursor: pointer;"><i class="fas fa-globe"></i> Explore</a>
-                    <ul class="dropdown-menu">
-                        <li><a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')"><i class="fas fa-book"></i> Sarvpedia</a></li>
-                        <li><a style="cursor: pointer;" onclick="window.open('https://sarvwigyan.github.io/sarvstore/','_blank')"><i class="fas fa-store"></i> Sarv Store</a></li>
-                        <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-atom"></i> Squantum</a></li>
-                        <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-search"></i> Shodh</a></li>
-                    </ul>
+                <li>
+                    <a style="cursor: pointer;" onclick="window.open('index.html', '_self')">
+                        <i class="fas fa-home"></i> Home
+                    </a>
                 </li>
+                
                 <li class="dropdown">
-                    <a style="cursor: pointer;"><i class="fas fa-headset"></i> Support</a>
+                    <a style="cursor: pointer;">
+                        <i class="fas fa-globe"></i> Explore
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a style="cursor: pointer;" onclick="window.open('about.html', '_self')"><i class="fas fa-info-circle"></i> About Page</a></li>
-                        <li><a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')"><i class="fas fa-envelope"></i> Message/Feedback</a></li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')">
+                                <i class="fas fa-book"></i> Sarvpedia
+                            </a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="window.open('https://sarvwigyan.github.io/sarvstore/','_blank')">
+                                <i class="fas fa-store"></i> Sarv Store
+                            </a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="showdevMessage()">
+                                <i class="fas fa-atom"></i> Squantum
+                            </a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="showdevMessage()">
+                                <i class="fas fa-search"></i> Shodh
+                            </a>
+                        </li>
                     </ul>
                 </li>
-                <li class="dropdown"><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-users"></i> Community</a></li>
+                
+                <li class="dropdown">
+                    <a style="cursor: pointer;">
+                        <i class="fas fa-headset"></i> Support
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a style="cursor: pointer;" onclick="window.open('about.html', '_self')">
+                                <i class="fas fa-info-circle"></i> About Page
+                            </a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')">
+                                <i class="fas fa-envelope"></i> Message/Feedback
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                
+                <li class="dropdown">
+                    <a style="cursor: pointer;" onclick="showdevMessage()">
+                        <i class="fas fa-users"></i> Community
+                    </a>
+                </li>
+                
                 <li id="account-item" class="dropdown">
-                    <a style="cursor: pointer;" onclick="window.open('login.html','_self')"><i class="fas fa-user"></i> Account</a>
+                    <a style="cursor: pointer;" onclick="window.open('login.html','_self')">
+                        <i class="fas fa-user"></i> Account
+                    </a>
                 </li>
             </ul>
+            
             <div class="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -515,14 +517,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Slider Section -->
     <section class="hero-slider" id="home">
         <div class="slide active" style="background-image: url('Resources/Wisdom.png')">
             <div class="slide-content">
                 <div class="hero-content">
                     <h1>Empowering Knowledge, Shaping the Future</h1>
                     <p>Discover the world of innovation with Sarvwigyan...</p>
-                    <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')" class="cta-button">Discover Sarvpedia</a>
+                    <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')" class="cta-button">
+                        Discover Sarvpedia
+                    </a>
                 </div>
             </div>
             <div class="slider-buttons">
@@ -530,12 +534,15 @@
                 <button class="slider-btn" onclick="nextSlide()">❯</button>
             </div>
         </div>
+        
         <div class="slide" style="background-image: url('Resources/robo.png')">
             <div class="slide-content">
                 <div class="hero-content">
                     <h1>Explore AI Innovations</h1>
                     <p>Dive into the future of artificial intelligence...</p>
-                    <a style="cursor: pointer;" onclick="showdevMessage()" class="cta-button">Explore Sarv-AI</a>
+                    <a style="cursor: pointer;" onclick="showdevMessage()" class="cta-button">
+                        Explore Sarv-AI
+                    </a>
                 </div>
             </div>
             <div class="slider-buttons">
@@ -543,12 +550,15 @@
                 <button class="slider-btn" onclick="nextSlide()">❯</button>
             </div>
         </div>
+        
         <div class="slide" style="background-image: url('your-image3.jpg')">
             <div class="slide-content">
                 <div class="hero-content">
                     <h1>About Our Vision</h1>
                     <p>Learn more about our mission and goals...</p>
-                    <a style="cursor: pointer;" onclick="window.open('about.html', '_self')" class="cta-button">About Us</a>
+                    <a style="cursor: pointer;" onclick="window.open('about.html', '_self')" class="cta-button">
+                        About Us
+                    </a>
                 </div>
             </div>
             <div class="slider-buttons">
@@ -556,6 +566,7 @@
                 <button class="slider-btn" onclick="nextSlide()">❯</button>
             </div>
         </div>
+        
         <div class="slider-controls" id="slider-dots"></div>
     </section>
 
@@ -567,17 +578,25 @@
                 <div class="card">
                     <h3>Sarvpedia</h3>
                     <p>Explore a vast repository of knowledge across science and technology.</p>
-                    <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')" class="cta-button">Visit Now</a>
+                    <a style="cursor: pointer;" onclick="window.open('Sarvpedia.html', '_blank')" class="cta-button">
+                        Visit Now
+                    </a>
                 </div>
+                
                 <div class="card">
                     <h3>Sarv Store</h3>
                     <p>Download apps, books, and tools to enhance your learning experience.</p>
-                    <a style="cursor: pointer;" onclick="window.open('Sarv_Store.html', '_blank')" class="cta-button">Browse Store</a>
+                    <a style="cursor: pointer;" onclick="window.open('Sarv_Store.html', '_blank')" class="cta-button">
+                        Browse Store
+                    </a>
                 </div>
+                
                 <div class="card">
                     <h3>Support</h3>
                     <p>Get help or share feedback to improve our platform.</p>
-                    <a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')" class="cta-button">Contact Us</a>
+                    <a style="cursor: pointer;" onclick="window.open('feedback.html', '_self')" class="cta-button">
+                        Contact Us
+                    </a>
                 </div>
             </div>
         </div>
@@ -589,17 +608,22 @@
     </footer>
 
     <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
 
+    <!-- JavaScript -->
     <script>
+        // Development Message Alert
         function showdevMessage() {
             alert("Sorry, we are currently working on this feature. Kindly co-operate.");
         }
 
+        // Update Navigation based on User Login
         function updateNav() {
             const user = JSON.parse(localStorage.getItem('user'));
             const accountItem = document.getElementById('account-item');
-            
+
             if (user) {
                 accountItem.innerHTML = `
                     <div class="dropdown profile-dropdown">
@@ -608,15 +632,24 @@
                             <span class="profile-name">${user.name}</span>
                         </a>
                         <ul class="profile-menu dropdown-menu">
-                            <li><a style="cursor: pointer;" onclick="showdevMessage()"><i class="fas fa-user-circle"></i> Profile</a></li>
-                            <li><a style="cursor: pointer;" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                            <li>
+                                <a style="cursor: pointer;" onclick="showdevMessage()">
+                                    <i class="fas fa-user-circle"></i> Profile
+                                </a>
+                            </li>
+                            <li>
+                                <a style="cursor: pointer;" onclick="logout()">
+                                    <i class="fas fa-sign-out-alt"></i> Logout
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 `;
-                
+
+                // Profile Dropdown Event Listener
                 const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
-                
+
                 if (profileContainer && profileMenu) {
                     profileContainer.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -635,18 +668,20 @@
             }
         }
 
+        // Logout Function
         function logout() {
             localStorage.removeItem('user');
             window.location.href = "index.html";
         }
 
+        // Slider Functionality
         let currentSlide = 0;
         let autoSlideInterval;
         const slides = document.querySelectorAll('.slide');
         const dotsContainer = document.querySelector('#slider-dots');
         const slider = document.querySelector('.hero-slider');
 
-        // Initialize slider dots once
+        // Initialize Slider Dots
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.classList.add('slider-dot');
@@ -678,44 +713,27 @@
             autoSlideInterval = setInterval(nextSlide, 3000);
         }
 
+        // Slider Event Listeners
         restartAutoSlide();
         slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
         slider.addEventListener('mouseleave', restartAutoSlide);
 
+        // DOM Content Loaded Event
         document.addEventListener('DOMContentLoaded', function() {
-            // Detect standalone mode (PWA launched from home screen)
-            const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
-                                 ('standalone' in window.navigator && window.navigator.standalone);
-
-            const introScreen = document.getElementById('intro-screen');
-            const body = document.body;
-
-            if (isStandalone) {
-                // Add 'standalone' class to body and show intro screen
-                body.classList.add('standalone');
-                introScreen.classList.add('active');
-
-                // Fade out intro screen after 3 seconds
-                setTimeout(() => {
-                    introScreen.classList.add('hidden');
-                    body.classList.add('loaded');
-                }, 1100); // 3-second intro screen
-            } else {
-                // In browser mode, skip intro screen and show content immediately
-                body.classList.add('loaded');
-            }
-
             updateNav();
+            
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
             const dropdowns = document.querySelectorAll('.dropdown');
 
+            // Hamburger Menu Toggle
             hamburger.addEventListener('click', () => {
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.classList.toggle('no-scroll');
             });
 
+            // Dropdown Menu Toggle
             dropdowns.forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 const submenu = dropdown.querySelector('.dropdown-menu');
@@ -729,18 +747,20 @@
                 }
             });
 
+            // Close Dropdowns on Outside Click
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
                 }
             });
 
-            // Back to Top functionality
+            // Back to Top Button
             document.getElementById('backToTop').addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
+        // Scroll Event for Back to Top Button
         window.onscroll = function() {
             const backToTop = document.querySelector('.back-to-top');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -750,6 +770,5 @@
             }
         };
     </script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'91aa8f51c95653e6',t:'MTc0MTAxOTg2MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
 </body>
 </html>
