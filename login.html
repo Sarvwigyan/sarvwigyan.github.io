@@ -3,220 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-signin-client_id" content="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com">
-    <title>Sarvwigyan - Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Online/Offline Status Indicator</title>
     <style>
-        /* Global Styles */
-        * {
-            box-sizing: border-box;
-        }
-
-        body, html {
+        body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            min-height: 100vh; /* Allow content to extend beyond viewport */
-            overflow: auto; /* Enable scrolling */
-            -ms-overflow-style: none; /* Hide scrollbar in IE/Edge */
-            scrollbar-width: none; /* Hide scrollbar in Firefox */
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
         }
 
-        /* Hide scrollbar in WebKit browsers (Chrome, Safari, Edge) */
-        body::-webkit-scrollbar, html::-webkit-scrollbar {
-            display: none;
-        }
-
-        /* Enhanced Particle Effects */
-        .particles {
+        #status {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            overflow: hidden;
-            z-index: -1;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, #4285F4, transparent);
-            border-radius: 50%;
-            opacity: 0.7;
-            animation: float 12s infinite ease-in-out;
-        }
-
-        .particle:nth-child(odd) { animation-duration: 15s; }
-        .particle:nth-child(even) { animation-duration: 18s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) scale(1); }
-            50% { transform: translateY(-25vh) translateX(15vw) scale(1.2); }
-        }
-
-        /* Login Container */
-        .login-container {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.6);
-            padding: 50px;
-            border-radius: 20px;
             width: 100%;
-            max-width: 420px;
+            background-color: #909090; /* YouTube-like gray */
+            color: #ffffff; /* White text */
             text-align: center;
-            position: relative;
-            z-index: 1;
-            animation: fadeInScale 0.8s ease-out;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            padding: 10px 0;
+            font-size: 16px;
+            display: none; /* Hidden by default */
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .login-container:hover {
-            transform: scale(1.03);
-            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.7);
-        }
-
-        @keyframes fadeInScale {
-            from { opacity: 0; transform: scale(0.95); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        .login-container h1 {
-            color: #fff;
-            font-size: 34px;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
-        }
-
-        .login-container p {
-            color: #ddd;
-            font-size: 18px;
-            margin-bottom: 40px;
-        }
-
-        /* Logo Styling */
-        .logo {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: radial-gradient(circle, rgba(66, 133, 244, 0.2), transparent);
-            border-radius: 50%;
-            animation: glow 3s infinite ease-in-out;
-        }
-
-        .logo i {
-            color: #4285F4;
-            font-size: 60px;
-            text-shadow: 0 0 20px rgba(66, 133, 244, 0.6);
-        }
-
-        @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(66, 133, 244, 0.3); }
-            50% { box-shadow: 0 0 40px rgba(66, 133, 244, 0.6); }
-        }
-
-        /* Google Sign-In Button */
-        .g_id_signin {
-            margin: 0 auto;
-            transform: scale(1.1);
-            transition: transform 0.3s ease;
-        }
-
-        .g_id_signin:hover {
-            transform: scale(1.15);
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 40px;
-            color: #bbb;
-            font-size: 14px;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 480px) {
-            .login-container {
-                padding: 30px;
-                max-width: 90%;
-            }
-            .login-container h1 {
-                font-size: 28px;
-            }
-            .login-container p {
-                font-size: 16px;
-            }
-            .logo {
-                width: 100px;
-                height: 100px;
-            }
-            .logo i {
-                font-size: 50px;
-            }
-            .particle {
-                width: 6px !important;
-                height: 6px !important;
-            }
-            .g_id_signin {
-                transform: scale(1);
-            }
-            .g_id_signin:hover {
-                transform: scale(1.05);
-            }
+        #content {
+            padding: 20px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="particles">
-        <div class="particle" style="width: 12px; height: 12px; top: 15%; left: 25%;"></div>
-        <div class="particle" style="width: 8px; height: 8px; top: 45%; left: 65%;"></div>
-        <div class="particle" style="width: 10px; height: 10px; top: 75%; left: 35%;"></div>
-        <div class="particle" style="width: 7px; height: 7px; top: 25%; left: 85%;"></div>
-        <div class="particle" style="width: 9px; height: 9px; top: 55%; left: 15%;"></div>
+    <div id="status">Offline</div>
+    <div id="content">
+        <h1>Test Page</h1>
+        <p>This page will show an offline status bar when your internet connection is lost.</p>
+        <p>Try turning off your Wi-Fi or unplugging your network to test it!</p>
     </div>
 
-    <div class="login-container">
-        <div class="logo">
-            <i class="material-icons">lightbulb</i>
-        </div>
-        <h1>Welcome to Sarvwigyan</h1>
-        <p>Sign in with Google to continue</p>
-
-        <!-- Google Sign-In -->
-        <div id="g_id_onload"
-             data-client_id="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"
-             data-callback="onSignIn">
-        </div>
-        <div class="g_id_signin" data-type="standard" data-shape="pill" data-size="large"></div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>© 2025 Sarvwigyan. All rights reserved.</p>
-        </div>
-    </div>
-
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-        // Google Sign-In Callback
-        function onSignIn(response) {
-            const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
-            const userData = {
-                id: responsePayload.sub,
-                name: responsePayload.name,
-                email: responsePayload.email,
-                picture: responsePayload.picture
-            };
-            localStorage.setItem('user', JSON.stringify(userData));
-            window.location.href = "index.html";
+        // Function to update the status bar
+        function updateStatus() {
+            const statusBar = document.getElementById("status");
+            if (navigator.onLine) {
+                statusBar.style.display = "none"; // Hide when online
+            } else {
+                statusBar.style.backgroundColor = "#909090"; // Gray background
+                statusBar.style.color = "#ffffff"; // White text
+                statusBar.innerText = "Offline"; // Set text
+                statusBar.style.display = "block"; // Show when offline
+            }
         }
+
+        // Initial check on page load
+        updateStatus();
+
+        // Event listeners for online/offline status changes
+        window.addEventListener("online", updateStatus);
+        window.addEventListener("offline", updateStatus);
+
+        // Optional: Simulate a network check with a periodic ping (uncomment to use)
+        /*
+        function pingServer() {
+            fetch("https://www.google.com", { mode: "no-cors" })
+                .then(() => {
+                    if (!navigator.onLine) window.dispatchEvent(new Event("online"));
+                })
+                .catch(() => {
+                    if (navigator.onLine) window.dispatchEvent(new Event("offline"));
+                });
+        }
+        setInterval(pingServer, 5000); // Check every 5 seconds
+        */
     </script>
 </body>
 </html>
