@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Neon</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Neon is a chemical element with the symbol <strong>Ne</strong> and atomic number 10. It is a noble gas in group 18 of the periodic table, known for its inertness and bright glow when electrified. Neon is rare on Earth, comprising about 0.0018% (18 ppm) of the atmosphere, and is extracted from air.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Neon has three naturally occurring stable isotopes: <sup>20</sup>Ne (90.48%), <sup>21</sup>Ne (0.27%), and <sup>22</sup>Ne (9.25%). These isotopic ratios are useful in cosmochemistry and geochemistry studies.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Neon is a colorless, odorless, and inert gas under standard conditions. It emits a distinctive reddish-orange glow when used in discharge tubes. Neon boils at -246.1°C (-411.0°F) and melts at -248.6°C (-415.5°F), making it one of the coldest liquefying gases.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>20.180</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>0.9002 g/L</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>-248.6°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>-246.1°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[He] 2s² 2p⁶</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Neon’s discovery illuminated the study of noble gases and their applications in lighting.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                In the late 19th century, scientists like Lord Rayleigh noticed discrepancies in air’s density, hinting at undiscovered gases.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Neon was discovered in 1898 by Sir William Ramsay and Morris Travers through fractional distillation of liquid air, following argon’s discovery. They named it "neon" from the Greek "neos," meaning new, due to its novelty.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Neon’s placement in group 18 solidified the noble gas family, following helium and argon, and preceding krypton.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Neon’s inertness and glowing properties enable its use in various fields:</p>
+            <h4>1. Lighting</h4>
+            <p>Used in neon signs for vibrant advertising displays.</p>
+            <h4>2. Cryogenics</h4>
+            <p>Liquid neon serves as a refrigerant in low-temperature research.</p>
+            <h4>3. Lasers</h4>
+            <p>Powers helium-neon lasers for precision optics and barcode scanners.</p>
+            <h4>4. Television Tubes</h4>
+            <p>Historically used in early TV cathode ray tubes.</p>
+            <h4>5. Vacuum Tubes</h4>
+            <p>Fills tubes for electrical discharge applications.</p>
+            <h4>6. High-Voltage Indicators</h4>
+            <p>Glows to signal electrical activity.</p>
+            <h4>7. Scientific Research</h4>
+            <p>Used in gas chromatography and as a tracer gas.</p>
+        </div>
+
+        <div class="section">
+            <h2>Neon in the Universe</h2>
+            <p>
+                Neon is the fifth most abundant element in the universe, formed in stars through helium fusion and alpha capture processes. It is prevalent in stellar atmospheres and nebulae.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Neon is extracted from the atmosphere via fractional distillation of liquid air, separated from nitrogen, oxygen, and other trace gases.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Neon is non-toxic and chemically inert, posing no direct health risks. However, it can displace oxygen in confined spaces, leading to asphyxiation hazards.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                From its discovery as a "new" gas to its glowing presence in modern technology, neon’s inert beauty and cosmic abundance make it a standout among the noble gases.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Neon - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Neon page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Carbon</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Carbon is a chemical element with the symbol <strong>C</strong> and atomic number 6. It is a nonmetal in group 14 of the periodic table and the foundation of all known life on Earth. Carbon constitutes about 0.02% (200 ppm) of the Earth’s crust and is found in diverse forms, including graphite, diamond, and organic compounds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Carbon has three naturally occurring isotopes: <sup>12</sup>C (98.9%), <sup>13</sup>C (1.1%), and <sup>14</sup>C (trace, radioactive with a half-life of 5730 years). <sup>14</sup>C is used in radiocarbon dating to determine the age of organic materials.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Carbon exists in multiple allotropes, including diamond (extremely hard) and graphite (soft and conductive). Its properties vary widely by form. Graphite has a density of 2.26 g/cm³ and sublimes at ~3550°C (6422°F), while diamond has a density of 3.51 g/cm³ and a melting point of ~3550°C under pressure.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>12.011</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>2.26 g/cm³ (graphite) / 3.51 g/cm³ (diamond)</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>~3550°C (sublimes for graphite)</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>N/A (sublimes)</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[He] 2s² 2p²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Carbon has been known since antiquity, but its recognition as an element marked a turning point in chemistry.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Carbon was used in the form of charcoal and soot by prehistoric humans for fire and art, with diamonds valued as gems for millennia.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Antoine Lavoisier identified carbon as an element in 1789 by burning diamond and charcoal, proving they produced the same gas (CO₂). The name "carbon" derives from the Latin "carbo," meaning coal.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Carbon’s placement in group 14 emphasized its role as a versatile nonmetal, forming the backbone of organic chemistry alongside silicon.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Carbon’s diverse forms and bonding capabilities enable its use in countless fields:</p>
+            <h4>1. Energy</h4>
+            <p>Coal and hydrocarbons fuel power generation.</p>
+            <h4>2. Materials</h4>
+            <p>Diamond is used in cutting tools; graphite in pencils and lubricants.</p>
+            <h4>3. Steel Production</h4>
+            <p>Alloys with iron to create steel.</p>
+            <h4>4. Electronics</h4>
+            <p>Graphene and carbon nanotubes enhance conductivity and strength.</p>
+            <h4>5. Organic Chemistry</h4>
+            <p>Forms the basis of plastics, drugs, and biomolecules.</p>
+            <h4>6. Carbon Dating</h4>
+            <p><sup>14</sup>C measures the age of ancient artifacts.</p>
+            <h4>7. Environmental</h4>
+            <p>Activated carbon filters water and air.</p>
+        </div>
+
+        <div class="section">
+            <h2>Carbon in the Universe</h2>
+            <p>
+                Carbon is the fourth most abundant element in the universe, formed in stars through the triple-alpha process. It is essential to stellar nucleosynthesis and found in interstellar dust and planetary atmospheres.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Carbon is obtained from natural sources like coal, oil, and gas deposits, or synthesized as diamond and graphite through high-pressure, high-temperature processes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Pure carbon (graphite, diamond) is non-toxic, but incomplete combustion produces carbon monoxide (CO), a deadly gas. Dust inhalation may irritate lungs.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                From its ancient use in fire to its modern role in life and technology, carbon’s unparalleled versatility defines it as the cornerstone of both nature and innovation.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Carbon - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Carbon page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

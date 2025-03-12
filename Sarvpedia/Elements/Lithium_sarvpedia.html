@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lithium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lithium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Lithium is a chemical element with the symbol <strong>Li</strong> and atomic number 3. It is an alkali metal in group 1 of the periodic table, known for being the lightest metal and the least dense solid element under standard conditions. Lithium is relatively rare in the universe but is found in trace amounts in the Earth’s crust (about 0.002% or 20 ppm), primarily in minerals and brine deposits.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Lithium has two naturally occurring isotopes: <sup>6</sup>Li and <sup>7</sup>Li. <sup>7</sup>Li is the more abundant, making up about 92.5% of natural lithium, while <sup>6</sup>Li constitutes the remaining 7.5%. Both isotopes are stable, though <sup>6</sup>Li plays a key role in nuclear reactions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Lithium is a soft, silvery-white metal that reacts readily with water and oxygen. It has a low density and is highly reactive due to its single valence electron. Lithium melts at 180.5°C (356.9°F) and boils at 1342°C (2448°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>6.941</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>0.534 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>180.5°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>1342°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[He] 2s¹</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Lithium’s discovery reflects advancements in mineralogy and electrochemistry, paving the way for its modern applications.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                In 1800, Brazilian scientist José Bonifácio de Andrada e Silva identified lithium in the mineral petalite, though he did not isolate it as an element.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Lithium was first isolated in 1817 by Johan August Arfwedson in Sweden, who detected it in petalite and spodumene. Sir Humphry Davy and William Brande later produced it via electrolysis, naming it "lithium" from the Greek "lithos" (stone).
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Lithium’s placement in group 1 as an alkali metal highlighted the periodicity of reactive metals, alongside sodium and potassium.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Lithium’s reactivity and lightweight nature enable its use in diverse fields:</p>
+            <h4>1. Batteries</h4>
+            <p>Powers lithium-ion batteries for electronics and electric vehicles.</p>
+            <h4>2. Medicine</h4>
+            <p>Used in lithium carbonate to treat bipolar disorder.</p>
+            <h4>3. Alloys</h4>
+            <p>Enhances strength in aluminum and magnesium alloys for aerospace.</p>
+            <h4>4. Glass and Ceramics</h4>
+            <p>Reduces melting points and improves durability in production.</p>
+            <h4>5. Nuclear Energy</h4>
+            <p><sup>6</sup>Li is used in tritium production for fusion reactors.</p>
+            <h4>6. Lubricants</h4>
+            <p>Forms lithium grease for high-temperature applications.</p>
+            <h4>7. Air Treatment</h4>
+            <p>Absorbs carbon dioxide in spacecraft and submarines.</p>
+        </div>
+
+        <div class="section">
+            <h2>Lithium in the Universe</h2>
+            <p>
+                Lithium was formed during the Big Bang and in stars via nucleosynthesis. It is less abundant in the cosmos than hydrogen and helium, often destroyed in stellar interiors, but is detectable in meteorites and brown dwarfs.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Lithium is mined from hard-rock deposits (e.g., spodumene) or extracted from brine pools through evaporation, with major sources in Australia, Chile, and Argentina.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Lithium is highly reactive and can ignite in air or water, requiring careful storage under oil or inert gas to prevent fires or explosions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                From its discovery in minerals to its pivotal role in energy and medicine, lithium’s lightweight versatility drives modern technology while echoing its cosmic origins.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Lithium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Lithium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

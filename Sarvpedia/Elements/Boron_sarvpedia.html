@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boron - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Boron</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Boron is a chemical element with the symbol <strong>B</strong> and atomic number 5. It is a metalloid in group 13 of the periodic table, exhibiting properties between metals and nonmetals. Boron is relatively rare in the Earth’s crust, constituting about 0.001% (10 ppm), and is primarily found in borate minerals such as borax and kernite.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Boron has two naturally occurring stable isotopes: <sup>10</sup>B, which makes up about 19.9%, and <sup>11</sup>B, which constitutes approximately 80.1%. The isotopic ratio varies slightly depending on the source.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Boron is a hard, brittle, blackish solid with a high melting point. It is a poor conductor of electricity at room temperature but becomes a better conductor when heated. Boron melts at 2076°C (3769°F) and boils at 3927°C (7101°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>10.811</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>2.34 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>2076°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>3927°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[He] 2s² 2p¹</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Boron’s discovery reflects advancements in chemical analysis and its utility in compounds known since antiquity.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Borax, a boron compound, was used in ancient Egypt and Mesopotamia for glazing and metallurgy, though its elemental nature was unknown.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Boron was first isolated in 1808 by Sir Humphry Davy, Joseph Louis Gay-Lussac, and Louis Jacques Thénard through the reaction of boric acid with potassium. It was named after "borax," its primary mineral source.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Boron’s placement in group 13 highlighted the transition from metals to nonmetals, bridging properties with aluminum and carbon.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Boron’s unique properties enable its use across various industries:</p>
+            <h4>1. Glass Manufacturing</h4>
+            <p>Forms borosilicate glass (e.g., Pyrex) for heat-resistant labware and cookware.</p>
+            <h4>2. Agriculture</h4>
+            <p>Used in boron fertilizers to correct soil deficiencies.</p>
+            <h4>3. Nuclear Industry</h4>
+            <p><sup>10</sup>B absorbs neutrons, used in reactor control rods and shielding.</p>
+            <h4>4. Semiconductors</h4>
+            <p>Dopes silicon to enhance electrical properties in electronics.</p>
+            <h4>5. Detergents</h4>
+            <p>Borax acts as a water softener and bleaching agent.</p>
+            <h4>6. Ceramics</h4>
+            <p>Strengthens and stabilizes ceramic glazes and enamels.</p>
+            <h4>7. Flame Retardants</h4>
+            <p>Boron compounds reduce flammability in textiles and plastics.</p>
+        </div>
+
+        <div class="section">
+            <h2>Boron in the Universe</h2>
+            <p>
+                Boron is rare in the cosmos, formed primarily through cosmic ray spallation rather than stellar nucleosynthesis. It is detected in interstellar dust and meteorites.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Boron is extracted from borate minerals like borax and kernite through chemical processing, with major sources in Turkey, the United States, and Chile.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Boron is mildly toxic in large amounts, particularly as boric acid, which can irritate skin and eyes or harm if ingested. Proper handling is required in industrial settings.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                From its ancient use in borax to its modern role in technology and agriculture, boron’s metalloid nature bridges the gap between elements, offering versatility and scientific intrigue.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Boron - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Boron page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

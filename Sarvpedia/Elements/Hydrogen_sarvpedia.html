@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydrogen - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hydrogen</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Hydrogen is a chemical element with the symbol <strong>H</strong> and atomic number 1. It is the lightest and most abundant element in the universe, constituting roughly 75% of its elemental mass. On Earth, hydrogen is found primarily in water and organic compounds, making up about 0.14% of the Earth's crust by weight. It is a key component of the atmosphere of gas giants like Jupiter and Saturn.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Hydrogen has three naturally occurring isotopes: <sup>1</sup>H (protium), <sup>2</sup>H (deuterium), and <sup>3</sup>H (tritium). Protium, with no neutrons, is the most abundant, making up 99.98% of all hydrogen. Deuterium has one neutron, and tritium, which is radioactive, has two neutrons.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Hydrogen is a colorless, odorless, and highly flammable gas under standard conditions. It is the lightest element, with a single proton and electron in its most common form. Hydrogen boils at -252.9°C (-423.2°F) and melts at -259.2°C (-434.6°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>1</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>1.00794</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>0.08988 g/L</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>-259.2°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>-252.9°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>1s¹</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Hydrogen’s discovery marks a foundational moment in chemistry, reflecting humanity's growing understanding of gases and elements.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                In 1671, Robert Boyle produced hydrogen gas by reacting metals with acids, though he did not identify it as a distinct element.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Hydrogen was officially identified in 1766 by Henry Cavendish, who isolated it during experiments with acids and metals. He named it "inflammable air" due to its combustibility and later recognized it as a unique element.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Hydrogen’s placement at the top of the periodic table as element number 1 underscores its fundamental role in chemistry and its unique properties.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Hydrogen’s reactivity and abundance enable its use in numerous fields:</p>
+            <h4>1. Energy</h4>
+            <p>Used in fuel cells to generate electricity with water as the only byproduct.</p>
+            <h4>2. Chemical Industry</h4>
+            <p>Essential in ammonia production for fertilizers via the Haber-Bosch process.</p>
+            <h4>3. Refining</h4>
+            <p>Employed in hydrocracking to refine petroleum.</p>
+            <h4>4. Food Industry</h4>
+            <p>Hydrogenates oils to produce solid fats like margarine.</p>
+            <h4>5. Space Exploration</h4>
+            <p>Powers rockets as liquid hydrogen fuel.</p>
+            <h4>6. Metallurgy</h4>
+            <p>Reduces metal oxides to pure metals.</p>
+            <h4>7. Cooling</h4>
+            <p>Used as a coolant in generators due to its high thermal conductivity.</p>
+        </div>
+
+        <div class="section">
+            <h2>Hydrogen in the Universe</h2>
+            <p>
+                Hydrogen is the primary building block of stars, formed shortly after the Big Bang. It fuels nuclear fusion in stellar cores, producing heavier elements and energy that sustains life.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Hydrogen is primarily produced via steam reforming of natural gas, electrolysis of water, or as a byproduct of petroleum refining.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Hydrogen is highly flammable and can form explosive mixtures with air. Proper handling and storage are critical to prevent accidents.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                From its discovery by Cavendish to its modern role in energy and industry, hydrogen’s simplicity belies its profound importance. It remains a cornerstone of both the universe and human innovation.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Hydrogen - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Hydrogen page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>
