@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oxygen - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Oxygen</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Oxygen is a chemical element with the symbol <strong>O</strong> and atomic number 8. It is a nonmetal in group 16 of the periodic table, known as the chalcogens. Oxygen is the third most abundant element in the universe and makes up about 21% of Earth’s atmosphere by volume and 46% of the Earth’s crust by weight, primarily in oxides and silicates.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Oxygen has three naturally occurring stable isotopes: <sup>16</sup>O (99.76%), <sup>17</sup>O (0.04%), and <sup>18</sup>O (0.20%). Radioactive isotopes like <sup>15</sup>O are short-lived and used in medical imaging.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Oxygen is a colorless, odorless, and highly reactive gas under standard conditions, forming a diatomic molecule (O₂). It is essential for combustion and respiration. Oxygen boils at -183.0°C (-297.4°F) and melts at -218.8°C (-361.8°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>8</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>15.999</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>1.429 g/L</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>-218.8°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>-183.0°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[He] 2s² 2p⁴</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Oxygen’s discovery reshaped our understanding of combustion and respiration, pivotal to modern chemistry.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                In the 17th century, scientists like Robert Boyle observed that air was necessary for burning, but its components were unknown.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Oxygen was independently discovered in 1774 by Joseph Priestley, who heated mercuric oxide, and Carl Wilhelm Scheele, who isolated it from various compounds. Antoine Lavoisier named it "oxygen" from the Greek "oxys" (acid) and "genes" (forming), mistakenly believing it was a key component of all acids.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Oxygen’s placement in group 16 established the chalcogen family, linking it to sulfur and selenium in reactivity.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Oxygen’s reactivity and abundance enable its use in diverse fields:</p>
+            <h4>1. Respiration</h4>
+            <p>Essential for human and animal breathing, supplied medically for patients.</p>
+            <h4>2. Combustion</h4>
+            <p>Fuels industrial processes like steelmaking and welding.</p>
+            <h4>3. Water Treatment</h4>
+            <p>Oxygenates water to support aquatic life and purification.</p>
+            <h4>4. Aerospace</h4>
+            <p>Provides breathable air in spacecraft and high-altitude flights.</p>
+            <h4>5. Chemical Synthesis</h4>
+            <p>Used in producing acids, alcohols, and peroxides.</p>
+            <h4>6. Ozone Layer</h4>
+            <p>O₃ (ozone) protects Earth from UV radiation.</p>
+            <h4>7. Rocket Propulsion</h4>
+            <p>Liquid oxygen (LOX) serves as an oxidizer in rocket fuel.</p>
+        </div>
+
+        <div class="section">
+            <h2>Oxygen in the Universe</h2>
+            <p>
+                Oxygen is the third most abundant element in the universe, formed in massive stars through helium fusion. It is prevalent in water, silicates, and oxides across planets and stars.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Oxygen is produced industrially by fractional distillation of liquid air, separating it from nitrogen and other gases, or via electrolysis of water.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Oxygen is non-toxic but highly reactive, supporting combustion. High concentrations can cause oxygen toxicity, and liquid oxygen poses cryogenic risks.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                From its discovery as the breath of life to its critical role in industry and space exploration, oxygen’s reactivity and abundance make it a cornerstone of existence and progress.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Oxygen - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Oxygen page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>
