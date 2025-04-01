@@ -38,11 +38,10 @@
         .profile-info label {
             font-weight: bold;
         }
-        .logout-button {
+        .button {
             display: block;
             width: 100%;
             padding: 10px;
-            background: #e63946;
             color: #fff;
             border: none;
             border-radius: 5px;
@@ -50,9 +49,19 @@
             text-align: center;
             font-size: 1.1rem;
             transition: background 0.3s;
+            margin-bottom: 10px;
+        }
+        .logout-button {
+            background: #e63946;
         }
         .logout-button:hover {
             background: #d62839;
+        }
+        .back-button {
+            background: #00b4d8;
+        }
+        .back-button:hover {
+            background: #0096c7;
         }
     </style>
 </head>
@@ -68,17 +77,18 @@
             <label>Email:</label>
             <p id="userEmail"></p>
         </div>
-        <button class="logout-button" onclick="logout()">Logout</button>
+        <button class="button back-button" onclick="goBack()">Back</button>
+        <button class="button logout-button" onclick="logout()">Logout</button>
     </div>
 
     <script>
         // Function to load user data
-        function loadUserProfile() {  // Fixed function name (removed space)
+        function loadUserProfile() {
             const user = JSON.parse(localStorage.getItem('user'));
             if (user) {
-                document.getElementById('profilePic').src = user.picture || 'default-profile.jpg';  // Added fallback image
-                document.getElementById('userName').textContent = user.name || 'Unknown User';      // Added fallback name
-                document.getElementById('userEmail').textContent = user.email || 'No email';        // Added fallback email
+                document.getElementById('profilePic').src = user.picture || 'default-profile.jpg';
+                document.getElementById('userName').textContent = user.name || 'Unknown User';
+                document.getElementById('userEmail').textContent = user.email || 'No email';
             } else {
                 // Redirect to login if no user is found
                 window.location.href = "login.html";
@@ -91,8 +101,13 @@
             window.location.href = "index.html";
         }
 
+        // Go back function to redirect to index.html
+        function goBack() {
+            window.open("index.html", "_self");
+        }
+
         // Load user profile on page load
-        window.onload = loadUserProfile;  // Fixed function name (removed space)
+        window.onload = loadUserProfile;
     </script>
 </body>
 </html>
