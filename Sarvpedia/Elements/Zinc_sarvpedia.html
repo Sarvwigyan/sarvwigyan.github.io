@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zinc - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Zinc</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Zinc is a chemical element with the symbol <strong>Zn</strong> and atomic number 30. It is a bluish-white metal that is brittle at room temperature but malleable when heated. Zinc is an essential trace element for humans and is widely used in various applications, including galvanization and alloy production.
+            </p>
+            <p>
+                The name "zinc" is derived from the German word "Zink," which means "tooth" or "prong."
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Zinc has five stable isotopes: <sup>64</sup>Zn, <sup>66</sup>Zn, <sup>67</sup>Zn, <sup>68</sup>Zn, and <sup>70</sup>Zn. The most abundant isotope is <sup>64</sup>Zn, which makes up about 48.63% of natural zinc. Zinc also has several radioactive isotopes, the most notable being <sup>65</sup>Zn, which is used in medical applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Zinc is a moderately reactive metal that tarnishes in air and reacts with acids. It has a relatively low melting point and is a good conductor of electricity.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Zinc has a density of 7.14 g/cm³, a melting point of 419.58°C (787.24°F), and a boiling point of 907°C (1665°F). Its crystalline structure is hexagonal close-packed.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Zinc reacts with oxygen to form zinc oxide and can also react with acids to produce hydrogen gas. It exhibits oxidation states of +1 and +2, with the +2 state being the most stable in aqueous solutions.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>30</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>65.38</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>7.14 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>419.58°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>907°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d<sup>10</sup> 4s<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.65</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>9.394 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Zinc has been known since ancient times, with evidence of its use dating back to 3000 BC in India. The element was first isolated in the 18th century by the German chemist Andreas Marggraf.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Zinc's unique properties make it valuable in several applications:</p>
+            <h4>1. Galvanization</h4>
+            <p>Zinc is primarily used to coat iron and steel to prevent rusting, a process known as galvanization.</p>
+            <h4>2. Alloys</h4>
+            <p>Zinc is used in the production of various alloys, including brass, which is a mixture of copper and zinc.</p>
+            <h4>3. Batteries</h4>
+            <p>Zinc is used in batteries, particularly in alkaline batteries and zinc-carbon batteries.</p>
+            <h4>4. Nutritional Supplements</h4>
+            <p>Zinc is an essential trace element for human health and is included in dietary supplements.</p>
+        </div>
+
+        <div class="section">
+            <h2>Zinc in the Universe</h2>
+            <p>
+                Zinc is formed in stars through nucleosynthesis processes. Its cosmic abundance is relatively low, estimated at about 0.0075% of the universe's mass.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Zinc is primarily extracted from the mineral sphalerite (ZnS) and is produced through mining and smelting processes. Major producers of zinc include China, Australia, and Peru.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Zinc is generally considered safe for use, but excessive exposure to zinc compounds can cause health issues. Safety protocols should be followed when handling zinc and its compounds to avoid inhalation of dust or particles.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Zinc's unique properties and applications in various industries highlight its importance in modern technology. Its role in galvanization, alloys, and nutrition makes it a valuable element in both practical and technological contexts.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Zinc - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Zinc page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

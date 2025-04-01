@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roentgenium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Roentgenium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Roentgenium is a synthetic chemical element with the symbol <strong>Rg</strong> and atomic number 111. It is a member of the transition metals and is classified as a post-transition metal. Roentgenium was first synthesized in 1994 by a team of Russian and American scientists at the GSI Helmholtz Centre for Heavy Ion Research in Germany.
+            </p>
+            <p>
+                The element is named in honor of Wilhelm Conrad Röntgen, the discoverer of X-rays. Due to its short half-life and the difficulty of producing it, roentgenium has no significant commercial applications and is primarily of interest for scientific research.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Roentgenium has several isotopes, with <sup>282</sup>Rg being the most stable, having a half-life of about 2.1 milliseconds. Other isotopes, such as <sup>281</sup>Rg and <sup>283</sup>Rg, have even shorter half-lives. The isotopes of roentgenium are produced in particle accelerators through nuclear reactions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                As a synthetic element, roentgenium has not been studied extensively, and its properties are not well characterized. However, it is expected to exhibit properties similar to those of other elements in group 11, particularly gold and copper.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Roentgenium is predicted to be a solid at room temperature, with a metallic appearance. Its density and melting point are not well established due to the limited amount of material produced.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Roentgenium is expected to behave as a heavy metal and may exhibit oxidation states similar to those of other group 11 elements, particularly +1 and +3. However, due to its radioactivity and short half-life, chemical studies are challenging.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>111</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>282</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>Unknown</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>Unknown</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>Unknown</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f¹⁴ 6d¹⁰ 7s² 7p¹</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>Unknown</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>Unknown</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Roentgenium was first synthesized on December 12, 1994, by a team of scientists led by Peter Armbruster and Gottfried Münzenberg at the GSI Helmholtz Centre for Heavy Ion Research in Germany. The element was created by bombarding a target of bismuth-209 with accelerated nickel-64 ions. The discovery was confirmed in subsequent experiments, and the element was officially named roentgenium in 2004.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Due to its extreme radioactivity and short half-life, roentgenium has no practical applications outside of scientific research.</p>
+        </div>
+
+        <div class="section">
+            <h2>Roentgenium in the Universe</h2>
+            <p>
+                As a synthetic element, roentgenium is not found naturally in the universe. It is produced in laboratories through nuclear reactions and is primarily of interest for research in nuclear physics and chemistry.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Roentgenium is produced in particle accelerators by colliding heavy ions with target materials. The production of roentgenium is highly complex and requires advanced technology and facilities.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Due to its radioactivity, roentgenium poses health risks if handled improperly. However, its short half-life means that it decays quickly, limiting exposure. Safety protocols are essential when working with radioactive materials.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Roentgenium, while not widely known or used, represents the cutting edge of modern chemistry and nuclear physics. Its discovery and study contribute to our understanding of heavy elements and the forces that govern atomic structure.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Roentgenium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Roentgenium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

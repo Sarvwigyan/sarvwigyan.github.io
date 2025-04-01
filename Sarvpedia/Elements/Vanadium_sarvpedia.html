@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vanadium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vanadium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Vanadium is a chemical element with the symbol <strong>V</strong> and atomic number 23. It is a hard, silvery-gray metal that is part of the transition metals group. Vanadium was discovered in 1801 by the Spanish chemist Andrés Manuel del Río, who initially named it "erythronium."
+            </p>
+            <p>
+                The name "vanadium" is derived from Vanadis, the Scandinavian goddess of beauty and fertility, reflecting the element's colorful compounds. Vanadium is known for its strength and resistance to corrosion, making it valuable in various industrial applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Vanadium has several isotopes, with <sup>51</sup>V being the most stable and abundant, accounting for nearly all naturally occurring vanadium. The average atomic mass of vanadium is approximately 50.9415 u. Vanadium-50 and vanadium-52 are also stable isotopes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Vanadium is a hard, silvery-gray metal that is relatively stable in air. It has a high melting point and is known for its ability to form various oxidation states.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Vanadium has a density of 6.11 g/cm³, a melting point of 1910°C (3470°F), and a boiling point of 3407°C (6155°F). Its crystalline structure is body-centered cubic.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Vanadium can react with oxygen, halogens, and acids. It typically exhibits oxidation states of +2, +3, +4, and +5, with the +5 state being the most stable.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>23</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>50.9415</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>6.11 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1910°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>3407°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d<sup>3</sup> 4s<sup>2</sup></td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.63</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>6.746 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Vanadium was discovered in 1801 by Andrés Manuel del Río, who initially thought he had discovered a new element. However, it was not until 1831 that the element was recognized as vanadium by the Swedish chemist Nils Gabriel Sefström. Vanadium has since been studied extensively for its unique properties and applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Vanadium's unique properties make it valuable in several applications:</p>
+            <h4>1. Steel Alloys</h4>
+            <p>Vanadium is primarily used as an alloying agent in steel to improve its strength, toughness, and resistance to wear.</p>
+            <h4>2. Chemical Catalysts</h4>
+            <p>Vanadium compounds are used as catalysts in various chemical reactions, including the production of sulfuric acid.</p>
+            <h4>3. Batteries</h4>
+            <p>Vanadium redox flow batteries are used for energy storage in renewable energy systems.</p>
+            <h4>4. Research</h4>
+            <p>Vanadium is used in scientific research, particularly in studies related to materials science and catalysis.</p>
+        </div>
+
+        <div class="section">
+            <h2>Vanadium in the Universe</h2>
+            <p>
+                Vanadium is formed in stars through nucleosynthesis processes. It is relatively rare in the universe, with an estimated cosmic abundance of about 0.0002% relative to hydrogen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Vanadium is primarily extracted from minerals such as vanadinite and patronite through chemical processes. Major producers of vanadium include China, Russia, and South Africa.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Vanadium is generally considered safe for use, but safety protocols should be followed when handling vanadium and its compounds. Prolonged exposure can pose health risks.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Vanadium's unique properties and applications in steel production and energy storage highlight its importance in modern technology. As research continues, its role in advanced materials and technologies is likely to expand.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Vanadium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Vanadium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Osmium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Osmium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Osmium is a chemical element with the symbol <strong>Os</strong> and atomic number 76. It is a dense, lustrous, bluish-white transition metal in Group 8 of the periodic table, positioned between rhenium and iridium. One of the rarest elements in the Earth’s crust, osmium occurs at about 0.0000001% by weight, primarily in platinum-bearing ores and alluvial deposits.
+            </p>
+            <p>
+                Discovered in the early 19th century, osmium is renowned for its extreme density—the highest of any naturally occurring element—and hardness. Its limited abundance and unique properties make it valuable in specialized applications, despite its tendency to form toxic compounds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Osmium has 34 known isotopes, with mass numbers ranging from 161 to 194. Seven are stable and naturally occurring—<sup>184</sup>Os, <sup>186</sup>Os, <sup>187</sup>Os, <sup>188</sup>Os, <sup>189</sup>Os, <sup>190</sup>Os, and <sup>192</sup>Os—while the rest are radioactive.
+            </p>
+            <h3>Stable Isotopes</h3>
+            <p>
+                <sup>192</sup>Os (40.78% abundance) is the most common, followed by <sup>190</sup>Os (26.36%), <sup>189</sup>Os (16.15%), <sup>188</sup>Os (13.24%), <sup>187</sup>Os (1.96%), <sup>186</sup>Os (1.59%), and <sup>184</sup>Os (0.02%). <sup>187</sup>Os is notable for its use in dating ancient rocks.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>191</sup>Os (half-life: 15.4 days) is a key synthetic isotope, decaying via beta emission into <sup>191</sup>Ir. It’s used in tracer studies. Other isotopes, like <sup>194</sup>Os (half-life: 6 years), are studied in nuclear physics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Osmium is a brittle, bluish-white metal with a faint iridescent sheen. It is the densest naturally occurring element and highly resistant to corrosion, though it can oxidize into toxic osmium tetroxide (OsO₄).
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Osmium has a density of 22.59 g/cm³, a melting point of 3033°C (5491°F), and a boiling point of 5012°C (9054°F). Its hexagonal close-packed structure contributes to its hardness and brittleness.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 2.2 (Pauling scale) and a first ionization energy of 8.7 eV, osmium exhibits +2, +3, +4, and +8 oxidation states, with +4 (Os⁴⁺) and +8 (Os⁸⁺) being common in OsO₂ and OsO₄. It resists most acids but reacts with oxygen at high temperatures.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>76</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>190.23</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>22.59 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>3033°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>5012°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f¹⁴ 5d⁶ 6s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>2.2</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>8.7 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Osmium’s discovery emerged from the study of platinum metals, marking a leap in understanding rare elements.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Osmium was discovered in 1803 by English chemist Smithson Tennant, alongside iridium, while analyzing platinum residues dissolved in aqua regia. He named it "osmium" from the Greek "osme" (smell), due to the pungent odor of its tetroxide.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                Initially a scientific curiosity, osmium found use in the early 20th century in fountain pen tips and electrical contacts due to its hardness. Its rarity and toxicity limited broader applications, though its isotopes later aided geological dating.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Osmium’s extreme properties enable niche uses:</p>
+            <h4>1. Alloys</h4>
+            <p>Osmium alloys with platinum or iridium create ultra-hard materials for fountain pen nibs, instrument pivots, and electrical contacts.</p>
+            <h4>2. Catalysis</h4>
+            <p>Osmium tetroxide (OsO₄) catalyzes organic reactions, like dihydroxylation in chemical synthesis, though its use is limited by toxicity.</p>
+            <h4>3. Microscopy</h4>
+            <p>OsO₄ stains biological samples for electron microscopy, enhancing contrast in cellular structures.</p>
+            <h4>4. Geochronology</h4>
+            <p>The <sup>187</sup>Os/<sup>187</sup>Re decay system dates meteorites and ancient rocks, tracing Earth’s history.</p>
+        </div>
+
+        <div class="section">
+            <h2>Osmium in the Universe</h2>
+            <p>
+                Osmium forms in neutron star collisions via rapid neutron capture (r-process), with a cosmic abundance of about 3 × 10⁻⁷ relative to hydrogen. On Earth, it concentrates with platinum group metals from cosmic and volcanic origins.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Osmium is extracted as a byproduct of platinum and nickel refining, typically via solvent extraction or distillation of OsO₄. Global production is minimal, around 100 kilograms annually, sourced mainly from South Africa, Russia, and Canada.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Osmium metal is safe to handle but brittle; its tetroxide (OsO₄) is highly toxic, volatile, and corrosive, damaging eyes, lungs, and skin. Strict ventilation and protective gear are required in its use.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Osmium’s low production limits its environmental footprint, though OsO₄ release poses localized risks. Its mining is tied to broader platinum group metal extraction impacts.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Osmium, a rare and dense relic of cosmic violence, shines in specialized roles. Its hardness and scarcity define its niche, a testament to nature’s extremes, balanced by the caution its toxicity demands.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Osmium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Osmium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

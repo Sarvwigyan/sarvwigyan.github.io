@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xenon - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Xenon</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Xenon is a chemical element with the symbol <strong>Xe</strong> and atomic number 54. It is a colorless, odorless gas that is part of the noble gases group in the periodic table. Xenon is known for its use in lighting, medical imaging, and as a general anesthetic.
+            </p>
+            <p>
+                The element was discovered in 1898 by the British chemists William Ramsay and Morris Travers while they were studying the components of liquid air. The name "xenon" is derived from the Greek word "xenos," meaning "strange" or "foreign."
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Xenon has several isotopes, with <sup>129</sup>Xe and <sup>131</sup>Xe being the most stable and abundant. The average atomic mass of xenon is approximately 131.293 u. Xenon-135 (<sup>135</sup>Xe) is a radioactive isotope with a half-life of about 9.14 hours and is of interest in nuclear science.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Xenon is a heavy, colorless gas that is chemically inert under standard conditions. It has a high atomic mass and is one of the rarest elements in the Earth's atmosphere.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Xenon has a density of 5.887 g/L at standard temperature and pressure (STP), a melting point of -111.8°C (-169.2°F), and a boiling point of -108.1°C (-162.6°F). It exists as a monatomic gas.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Although xenon is a noble gas and is generally unreactive, it can form compounds with highly electronegative elements such as fluorine and oxygen. It exhibits oxidation states of +2, +4, and +6 in its compounds.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>54</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>131.293</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>5.887 g/L</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>-111.8°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>-108.1°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Kr] 4d¹⁰ 5s² 5p⁶</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>Unknown</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>12.129 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Xenon was discovered in 1898 by William Ramsay and Morris Travers during their experiments with liquid air. The discovery of xenon expanded the understanding of noble gases and their properties.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Xenon's unique properties make it valuable in several applications:</p>
+            <h4>1. Lighting</h4>
+            <p>Xenon is used in high-intensity discharge lamps, including xenon arc lamps, which are used in movie projectors and searchlights.</p>
+            <h4>2. Medical Imaging</h4>
+            <p>Xenon is used as a contrast agent in certain types of medical imaging, particularly in computed tomography (CT) scans.</p>
+            <h4>3. Anesthesia</h4>
+            <p>Xenon is used as a general anesthetic in some medical procedures due to its rapid onset and minimal side effects.</p>
+            <h4>4. Research</h4>
+            <p>Xenon is used in various scientific research applications, particularly in studies related to noble gases and their properties.</p>
+        </div>
+
+        <div class="section">
+            <h2>Xenon in the Universe</h2>
+            <p>
+                Xenon is formed in stars through nucleosynthesis processes. It is relatively rare in the universe, with an estimated cosmic abundance of about 0.0000087% relative to hydrogen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Xenon is primarily extracted from the atmosphere through fractional distillation of air. Major producers of xenon include the United States, Russia, and several European countries.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Xenon is generally considered safe for use, but asphyxiation can occur in high concentrations due to its displacement of oxygen. Safety protocols should be followed when handling xenon gas.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Xenon's unique properties and applications in various industries highlight its importance in modern technology. As research continues, its role in advanced materials and medical applications is likely to expand.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Xenon - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Xenon page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

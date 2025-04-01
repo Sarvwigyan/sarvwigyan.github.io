@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terbium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Terbium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Terbium is a chemical element with the symbol <strong>Tb</strong> and atomic number 65. It is a silvery-gray metal that is part of the lanthanide series of the periodic table. Terbium is known for its use in various applications, including phosphors, magnets, and as a dopant in solid-state devices.
+            </p>
+            <p>
+                The element was discovered in 1843 by Swedish chemist Jöns Jacob Berzelius and his assistant, who isolated it from the mineral gadolinite. The name "terbium" is derived from the village of Ytterby in Sweden, where several rare earth elements were first discovered.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Terbium has several isotopes, with <sup>159</sup>Tb being the most stable and abundant, accounting for nearly 100% of natural terbium. The average atomic mass of terbium is approximately 158.92535 u. Terbium-160 (<sup>160</sup>Tb) is a radioactive isotope with a half-life of about 72 hours.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Terbium is a soft, malleable metal that is relatively stable in air. It can oxidize when exposed to moisture and is known for its magnetic properties.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Terbium has a density of 8.229 g/cm³, a melting point of 1356°C (2473°F), and a boiling point of 3123°C (5653°F). Its crystalline structure is hexagonal close-packed.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Terbium reacts with oxygen to form terbium oxide (Tb₂O₃) and can also react with acids to form terbium salts. It exhibits oxidation states of +3 and +4, with the +3 state being the most stable in aqueous solutions.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>65</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>158.92535</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>8.229 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1356°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>3123°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 6s² 4f<sup>9</sup></td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.1</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>5.348 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Terbium was discovered in 1843 by Jöns Jacob Berzelius and was later isolated in a pure form. The element's unique properties have made it valuable in various applications, particularly in the fields of electronics and materials science.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Terbium's unique properties make it valuable in several applications:</p>
+            <h4>1. Phosphors</h4>
+            <p>Terbium is used in phosphors for fluorescent lamps and LED lights, providing a green color in displays.</p>
+            <h4>2. Magnets</h4>
+            <p>Terbium is used in the production of high-strength permanent magnets, particularly in combination with other rare earth elements.</p>
+            <h4>3. Solid-State Devices</h4>
+            <p>Terbium is used as a dopant in solid-state devices, improving their performance and efficiency.</p>
+            <h4>4. Research</h4>
+            <p>Terbium is used in various scientific research applications, particularly in studies related to rare earth elements and their properties.</p>
+        </div>
+
+        <div class="section">
+            <h2>Terbium in the Universe</h2>
+            <p>
+                Terbium is formed in stars through nucleosynthesis processes. It is relatively rare in the universe, with an estimated cosmic abundance of about 0.0007% relative to hydrogen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Terbium is primarily extracted from minerals such as bastnäsite and monazite through chemical processes. Major producers of terbium include China, the United States, and Australia.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Terbium is generally considered safe for use, but excessive exposure can lead to health issues. It is not known to be toxic, but safety protocols should be followed when handling terbium and its compounds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Terbium's unique properties and applications in various industries highlight its importance in modern technology. As research continues, its role in advanced materials and technologies is likely to expand.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Terbium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Terbium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

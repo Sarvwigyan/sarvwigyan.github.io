@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silver - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Silver</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Silver is a chemical element with the symbol <strong>Ag</strong> and atomic number 47. It is a soft, white, lustrous transition metal with the highest electrical conductivity, thermal conductivity, and reflectivity of any metal. Silver has been used for thousands of years for various applications, including jewelry, currency, and tableware.
+            </p>
+            <p>
+                The name "silver" is derived from the Old English word "seolfor" and the Latin word "argentum," which is the source of its chemical symbol Ag.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Silver has two stable isotopes: <sup>107</sup>Ag and <sup>109</sup>Ag. The most abundant isotope is <sup>107</sup>Ag, which makes up about 51.84% of natural silver. Silver also has several radioactive isotopes, the most notable being <sup>108</sup>Ag, which has a half-life of about 2.4 hours.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Silver is a ductile and malleable metal, meaning it can be drawn into wires or hammered into thin sheets. It has a bright metallic luster and is resistant to corrosion and oxidation.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Silver has a density of 10.49 g/cm³, a melting point of 961.8°C (1763.2°F), and a boiling point of 2162°C (3924°F). Its crystalline structure is face-centered cubic.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Silver reacts with sulfur and halogens, forming silver sulfide and silver halides, respectively. It exhibits oxidation states of +1 and +2, with the +1 state being the most stable in aqueous solutions.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>47</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>107.8682</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>10.49 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>961.8°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2162°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Kr] 4d<sup>10</sup> 5s<sup>1</sup></td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.93</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>7.576 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Silver has been known since ancient times and has been used for currency, jewelry, and utensils. The earliest evidence of silver mining dates back to around 3000 BC in Anatolia (modern-day Turkey). The use of silver as a form of currency began around 600 BC in Lydia (modern-day Turkey).
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Silver's unique properties make it valuable in several applications:</p>
+            <h4>1. Jewelry and Silverware</h4>
+            <p>Silver is widely used in jewelry, decorative items, and tableware due to its luster and workability.</p>
+            <h4>2. Electronics</h4>
+            <p>Silver's excellent conductivity makes it ideal for use in electrical contacts, switches, and circuit boards.</p>
+            <h4>3. Photography</h4>
+            <p>Silver halides are used in traditional photography for film and photographic paper.</p>
+            <h4>4. Antimicrobial Applications</h4>
+            <p>Silver has antimicrobial properties and is used in medical devices, wound dressings, and coatings to prevent infection.</p>
+        </div>
+
+        <div class="section">
+            <h2>Silver in the Universe</h2>
+            <p>
+                Silver is formed in stars through nucleosynthesis processes, particularly during supernova explosions. Its cosmic abundance is relatively low, estimated at about 0.000007% of the universe's mass.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Silver is primarily extracted from ores such as argentite (Ag₂S) and galena (PbS). It is also obtained as a byproduct of copper, gold, and lead mining. Major producers of silver include Mexico, Peru, and China.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Silver is generally considered safe for use, but excessive exposure to silver compounds can lead to argyria, a condition that causes a bluish-gray discoloration of the skin. Safety protocols should be followed when handling silver and its compounds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Silver's unique properties and applications in various industries highlight its importance in modern technology and culture. Its historical significance and continued use make it a valuable element in both practical and aesthetic contexts.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Silver - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Silver page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

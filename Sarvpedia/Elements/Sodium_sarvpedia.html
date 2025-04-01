@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sodium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sodium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Sodium is a chemical element with the symbol <strong>Na</strong> and atomic number 11. It is a soft, silvery-white, highly reactive metal that belongs to the alkali metals group. Sodium was discovered in 1807 by Sir Humphry Davy through the electrolysis of sodium hydroxide.
+            </p>
+            <p>
+                The name "sodium" is derived from the English word "soda," which refers to sodium carbonate. Sodium is essential for life and plays a crucial role in various biological processes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Sodium has only one stable isotope, <sup>23</sup>Na, which accounts for nearly all naturally occurring sodium. The average atomic mass of sodium is approximately 22.98977 u. Sodium-24 is a radioactive isotope with a half-life of about 15 hours.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Sodium is a soft, silvery-white metal that is highly reactive, especially with water and air. It is one of the most abundant elements in the universe and is essential for various biological functions.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Sodium has a density of 0.97 g/cm³, a melting point of 97.79°C (208.0°F), and a boiling point of 883°C (1621°F). Its crystalline structure is body-centered cubic.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Sodium reacts vigorously with water, producing sodium hydroxide and hydrogen gas. It also reacts with halogens and other nonmetals. Sodium typically exhibits an oxidation state of +1.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>11</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>22.98977</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>0.97 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>97.79°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>883°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ne] 3s<sup>1</sup></td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>0.93</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>5.139 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Sodium was discovered in 1807 by Sir Humphry Davy while he was experimenting with electrolysis. He isolated sodium from sodium hydroxide, marking the first time an alkali metal was isolated. Sodium has since been recognized for its importance in both biological systems and industrial applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Sodium's unique properties make it valuable in several applications:</p>
+            <h4>1. Biological Role</h4>
+            <p>Sodium is essential for life, playing a crucial role in nerve function and muscle contraction.</p>
+            <h4>2. Industrial Uses</h4>
+            <p>Sodium is used in the production of sodium compounds, such as sodium carbonate and sodium bicarbonate, which are important in various industrial processes.</p>
+            <h4>3. Sodium Vapor Lamps</h4>
+            <p>Sodium is used in high-pressure sodium vapor lamps, which provide bright yellow light and are commonly used for street lighting.</p>
+            <h4>4. Chemical Reactions</h4>
+            <p>Sodium is used as a reducing agent in various chemical reactions and is involved in the production of organic compounds.</p>
+        </div>
+
+        <div class="section">
+            <h2>Sodium in the Universe</h2>
+            <p>
+                Sodium is formed in stars through nucleosynthesis processes. It is relatively abundant in the universe, with an estimated cosmic abundance of about 0.02% relative to hydrogen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Sodium is primarily produced through the electrolysis of molten sodium chloride (table salt). Major producers of sodium include the United States, China, and Germany.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Sodium is highly reactive and should be handled with care. It can cause burns and other injuries if it comes into contact with water or moisture. Safety protocols should be followed when working with sodium and its compounds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Sodium's unique properties and applications in various industries highlight its importance in modern technology and biology. As research continues, its role in advanced materials and technologies is likely to expand.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright &copy; Sodium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Sodium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>
