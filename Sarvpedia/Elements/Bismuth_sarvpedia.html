@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bismuth - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bismuth</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Bismuth is a chemical element with the symbol <strong>Bi</strong> and atomic number 83. Positioned in group 15 of the periodic table, alongside nitrogen, phosphorus, arsenic, and antimony, bismuth is classified as a post-transition metal with metalloid-like characteristics. It is a brittle, lustrous element with a distinctive pinkish-silver hue, often displaying iridescent oxide layers that create a rainbow effect on its surface. Bismuth occurs naturally in the Earth’s crust at approximately 0.0085 ppm (8.5 parts per billion), making it relatively rare—about twice as abundant as gold but far less common than most metals. It is primarily found in the mineral bismuthinite (Bi₂S₃) and as a byproduct of lead, copper, and tin refining.
+            </p>
+            <p>
+                Known since ancient times, bismuth has a storied history that intertwines with alchemy, metallurgy, and modern science. Its name likely derives from the German "wismut," possibly meaning "white mass," reflecting its appearance when first encountered. Unlike its group 15 neighbors, bismuth is remarkably non-toxic for a heavy metal, a trait that sets it apart from arsenic and antimony and has fueled its use in pharmaceuticals and cosmetics. Its low thermal conductivity, high diamagnetism, and unique crystal growth patterns—forming hopper-shaped, stair-stepped structures—further distinguish bismuth as an element of both scientific intrigue and practical utility. From ancient alloys to modern electronics, bismuth’s subtle presence belies its profound impact across disciplines.
+            </p>
+            <p>
+                Bismuth’s physical properties also contribute to its allure. It has one of the lowest thermal conductivities among metals (7.97 W/m·K), surpassed only by mercury, and it expands slightly upon solidification (by about 3.32%), a rare behavior shared with water and a few other substances. This expansion, combined with its low melting point, makes bismuth a favorite for hobbyists crafting intricate crystals at home. Its atomic structure, with a partially filled p-orbital, bridges metallic and metalloid behavior, offering a unique window into the chemistry of heavy elements.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Bismuth was long considered the heaviest element with a stable isotope, <sup>209</sup>Bi, which constitutes nearly 100% of its natural abundance. However, in 2003, it was discovered that <sup>209</sup>Bi is weakly radioactive, undergoing alpha decay to thallium-205 with an extraordinarily long half-life of 1.9 × 10¹⁹ years—over a billion times the age of the universe (13.8 billion years). This makes bismuth effectively stable for all practical purposes, as its decay is imperceptible on human or even geological timescales. The discovery reshaped our understanding of nuclear stability, positioning bismuth as a bridge between stable and radioactive heavy elements.
+            </p>
+            <p>
+                Beyond <sup>209</sup>Bi, bismuth has no other naturally occurring isotopes, but numerous radioactive isotopes have been synthesized. Examples include <sup>210</sup>Bi (half-life 5.012 days), which decays via beta emission and is part of the uranium-238 decay chain, and <sup>212</sup>Bi (half-life 60.55 minutes), found in the thorium-232 series. These short-lived isotopes emit alpha and beta particles, making them useful in nuclear research and medical applications, such as targeted alpha therapy for cancer. The isotopic scarcity of bismuth in nature reflects its formation primarily through the s-process (slow neutron capture) in stars, with minor contributions from the r-process (rapid neutron capture) in supernovae.
+            </p>
+            <p>
+                The stability of <sup>209</sup>Bi is attributed to its "magic number" of neutrons (126), a configuration that enhances nuclear binding energy. Variations in isotopic ratios from different mineral sources are minimal but can be detected with advanced spectrometry, offering clues about geological processes and cosmic origins. Bismuth’s isotopic profile thus serves as both a scientific curiosity and a tool for understanding nucleosynthesis and planetary evolution.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Bismuth is a brittle, crystalline metal with a density of 9.78 g/cm³, making it denser than iron but less so than lead. Its appearance is striking: freshly cut bismuth has a silvery sheen with a pinkish tinge, while exposure to air forms a thin oxide layer (Bi₂O₃) that diffracts light into iridescent colors—reds, blues, and yellows—due to interference effects. This aesthetic quality, combined with its low melting point of 271.4°C (520.5°F) and boiling point of 1564°C (2847°F), makes bismuth accessible for casting and crystal growth experiments. Unlike most metals, bismuth contracts when melted and expands when it solidifies, a property linked to its complex molecular arrangement.
+            </p>
+            <p>
+                Chemically, bismuth is relatively unreactive for a heavy metal, resisting corrosion in dry air and forming a protective oxide layer in moist conditions. It reacts slowly with oxygen at high temperatures and dissolves in concentrated acids like nitric acid (HNO₃) to form bismuth salts, such as bismuth nitrate (Bi(NO₃)₃). Its electronegativity (2.02 on the Pauling scale) and ionization energies (first: 7.289 eV) reflect its metallic character, though its electrical conductivity is low (0.00867 × 10⁶ S/m), about 1/25th that of copper, due to its partially filled p-orbitals and weak metallic bonding.
+            </p>
+            <p>
+                Bismuth is the most diamagnetic of all elements, meaning it repels magnetic fields more strongly than any other naturally occurring substance (magnetic susceptibility: -1.66 × 10⁻⁴). This property arises from its electronic structure, where paired electrons create opposing magnetic moments. Additionally, bismuth exhibits the strongest Hall effect among metals, generating a significant voltage perpendicular to an applied current in a magnetic field—a phenomenon exploited in sensors and research. Its rhombohedral crystal structure, slightly distorted from cubic, contributes to its brittleness and unique hopper crystal formations, where rapid cooling creates stepped, geometric shapes prized by collectors.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>83</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>208.9804</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>9.78 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>271.4°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>1564°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f¹⁴ 5d¹⁰ 6s² 6p³</td>
+                </tr>
+                <tr>
+                    <td>Thermal Conductivity</td>
+                    <td>7.97 W/m·K</td>
+                </tr>
+                <tr>
+                    <td>Electrical Conductivity</td>
+                    <td>0.00867 × 10⁶ S/m</td>
+                </tr>
+                <tr>
+                    <td>Crystal Structure</td>
+                    <td>Rhombohedral</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Bismuth’s history is a tapestry of ancient metallurgy, alchemical confusion, and scientific clarification, spanning continents and millennia.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Bismuth was known to ancient civilizations, though often conflated with lead, tin, or antimony due to its similar appearance. In pre-Columbian South America, the Incas alloyed bismuth with copper and tin to create bronze tools and ornaments, exploiting its low melting point without recognizing it as a distinct element. In medieval Europe, miners encountered bismuth in Saxony’s silver mines, calling it "wismut" or "weissmuth" (white mass), and sometimes mistaking it for silver or lead ore. Its brittleness and lack of malleability frustrated early smiths, who deemed it an impurity spoiling more workable metals.
+            </p>
+            <p>
+                By the 15th century, bismuth’s unique properties began to intrigue alchemists. Paracelsus, a Swiss physician and alchemist, described it as a "bastard metal" between lead and tin, noting its distinct behavior when heated. Georgius Agricola, in his seminal 1546 work "De Natura Fossilium," documented bismuth as a separate substance, though he still grouped it with other "semi-metals." Its iridescent oxide layers and low melting point made it a subject of curiosity, often used in decorative castings or as a pigment base in early paints.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Bismuth was formally distinguished as an element in the 18th century, with credit often given to Claude François Geoffroy (Geoffroy the Younger) of France. In 1753, Geoffroy presented his findings to the French Academy of Sciences, demonstrating that bismuth was distinct from lead and tin through its chemical reactions and physical properties. He separated bismuth from its ores using distillation and reduction techniques, noting its brittleness and tendency to form crystalline structures—observations that built on earlier work by Johann Heinrich Pott and others. This marked bismuth as one of the first elements identified in the Enlightenment era of chemistry.
+            </p>
+            <p>
+                The name "bismuth" evolved from its Germanic roots, possibly linked to "bisemutum" (a Latinized form of "wismut"), reflecting its mining heritage in Germany. Its recognition as a unique element preceded the periodic table, but its placement in group 15 by Dmitri Mendeleev in 1869 clarified its relationship to arsenic and antimony, emphasizing its heavier, more metallic nature within the pnictogen family.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Bismuth’s inclusion in group 15 highlighted the transition from nonmetals (nitrogen, phosphorus) to metalloids (arsenic, antimony) to metals (bismuth) as atomic number increases. Its atomic weight and chemical behavior aligned with Mendeleev’s predictions, reinforcing the periodic law. Bismuth’s near-stability at atomic number 83 also positioned it as a natural endpoint before the radioactive elements of the actinides and beyond, offering a benchmark for studying nuclear stability and electronic trends in heavy elements.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Bismuth’s low toxicity, low melting point, and unique physical properties have carved out a diverse array of applications, from ancient crafts to cutting-edge technology.</p>
+            <h4>1. Pharmaceuticals</h4>
+            <p>Bismuth subsalicylate (Bi(C₇H₅O₃)₃), the active ingredient in products like Pepto-Bismol, is a cornerstone of over-the-counter medicine. It treats diarrhea, indigestion, and nausea by coating the stomach lining and neutralizing excess acid, while its antibacterial properties combat pathogens like *Helicobacter pylori*. Bismuth’s non-toxicity contrasts with lead and antimony, making it a safe choice for ingestion in controlled doses. Historically, bismuth compounds were used in cosmetics, such as bismuth oxychloride (BiOCl), to impart a pearlescent sheen to powders and creams.</p>
+            <h4>2. Alloys</h4>
+            <p>Bismuth’s low melting point makes it a key component in low-melting alloys, such as Wood’s metal (50% Bi, 25% Pb, 12.5% Sn, 12.5% Cd, melting at 70°C) and Rose’s metal (50% Bi, 28% Pb, 22% Sn, melting at 94°C). These alloys are used in fire sprinklers, fusible plugs, and precision casting, where they melt at specific temperatures to release mechanisms or fill molds. Bismuth’s expansion upon solidification ensures tight seals in these applications, a rare and valuable trait.</p>
+            <h4>3. Electronics</h4>
+            <p>Bismuth telluride (Bi₂Te₃) is a standout thermoelectric material, converting heat into electricity or vice versa with high efficiency. It’s used in refrigeration systems, power generation for spacecraft (e.g., Voyager probes), and portable coolers. Bismuth’s diamagnetism and Hall effect also find niche uses in magnetic field sensors and experimental physics, while bismuth ferrite (BiFeO₃) is explored in multiferroic devices combining magnetic and electric properties.</p>
+            <h4>4. Metallurgy</h4>
+            <p>In steel and aluminum production, bismuth acts as a grain refiner, improving machinability and reducing brittleness. It’s added in trace amounts to free-machining steels and lead-free brasses, replacing toxic lead without sacrificing performance. Bismuth’s low solubility in other metals ensures it forms discrete particles that enhance cutting precision in manufacturing.</p>
+            <h4>5. Pigments and Cosmetics</h4>
+            <p>Bismuth oxychloride remains a staple in cosmetics, providing a shimmering finish in nail polishes, eyeshadows, and lipsticks. Its high refractive index and low toxicity make it ideal for skin contact. Historically, bismuth compounds colored paints and glass, though modern use has shifted toward safer alternatives in these fields.</p>
+            <h4>6. Radiation Shielding</h4>
+            <p>Bismuth’s high atomic number (83) and density make it an effective shield against gamma rays and X-rays. Bismuth-based composites are used in medical aprons and shields, offering a lead-free alternative that’s lighter and less toxic. Research into bismuth nanoparticles also explores their potential in radiation therapy enhancement.</p>
+            <h4>7. Crystal Art and Education</h4>
+            <p>Bismuth’s ability to form hopper crystals—stepped, iridescent structures—has made it a favorite among hobbyists, artists, and educators. Melted and cooled under controlled conditions, bismuth produces visually stunning crystals that demonstrate principles of crystallization and metallic bonding, bridging science and aesthetics.</p>
+        </div>
+
+        <div class="section">
+            <h2>Bismuth in the Universe</h2>
+            <p>
+                Bismuth’s cosmic presence is a tale of stellar alchemy. It forms primarily through the s-process in asymptotic giant branch (AGB) stars, where slow neutron capture builds its nucleus over millions of years. Some bismuth also arises from the r-process in supernovae, though this contributes less due to its stability at <sup>209</sup>Bi. Its cosmic abundance is estimated at 0.18 parts per billion relative to silicon, making it rarer than most metals but detectable in stellar spectra, particularly in chemically peculiar stars enriched by binary interactions.
+            </p>
+            <p>
+                On Earth, bismuth appears in meteorites and lunar samples in trace amounts, consistent with its crustal rarity. Its long-lived isotope, <sup>209</sup>Bi, suggests it has persisted since the solar system’s formation 4.6 billion years ago, with minimal decay due to its astronomical half-life. Bismuth’s spectral lines (e.g., at 306.77 nm) are used by astronomers to study stellar atmospheres and galactic evolution, while its presence in interstellar dust hints at its dispersal by ancient stellar winds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Bismuth is rarely mined as a primary product due to its scarcity in concentrated deposits. Instead, it is extracted as a byproduct during the refining of lead, copper, tin, silver, and gold ores. The process begins with smelting these ores, where bismuth concentrates in the molten metal or slag. It is then separated via electrolysis, liquation (exploiting its low melting point), or the Kroll-Betterton process, which uses calcium and magnesium to precipitate bismuth from lead bullion.
+            </p>
+            <p>
+                Major producers include China, Mexico, Peru, and Japan, with annual global production around 10,000-20,000 tons, fluctuating based on demand and byproduct availability. Bismuthinite (Bi₂S₃) and bismite (Bi₂O₃) are the primary natural sources, though economic deposits are limited. Refining yields high-purity bismuth (99.99% or better) for electronics and pharmaceuticals, while lower grades suffice for alloys. Recycling from bismuth-containing products, like electronics and fusible alloys, is growing but remains a small fraction of supply due to logistical challenges.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Bismuth is one of the least toxic heavy metals, a stark contrast to its neighbors like lead and antimony. Elemental bismuth and its insoluble compounds, such as bismuth subsalicylate, are safe for human use in moderation, with no significant evidence of carcinogenicity or bioaccumulation. The LD50 (lethal dose for 50% of test subjects) for bismuth salts is high—e.g., 700 mg/kg for bismuth subsalicylate in rats—indicating low acute toxicity. In pharmaceuticals, side effects are rare, though excessive ingestion can cause temporary darkening of the tongue or stool due to bismuth sulfide formation in the gut.
+            </p>
+            <p>
+                However, bismuth’s safety is not absolute. Soluble bismuth compounds, like bismuth chloride (BiCl₃), are more toxic, causing irritation to skin, eyes, and respiratory tracts upon exposure. Inhalation of bismuth dust or fumes during mining or refining poses risks of pneumoconiosis, though this is less severe than with silica or asbestos. Occupational exposure limits (e.g., 5 mg/m³ by OSHA) guide industrial handling, requiring ventilation and protective gear. Environmental concerns are minimal, as bismuth does not persist in water or soil in bioavailable forms, though its extraction as a byproduct ties it to the ecological footprint of lead and copper mining.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Bismuth is a marvel of chemistry and culture, a heavy metal that defies expectations with its beauty, stability, and benignity. From the iridescent crystals crafted by ancient metallurgists to the thermoelectric devices powering modern exploration, bismuth weaves a narrative of resilience and adaptability. Its near-eternal isotope, <sup>209</sup>Bi, stands as a testament to nuclear endurance, while its cosmic origins link it to the stars that birthed our solar system. In medicine, it soothes; in technology, it innovates; in art, it dazzles—yet it remains humble, a byproduct turned protagonist. Bismuth’s journey—from alchemical obscurity to scientific spotlight—mirrors humanity’s own quest to understand the elements that shape our world, offering a shimmering reminder of nature’s complexity and grace.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Bismuth - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Bismuth page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

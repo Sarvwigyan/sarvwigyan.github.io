@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Barium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Barium is a chemical element with the symbol <strong>Ba</strong> and atomic number 56. It belongs to group 2 of the periodic table, the alkaline earth metals, alongside magnesium, calcium, strontium, and radium. Barium is a soft, silvery-white metal known for its high reactivity and density. It does not occur in its pure form in nature due to its tendency to react with oxygen and water, instead appearing in minerals such as barite (barium sulfate, BaSO₄) and witherite (barium carbonate, BaCO₃). Constituting approximately 0.0425% of the Earth’s crust (425 ppm), barium ranks as the 14th most abundant element, making it relatively common among metals. Its discovery and subsequent applications have significantly impacted fields ranging from medicine to pyrotechnics, cementing its place in both scientific study and industrial use.
+            </p>
+            <p>
+                Barium’s name originates from the Greek word "barys," meaning "heavy," a nod to the high density of its compounds, particularly barite, which was known to alchemists long before the element itself was isolated. Its chemical behavior mirrors that of other alkaline earth metals, readily losing two electrons to form the Ba²⁺ ion, which drives its reactivity and utility in various compounds. Today, barium’s presence is felt in everything from X-ray imaging to the vibrant green hues of fireworks, showcasing its versatility despite its reactive nature.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Barium has seven naturally occurring stable isotopes, a relatively high number compared to many elements, reflecting its nuclear stability across a range of masses. These isotopes are <sup>130</sup>Ba (0.106%), <sup>132</sup>Ba (0.101%), <sup>134</sup>Ba (2.417%), <sup>135</sup>Ba (6.592%), <sup>136</sup>Ba (7.854%), <sup>137</sup>Ba (11.232%), and <sup>138</sup>Ba (71.698%), with <sup>138</sup>Ba being the most abundant by far. This isotopic diversity arises from barium’s position in the periodic table and its formation processes in stellar nucleosynthesis, particularly the s-process (slow neutron capture) in aging stars.
+            </p>
+            <p>
+                In addition to its stable isotopes, barium has numerous radioactive isotopes, with <sup>133</sup>Ba being one of the most notable due to its use in scientific research. It has a half-life of approximately 10.51 years and decays via electron capture, emitting gamma rays that make it valuable as a calibration source in gamma spectroscopy. Other radioactive isotopes, such as <sup>140</sup>Ba (half-life 12.75 days), are produced in nuclear fission and have been studied in the context of nuclear reactors and fallout analysis. The isotopic composition of barium can vary slightly depending on its geological source, providing a tool for geochemical tracing.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Barium is a soft, lustrous metal with a silvery-white appearance when freshly cut, though it quickly oxidizes in air to form a dark oxide layer. It has a body-centered cubic crystal structure and is notably dense for an alkaline earth metal, with a density of 3.51 g/cm³—less than iron but heavier than magnesium or calcium. Barium’s melting point is 727°C (1341°F), and it boils at 1897°C (3447°F), reflecting its metallic bonding strength. It is highly reactive, igniting spontaneously in moist air and reacting vigorously with water to produce barium hydroxide (Ba(OH)₂) and hydrogen gas (H₂), a trait typical of group 2 elements.
+            </p>
+            <p>
+                Electrically, barium is a good conductor, though its practical use in this capacity is limited by its reactivity. Its atomic radius is large (222 pm), and its first ionization energy is relatively low (5.211 eV), facilitating the formation of the Ba²⁺ ion in chemical reactions. Barium compounds often exhibit distinctive properties; for instance, barium sulfate is virtually insoluble in water (solubility 0.00024 g/100 mL), a key factor in its medical applications, while barium nitrate and chlorate are highly soluble and reactive, lending themselves to pyrotechnics.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>56</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>137.327</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>3.51 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>727°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>1897°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 6s²</td>
+                </tr>
+                <tr>
+                    <td>First Ionization Energy</td>
+                    <td>5.211 eV</td>
+                </tr>
+                <tr>
+                    <td>Crystal Structure</td>
+                    <td>Body-centered cubic</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Barium’s historical journey weaves through alchemy, mineralogy, and modern chemistry, reflecting humanity’s evolving understanding of the natural world.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Long before barium was identified as an element, its compounds were known and utilized. Barite, or "heavy spar," was recognized by medieval alchemists for its exceptional density and was occasionally used as a weighting agent or in rudimentary experiments. In the 17th century, Vincenzo Casciarolo, an Italian shoemaker and alchemist, discovered the phosphorescent properties of "Bologna stones" (impure barium sulfate), which glowed after exposure to light—a phenomenon later attributed to barium impurities. This marked one of the earliest indirect encounters with barium’s unique traits.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Barium was first isolated in 1808 by Sir Humphry Davy, a pivotal figure in early electrochemistry, at the Royal Institution in London. Building on Carl Wilhelm Scheele’s 1774 identification of barite as a distinct mineral, Davy used electrolysis to separate barium from barium hydroxide, employing a mercury cathode. He named it "barium" after "baryta" (barium oxide), emphasizing its heavy nature. Concurrently, Jöns Jacob Berzelius and Magnus Martin af Pontin in Sweden conducted similar experiments, reinforcing the discovery. This isolation was part of a broader wave of element discoveries enabled by electrolysis, including magnesium and calcium.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Barium’s placement in group 2 of the periodic table, finalized with Dmitri Mendeleev’s work in 1869, underscored the systematic trends of the alkaline earth metals. Its atomic weight and reactivity positioned it between strontium and radium, highlighting the group’s increasing density and chemical vigor as atomic number rises. Barium’s discovery also contributed to the understanding of periodicity, as its properties aligned with predictions based on lighter group 2 elements, solidifying the periodic law.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Barium’s reactivity and the distinct properties of its compounds have led to a wide array of applications across science, industry, and medicine.</p>
+            <h4>1. Medical Imaging</h4>
+            <p>Barium sulfate’s insolubility and opacity to X-rays make it an ideal contrast agent for gastrointestinal imaging. Patients ingest a "barium meal" or receive a "barium enema" to highlight the esophagus, stomach, or intestines on radiographs, aiding in the diagnosis of ulcers, tumors, and other abnormalities. Its safety stems from its inability to be absorbed by the body, passing through the digestive system unchanged.</p>
+            <h4>2. Pyrotechnics</h4>
+            <p>Barium salts, particularly barium nitrate (Ba(NO₃)₂) and barium chlorate (Ba(ClO₃)₂), produce a brilliant green color when burned, a result of barium’s emission spectrum peaking at 524-534 nm. This makes them staples in fireworks and signal flares, where vibrant, reliable hues are essential. The intensity and purity of the green distinguish barium from other pyrotechnic colorants like copper.</p>
+            <h4>3. Glass and Ceramics</h4>
+            <p>Barium carbonate (BaCO₃) is used in the production of optical glass, improving clarity and refractive index for lenses and prisms. In ceramics, it acts as a flux, lowering melting points and enhancing durability in glazes and enamels. Barium titanate (BaTiO₃), a ferroelectric compound, is critical in capacitors and piezoelectric devices due to its high dielectric constant.</p>
+            <h4>4. Oil and Gas Industry</h4>
+            <p>Barite’s high density (4.48 g/cm³) makes it a key component in drilling muds, used to lubricate and cool drill bits while stabilizing boreholes under high pressure. This application consumes the majority of global barium production, with millions of tons mined annually to support petroleum exploration.</p>
+            <h4>5. Metallurgy</h4>
+            <p>Barium is employed as a getter in vacuum tubes, where it reacts with residual gases to maintain a vacuum, extending the lifespan of electronic devices. In steelmaking, small amounts of barium alloys improve hardness and resistance to corrosion, particularly in specialty applications.</p>
+            <h4>6. Chemical Synthesis</h4>
+            <p>Barium peroxide (BaO₂) serves as a bleaching agent and an oxidizer in organic synthesis, while barium chloride (BaCl₂) is used in laboratories to test for sulfate ions, forming an insoluble precipitate (BaSO₄). These compounds highlight barium’s role in analytical chemistry.</p>
+            <h4>7. Radiation Shielding</h4>
+            <p>Barium sulfate is incorporated into concrete and bricks for radiation-shielding walls in medical and nuclear facilities, leveraging its high atomic number (56) to absorb X-rays and gamma rays effectively.</p>
+        </div>
+
+        <div class="section">
+            <h2>Barium in the Universe</h2>
+            <p>
+                Barium’s cosmic abundance is tied to its formation in stars via the s-process, where slow neutron capture by lighter elements like strontium builds heavier nuclei over millions of years. This occurs primarily in asymptotic giant branch (AGB) stars, which later expel barium into space through stellar winds, enriching interstellar clouds. Barium lines are prominent in stellar spectra, particularly in "barium stars," which exhibit enhanced barium abundance due to mass transfer from companion AGB stars. On Earth, its presence in meteorites and lunar samples mirrors its terrestrial distribution, albeit in trace amounts.
+            </p>
+            <p>
+                Cosmochemically, barium’s concentration in the solar system is estimated at 2.7 parts per million relative to silicon, making it less abundant than lighter elements but significant among heavy metals. Its isotopic ratios, particularly <sup>137</sup>Ba/<sup>138</sup>Ba, provide insights into nucleosynthetic processes and the age of stellar material, aiding astrophysicists in reconstructing the history of our galaxy.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Barium is primarily sourced from barite (BaSO₄), which accounts for over 90% of its commercial extraction. The process begins with mining, followed by crushing and beneficiation to remove impurities like quartz and calcite. Barite is then reduced with carbon in a furnace at high temperatures (around 1200°C) to produce barium sulfide (BaS), which is further processed with acids or electrolysis to yield pure barium metal or desired compounds. Witherite (BaCO₃), though less common, is another source, typically converted to barium oxide (BaO) via calcination.
+            </p>
+            <p>
+                Major producers include China, India, Morocco, and the United States, with global barite production exceeding 7 million tons annually. Pure barium metal is rarely produced in large quantities due to its reactivity, with most industrial focus on compounds like barium sulfate and carbonate. Recycling efforts are minimal, as barium’s applications (e.g., drilling muds) often render it uneconomical to recover, though some medical and chemical uses allow for limited reuse.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Barium’s safety profile varies dramatically between its forms. Pure barium metal and soluble compounds like barium chloride, nitrate, and acetate are highly toxic. Ingestion of soluble barium salts can cause severe poisoning, leading to symptoms such as vomiting, diarrhea, muscle paralysis, and cardiac arrhythmias due to potassium depletion in cells. The lethal dose for humans is estimated at 1-15 grams, depending on the compound and individual factors, necessitating strict handling protocols in laboratories and industries.
+            </p>
+            <p>
+                Conversely, barium sulfate is non-toxic in medical contexts because of its insolubility, passing through the body without absorption. However, inhalation of barium dust or fumes during mining or processing poses respiratory risks, including baritosis, a benign lung condition caused by prolonged exposure to barite particles. Regulatory agencies like OSHA and the EPA set exposure limits (e.g., 0.5 mg/m³ for soluble barium in air) to mitigate occupational hazards. Proper ventilation, protective equipment, and disposal practices are critical in managing barium’s risks.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Barium stands as a remarkable element, blending a rich historical legacy with a broad spectrum of modern applications. From its phosphorescent discovery in Bologna stones to its pivotal role in Davy’s electrolytic breakthroughs, barium has illuminated the path of chemical science. Its stable isotopes and cosmic origins offer a window into stellar evolution, while its compounds—whether painting the sky green or peering into the human body—demonstrate an unparalleled versatility. Yet, its reactivity and toxicity remind us of the delicate balance between utility and caution. Barium’s story is one of weight and wonder, a heavy metal that continues to lighten our understanding of the world and beyond.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Barium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Barium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

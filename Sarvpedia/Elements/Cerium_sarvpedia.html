@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cerium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Cerium is a chemical element with the symbol <strong>Ce</strong> and atomic number 58. It is the most abundant of the rare earth elements (REEs) in the lanthanide series of the periodic table, positioned between lanthanum (57) and praseodymium (59). Despite its classification as a "rare earth," cerium is relatively plentiful in the Earth’s crust, with an abundance of approximately 66 parts per million—comparable to copper or zinc. A soft, silvery-white metal, cerium is both ductile and malleable, yet it tarnishes readily in air due to its reactivity. It was named after the dwarf planet Ceres, reflecting the astronomical theme common among early rare earth discoveries.
+            </p>
+            <p>
+                Cerium’s significance lies in its versatile chemical properties, particularly its ability to switch between +3 and +4 oxidation states, a rare trait among lanthanides known as "cerium anomaly." This redox capability, combined with its abundance, makes cerium indispensable in industrial applications, from catalytic converters to glass polishing, and in scientific research exploring its unique electronic structure. Found primarily in minerals like bastnäsite and monazite, cerium exemplifies the intersection of geological rarity and practical utility.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Cerium has 38 known isotopes, with mass numbers ranging from 119 to 157. Four isotopes occur naturally—<sup>136</sup>Ce, <sup>138</sup>Ce, <sup>140</sup>Ce, and <sup>142</sup>Ce—of which <sup>140</sup>Ce and <sup>142</sup>Ce are the most abundant. The remaining isotopes are radioactive, with half-lives spanning microseconds to billions of years, reflecting cerium’s nuclear diversity.
+            </p>
+            <h3>Stable Isotope: <sup>140</sup>Ce</h3>
+            <p>
+                <sup>140</sup>Ce, with 82 neutrons, constitutes 88.48% of natural cerium. Its stability is attributed to its "magic number" of neutrons (82), enhancing nuclear binding energy. This isotope dominates cerium’s geochemical behavior and industrial use, forming the bulk of cerium compounds like cerium oxide (CeO₂).
+            </p>
+            <h3>Stable Isotope: <sup>142</sup>Ce</h3>
+            <p>
+                <sup>142</sup>Ce, with 84 neutrons, accounts for 11.11% of natural cerium. Though stable, it is theoretically capable of double beta decay to <sup>142</sup>Nd, with a half-life exceeding 5 × 10¹⁶ years—far too long to observe. Its presence influences isotopic studies of Earth’s mantle and crust formation.
+            </p>
+            <h3>Minor Stable Isotopes</h3>
+            <p>
+                <sup>136</sup>Ce (0.19%) and <sup>138</sup>Ce (0.25%) are trace stable isotopes, formed in stellar nucleosynthesis. Their low abundance limits their practical impact but provides insights into cosmic processes like the s-process.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                Notable radioactive isotopes include <sup>141</sup>Ce (half-life: 32.5 days), a beta emitter used in medical tracing, and <sup>144</sup>Ce (half-life: 284.9 days), a fission product detected in nuclear fallout. Long-lived <sup>139</sup>Ce (half-life: 137.6 days) aids in geological dating, while short-lived isotopes like <sup>143</sup>Ce (half-life: 33 hours) are studied in nuclear physics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Cerium is a soft, lustrous metal with a silvery-white appearance that dulls to a grayish hue upon oxidation. It has a melting point of 798°C (1468°F) and a boiling point of 3433°C (6211°F), reflecting strong metallic bonding. Cerium is pyrophoric in powdered form, igniting spontaneously in air, and reacts with water to produce cerium hydroxide (Ce(OH)₃) and hydrogen gas, though more slowly than alkali metals.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Cerium’s density is 6.77 g/cm³, typical of lanthanides, and it exhibits four allotropic forms: α-Ce (face-centered cubic) at low temperatures, β-Ce (hexagonal close-packed), γ-Ce (face-centered cubic) at room temperature, and δ-Ce (body-centered cubic) above 726°C. Its malleability allows it to be rolled into thin sheets, while its ductility permits wire drawing. Cerium’s thermal conductivity (11.3 W/m·K) and electrical resistivity (75 µΩ·cm) align with its metallic character.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Cerium’s electron configuration, [Xe] 4f¹ 5d¹ 6s², enables oxidation states of +3 (Ce³⁺, most common) and +4 (Ce⁴⁺, unique among lanthanides), with electronegativity of 1.12 (Pauling scale). The +4 state, as in CeO₂, arises from the loss of both 6s and one 4f electron, stabilized by oxygen’s electronegativity. Cerium reacts with halogens (e.g., Ce + 2Cl₂ → CeCl₄), acids (e.g., Ce + 3HCl → CeCl₃ + 1.5H₂), and oxygen (2Ce + 3O₂ → 2Ce₂O₃), showcasing its moderate reactivity among rare earths.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>58</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>140.116</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>6.77 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>798°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>3433°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f¹ 5d¹ 6s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.12</td>
+                </tr>
+                <tr>
+                    <td>Oxidation States</td>
+                    <td>+3, +4</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Cerium’s discovery marked the beginning of rare earth element exploration, bridging mineralogy and modern chemistry during the early 19th century.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Before its isolation, cerium was unknowingly present in minerals like cerite, a reddish-brown silicate mined in Sweden. Chemists noted unusual properties in these ores, hinting at undiscovered elements.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Cerium was discovered in 1803 by Swedish chemist Jöns Jacob Berzelius and geologist Wilhelm Hisinger in Bastnäs, Sweden, working with cerite ore. Simultaneously, German chemist Martin Heinrich Klaproth identified it in Germany. Berzelius and Hisinger named it "cerium" after Ceres, discovered in 1801, and isolated it as cerium oxide (CeO₂) by heating cerite with potassium carbonate and dissolving the product in acid. Klaproth called it "ochroite" due to its yellowish color but later adopted the Swedish name.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                Pure cerium metal was first prepared in 1875 by American chemist William F. Hillebrand and Thomas H. Norton via electrolysis of molten cerium chloride (CeCl₃). Its pyrophoric nature was harnessed in the early 20th century by Carl Auer von Welsbach in ferrocerium flint for lighters. Cerium’s industrial prominence grew with the rise of catalytic and polishing applications in the 20th century.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                As the first lanthanide identified, cerium anchored the rare earth series, revealing the 4f electron shell’s role in chemical behavior and paving the way for the discovery of other lanthanides like lanthanum and praseodymium.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Cerium’s abundance and redox properties enable a wide range of uses:</p>
+            <h4>1. Catalytic Converters</h4>
+            <p>Cerium oxide (CeO₂) in automotive catalysts stores and releases oxygen, converting CO to CO₂ and NOx to N₂, reducing emissions. Its oxygen storage capacity (OSC) stems from the Ce⁴⁺/Ce³⁺ cycle, critical in three-way catalysts since the 1980s.</p>
+            <h4>2. Glass Polishing</h4>
+            <p>Cerium oxide’s abrasive yet gentle action polishes glass surfaces (e.g., lenses, mirrors) by mechanically and chemically removing imperfections, a technique refined since the 1940s for optical precision.</p>
+            <h4>3. Ferrocerium Flints</h4>
+            <p>Alloyed with iron and other rare earths, cerium forms ferrocerium, sparking when struck due to its pyrophoricity. Used in lighters and survival tools, it produces sparks at ~1650°C, igniting flammable materials.</p>
+            <h4>4. UV Protection</h4>
+            <p>Cerium compounds in glass and coatings absorb ultraviolet light, protecting materials and human eyes. Ce⁴⁺ ions shift absorption into the UV range, used in sunglasses and solar panels.</p>
+            <h4>5. Chemical Catalysts</h4>
+            <p>Cerium salts (e.g., cerium nitrate) catalyze organic reactions like oxidation and esterification, leveraging the Ce⁴⁺/Ce³⁺ redox pair in pharmaceutical and polymer synthesis.</p>
+            <h4>6. Metallurgy</h4>
+            <p>Cerium is added to alloys (e.g., aluminum, steel) to remove sulfur and oxygen impurities, enhancing strength and corrosion resistance via formation of stable cerium sulfides and oxides.</p>
+        </div>
+
+        <div class="section">
+            <h2>Cerium in the Universe</h2>
+            <p>
+                Cerium forms in stars via the slow neutron capture process (s-process) in asymptotic giant branch (AGB) stars, where neutrons are captured by lighter nuclei like barium over millions of years. Supernovae then disperse cerium into interstellar dust, contributing to its cosmic abundance of ~1.1 × 10⁻⁶ relative to hydrogen. On Earth, it is concentrated in rare earth-rich minerals like bastnäsite (Ce,La)CO₃F and monazite (Ce,La,Nd,Th)PO₄, formed in igneous and metamorphic rocks.
+            </p>
+            <h3>Geochemical Behavior</h3>
+            <p>
+                Cerium’s +4 oxidation state causes it to precipitate as CeO₂ under oxidizing conditions, creating the "cerium anomaly" in geological records—higher Ce⁴⁺/Ce³⁺ ratios in oxidized environments like seawater or sediments.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Cerium is extracted from bastnäsite and monazite ores via a multi-step process. Ores are crushed, roasted with sulfuric acid to convert rare earths to sulfates, and leached with water. Cerium is separated using solvent extraction or ion exchange, exploiting its unique +4 oxidation state (e.g., oxidizing Ce³⁺ to Ce⁴⁺ with permanganate, precipitating CeO₂). Pure cerium metal is produced by reducing cerium fluoride (CeF₃) with calcium or via electrolysis of CeCl₃.
+            </p>
+            <h3>Industrial Scale</h3>
+            <p>
+                China dominates global cerium production (60-70% of ~240,000 tons of rare earth oxides annually), with significant deposits in Bayan Obo. The U.S. (Mountain Pass, CA) and Australia (Mount Weld) also contribute, though cerium’s low cost (~$2/kg as oxide) reflects its abundance.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Cerium metal poses moderate risks due to its pyrophoricity, igniting if finely divided or heated in air. Inhalation of cerium oxide dust may cause lung irritation or pneumoconiosis in industrial settings, though it is generally non-toxic in small amounts. Cerium salts (e.g., cerium nitrate) are mildly corrosive, requiring gloves and ventilation during handling. Environmental concerns arise from rare earth mining, which generates radioactive thorium waste from monazite.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Cerium mining disrupts ecosystems via tailings and acid runoff, though cerium itself is not a major pollutant. Its use in catalysts reduces vehicle emissions, offering a net environmental benefit despite production challenges.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Cerium, the most abundant rare earth, bridges the gap between scarcity and utility with its remarkable versatility. From sparking flames in lighters to curbing emissions in cars, its applications reflect a synergy of chemical ingenuity and natural abundance. Its dual oxidation states and geological prominence enrich scientific understanding, while its industrial scale underscores its economic value. Though tempered by safety and environmental considerations, cerium’s legacy as a lanthanide pioneer endures, illuminating the profound impact of rare earths on modern life.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Cerium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Cerium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

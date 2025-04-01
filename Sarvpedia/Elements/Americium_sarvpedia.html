@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Americium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Americium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Americium is a chemical element with the symbol <strong>Am</strong> and atomic number 95. It is a synthetic, radioactive metal in the actinide series of the periodic table. Americium does not occur naturally and is produced in nuclear reactors, primarily as a byproduct of plutonium decay.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Americium has no stable isotopes. The most common isotopes are <sup>241</sup>Am, with a half-life of 432.2 years, and <sup>243</sup>Am, with a half-life of 7370 years. Both emit alpha particles and gamma rays, making them highly radioactive.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Americium is a silvery-white, ductile metal that tarnishes slowly in air. It is radioactive, emitting a faint glow due to its alpha particle emissions. Its melting point is 1176°C (2149°F), and its boiling point is estimated at 2011°C (3652°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>95</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>243 (most common isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>13.67 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1176°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2011°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f⁷ 7s²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Americium’s discovery emerged from wartime nuclear research, marking a leap in transuranic elements.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Americium was theorized as a possible product of nuclear reactions before its synthesis.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Americium was first synthesized in 1944 by Glenn T. Seaborg, Ralph A. James, Leon O. Morgan, and Albert Ghiorso at the University of Chicago’s Metallurgical Laboratory. It was named after the Americas, reflecting its discovery in the United States.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Americium solidified the actinide series, highlighting the properties of synthetic heavy elements.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Americium’s radioactivity enables niche but critical uses:</p>
+            <h4>1. Smoke Detectors</h4>
+            <p><sup>241</sup>Am is used in ionization smoke detectors to detect smoke particles.</p>
+            <h4>2. Industrial Gauges</h4>
+            <p>Measures thickness and density in manufacturing processes.</p>
+            <h4>3. Scientific Research</h4>
+            <p>Acts as a gamma and alpha source in studies of material properties.</p>
+            <h4>4. Space Exploration</h4>
+            <p>Explored as a power source in radioisotope thermoelectric generators for deep-space missions.</p>
+        </div>
+
+        <div class="section">
+            <h2>Americium in the Universe</h2>
+            <p>
+                Americium does not occur naturally in the cosmos. Its presence is limited to artificial production on Earth via nuclear processes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Americium is produced in nuclear reactors by irradiating plutonium with neutrons, followed by chemical separation. It is primarily sourced from spent nuclear fuel or dedicated reactor runs.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Americium is highly radioactive and toxic, posing risks of radiation exposure and internal contamination if inhaled or ingested. It requires stringent handling and disposal protocols.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Americium, a synthetic marvel of nuclear science, exemplifies the dual nature of radioactivity—hazardous yet harnessed for practical innovation.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Americium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Americium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

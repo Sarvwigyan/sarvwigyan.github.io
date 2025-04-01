@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antimony - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Antimony</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Antimony is a chemical element with the symbol <strong>Sb</strong> (from Latin "stibium") and atomic number 51. It is a metalloid in group 15 of the periodic table, displaying properties between metals and nonmetals. Antimony occurs naturally in the Earth’s crust at about 0.2 ppm, primarily in the mineral stibnite.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Antimony has two naturally occurring stable isotopes: <sup>121</sup>Sb, making up 57.21% of its abundance, and <sup>123</sup>Sb, comprising 42.79%. It also has several radioactive isotopes, such as <sup>125</sup>Sb, with a half-life of 2.76 years.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Antimony is a brittle, silvery-gray metalloid with a crystalline structure. It is a poor conductor of heat and electricity. Antimony melts at 630.63°C (1167.13°F) and boils at 1587°C (2889°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>51</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>121.760</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>6.697 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>630.63°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>1587°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Kr] 4d¹⁰ 5s² 5p³</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Antimony’s use dates back millennia, evolving from ancient alchemy to modern metallurgy.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Antimony compounds were used in ancient Egypt as kohl for cosmetics and in Mesopotamia for medicinal purposes, though the element itself was not isolated.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Antimony was recognized as an element in the 17th century, with its isolation credited to European alchemists like Vannoccio Biringuccio (1540). Its name derives from "stibium," linked to the mineral stibnite.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Antimony’s placement in group 15 bridges metalloids and nonmetals, akin to arsenic and bismuth.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Antimony’s unique properties support a range of practical uses:</p>
+            <h4>1. Alloys</h4>
+            <p>Hardens lead in batteries, bullets, and type metal for printing.</p>
+            <h4>2. Flame Retardants</h4>
+            <p>Antimony trioxide enhances fire resistance in plastics and textiles.</p>
+            <h4>3. Semiconductors</h4>
+            <p>Used in infrared detectors and diodes.</p>
+            <h4>4. Pigments</h4>
+            <p>Provides yellow and white hues in paints and ceramics.</p>
+            <h4>5. Medicine</h4>
+            <p>Historically used in treatments; modern use is limited but includes some antiparasitic drugs.</p>
+            <h4>6. Glass</h4>
+            <p>Acts as a fining agent to remove bubbles in glass production.</p>
+        </div>
+
+        <div class="section">
+            <h2>Antimony in the Universe</h2>
+            <p>
+                Antimony is rare in the cosmos, formed through stellar nucleosynthesis and detected in trace amounts in meteorites and interstellar dust.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Antimony is primarily extracted from stibnite ore via roasting and reduction processes. China is the leading producer, followed by Russia and Bolivia.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Antimony and its compounds are toxic, causing irritation to skin, eyes, and lungs. Chronic exposure may lead to more severe health effects, necessitating careful handling.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Antimony, a metalloid with ancient roots and modern utility, exemplifies the blend of historical significance and industrial versatility.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Antimony - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Antimony page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

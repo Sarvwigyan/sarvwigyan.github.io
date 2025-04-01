@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Californium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Californium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Californium is a synthetic, radioactive chemical element with the symbol <strong>Cf</strong> and atomic number 98. It resides in the actinide series of the periodic table, positioned between berkelium (97) and einsteinium (99). As a transuranic element, californium does not occur naturally on Earth and is produced exclusively through artificial nuclear processes. Discovered during the mid-20th century amidst intense nuclear research, it exemplifies humanity’s ability to create and harness elements beyond the naturally occurring range of the periodic table (up to uranium, atomic number 92). Named after the state of California and the University of California, where it was first synthesized, californium stands as a testament to scientific ingenuity.
+            </p>
+            <p>
+                Californium is intensely radioactive, with all its isotopes emitting alpha particles, neutrons, and gamma rays. Its most stable isotope, <sup>251</sup>Cf, has a half-life of 898 years, while the more commonly produced <sup>252</sup>Cf (half-life: 2.645 years) is prized for its neutron emission properties. These characteristics make californium a rare and valuable element, with applications ranging from scientific research to industrial and medical uses, though its scarcity and radiological hazards limit its widespread handling.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Californium has 20 known isotopes, with mass numbers ranging from 237 to 256, all of which are radioactive. None are stable, and their half-lives vary dramatically, from microseconds for short-lived isotopes like <sup>237</sup>Cf to nearly a millennium for <sup>251</sup>Cf. The element’s isotopic diversity reflects its production through successive neutron capture and beta decay processes in nuclear reactors or particle accelerators.
+            </p>
+            <h3>Key Isotope: <sup>252</sup>Cf</h3>
+            <p>
+                <sup>252</sup>Cf, with a half-life of 2.645 years, is the most significant isotope due to its practical applications. It undergoes spontaneous fission in approximately 3.1% of its decays, releasing an average of 3.76 neutrons per fission event, making it an exceptionally potent neutron source. The remaining 96.9% of decays occur via alpha emission, producing curium-248 and releasing 6.118 MeV of energy. Its neutron emission rate (2.31 × 10¹² neutrons per second per gram) is unmatched among readily available isotopes, driving its use in neutron-based technologies.
+            </p>
+            <h3>Stable Isotope: <sup>251</sup>Cf</h3>
+            <p>
+                <sup>251</sup>Cf, with a half-life of 898 years, is the longest-lived californium isotope. It decays primarily via alpha emission to curium-247, with a small branching ratio for spontaneous fission. Its extended stability makes it valuable for long-term studies of actinide chemistry, though its production is less common than <sup>252</sup>Cf due to the complexity of synthesizing heavier isotopes.
+            </p>
+            <h3>Other Isotopes</h3>
+            <p>
+                Other isotopes include <sup>249</sup>Cf (half-life: 351 years), produced as a decay product of berkelium-249, and <sup>248</sup>Cf (half-life: 333.5 days), both of which are intermediates in californium synthesis. Short-lived isotopes like <sup>246</sup>Cf (half-life: 35.7 hours) and <sup>254</sup>Cf (half-life: 60.5 days) are studied in nuclear physics to probe the limits of nuclear stability and fission dynamics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Californium is a silvery-white, malleable metal at room temperature, though its extreme radioactivity causes self-heating and structural degradation over time. It exists in multiple allotropic forms, with a double hexagonal close-packed (dhcp) structure at ambient conditions, transitioning to a face-centered cubic (fcc) form under pressure. Its melting point is approximately 900°C (1652°F), and its boiling point is estimated at 1470°C (2678°F), though these values are difficult to measure precisely due to its instability and rarity.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Californium’s density is 15.1 g/cm³, placing it among the denser actinides. Its intense radioactivity generates significant heat (e.g., <sup>252</sup>Cf produces ~39 watts per gram), causing samples to glow faintly from ionization of surrounding air. This self-heating complicates storage, requiring cooling systems or dilution in matrices to prevent damage. Californium’s metallic sheen tarnishes rapidly in air, forming oxides like Cf₂O₃.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Chemically, californium exhibits typical actinide behavior, with oxidation states of +2, +3, and +4, though +3 is the most stable (e.g., CfCl₃, Cf₂O₃). It reacts with oxygen, halogens, and acids, but its study is limited by its radioactivity and scarcity. Its electron configuration, [Rn] 5f¹⁰ 7s², reflects the filling of the 5f orbitals, contributing to its chemical similarity to earlier actinides like curium and americium, though relativistic effects subtly influence its bonding.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>98</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>251 (most stable isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>15.1 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>900°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>1470°C (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f¹⁰ 7s²</td>
+                </tr>
+                <tr>
+                    <td>Oxidation States</td>
+                    <td>+2, +3, +4</td>
+                </tr>
+                <tr>
+                    <td>Neutron Emission (<sup>252</sup>Cf)</td>
+                    <td>2.31 × 10¹² n/s/g</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Californium’s discovery emerged from the post-World War II race to explore transuranic elements, a period marked by rapid advancements in nuclear science driven by both scientific curiosity and Cold War imperatives.
+            </p>
+            <h3>Early Context</h3>
+            <p>
+                Following the discoveries of plutonium (1940), americium (1944), and curium (1944), scientists hypothesized the existence of heavier actinides. The development of cyclotrons and nuclear reactors provided the means to synthesize these elements by bombarding lighter nuclei with particles.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Californium was first synthesized on February 9, 1950, by Stanley G. Thompson, Kenneth Street Jr., Albert Ghiorso, and Glenn T. Seaborg at the University of California, Berkeley. They bombarded curium-242 with 35 MeV alpha particles (helium-4 nuclei) in a 60-inch cyclotron, producing <sup>245</sup>Cf via the reaction <sup>242</sup>Cm(α,n)<sup>245</sup>Cf. The team identified the new element through its characteristic radiation, naming it "californium" to honor California and the university’s role in actinide research.
+            </p>
+            <h3>Subsequent Milestones</h3>
+            <p>
+                By 1958, larger quantities of <sup>252</sup>Cf were produced in high-flux reactors like the High Flux Isotope Reactor (HFIR) at Oak Ridge National Laboratory, enabling practical applications. Its neutron emission properties were characterized in the 1960s, cementing its utility in science and industry.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Californium’s synthesis extended the actinide series, reinforcing the theoretical framework of 5f electron filling and providing insights into nuclear stability beyond uranium. It bridged the gap between laboratory curiosities and elements with tangible applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Californium’s intense neutron emission and radioactivity enable highly specialized uses:</p>
+            <h4>1. Neutron Activation Analysis</h4>
+            <p><sup>252</sup>Cf’s neutron output is used to bombard samples, inducing radioactivity in target elements for compositional analysis. This technique is critical in archaeology, geology, and forensic science, detecting trace elements with high sensitivity.</p>
+            <h4>2. Nuclear Reactor Start-Up</h4>
+            <p>Small <sup>252</sup>Cf sources provide neutrons to initiate chain reactions in nuclear reactors, especially during start-up phases, reducing reliance on external neutron generators.</p>
+            <h4>3. Cancer Treatment</h4>
+            <p>Californium-252 is used in neutron brachytherapy, where its neutrons penetrate tumors more effectively than gamma rays, targeting deep-seated cancers like cervical and brain tumors. The technique, pioneered in the 1970s, remains a niche but potent therapy.</p>
+            <h4>4. Oil and Gas Exploration</h4>
+            <p>Portable <sup>252</sup>Cf neutron sources are deployed in well logging to assess rock porosity and hydrocarbon content, aiding in the identification of oil and gas reservoirs.</p>
+            <h4>5. Materials Testing</h4>
+            <p>Neutron radiography with californium examines welds, composites, and aircraft components for defects, leveraging neutrons’ ability to penetrate dense materials and reveal internal structures.</p>
+            <h4>6. Scientific Research</h4>
+            <p>Californium isotopes are used to study nuclear fission, actinide chemistry, and the behavior of heavy elements under extreme conditions, contributing to theoretical models of nuclear structure.</p>
+        </div>
+
+        <div class="section">
+            <h2>Californium in the Universe</h2>
+            <p>
+                Californium does not occur naturally in the cosmos due to its short half-lives relative to geological timescales. However, trace amounts may form fleetingly in extreme astrophysical events, such as supernovae or neutron star mergers, via rapid neutron capture (r-process). These conditions could theoretically produce heavy actinides, but they decay rapidly into lighter elements. On Earth, californium exists solely as a product of human synthesis, distinguishing it from elements like uranium or thorium with cosmic origins.
+            </p>
+            <h3>Theoretical Presence</h3>
+            <p>
+                Some astrophysicists speculate that californium isotopes like <sup>254</sup>Cf (half-life: 60.5 days) could appear in the ejecta of neutron star collisions, detectable via gamma-ray signatures. However, no direct evidence has been observed, and its presence remains hypothetical.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Californium is produced in minute quantities in high-flux nuclear reactors or particle accelerators. The primary method involves irradiating curium-244 or plutonium-239 with neutrons over months to years, allowing successive neutron captures and beta decays to build up heavier isotopes. For example, <sup>252</sup>Cf is synthesized via the pathway: <sup>239</sup>Pu(n,γ) → <sup>240</sup>Pu → ... → <sup>244</sup>Cm(n,γ) → <sup>245</sup>Cm → ... → <sup>252</sup>Cf. The process concludes with chemical separation using ion exchange or solvent extraction to isolate californium from other actinides.
+            </p>
+            <h3>Production Sites</h3>
+            <p>
+                Major production occurs at the Oak Ridge National Laboratory (USA) and the Research Institute of Atomic Reactors (Russia). Annual global output is less than 1 gram, with <sup>252</sup>Cf comprising the bulk due to demand. A single microgram can cost upwards of $27 million, reflecting the complexity and energy intensity of production.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Californium’s intense radioactivity poses severe health risks, including radiation burns, cancer, and acute radiation syndrome. <sup>252</sup>Cf’s neutron emission penetrates shielding more effectively than alpha or gamma radiation, necessitating thick layers of water, concrete, or boron-containing materials for containment. Inhalation or ingestion of even nanogram quantities can lead to internal irradiation, with bones and liver as primary accumulation sites. Handling requires remote manipulation in hot cells under strict radiological protocols.
+            </p>
+            <h3>Environmental Concerns</h3>
+            <p>
+                While not a widespread pollutant like <sup>137</sup>Cs, accidental release of californium (e.g., from a lost source) could contaminate localized areas, requiring costly cleanup due to its neutron activity and long-lived decay products.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Californium encapsulates the pinnacle of human nuclear achievement, a synthetic element born from the fusion of science and technology. Its rarity, coupled with its extraordinary neutron-emitting properties, positions it as a niche yet transformative tool in fields from medicine to energy. However, its intense radioactivity and production challenges underscore the delicate balance between utility and hazard. As a bridge between theoretical physics and practical innovation, californium remains a symbol of the actinide frontier—elusive, powerful, and profoundly impactful.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Californium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Californium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

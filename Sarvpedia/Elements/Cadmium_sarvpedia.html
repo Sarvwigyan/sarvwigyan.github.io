@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadmium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cadmium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Cadmium is a chemical element with the symbol <strong>Cd</strong> and atomic number 48. It is a soft, silvery-white metal in the transition metal group of the periodic table. Cadmium occurs naturally in the Earth's crust and is often found as a byproduct of zinc ore processing.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Cadmium has eight naturally occurring isotopes, with <sup>114</sup>Cd (28.73%) and <sup>112</sup>Cd (24.13%) being the most abundant. It also has several radioactive isotopes, such as <sup>109</sup>Cd, with a half-life of 462.6 days.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Cadmium is a soft, malleable, and ductile metal with a bluish-white hue. It resists corrosion but oxidizes in moist air, forming a protective oxide layer. Its melting point is 321°C (610°F), and its boiling point is 767°C (1413°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>48</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>112.41</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>8.65 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>321°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>767°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Kr] 4d¹⁰ 5s²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Cadmium’s discovery added a new dimension to the understanding of metals in the periodic table.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Cadmium was first noticed as an impurity in zinc compounds in the early 19th century.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Cadmium was discovered in 1817 by German chemist Friedrich Stromeyer and independently by Karl Samuel Leberecht Hermann. It was identified as a distinct element in zinc carbonate samples and named after the Latin word "cadmia," meaning zinc ore.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Cadmium’s placement in the periodic table helped refine the classification of transition metals.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Cadmium’s unique properties enable a variety of industrial uses:</p>
+            <h4>1. Batteries</h4>
+            <p>Used in nickel-cadmium (NiCd) rechargeable batteries due to its high energy density.</p>
+            <h4>2. Pigments</h4>
+            <p>Employed in vibrant yellow, orange, and red pigments for paints and plastics.</p>
+            <h4>3. Electroplating</h4>
+            <p>Applied as a corrosion-resistant coating on steel and other metals.</p>
+            <h4>4. Nuclear Reactors</h4>
+            <p>Used in control rods due to its ability to absorb neutrons effectively.</p>
+        </div>
+
+        <div class="section">
+            <h2>Cadmium in the Universe</h2>
+            <p>
+                Cadmium is formed in the universe through the slow neutron capture process (s-process) in stars and is dispersed into space via supernovae, eventually becoming part of planetary crusts like Earth’s.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Cadmium is primarily obtained as a byproduct of zinc refining. It is extracted during the smelting and purification of zinc ores, such as sphalerite, and separated through distillation or electrolysis.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Cadmium is highly toxic and poses significant health risks, including kidney damage and cancer, if inhaled or ingested. Its use is heavily regulated due to environmental and health concerns.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Cadmium, a naturally occurring yet toxic metal, showcases a balance between industrial utility and environmental challenges.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Cadmium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Cadmium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

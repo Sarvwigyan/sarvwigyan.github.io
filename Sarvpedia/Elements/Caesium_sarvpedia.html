@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caesium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Caesium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Caesium (or Cesium, as it is spelled in American English) is a chemical element with the symbol <strong>Cs</strong> and atomic number 55. It belongs to the alkali metal group in the periodic table, positioned in Group 1, Period 6. Known for its extreme reactivity and softness, caesium is one of the most electropositive and reactive elements, surpassed only by francium among naturally occurring elements. It has a striking golden hue in its pure form, distinguishing it from the silvery appearance of most metals. Caesium occurs naturally in minute quantities in the Earth's crust, primarily in minerals like pollucite and lepidolite, and is typically extracted as a byproduct of lithium production.
+            </p>
+            <p>
+                Caesium’s significance extends beyond its chemical properties to its role in defining time itself. The second, as a unit of time, is officially defined based on the vibrational frequency of the caesium-133 isotope, making it a cornerstone of modern timekeeping technology. Its reactivity, low melting point, and unique spectroscopic properties have also made it valuable in scientific research and industrial applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Caesium has 40 known isotopes, ranging from <sup>112</sup>Cs to <sup>151</sup>Cs, with atomic masses between 112 and 151. Only one isotope, <sup>133</sup>Cs, is stable and naturally occurring, constituting nearly 100% of caesium found in nature. The remaining isotopes are radioactive, with half-lives varying from microseconds to millions of years. Among the radioactive isotopes, <sup>137</sup>Cs is the most notable due to its production in nuclear fission and its environmental impact following nuclear accidents.
+            </p>
+            <h3>Stable Isotope: <sup>133</sup>Cs</h3>
+            <p>
+                <sup>133</sup>Cs, with 78 neutrons, is non-radioactive and serves as the foundation for atomic clocks. Its hyperfine transition frequency of 9,192,631,770 Hz defines the second in the International System of Units (SI). This precision arises from the electron’s transition between two energy levels in the atom’s ground state, a property exploited in caesium fountain clocks, which achieve accuracies within one second over 100 million years.
+            </p>
+            <h3>Radioactive Isotope: <sup>137</sup>Cs</h3>
+            <p>
+                <sup>137</sup>Cs, with a half-life of approximately 30.17 years, is a beta emitter produced as a fission product in nuclear reactors and weapons. It decays into barium-137m, which subsequently emits gamma rays, making it a significant radiological hazard. Its presence in the environment increased dramatically after events like the Chernobyl disaster (1986) and Fukushima Daiichi accident (2011), where it contaminated soil, water, and food chains.
+            </p>
+            <h3>Other Isotopes</h3>
+            <p>
+                Other notable isotopes include <sup>135</sup>Cs (half-life: 2.3 million years), a long-lived fission product, and <sup>134</sup>Cs (half-life: 2.06 years), both of which contribute to radioactive waste challenges. Short-lived isotopes like <sup>131</sup>Cs (half-life: 9.7 days) are used in medical research due to their rapid decay.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Caesium is a soft, ductile metal with a low melting point of 28.5°C (83.3°F), allowing it to liquefy in warm environments or even in the palm of a hand (though this is dangerous due to its reactivity). It exhibits a pale golden color due to relativistic effects influencing its electron cloud, a phenomenon more pronounced in heavier elements. Caesium reacts explosively with water, producing caesium hydroxide (CsOH) and hydrogen gas, and ignites spontaneously in air, forming oxides like Cs₂O and CsO₂.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Its density is 1.93 g/cm³, making it denser than lithium but lighter than most metals. Caesium’s boiling point is 671°C (1240°F), relatively low for a metal, reflecting its weak metallic bonding due to a single valence electron. It has a high vapor pressure and can form a violet-colored vapor when heated, a property tied to its atomic spectrum.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                As the most electropositive stable element, caesium has an electronegativity of 0.79 on the Pauling scale and an ionization energy of 3.89 eV. Its reactivity stems from its single 6s¹ valence electron, which it readily donates to form ionic compounds. Caesium forms highly basic compounds like CsOH, one of the strongest known bases, and reacts with halogens, oxygen, and even nitrogen under specific conditions.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>55</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>132.90545</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>1.93 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>28.5°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>671°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 6s¹</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>0.79</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>3.89 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Caesium’s discovery marked a milestone in spectroscopy and the study of alkali metals, reflecting the technological advancements of the 19th century.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Before its isolation, caesium’s presence was suspected in mineral waters and ores due to unusual spectral lines observed by early chemists. The development of flame spectroscopy in the mid-19th century provided the tools needed to identify it.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Caesium was discovered in 1860 by German scientists Robert Bunsen and Gustav Kirchhoff at the University of Heidelberg. Using their newly invented spectroscope, they analyzed the spectrum of mineral water from Dürkheim, identifying two bright blue lines at wavelengths of 455.5 nm and 459.3 nm, distinct from known elements. They named it "caesium" from the Latin "caesius," meaning "sky blue," due to these characteristic lines. Later that year, they isolated the metal through electrolysis of caesium chloride (CsCl).
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Caesium’s discovery solidified the alkali metal group, confirming Dmitri Mendeleev’s predictions about the periodic table’s structure. Its properties aligned with trends of increasing reactivity and decreasing melting points down Group 1, paving the way for the discovery of francium decades later.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                By 1882, Carl Setterberg produced pure caesium metal via electrolysis of molten caesium cyanide (CsCN), refining isolation techniques. Its rarity and reactivity limited early study, but 20th-century advancements in atomic physics elevated its importance.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Caesium’s reactivity and atomic properties enable a wide range of specialized applications:</p>
+            <h4>1. Atomic Clocks</h4>
+            <p>The hyperfine transition of <sup>133</sup>Cs underpins the world’s most accurate timekeeping devices. Caesium atomic clocks, like those in GPS satellites, achieve precision by measuring microwave-induced electron transitions, with modern fountain clocks reducing errors to 1 part in 10¹⁵.</p>
+            <h4>2. Photoelectric Cells</h4>
+            <p>Caesium’s low ionization energy makes it ideal for photoelectric devices, where it emits electrons when exposed to light. These are used in night vision equipment, solar panels, and early television cameras.</p>
+            <h4>3. Catalysis</h4>
+            <p>Caesium compounds, such as caesium carbonate (Cs₂CO₃), act as catalysts in organic synthesis, particularly in the production of esters and polymers, due to their strong basicity.</p>
+            <h4>4. Drilling Fluids</h4>
+            <p>Caesium formate (HCOOCs) is used in high-density drilling fluids for oil and gas extraction, offering stability under extreme pressure and temperature while being less corrosive than alternatives.</p>
+            <h4>5. Ion Propulsion</h4>
+            <p>In space exploration, caesium is used in ion thrusters (e.g., NASA’s Deep Space 1), where it is ionized and accelerated to generate thrust, providing efficient propulsion for long-duration missions.</p>
+            <h4>6. Medical Research</h4>
+            <p>Radioactive <sup>137</sup>Cs is employed in radiation therapy for cancer treatment and in sterilizing medical equipment, leveraging its gamma emissions.</p>
+        </div>
+
+        <div class="section">
+            <h2>Caesium in the Universe</h2>
+            <p>
+                Caesium forms in stars through the slow neutron capture process (s-process) during stellar nucleosynthesis, primarily in asymptotic giant branch (AGB) stars. Over millions of years, neutrons are captured by lighter elements like rubidium, eventually producing <sup>133</sup>Cs. Supernovae then disperse caesium into interstellar space, where it becomes incorporated into planetary bodies. On Earth, it is found in trace amounts (approximately 3 parts per million in the crust) in minerals like pollucite (Cs(AlSi₂O₆)) and lepidolite.
+            </p>
+            <h3>Cosmic Abundance</h3>
+            <p>
+                Caesium’s cosmic abundance is estimated at 0.7 atoms per 10⁶ silicon atoms, making it rarer than most alkali metals. Its distribution reflects the chemical evolution of galaxies, with higher concentrations in older stellar populations.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Caesium is primarily extracted from pollucite ore, mined in regions like Manitoba, Canada, and Zimbabwe. The process involves crushing the ore, followed by acid leaching with sulfuric acid to produce caesium alum (CsAl(SO₄)₂·12H₂O). This is then converted to caesium chloride (CsCl) or caesium hydroxide (CsOH) through chemical reactions. Pure caesium metal is obtained via reduction of CsCl with calcium or lithium at high temperatures in a vacuum, a process requiring careful handling due to its reactivity.
+            </p>
+            <h3>Industrial Scale</h3>
+            <p>
+                Global production is limited, estimated at 20–30 tons annually, due to its scarcity and niche applications. The United States and Canada dominate supply, with companies like Cabot Corporation processing pollucite reserves from the Tanco Mine.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Caesium’s extreme reactivity poses significant hazards. Contact with water triggers violent explosions, releasing flammable hydrogen gas, while exposure to air causes spontaneous combustion. Its compounds, like CsOH, are highly corrosive, causing severe burns. Radioactive isotopes like <sup>137</sup>Cs present additional risks, including radiation sickness and long-term environmental contamination. Handling requires inert atmospheres (e.g., argon) and strict radiological protocols for isotopes.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                <sup>137</sup>Cs from nuclear fallout has a persistent environmental footprint, with a 30-year half-life allowing it to bioaccumulate in plants and animals, entering food chains and posing health risks decades after release.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Caesium stands as a remarkable element, bridging the realms of fundamental science, technological innovation, and cosmic evolution. From its role in defining time with unparalleled precision to its explosive reactivity and niche industrial uses, caesium exemplifies the complexity of alkali metals. Its rarity, coupled with its profound impact on modern life—whether in atomic clocks, space propulsion, or environmental challenges—underscores its dual nature as both a scientific marvel and a substance requiring cautious respect.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Caesium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Caesium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

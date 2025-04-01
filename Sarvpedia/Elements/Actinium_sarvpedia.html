@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actinium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Actinium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Actinium is a chemical element with the symbol <strong>Ac</strong> and atomic number 89. It is a radioactive metal in the actinide series of the periodic table. Actinium is extremely rare in the Earth’s crust, occurring in trace amounts in uranium and thorium ores due to its formation as a decay product.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Actinium has no stable isotopes. The most significant isotopes are <sup>227</sup>Ac, with a half-life of 21.772 years, and <sup>225</sup>Ac, with a half-life of 10 days. Both emit alpha particles and are part of natural decay chains.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Actinium is a soft, silvery-white metal that glows faintly in the dark due to its radioactivity. It is highly reactive and tarnishes in air. Its melting point is estimated at 1050°C (1922°F), and its boiling point is approximately 3200°C (5792°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>89</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>227 (most stable isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>10.07 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1050°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>3200°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 6d¹ 7s²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Actinium’s discovery marked an early milestone in understanding radioactive elements.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Actinium was identified as a radioactive substance in uranium ores before its formal isolation.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Actinium was discovered in 1899 by André-Louis Debierne, a French chemist, while working with pitchblende. It was named from the Greek word "aktis," meaning "ray," due to its radiative properties.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Actinium heads the actinide series, establishing a group of elements with unique nuclear properties.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Actinium’s radioactivity limits its use but offers specialized applications:</p>
+            <h4>1. Medical Research</h4>
+            <p><sup>225</sup>Ac is studied for targeted alpha therapy in cancer treatment.</p>
+            <h4>2. Neutron Sources</h4>
+            <p>Mixed with beryllium, it generates neutrons for scientific experiments.</p>
+            <h4>3. Thermoelectric Power</h4>
+            <p>Explored as a heat source in radioisotope thermoelectric generators.</p>
+        </div>
+
+        <div class="section">
+            <h2>Actinium in the Universe</h2>
+            <p>
+                Actinium is not naturally abundant in the cosmos. It forms through the decay of heavier elements like uranium and thorium in stellar environments and planetary crusts.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Actinium is extracted in minute quantities from uranium ores or produced artificially via nuclear reactors by bombarding radium with neutrons.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Actinium is highly radioactive and poses significant health risks, including radiation poisoning if mishandled. It requires strict containment and protective measures.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Actinium, a rare and radiant actinide, exemplifies the power and peril of radioactivity, contributing to both scientific discovery and medical innovation.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Actinium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Actinium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

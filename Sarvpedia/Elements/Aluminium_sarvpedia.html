@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aluminium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aluminium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Aluminium is a chemical element with the symbol <strong>Al</strong> and atomic number 13. It is a lightweight, durable, and corrosion-resistant metal in group 13 of the periodic table. Aluminium is the most abundant metal in the Earth’s crust, making up about 8.2% by weight, primarily found in bauxite ore.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Aluminium has one naturally occurring stable isotope, <sup>27</sup>Al, which accounts for nearly 100% of its natural abundance. Radioactive isotopes like <sup>26</sup>Al exist but are rare and decay over time, with a half-life of about 717,000 years.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Aluminium is a soft, silvery-white metal with a low density and excellent conductivity. It forms a protective oxide layer in air, preventing further corrosion. Aluminium melts at 660.32°C (1220.58°F) and boils at 2519°C (4566°F).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>13</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>26.9815</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>2.70 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>660.32°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2519°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ne] 3s² 3p¹</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Aluminium’s journey from obscurity to ubiquity reflects advances in extraction technology.
+            </p>
+            <h3>Early Observations</h3>
+            <p>
+                Aluminium compounds, like alum, were used in ancient times for dyeing and medicine, though the metal itself remained unknown.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Aluminium was first isolated in 1825 by Hans Christian Ørsted, with Humphry Davy proposing the name "aluminum" earlier. Charles Martin Hall and Paul Héroult independently developed the electrolytic Hall-Héroult process in 1886, making production viable.
+            </p>
+            <h3>Periodic Table Impact</h3>
+            <p>
+                Aluminium’s placement in group 13 underscores its metallic properties, akin to boron but more pronounced.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Aluminium’s versatility drives its widespread use across industries:</p>
+            <h4>1. Construction</h4>
+            <p>Used in window frames, roofing, and structural components due to its strength-to-weight ratio.</p>
+            <h4>2. Transportation</h4>
+            <p>Key in aircraft, cars, and ships for its lightweight properties.</p>
+            <h4>3. Packaging</h4>
+            <p>Foil and cans leverage its corrosion resistance and recyclability.</p>
+            <h4>4. Electrical</h4>
+            <p>Conducts electricity in power lines and wiring.</p>
+            <h4>5. Consumer Goods</h4>
+            <p>Found in cookware, appliances, and electronics casings.</p>
+            <h4>6. Aerospace</h4>
+            <p>Critical in spacecraft and satellites for its durability.</p>
+            <h4>7. Alloys</h4>
+            <p>Combined with other metals to enhance strength and flexibility.</p>
+        </div>
+
+        <div class="section">
+            <h2>Aluminium in the Universe</h2>
+            <p>
+                Aluminium is formed in stars via fusion processes and is abundant in cosmic dust and meteorites, reflecting its prevalence on Earth.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Aluminium is extracted from bauxite ore via the Bayer process to produce alumina, followed by the Hall-Héroult process for smelting. Major producers include China, Australia, and Brazil.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Aluminium is generally non-toxic in small amounts but can accumulate in the body with excessive exposure, potentially linked to health issues. Industrial handling requires dust and fume precautions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Aluminium’s lightweight strength and adaptability have made it a cornerstone of modern industry, bridging ancient utility with contemporary innovation.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Aluminium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Aluminium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

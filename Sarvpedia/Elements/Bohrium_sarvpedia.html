@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bohrium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bohrium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Bohrium is a synthetic element with the symbol <strong>Bh</strong> and atomic number 107. It is classified as a transactinide element and is part of the group of elements known as the transition metals. Bohrium is named after the Danish physicist Niels Bohr, who made significant contributions to our understanding of atomic structure and quantum mechanics. As a highly radioactive element, bohrium is not found naturally and must be produced in a laboratory setting through nuclear reactions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Discovery and History</h2>
+            <p>
+                Bohrium was first synthesized in 1981 by a team of Russian and American scientists at the Joint Institute for Nuclear Research in Dubna, Russia. The team, led by Yuri Oganessian, bombarded a target of bismuth-209 with accelerated nuclei of chromium-54. This reaction produced the first atoms of bohrium, which were detected through their decay products. The discovery of bohrium was a significant milestone in the field of nuclear chemistry, as it expanded our understanding of heavy elements and their properties.
+            </p>
+            <h3>Naming and Recognition</h3>
+            <p>
+                The element was named in honor of Niels Bohr to recognize his contributions to the field of atomic physics. The name was officially adopted by the International Union of Pure and Applied Chemistry (IUPAC) in 1997. Bohrium's discovery and subsequent naming reflect the ongoing efforts to honor the pioneers of science and their impact on our understanding of the atomic world.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Bohrium has several isotopes, all of which are radioactive. The most stable isotope is <sup>270</sup>Bh, which has a half-life of approximately 61 seconds. Other isotopes include <sup>271</sup>Bh, with a half-life of about 17 seconds, and <sup>272</sup>Bh, which has a half-life of around 1.5 seconds. Due to their short half-lives, these isotopes decay rapidly, primarily through alpha decay, and are challenging to study in detail.
+            </p>
+            <h3>Production of Isotopes</h3>
+            <p>
+                The isotopes of bohrium are produced in particle accelerators through nuclear fusion reactions. Typically, a target material, such as bismuth, is bombarded with heavy ions, such as chromium. The resulting fusion reaction creates bohrium atoms, which are then detected through their decay products. The production of bohrium is a complex and resource-intensive process, requiring advanced technology and expertise in nuclear physics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                As a synthetic element, bohrium's properties are not as well-characterized as those of more stable elements. However, based on its position in the periodic table and theoretical predictions, several properties can be inferred:
+            </p>
+            <ul>
+                <li><strong>Appearance:</strong> Bohrium is expected to be a metallic element, likely exhibiting a silvery or grayish color similar to other transition metals.</li>
+                <li><strong>Density:</strong> The density of bohrium is estimated to be around 37 g/cm³, making it one of the densest elements known.</li>
+                <li><strong>Melting and Boiling Points:</strong> The melting and boiling points of bohrium are not well-defined due to its radioactivity, but they are predicted to be high, consistent with other heavy transition metals.</li>
+                <li><strong>Oxidation States:</strong> Bohrium is expected to exhibit oxidation states of +3 and +5, similar to other elements in its group.</li>
+            </ul>
+            <p>
+                Theoretical calculations and experimental data from related elements suggest that bohrium may exhibit unique chemical behavior due to relativistic effects, which can influence the properties of heavy elements.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>107</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>270 (most stable isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>Estimated at 37 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>Not well-defined</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>Not well-defined</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f¹⁴ 6d⁵ 7s²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>
+                Due to its extreme rarity and radioactivity, bohrium has no significant commercial applications. However, it plays a crucial role in scientific research, particularly in the fields of nuclear chemistry and physics. Some potential applications include:
+            </p>
+            <h4>1. Research in Nuclear Chemistry</h4>
+            <p>Bohrium is primarily used in research settings to study the properties of heavy elements and their interactions. Understanding bohrium's behavior can provide insights into the fundamental principles of nuclear physics and the stability of superheavy elements.</p>
+            <h4>2. Exploration of Relativistic Effects</h4>
+            <p>Research on bohrium and other heavy elements helps scientists explore relativistic effects that influence the behavior of electrons in heavy atoms. This research can lead to a better understanding of the periodic table and the limits of element stability.</p>
+            <h4>3. Education and Outreach</h4>
+            <p>Bohrium serves as an important example in educational settings, illustrating the challenges and complexities of synthesizing and studying superheavy elements. It highlights the advancements in nuclear science and the ongoing quest to discover new elements.</p>
+        </div>
+
+        <div class="section">
+            <h2>Bohrium in the Universe</h2>
+            <p>
+                Bohrium is not found naturally in the universe due to its instability and short half-life. It is primarily produced in laboratory settings through nuclear reactions. The study of bohrium and other synthetic elements provides insights into the processes that occur in stars and supernovae, where heavy elements are formed. Understanding the formation of heavy elements in the universe is a key area of research in astrophysics and cosmology.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                The production of bohrium is a complex process that requires advanced technology and expertise in nuclear physics. Bohrium is synthesized in particle accelerators, where heavy ions are accelerated and directed at target materials, such as bismuth. The resulting nuclear fusion reactions create bohrium atoms, which are then detected through their decay products. The production of bohrium is resource-intensive and typically occurs in specialized research facilities equipped for nuclear experimentation.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Bohrium is highly radioactive and poses significant health risks if not handled properly. Exposure to bohrium can lead to radiation sickness and other health issues. Strict safety protocols must be followed when working with bohrium, including the use of protective equipment, proper containment, and disposal methods. Research involving bohrium is typically conducted in specialized facilities equipped to handle radioactive materials safely. Researchers must adhere to guidelines established by regulatory agencies to ensure the safety of personnel and the environment.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Bohrium, a synthetic element with unique properties, represents a significant achievement in the field of nuclear chemistry. While its applications are limited due to its radioactivity and scarcity, ongoing research continues to explore its potential uses and deepen our understanding of heavy elements. The discovery of bohrium not only expanded the periodic table but also highlighted the advancements in scientific knowledge during the late 20th century, paving the way for future discoveries in the realm of synthetic elements. As scientists continue to investigate the properties and behavior of bohrium, they contribute to our understanding of the fundamental principles of matter and the universe.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Bohrium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Bohrium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>
