@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holmium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Holmium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Holmium is a chemical element with the symbol <strong>Ho</strong> and atomic number 67. It is a silvery-white, rare earth metal that is part of the lanthanide series. Holmium is known for its magnetic properties and is used in various applications, including nuclear reactors and medical lasers.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Holmium has one stable isotope, <sup>165</sup>Ho, which is the most abundant. It also has several radioactive isotopes, which are used in scientific research and medical applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Holmium is a soft, malleable metal with a melting point of 1474°C (2685°F) and a boiling point of 2720°C (4910°F). It exhibits strong magnetic properties and is one of the most magnetic elements known.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>67</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>164.930</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>8.795 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1474°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2720°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f¹¹ 6s²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Holmium was discovered in 1878 by Marc Delafontaine and Jacques-Louis Soret, and it was later isolated by the Swedish chemist Per Teodor Cleve. The element is named after "Holmia," the Latin name for Stockholm.
+            </p>
+            <h3>Early Uses</h3>
+            <p>
+                Initially, holmium was used in the production of glass and ceramics to impart a yellow color.
+            </p>
+            <h3>Modern Applications</h3>
+            <p>
+                Today, holmium is used in various applications, including medical lasers, nuclear reactors, and as a dopant in certain types of glass and ceramics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Holmium's unique properties make it valuable in various fields:</p>
+            <h4>1. Medical Lasers</h4>
+            <p>Used in holmium lasers for surgical procedures, particularly in urology.</p>
+            <h4>2. Nuclear Reactors</h4>
+            <p>Utilized as a neutron absorber in certain types of nuclear reactors.</p>
+            <h4>3. Magnetic Materials</h4>
+            <p>Important in the production of strong permanent magnets.</p>
+            <h4>4. Glass and Ceramics</h4>
+            <p>Used as a dopant to enhance the properties of glass and ceramics.</p>
+            <h4>5. Research</h4>
+            <p>Applied in various scientific research applications, including materials science.</p>
+        </div>
+
+        <div class="section">
+            <h2>Holmium in the Universe</h2>
+            <p>
+                Holmium is formed in stars during nucleosynthesis and is found in trace amounts in the Earth's crust.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Holmium is primarily extracted from monazite and bastnasite ores through a process of separation and purification. Major producers include China and the United States.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Holmium is generally considered non-toxic, but safety precautions should be taken during industrial handling to avoid inhalation of dust or fumes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Holmium's unique magnetic properties and versatility have made it an essential material in modern technology, particularly in medical and nuclear applications.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Holmium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Holmium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

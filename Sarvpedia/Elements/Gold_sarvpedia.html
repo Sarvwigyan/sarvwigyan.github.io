@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gold - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gold</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Gold is a chemical element with the symbol <strong>Au</strong> (from Latin "aurum") and atomic number 79. It is a dense, soft, and lustrous transition metal in Group 11 of the periodic table, positioned between platinum and mercury. Renowned for its brilliant yellow color and resistance to corrosion, gold has been prized since antiquity as a symbol of wealth and beauty. It occurs naturally in the Earth’s crust, primarily as native metal or in quartz veins, at about 0.0000004% by weight.
+            </p>
+            <p>
+                Gold’s unique properties—malleability, ductility, and chemical inertness—have made it a cornerstone of human civilization, from ancient jewelry to modern electronics. Known and used for over 6,000 years, it remains a global standard for currency and a key material in technology and industry.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Gold has 37 known isotopes, with mass numbers ranging from 169 to 205. Only one, <sup>197</sup>Au, is stable and naturally occurring, while the rest are radioactive with half-lives ranging from microseconds to days.
+            </p>
+            <h3>Stable Isotope: <sup>197</sup>Au</h3>
+            <p>
+                <sup>197</sup>Au, with 118 neutrons, constitutes 100% of naturally occurring gold. Its stability underpins gold’s enduring presence in the Earth’s crust and its widespread use.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>198</sup>Au (half-life: 2.7 days) is the most notable radioactive isotope, decaying via beta emission into <sup>198</sup>Hg. Used in medical research and tracer studies, it is produced artificially. Other isotopes, like <sup>195</sup>Au (half-life: 186 days), are studied in nuclear physics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Gold is a shiny, yellow metal prized for its beauty and resistance to tarnish. It is one of the most malleable and ductile metals, capable of being hammered into thin sheets or drawn into fine wires.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Gold has a density of 19.32 g/cm³, a melting point of 1064°C (1947°F), and a boiling point of 2970°C (5378°F). Its face-centered cubic crystal structure contributes to its softness and workability.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 2.54 (Pauling scale) and a first ionization energy of 9.22 eV, gold is chemically inert, resisting most acids and oxidation. It dissolves only in aqua regia (HNO₃ + HCl) or cyanide solutions, forming Au³⁺ ions. Common oxidation states are +1 and +3 (e.g., AuCl, AuCl₃).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>79</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>196.967</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>19.32 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1064°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2970°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f¹⁴ 5d¹⁰ 6s¹</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>2.54</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>9.22 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Gold’s history intertwines with human culture, from ancient metallurgy to modern economics, shaping civilizations across millennia.
+            </p>
+            <h3>Early Uses</h3>
+            <p>
+                Gold artifacts date back to 4000 BCE in Eastern Europe and Egypt, valued for its luster and rarity. Ancient cultures, like the Egyptians and Mesopotamians, used it for jewelry, coins, and religious objects.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                By 1200 BCE, gold was refined and alloyed, fueling trade in the Mediterranean. The 19th-century gold rushes (e.g., California, 1848) spurred global economies. Its role as a currency standard (Gold Standard) persisted until the 20th century, while industrial uses emerged in the modern era.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Gold’s unique properties enable a wide range of uses:</p>
+            <h4>1. Jewelry and Decoration</h4>
+            <p>Gold’s beauty and malleability make it a staple in jewelry, often alloyed with copper or silver for durability (e.g., 18K gold).</p>
+            <h4>2. Electronics</h4>
+            <p>Its conductivity and corrosion resistance make gold ideal for connectors, circuits, and contacts in devices like smartphones and computers.</p>
+            <h4>3. Finance</h4>
+            <p>Gold bars and coins serve as a store of value and investment, underpinning economic stability worldwide.</p>
+            <h4>4. Medicine</h4>
+            <p>Gold nanoparticles are used in cancer treatment and diagnostics, while <sup>198</sup>Au aids in radiotherapy research.</p>
+            <h4>5. Aerospace</h4>
+            <p>Thin gold films coat spacecraft components, reflecting infrared radiation and protecting against solar heat.</p>
+        </div>
+
+        <div class="section">
+            <h2>Gold in the Universe</h2>
+            <p>
+                Gold forms in neutron star collisions via rapid neutron capture (r-process), dispersing into space. Its cosmic abundance is about 1 × 10⁻⁷ relative to hydrogen. On Earth, it concentrates in the crust from ancient supernova debris.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Gold is mined from lode deposits and placer deposits via cyanidation or gravity separation. Annual global production exceeds 3,000 tons, led by China, Australia, and Russia, with recycling adding significant supply.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Gold is non-toxic and biologically inert, posing no health risks in its metallic form. Allergic reactions to gold alloys (e.g., nickel content) are rare.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Gold mining generates waste rock, tailings, and cyanide runoff, impacting ecosystems. Efforts like reclamation and greener extraction methods aim to mitigate damage.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Gold’s enduring allure spans cosmic origins to human innovation, its gleam a constant through history. From adornment to cutting-edge technology, it blends rarity with utility, securing its place as a timeless treasure of science and society.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Gold - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Gold page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

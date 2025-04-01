@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dubnium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dubnium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Dubnium is a synthetic chemical element with the symbol <strong>Db</strong> and atomic number 105. It is a superheavy element in the transactinide series of the periodic table, positioned in Group 5 below tantalum. Named after Dubna, Russia, where it was first synthesized, dubnium is highly radioactive and exists only in minute, fleeting quantities produced in particle accelerators. Its properties are poorly understood due to its short half-lives and the challenges of studying it experimentally.
+            </p>
+            <p>
+                Discovered during the Cold War amid a race to synthesize superheavy elements, dubnium represents the cutting edge of nuclear physics. It has no known practical applications outside of fundamental research, where it helps scientists probe the limits of the periodic table and nuclear stability.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Dubnium has 17 known isotopes, with mass numbers ranging from 255 to 270. All are radioactive, with half-lives ranging from microseconds to hours. The most stable is <sup>268</sup>Db, though data on its exact properties remain limited.
+            </p>
+            <h3>Isotope: <sup>262</sup>Db</h3>
+            <p>
+                <sup>262</sup>Db has a half-life of about 34 seconds and decays via spontaneous fission or alpha emission into <sup>258</sup>Lr. It was one of the first isotopes identified during early dubnium experiments.
+            </p>
+            <h3>IsotopeLSI: Most Stable Isotope: <sup>268</sup>Db</h3>
+            <p>
+                <sup>268</sup>Db, with a half-life estimated at 1.3 hours, is the longest-lived known isotope of dubnium. It likely decays by alpha emission or spontaneous fission, though its scarcity makes detailed study challenging.
+            </p>
+            <h3>Other Isotopes</h3>
+            <p>
+                Shorter-lived isotopes like <sup>260</sup>Db (half-life: ~1.5 seconds) and <sup>261</sup>Db (half-life: ~0.68 seconds) are produced in trace amounts, providing data on nuclear structure and decay modes of superheavy elements.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Dubnium’s physical and chemical properties are largely inferred from its position in Group 5, suggesting similarities to tantalum or niobium. It is presumed to be a dense, metallic solid, though no macroscopic samples exist for direct observation.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Theoretical estimates suggest a density around 29 g/cm³, a melting point possibly exceeding 3000°C, and a body-centered cubic structure typical of Group 5 elements. These values are speculative due to limited experimental data.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Dubnium likely exhibits +5 as its most stable oxidation state (e.g., DbCl₅ or Db₂O₅), mirroring tantalum. Its electronegativity is estimated at 1.4 (Pauling scale), with a first ionization energy of approximately 6.9 eV, based on periodic trends.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>105</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>[268] (most stable isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>~29 g/cm³ (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>>3000°C (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>Unknown</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f¹⁴ 6d³ 7s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>~1.4 (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>~6.9 eV (estimated)</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Dubnium’s discovery was a product of Cold War rivalry, reflecting the era’s intense competition in nuclear science.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Dubnium was first synthesized in 1968 by Soviet scientists at the Joint Institute for Nuclear Research (JINR) in Dubna, Russia, by bombarding <sup>243</sup>Am with <sup>22</sup>Ne ions. Independently, in 1970, a U.S. team at Berkeley, led by Albert Ghiorso, claimed its discovery using <sup>249</sup>Cf and <sup>15</sup>N. The naming dispute persisted until 1997, when "dubnium" was officially adopted, honoring the Soviet contribution.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                Since its discovery, research has focused on confirming its isotopes and probing its chemical behavior using single-atom experiments, advancing our understanding of superheavy element stability.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>
+                Dubnium has no practical applications due to its short half-lives and minuscule production quantities. Its sole use is in fundamental research:
+            </p>
+            <h4>1. Nuclear Physics</h4>
+            <p>Dubnium studies explore the "island of stability," a theorized region of enhanced nuclear stability for superheavy elements, refining models of atomic structure.</p>
+            <h4>2. Chemical Research</h4>
+            <p>Single-atom experiments test dubnium’s predicted Group 5 properties, such as volatility and compound formation, via gas-phase chromatography.</p>
+        </div>
+
+        <div class="section">
+            <h2>Dubnium in the Universe</h2>
+            <p>
+                Dubnium does not occur naturally in the universe due to its instability. It may briefly form in supernovae via rapid neutron capture (r-process), but decays within seconds. On Earth, it exists only as a synthetic product of particle accelerators.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Dubnium is produced in heavy-ion accelerators by fusing lighter nuclei (e.g., <sup>243</sup>Am + <sup>22</sup>Ne → <sup>262</sup>Db + 3n). Facilities like JINR Dubna, GSI Darmstadt, and RIKEN Japan generate atoms one at a time, with annual yields measured in individual events, not grams.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Dubnium’s extreme radioactivity poses theoretical risks, but its fleeting existence and tiny quantities (atoms, not grams) make it harmless in practice. Handling occurs in controlled lab environments with radiation shielding.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Dubnium has no environmental presence or impact due to its synthetic nature and rapid decay.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Dubnium stands as a testament to human ingenuity in pushing the boundaries of science. Though its practical utility is nil, its study illuminates the frontiers of nuclear and chemical theory, bridging Cold War rivalry with modern collaboration in the quest to understand the universe’s heaviest elements.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Dubnium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Dubnium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

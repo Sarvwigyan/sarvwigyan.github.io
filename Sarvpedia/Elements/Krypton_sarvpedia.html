@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krypton - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Krypton</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Krypton is a chemical element with the symbol <strong>Kr</strong> and atomic number 36. It is a colorless, odorless noble gas that occurs in trace amounts in the Earth's atmosphere. Krypton is used in various applications, including lighting and photography.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Krypton has several isotopes, with <sup>84</sup>Kr being the most stable and abundant. Other isotopes, such as <sup>86</sup>Kr, are used in scientific research and applications.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Krypton is a dense, inert gas with a melting point of -157.36°C (-251.25°F) and a boiling point of -157.37°C (-251.27°F). It is known for its bright white light when ionized and is used in high-performance lighting.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>36</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>83.798</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>3.733 g/L</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>-157.36°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>-157.37°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d¹⁰ 4s² 4p⁶</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Krypton was discovered in 1898 by Sir William Ramsay and Morris Travers while they were studying liquefied air. The name "krypton" is derived from the Greek word "kryptos," meaning hidden.
+            </p>
+            <h3>Early Uses</h3>
+            <p>
+                Initially, krypton was used in high-performance lighting and photography, particularly in flash lamps.
+            </p>
+            <h3>Modern Applications</h3>
+            <p>
+                Today, krypton is used in various applications, including fluorescent lamps, high-intensity discharge lamps, and as a filling gas in certain types of windows.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Krypton’s unique properties make it valuable in various fields:</p>
+            <h4>1. Lighting</h4>
+            <p>Used in high-performance fluorescent and incandescent lamps.</p>
+            <h4>2. Photography</h4>
+            <p>Utilized in flash lamps for photography due to its bright light emission.</p>
+            <h4>3. Windows</h4>
+            <p>Used as a filling gas in energy-efficient windows to reduce heat loss.</p>
+            <h4>4. Lasers</h4>
+            <p>Applied in certain types of lasers for scientific and medical applications.</p>
+            <h4>5. Research</h4>
+            <p>Used in various scientific research applications, including studies of noble gases.</p>
+        </div>
+
+        <div class="section">
+            <h2>Krypton in the Universe</h2>
+            <p>
+                Krypton is formed in stars and is found in trace amounts in the Earth's atmosphere, as well as in some natural gas deposits.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Krypton is extracted from the atmosphere through fractional distillation of liquefied air. Major producers include the United States and Russia.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Krypton is generally considered non-toxic and inert, but safety precautions should be taken when handling gases under pressure.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Krypton's unique properties and versatility have made it an essential material in modern lighting and scientific applications.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Krypton - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Krypton page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

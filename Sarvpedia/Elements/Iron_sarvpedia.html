@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Iron</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Iron is a chemical element with the symbol <strong>Fe</strong> (from Latin "ferrum") and atomic number 26. It is a lustrous, silvery transition metal in Group 8 of the periodic table, positioned between manganese and cobalt. As the fourth most abundant element in the Earth’s crust (about 5% by weight), iron occurs naturally in ores like hematite (Fe₂O₃) and magnetite (Fe₃O₄), and forms the core of our planet.
+            </p>
+            <p>
+                Iron’s strength, versatility, and magnetic properties have made it a cornerstone of human progress, from tools in the Iron Age to modern steel skyscrapers. Known for millennia, it remains indispensable in construction, manufacturing, and even biology, where it is vital to life as part of hemoglobin.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Iron has 28 known isotopes, with mass numbers ranging from 45 to 72. Four are stable and naturally occurring—<sup>54</sup>Fe, <sup>56</sup>Fe, <sup>57</sup>Fe, and <sup>58</sup>Fe—while the rest are radioactive.
+            </p>
+            <h3>Stable Isotopes</h3>
+            <p>
+                <sup>56</sup>Fe (91.75% abundance) is the most common, followed by <sup>54</sup>Fe (5.85%), <sup>57</sup>Fe (2.12%), and <sup>58</sup>Fe (0.28%). <sup>56</sup>Fe’s stability reflects iron’s role as the endpoint of stellar nucleosynthesis in massive stars.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>55</sup>Fe (half-life: 2.73 years) and <sup>59</sup>Fe (half-life: 44.5 days) are notable synthetic isotopes. <sup>59</sup>Fe, decaying via beta emission, is used in medical and tracer studies, while <sup>55</sup>Fe aids in astrophysical research.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Iron is a shiny, grayish metal with ferromagnetic properties, capable of being magnetized. It is strong yet workable, especially when alloyed, and corrodes into rust (Fe₂O₃·nH₂O) in moist air.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Iron has a density of 7.87 g/cm³, a melting point of 1538°C (2800°F), and a boiling point of 2862°C (5182°F). Its body-centered cubic (BCC) structure shifts to face-centered cubic (FCC) at high temperatures, influencing its versatility.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 1.83 (Pauling scale) and a first ionization energy of 7.90 eV, iron commonly exhibits +2 (Fe²⁺) and +3 (Fe³⁺) oxidation states, forming compounds like FeO and Fe₂O₃. It reacts with acids (e.g., Fe + 2HCl → FeCl₂ + H₂) and oxygen.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>55.845</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>7.87 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1538°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2862°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d⁶ 4s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.83</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>7.90 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Iron’s story is woven into human development, marking epochs from prehistory to industrialization.
+            </p>
+            <h3>Early Uses</h3>
+            <p>
+                Iron was first used around 3000 BCE in meteoritic form, with smelting beginning by 1200 BCE in the Near East, ushering in the Iron Age. Early tools and weapons leveraged its abundance and strength over bronze.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                The invention of steel (iron-carbon alloys) by 500 BCE in India and China revolutionized metallurgy. The Industrial Revolution (18th-19th centuries) saw iron’s mass production in blast furnaces, enabling railways, bridges, and machinery.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Iron’s versatility drives its widespread use:</p>
+            <h4>1. Construction</h4>
+            <p>Steel, an iron alloy, forms the backbone of buildings, bridges, and infrastructure due to its strength and durability.</p>
+            <h4>2. Manufacturing</h4>
+            <p>Iron and steel are used in machinery, vehicles, and tools, from car frames to industrial equipment.</p>
+            <h4>3. Biology</h4>
+            <p>Iron in hemoglobin transports oxygen in blood; dietary iron (e.g., in spinach) prevents anemia.</p>
+            <h4>4. Magnets</h4>
+            <p>Ferromagnetic iron powers electromagnets in motors, generators, and MRI machines.</p>
+            <h4>5. Catalysis</h4>
+            <p>Iron catalysts (e.g., in the Haber process) produce ammonia for fertilizers.</p>
+        </div>
+
+        <div class="section">
+            <h2>Iron in the Universe</h2>
+            <p>
+                Iron forms in massive stars via fusion, peaking at <sup>56</sup>Fe, the most stable nucleus. Supernovae scatter it across space, with a cosmic abundance of 3 × 10⁻⁵ relative to hydrogen. It dominates Earth’s core, generating its magnetic field.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Iron is extracted from ores via blast furnaces, reducing Fe₂O₃ with carbon to produce pig iron, then refined into steel. Global production exceeds 1.8 billion tons annually, led by China, Australia, and Brazil.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Iron is non-toxic in metallic form but rust dust may irritate lungs. Excess dietary iron can cause toxicity (hemochromatosis), while deficiency leads to anemia.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Iron mining produces waste rock and tailings; smelting emits CO₂. Recycling steel (over 600 million tons/year) reduces environmental strain.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Iron, a bedrock of both Earth and civilization, blends cosmic origins with practical might. From ancient forges to modern skyscrapers, its strength and adaptability endure, a testament to its elemental supremacy in shaping our world.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Iron - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Iron page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

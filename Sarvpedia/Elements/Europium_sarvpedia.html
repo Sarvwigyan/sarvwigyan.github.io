@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Europium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Europium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Europium is a chemical element with the symbol <strong>Eu</strong> and atomic number 63. It is a soft, silvery-white metal belonging to the lanthanide series of the periodic table, situated between samarium and gadolinium. Named after the continent of Europe, europium is one of the rarest rare earth elements, occurring naturally in minerals like monazite and bastnäsite at about 0.0001% of the Earth’s crust by weight.
+            </p>
+            <p>
+                Europium stands out among lanthanides for its exceptional phosphorescence, emitting bright red or blue light when excited. Discovered in the late 19th century, it has become vital in modern technology, particularly in phosphors for displays and lighting, leveraging its unique luminescence properties.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Europium has 38 known isotopes, with mass numbers ranging from 130 to 167. Two are naturally occurring and stable—<sup>151</sup>Eu and <sup>153</sup>Eu—while the rest are radioactive with short half-lives.
+            </p>
+            <h3>Stable Isotope: <sup>151</sup>Eu</h3>
+            <p>
+                <sup>151</sup>Eu, with 88 neutrons, constitutes 47.8% of natural europium. Its stability and nuclear properties make it a candidate for neutron capture studies.
+            </p>
+            <h3>Stable Isotope: <sup>153</sup>Eu</h3>
+            <p>
+                <sup>153</sup>Eu, with 90 neutrons, comprises 52.2% of natural europium. It is slightly more abundant and widely used in nuclear magnetic resonance (NMR) research due to its nuclear spin.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>152</sup>Eu (half-life: 13.54 years) and <sup>154</sup>Eu (half-life: 8.59 years) are notable radioactive isotopes, produced in nuclear reactors and used as radiation sources or tracers in scientific studies.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Europium is a ductile, silvery metal that oxidizes readily in air, forming a protective oxide layer. It is the most reactive lanthanide, igniting in air at 150–180°C.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Europium has a density of 5.24 g/cm³, a melting point of 822°C (1512°F), and a boiling point of 1529°C (2784°F). Its body-centered cubic structure contributes to its softness, making it malleable.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 1.2 (Pauling scale) and a first ionization energy of 5.67 eV, europium typically exhibits +2 and +3 oxidation states. The +3 state (Eu³⁺) dominates in compounds like Eu₂O₃, while the +2 state (Eu²⁺), unusual for lanthanides, enhances its luminescent properties (e.g., in EuF₂).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>63</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>151.964</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>5.24 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>822°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>1529°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f⁷ 6s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.2</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>5.67 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Europium’s discovery marked a key step in unraveling the rare earth elements, bridging mineralogy with modern spectroscopy.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Europium was first identified in 1896 by French chemist Eugène-Anatole Demarçay, who detected its spectral lines in samarium samples. It was isolated as a pure element in 1901 by Demarçay, who named it after Europe, reflecting its geographical inspiration.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                By the mid-20th century, europium’s phosphorescent properties were harnessed in cathode-ray tubes and fluorescent lamps. Its use in color televisions and LEDs expanded in the late 20th century, cementing its role in display technology.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Europium’s luminescent properties drive its primary uses:</p>
+            <h4>1. Phosphors</h4>
+            <p>Europium compounds (e.g., Eu³⁺ for red, Eu²⁺ for blue) are dopants in phosphors for LEDs, fluorescent lamps, and flat-screen displays, enhancing color quality.</p>
+            <h4>2. Anti-Counterfeiting</h4>
+            <p>Europium’s fluorescence under UV light is used in euro banknotes and security inks to prevent forgery.</p>
+            <h4>3. Nuclear Research</h4>
+            <p><sup>153</sup>Eu’s nuclear properties make it a standard in NMR spectroscopy, while radioactive isotopes like <sup>152</sup>Eu serve as gamma sources.</p>
+            <h4>4. Lasers</h4>
+            <p>Europium-doped crystals are explored in laser technology for their sharp emission lines.</p>
+        </div>
+
+        <div class="section">
+            <h2>Europium in the Universe</h2>
+            <p>
+                Europium forms in stars via rapid neutron capture (r-process) during supernovae, contributing to its cosmic abundance of about 5 × 10⁻⁸ relative to hydrogen. On Earth, it is concentrated in rare earth mineral deposits from ancient geological processes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Europium is extracted from monazite and bastnäsite ores via solvent extraction or ion exchange, after acid leaching. China dominates production, yielding about 100–200 tons annually, often as a byproduct of other rare earths.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Europium poses low toxicity in its metallic form but can irritate skin or lungs as dust. Its compounds are generally non-hazardous, though standard lab precautions apply.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Mining and refining europium contribute to rare earth pollution, including radioactive thorium waste. Recycling efforts aim to reduce environmental strain.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Europium’s glowing legacy bridges ancient stars with modern screens, its rarity and radiance making it a cornerstone of luminescence technology. From lighting up displays to securing currency, it exemplifies the subtle power of rare earths in shaping our world.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Europium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Europium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

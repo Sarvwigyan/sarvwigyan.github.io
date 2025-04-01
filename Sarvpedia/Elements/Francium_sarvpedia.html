@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Francium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Francium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Francium is a chemical element with the symbol <strong>Fr</strong> and atomic number 87. It is an extremely rare and highly radioactive alkali metal, belonging to Group 1 of the periodic table, positioned below cesium. Named after France, where it was discovered, francium is the second-rarest naturally occurring element (after astatine), with an estimated total mass of less than 30 grams in the Earth’s crust at any time due to its rapid decay.
+            </p>
+            <p>
+                Francium’s extreme reactivity and short half-life—its most stable isotope lasts only 22 minutes—make it nearly impossible to study in bulk. Discovered in 1939, it exists primarily as a fleeting product of actinium decay in uranium ores, offering insights into alkali metal behavior through trace-level experiments.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Francium has 34 known isotopes, with mass numbers ranging from 199 to 232. All are radioactive, with no stable forms. The most significant are <sup>223</sup>Fr and <sup>221</sup>Fr, both naturally occurring via decay chains.
+            </p>
+            <h3>Isotope: <sup>223</sup>Fr</h3>
+            <p>
+                <sup>223</sup>Fr, with a half-life of 22 minutes, is the most stable isotope. It forms in the actinium-227 decay chain (<sup>227</sup>Ac → <sup>223</sup>Fr via beta decay) and decays by beta emission into <sup>223</sup>Ra. It constitutes nearly all naturally occurring francium.
+            </p>
+            <h3>Isotope: <sup>221</sup>Fr</h3>
+            <p>
+                <sup>221</sup>Fr has a half-life of 4.8 minutes and arises from the decay of <sup>225</sup>Ac in the neptunium series. It decays via alpha emission into <sup>217</sup>At, but its shorter life limits its study.
+            </p>
+            <h3>Other Isotopes</h3>
+            <p>
+                Synthetic isotopes like <sup>222</sup>Fr (half-life: 14.2 minutes) and <sup>220</sup>Fr (half-life: 27.4 seconds) are produced in labs, but their fleeting existence restricts practical use.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Francium is a soft, shiny metal presumed to be silvery or golden in appearance, though no visible samples exist due to its scarcity and decay. As the heaviest alkali metal, it is extraordinarily reactive.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Francium’s density is estimated at 2.48 g/cm³, with a melting point of ~27°C (81°F) and a boiling point of ~677°C (1251°F), inferred from trends in Group 1. It likely has a body-centered cubic structure.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 0.7 (Pauling scale)—the lowest of any element—and a first ionization energy of 4.07 eV, francium readily loses its outer electron to form Fr⁺ ions. It reacts violently with water (2Fr + 2H₂O → 2FrOH + H₂) and air, surpassing even cesium in reactivity.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>87</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>[223] (most stable isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>~2.48 g/cm³ (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>~27°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>~677°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 7s¹</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>0.7</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>4.07 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Francium’s discovery completed the alkali metal family, a triumph of early 20th-century radiochemistry.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Francium was discovered in 1939 by French physicist Marguerite Perey at the Curie Institute in Paris. She identified it as a decay product of <sup>227</sup>Ac in uranium ore, naming it after her homeland, France. Initially called "actinium K," it was confirmed as element 87.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                Due to its rarity and short half-life, francium studies relied on spectroscopic and atomic trapping techniques by the late 20th century, confirming its extreme alkali properties with microgram-scale samples.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Francium’s fleeting existence limits it to scientific research:</p>
+            <h4>1. Atomic Physics</h4>
+            <p>Francium’s simple electron structure (one 7s electron) makes it ideal for studying atomic energy levels and quantum effects via laser trapping of trace atoms.</p>
+            <h4>2. Fundamental Research</h4>
+            <p>It aids in testing relativistic effects in heavy alkali metals and probing parity violation in weak nuclear forces, though only in minute quantities.</p>
+        </div>
+
+        <div class="section">
+            <h2>Francium in the Universe</h2>
+            <p>
+                Francium forms in trace amounts via the decay of actinium and thorium in stellar nucleosynthesis and terrestrial ores. Its cosmic abundance is negligible, and on Earth, it exists momentarily in uranium-rich rocks.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Francium is not "produced" industrially but collected in tiny amounts (nanograms) from natural decay chains (e.g., <sup>227</sup>Ac → <sup>223</sup>Fr) or synthesized via nuclear reactions (e.g., <sup>197</sup>Au + <sup>18</sup>O → <sup>210</sup>Fr). Facilities like CERN use ion beams for atomic studies.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Francium’s intense radioactivity (beta and alpha decay) poses theoretical health risks, but its scarcity (less than 30 g globally) renders it practically harmless. Handling occurs in controlled lab settings with radiation shielding.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Francium’s short half-life ensures it does not persist in the environment, dissipating rapidly into stable isotopes like radium or astatine.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Francium, a fleeting giant among alkali metals, embodies rarity and reactivity. Though its practical use is confined to the lab, its discovery and study illuminate the extremes of the periodic table, honoring France’s scientific heritage with every ephemeral atom.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Francium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Francium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

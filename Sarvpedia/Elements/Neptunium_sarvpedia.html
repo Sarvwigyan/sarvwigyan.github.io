@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neptunium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Neptunium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Neptunium is a chemical element with the symbol <strong>Np</strong> and atomic number 93. It is a silvery metallic element that is part of the actinide series. Neptunium is the first transuranic element and is primarily used in research and as a precursor to plutonium.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Neptunium has several isotopes, with <sup>237</sup>Np being the most stable and abundant, having a half-life of about 2.14 million years. Other isotopes are radioactive and have shorter half-lives.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Neptunium is a soft, silvery metal that is malleable and ductile. It has a melting point of 640°C (1184°F) and a boiling point of 3902°C (7076°F). Neptunium is known for its ability to form various oxidation states, which makes it versatile in chemical reactions.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>93</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>237</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>20.25 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>640°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>3902°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f⁴ 7s²</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Neptunium was discovered in 1940 by Edwin McMillan and Philip H. Abelson at the University of California, Berkeley. It was the first transuranic element to be produced and was named after the planet Neptune.
+            </p>
+            <h3>Discovery</h3>
+            <p>
+                The element was created by bombarding uranium with neutrons, resulting in the formation of neptunium.
+            </p>
+            <h3>Modern Applications</h3>
+            <p>
+                Today, neptunium is primarily used in research, particularly in the fields of nuclear chemistry and physics. It is also used in some types of nuclear reactors and as a precursor to plutonium-238.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Neptunium's unique properties make it valuable in various fields:</p>
+            <h4>1. Research</h4>
+            <p>Used in nuclear research and as a source of neutrons.</p>
+            <h4>2. Nuclear Reactors</h4>
+            <p>Utilized in some types of nuclear reactors as a fuel source.</p>
+            <h4>3. Precursor to Plutonium</h4>
+            <p>Serves as a precursor to plutonium-238, which is used in radioisotope thermoelectric generators.</p>
+            <h4>4. Radiation Detection</h4>
+            <p>Applied in radiation detection and measurement devices.</p>
+        </div>
+
+        <div class="section">
+            <h2>Neptunium in the Universe</h2>
+            <p>
+                Neptunium is formed in stars during nucleosynthesis and is found in trace amounts in the Earth's crust, primarily as a result of nuclear reactions.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Neptunium is produced in nuclear reactors and particle accelerators through the irradiation of uranium or plutonium. Major producers include the United States and Russia.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Neptunium is radioactive and poses health risks if not handled properly. Safety precautions are necessary when working with neptunium and its compounds.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Neptunium's unique properties and versatility have made it an essential material in nuclear research and applications, contributing to our understanding of transuranic elements.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Neptunium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Neptunium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

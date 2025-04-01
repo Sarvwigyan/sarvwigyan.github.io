@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einsteinium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Einsteinium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Einsteinium is a synthetic chemical element with the symbol <strong>Es</strong> and atomic number 99. It is a soft, silvery actinide metal, part of the actinide series in the periodic table, located between californium and fermium. Named in honor of physicist Albert Einstein, einsteinium is highly radioactive and does not occur naturally on Earth. It is produced in minute quantities through neutron bombardment of lighter actinides in nuclear reactors or from the debris of nuclear explosions.
+            </p>
+            <p>
+                Discovered in the aftermath of the first hydrogen bomb test, einsteinium’s intense radioactivity and short half-lives limit its study to specialized research. It has no practical applications beyond science, where it contributes to understanding actinide chemistry and the synthesis of heavier elements.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Einsteinium has 19 known isotopes, with mass numbers ranging from 241 to 257. All are radioactive, with no stable forms. The most significant isotopes are <sup>253</sup>Es and <sup>254</sup>Es, alongside the longest-lived <sup>252</sup>Es.
+            </p>
+            <h3>Isotope: <sup>253</sup>Es</h3>
+            <p>
+                <sup>253</sup>Es has a half-life of 20.47 days and decays via alpha emission into <sup>249</sup>Bk. It was one of the first isotopes identified in nuclear fallout and is used in early actinide research.
+            </p>
+            <h3>Isotope: <sup>254</sup>Es</h3>
+            <p>
+                <sup>254</sup>Es, with a half-life of 275.7 days, is produced in nuclear reactors and decays by alpha emission. Its relatively long half-life aids in spectroscopic studies of einsteinium.
+            </p>
+            <h3>Isotope: <sup>252</sup>Es</h3>
+            <p>
+                <sup>252</sup>Es, the most stable isotope, has a half-life of 471.7 days. It decays via alpha emission and spontaneous fission, making it valuable for studying nuclear properties.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Einsteinium is a silvery metal that glows faintly due to its radioactivity. Its properties are inferred from limited samples, as only trace amounts have been produced and studied.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Einsteinium has an estimated density of 8.84 g/cm³ and a melting point of approximately 860°C (1580°F). Its boiling point is uncertain but estimated around 996°C (1825°F). It likely adopts a face-centered cubic crystal structure.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 1.3 (Pauling scale) and a first ionization energy of about 6.42 eV, einsteinium predominantly exhibits a +3 oxidation state (Es³⁺) in compounds like Es₂O₃ or EsCl₃. A +2 state (Es²⁺) has been observed in some solid compounds, a rarity among actinides.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>99</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>[252] (most stable isotope)</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>~8.84 g/cm³ (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>~860°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>~996°C (estimated)</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Rn] 5f¹¹ 7s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.3</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>6.42 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Einsteinium’s discovery emerged from the nuclear age, linking it to both scientific triumph and the destructive power of the atomic era.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Einsteinium was first identified in 1952 by Albert Ghiorso and colleagues at Berkeley, in the debris of the "Ivy Mike" hydrogen bomb test in the Pacific. It formed from rapid neutron capture by <sup>238</sup>U, followed by beta decays (e.g., <sup>253</sup>U → <sup>253</sup>Es). Named after Albert Einstein, it was officially announced in 1955.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                Weighable amounts were later produced in nuclear reactors via neutron irradiation of plutonium, enabling limited chemical studies by the 1960s. Its role in synthesizing heavier elements like mendelevium solidified its scientific importance.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Einsteinium’s applications are confined to research due to its rarity and radioactivity:</p>
+            <h4>1. Actinide Chemistry</h4>
+            <p>Einsteinium helps scientists study the electronic structure and bonding of actinides, particularly the shift from +3 to +2 oxidation states.</p>
+            <h4>2. Nuclear Research</h4>
+            <p>It serves as a target for producing heavier transactinides (e.g., <sup>253</sup>Es + α → <sup>256</sup>Md), advancing knowledge of superheavy element stability.</p>
+        </div>
+
+        <div class="section">
+            <h2>Einsteinium in the Universe</h2>
+            <p>
+                Einsteinium is not naturally abundant in the universe due to its short half-lives. It may form briefly in supernovae via rapid neutron capture (r-process), decaying quickly into lighter elements. On Earth, it exists only as a synthetic product.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Einsteinium is produced in high-flux nuclear reactors by neutron bombardment of <sup>238</sup>U or <sup>239</sup>Pu, followed by a chain of beta decays (e.g., <sup>252</sup>Cf → <sup>252</sup>Es). Annual yields are in micrograms, primarily from facilities like the High Flux Isotope Reactor at Oak Ridge, USA.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Einsteinium’s alpha and gamma radiation poses significant health risks, including cancer if inhaled or ingested. Its heat output (~0.1 W/µg for <sup>253</sup>Es) requires shielded handling in gloveboxes or hot cells.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Trace einsteinium from nuclear tests or waste could persist in the environment, but its short half-lives limit long-term contamination. Disposal involves deep geological storage.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Einsteinium, born from the fiery crucible of a hydrogen bomb, honors a scientific giant while illuminating the actinide frontier. Its fleeting existence and intense radioactivity restrict it to research, yet it deepens our grasp of nuclear chemistry and the periodic table’s outer reaches.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Einsteinium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Einsteinium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

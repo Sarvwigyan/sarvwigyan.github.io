@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercury - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mercury</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Mercury is a chemical element with the symbol <strong>Hg</strong> (from Latin "hydrargyrum," meaning "liquid silver") and atomic number 80. It is a shiny, silver-white transition metal in Group 12 of the periodic table, positioned between gold and thallium. Unique among metals, mercury is liquid at room temperature and occurs naturally in the Earth’s crust at about 0.000008% by weight, primarily in the mineral cinnabar (HgS).
+            </p>
+            <p>
+                Known since antiquity, mercury’s fluidity, density, and reflectivity have fascinated civilizations, from alchemists to modern scientists. Its uses range from thermometers to industrial processes, though its toxicity has led to strict regulations in recent decades.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Mercury has 40 known isotopes, with mass numbers ranging from 171 to 210. Seven are stable and naturally occurring—<sup>196</sup>Hg, <sup>198</sup>Hg, <sup>199</sup>Hg, <sup>200</sup>Hg, <sup>201</sup>Hg, <sup>202</sup>Hg, and <sup>204</sup>Hg—while the rest are radioactive.
+            </p>
+            <h3>Stable Isotopes</h3>
+            <p>
+                <sup>202</sup>Hg (29.86% abundance) is the most common, followed by <sup>200</sup>Hg (23.10%), <sup>199</sup>Hg (16.87%), <sup>201</sup>Hg (13.18%), <sup>198</sup>Hg (9.97%), <sup>204</sup>Hg (6.87%), and <sup>196</sup>Hg (0.15%). These isotopes form through stellar processes and decay chains.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>203</sup>Hg (half-life: 46.6 days) is a key synthetic isotope, decaying via beta emission into <sup>203</sup>Tl. It’s used in tracer studies and medical research. Other isotopes, like <sup>197</sup>Hg (half-life: 64.1 hours), are studied in nuclear physics.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Mercury is a dense, lustrous liquid metal with a mirror-like surface. It forms spherical droplets due to high surface tension and is a fair conductor of electricity.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Mercury has a density of 13.53 g/cm³, a melting point of -38.83°C (-37.89°F), and a boiling point of 356.7°C (674.1°F). Its rhombohedral crystal structure solidifies only under extreme cold.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 2.00 (Pauling scale) and a first ionization energy of 10.44 eV, mercury exhibits +1 (Hg₂²⁺) and +2 (Hg²⁺) oxidation states, forming compounds like HgCl₂ and Hg₂Cl₂. It resists most acids but reacts with nitric acid and sulfur.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>80</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>200.59</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>13.53 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>-38.83°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>356.7°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Xe] 4f¹⁴ 5d¹⁰ 6s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>2.00</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>10.44 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Mercury’s shimmering presence has captivated humanity across cultures, from mysticism to science.
+            </p>
+            <h3>Early Uses</h3>
+            <p>
+                Mercury was known by 1500 BCE in Egypt and China, used in cosmetics, pigments (vermilion from cinnabar), and alchemy. The Greeks and Romans called it "quicksilver" and used it in ointments and mining.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                In the 17th century, mercury enabled barometers and thermometers, thanks to Torricelli and Fahrenheit. The 19th century saw its use in gold extraction and hat-making, though its toxicity—evident in "mad hatter" syndrome—prompted restrictions by the 20th century.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Mercury’s unique properties support specialized uses:</p>
+            <h4>1. Thermometers and Barometers</h4>
+            <p>Mercury’s thermal expansion and visibility made it ideal for measuring temperature and pressure, though phased out for safety.</p>
+            <h4>2. Electrical Switches</h4>
+            <p>Mercury’s conductivity powers silent switches and relays, still used in some industrial applications.</p>
+            <h4>3. Dental Amalgams</h4>
+            <p>Mercury alloys with silver and tin for durable dental fillings, though alternatives are growing.</p>
+            <h4>4. Gold Mining</h4>
+            <p>Mercury amalgamates gold from ore, a traditional method now regulated due to environmental harm.</p>
+            <h4>5. Fluorescent Lamps</h4>
+            <p>Small amounts of mercury vapor enhance UV emission in fluorescent bulbs, though LEDs are replacing them.</p>
+        </div>
+
+        <div class="section">
+            <h2>Mercury in the Universe</h2>
+            <p>
+                Mercury forms in neutron star collisions via rapid neutron capture (r-process), with a cosmic abundance of 1 × 10⁻⁷ relative to hydrogen. On Earth, it concentrates in cinnabar deposits from volcanic activity.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Mercury is extracted by roasting cinnabar (HgS → Hg + SO₂), with global production around 2,000 tons annually, led by China and Kyrgyzstan. Recycling from batteries and lamps supplements supply.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Mercury is highly toxic, especially as vapor or organic compounds (e.g., methylmercury), causing neurological damage (Minamata disease). Spills require careful cleanup; exposure limits are strictly regulated.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Mercury from mining and coal burning contaminates water and bioaccumulates in fish. The Minamata Convention (2013) aims to curb its release.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Mercury, a liquid enigma, flows through history with brilliance and danger. Its allure in science and industry persists, tempered by its toxic legacy, urging a balance between utility and environmental care.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Mercury - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Mercury page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

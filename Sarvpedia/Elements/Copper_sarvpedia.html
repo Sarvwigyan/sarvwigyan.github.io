@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copper - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Copper</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Copper is a chemical element with the symbol <strong>Cu</strong> and atomic number 29. It is a ductile metal with very high thermal and electrical conductivity. Copper is one of the few metals that can occur in nature in a directly usable metallic form. It has been used by humans for thousands of years, dating back to ancient civilizations.
+            </p>
+            <p>
+                The name "copper" is derived from the Latin word "cuprum," which means "from Cyprus," where copper was mined extensively in ancient times. Copper is known for its reddish-brown color and is widely used in electrical wiring, plumbing, and roofing.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Copper has two stable isotopes: <sup>63</sup>Cu and <sup>65</sup>Cu. The average atomic mass of copper is approximately 63.546 u, with <sup>63</sup>Cu making up about 69% of natural copper and <sup>65</sup>Cu about 31%.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Copper is a soft, malleable metal with excellent thermal and electrical conductivity. It is resistant to corrosion and has a high melting point.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Copper has a density of 8.96 g/cm³, a melting point of 1085°C (1985°F), and a boiling point of 2562°C (4644°F). Its crystalline structure is face-centered cubic.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                Copper exhibits oxidation states of +1 and +2, with the +2 state being more stable. It reacts with oxygen to form copper(II) oxide (CuO) and can also react with acids to produce hydrogen gas.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>63.546</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>8.96 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1085°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2562°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d¹⁰ 4s¹</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.90</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>7.73 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Copper has been used by humans for over 10,000 years, making it one of the first metals to be used. The earliest known use of copper dates back to around 9000 BC in the Middle East. The development of metallurgy led to the Bronze Age, where copper was alloyed with tin to create bronze, a significant advancement in tools and weaponry.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Copper's excellent conductivity and malleability make it invaluable in various applications:</p>
+            <h4>1. Electrical Wiring</h4>
+            <p>Copper is widely used in electrical wiring due to its high conductivity and durability.</p>
+            <h4>2. Plumbing</h4>
+            <p>Copper pipes are commonly used in plumbing systems for their resistance to corrosion and ease of installation.</p>
+            <h4>3. Roofing</h4>
+            <p>Copper is used in roofing materials for its durability and aesthetic appeal.</p>
+            <h4>4. Alloys</h4>
+            <p>Copper is alloyed with other metals to create materials like bronze and brass, which have various applications in manufacturing and construction.</p>
+        </div>
+
+        <div class="section">
+            <h2>Copper in the Universe</h2>
+            <p>
+                Copper is formed in stars through nuclear fusion processes. It is relatively abundant in the universe, with an estimated cosmic abundance of about 0.0001% relative to hydrogen.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Copper is primarily extracted from sulfide ores through smelting and refining processes. Major producers of copper include Chile, Peru, and China, with global production exceeding 20 million tons annually.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Copper is generally considered safe for use, but excessive exposure can lead to health issues. It is an essential trace nutrient for humans, but high levels can cause toxicity.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Copper's unique properties and historical significance make it a vital element in modern society. Its applications in electrical, plumbing, and construction industries highlight its importance, while its role in human history underscores its long-standing value.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Copper - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Copper page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

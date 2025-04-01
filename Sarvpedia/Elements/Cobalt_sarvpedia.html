@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cobalt - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Cobalt</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Cobalt is a chemical element with the symbol <strong>Co</strong> and atomic number 27. It is a hard, lustrous, and silvery-blue transition metal, belonging to Group 9 of the periodic table, positioned between iron and nickel. Known for its magnetic properties and vibrant blue compounds, cobalt has been valued since antiquity for pigments and is now critical in modern technology, particularly in batteries and alloys. It occurs naturally in the Earth’s crust primarily as cobaltite (CoAsS), smaltite (CoAs₂), and erythrite (Co₃(AsO₄)₂·8H₂O), constituting about 0.0029% of the crust by weight.
+            </p>
+            <p>
+                Cobalt’s name originates from the German "kobold," meaning "goblin," a term miners used for its troublesome ores, which released toxic arsenic fumes when smelted. Discovered in the 18th century, cobalt’s unique properties—ferromagnetism, high melting point, and chemical stability—make it essential in industries ranging from aerospace to renewable energy, though its mining raises ethical and environmental concerns.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Cobalt has 28 known isotopes, with mass numbers ranging from 47 to 75. Only one, <sup>59</sup>Co, is stable and naturally occurring, while the rest are radioactive. The atomic mass of cobalt is approximately 58.933 u, reflecting the dominance of <sup>59</sup>Co.
+            </p>
+            <h3>Stable Isotope: <sup>59</sup>Co</h3>
+            <p>
+                <sup>59</sup>Co, with 32 neutrons, constitutes 100% of naturally occurring cobalt. Its stability and ferromagnetic nature underpin its use in magnets and alloys.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>60</sup>Co (half-life: 5.27 years) is the most notable radioactive isotope, produced artificially via neutron activation of <sup>59</sup>Co. It emits strong gamma rays, making it valuable in radiotherapy and sterilization. Other isotopes, like <sup>57</sup>Co (half-life: 271.8 days), are used in medical imaging.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Cobalt is a shiny, bluish-gray metal with a high melting point and ferromagnetic properties, retaining magnetism up to 1121°C (2050°F), higher than iron or nickel. It forms colorful compounds, notably blue cobalt(II) salts.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Cobalt has a density of 8.90 g/cm³, a melting point of 1495°C (2723°F), and a boiling point of 2927°C (5301°F). Its hexagonal close-packed crystal structure contributes to its hardness and strength.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 1.88 (Pauling scale) and a first ionization energy of 7.88 eV, cobalt commonly exhibits +2 and +3 oxidation states. The +2 state (Co²⁺) is more stable in aqueous solutions, while +3 (Co³⁺) appears in complex compounds like Co₂O₃. It resists corrosion but reacts with acids to form salts (e.g., Co + 2HCl → CoCl₂ + H₂).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>27</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>58.933</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>8.90 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1495°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2927°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d⁷ 4s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.88</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>7.88 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Cobalt’s vibrant legacy spans ancient art and modern science, evolving from a pigment to a technological cornerstone.
+            </p>
+            <h3>Early Uses</h3>
+            <p>
+                Cobalt compounds colored glass and ceramics blue as early as 2600 BCE in Egypt and China, though the metal itself was unknown. Miners in medieval Europe encountered cobalt ores, mistaking them for silver due to their metallic sheen, only to find them difficult to process.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Cobalt was isolated in 1735 by Swedish chemist Georg Brandt, who identified it as a distinct element in cobalt blue ores (e.g., cobaltite). He disproved earlier beliefs that bismuth caused the blue color, naming it after the "kobold" of mining lore.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                By the 20th century, cobalt’s magnetic and heat-resistant properties led to its use in alloys like Alnico (for magnets) and Stellite (for cutting tools). Its role in lithium-ion batteries emerged in the 1990s, driving demand in the electronics era.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Cobalt’s unique properties fuel a range of critical uses:</p>
+            <h4>1. Batteries</h4>
+            <p>Cobalt is a key component in lithium cobalt oxide (LiCoO₂) cathodes for rechargeable batteries, powering smartphones, laptops, and electric vehicles.</p>
+            <h4>2. Alloys</h4>
+            <p>Superalloys with cobalt (e.g., Stellite) resist wear and heat in jet engines and gas turbines. Alnico magnets combine cobalt with aluminum and nickel for industrial and audio applications.</p>
+            <h4>3. Pigments</h4>
+            <p>Cobalt blue (CoAl₂O₄) and cobalt green color paints, ceramics, and glass, prized for their stability and brilliance.</p>
+            <h4>4. Medical Uses</h4>
+            <p><sup>60</sup>Co gamma rays sterilize medical equipment and treat cancer, while cobalt-chromium alloys form durable prosthetics.</p>
+            <h4>5. Catalysts</h4>
+            <p>Cobalt compounds catalyze chemical reactions, such as in the Fischer-Tropsch process for synthetic fuels.</p>
+        </div>
+
+        <div class="section">
+            <h2>Cobalt in the Universe</h2>
+            <p>
+                Cobalt forms in stars via rapid neutron capture (r-process) during supernovae, fusing iron nuclei with neutrons to yield <sup>59</sup>Co. Its cosmic abundance is about 8 × 10⁻⁶ relative to hydrogen, and it is enriched in Earth’s core and mantle.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Cobalt is extracted as a byproduct of copper and nickel mining, primarily from sulfide and laterite ores. Processes like hydrometallurgy (leaching with sulfuric acid) and pyrometallurgy (smelting) yield cobalt metal or compounds. Global production is around 170,000 tons annually, with the Democratic Republic of Congo supplying over 60%.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Cobalt dust and fumes can irritate lungs and skin, with chronic exposure linked to lung disease ("hard metal disease"). Radioactive <sup>60</sup>Co poses radiation risks if mishandled. While trace cobalt is a nutrient in vitamin B12, excess intake is toxic.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Cobalt mining, especially in Congo, raises concerns over child labor, pollution, and habitat loss, prompting efforts for ethical sourcing and recycling.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Cobalt’s journey from ancient pigments to cutting-edge batteries reflects its enduring versatility. Its magnetic allure and resilience power modern life, yet its extraction and use demand ethical and environmental care, balancing innovation with responsibility.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Cobalt - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Cobalt page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

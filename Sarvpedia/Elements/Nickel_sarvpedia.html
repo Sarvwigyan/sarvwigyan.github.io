@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nickel - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Nickel</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Nickel is a chemical element with the symbol <strong>Ni</strong> and atomic number 28. It is a lustrous, silvery-white transition metal in Group 10 of the periodic table, positioned between cobalt and copper. Relatively abundant, nickel constitutes about 0.008% of the Earth’s crust, occurring primarily in ores like pentlandite ((Ni,Fe)₉S₈) and laterite deposits.
+            </p>
+            <p>
+                Discovered in the 18th century, nickel is valued for its strength, corrosion resistance, and ability to alloy with other metals. It plays a critical role in modern industry, particularly in stainless steel production, and has a rich history tied to metallurgy and coinage.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Nickel has 31 known isotopes, with mass numbers ranging from 48 to 78. Five are stable and naturally occurring—<sup>58</sup>Ni, <sup>60</sup>Ni, <sup>61</sup>Ni, <sup>62</sup>Ni, and <sup>64</sup>Ni—while the rest are radioactive.
+            </p>
+            <h3>Stable Isotopes</h3>
+            <p>
+                <sup>58</sup>Ni (68.08% abundance) is the most common, followed by <sup>60</sup>Ni (26.22%), <sup>61</sup>Ni (1.14%), <sup>62</sup>Ni (3.63%), and <sup>64</sup>Ni (0.93%). These isotopes form through stellar nucleosynthesis and are widespread in nickel deposits.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>63</sup>Ni (half-life: 100.1 years) is a significant synthetic isotope, decaying via beta emission into <sup>63</sup>Cu. It’s used in electron capture detectors and tracer studies. Other isotopes, like <sup>59</sup>Ni (half-life: 76,000 years), are studied in nuclear research.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Nickel is a hard, shiny metal with ferromagnetic properties at room temperature. It resists corrosion and retains its luster, making it ideal for protective coatings and alloys.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Nickel has a density of 8.91 g/cm³, a melting point of 1455°C (2651°F), and a boiling point of 2730°C (4946°F). Its face-centered cubic structure contributes to its ductility and toughness.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 1.91 (Pauling scale) and a first ionization energy of 7.64 eV, nickel typically exhibits a +2 oxidation state (Ni²⁺), forming compounds like NiO and NiCl₂. It resists most acids but reacts with nitric acid (Ni + 2HNO₃ → Ni(NO₃)₂ + H₂).
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>28</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>58.693</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>8.91 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>1455°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2730°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Ar] 3d⁸ 4s²</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.91</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>7.64 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Nickel’s journey from a troublesome ore to a vital industrial metal mirrors advances in metallurgy and chemistry.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Nickel was isolated in 1751 by Swedish chemist Axel Fredrik Cronstedt, who extracted it from niccolite (NiAs). Miners had called it "kupfernickel" (false copper) due to its copper-like appearance but lack of copper yield. Its name derives from "Nickel," a mischievous sprite in German folklore.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                By the 19th century, nickel’s use in coinage (e.g., U.S. nickel, 1866) and plating grew. The 20th century saw its prominence in stainless steel (developed 1910s), revolutionizing construction and manufacturing.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Nickel’s durability and versatility enable wide-ranging uses:</p>
+            <h4>1. Stainless Steel</h4>
+            <p>Nickel alloys (e.g., with chromium) form stainless steel, used in cutlery, appliances, and infrastructure for its corrosion resistance.</p>
+            <h4>2. Batteries</h4>
+            <p>Nickel-metal hydride (NiMH) and nickel-cadmium (NiCd) batteries power electronics and electric vehicles.</p>
+            <h4>3. Plating</h4>
+            <p>Nickel electroplating coats objects like car parts and faucets, enhancing durability and shine.</p>
+            <h4>4. Catalysts</h4>
+            <p>Nickel catalyzes hydrogenation in food processing (e.g., margarine production) and chemical synthesis.</p>
+            <h4>5. Coinage</h4>
+            <p>Nickel alloys are used in coins worldwide for their toughness and resistance to wear.</p>
+        </div>
+
+        <div class="section">
+            <h2>Nickel in the Universe</h2>
+            <p>
+                Nickel forms in massive stars via fusion, often alongside iron, with a cosmic abundance of 6 × 10⁻⁵ relative to hydrogen. It is abundant in meteorites and Earth’s core, contributing to planetary magnetism.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Nickel is extracted from sulfide and laterite ores via smelting or hydrometallurgy (e.g., leaching with sulfuric acid). Global production is around 2.7 million tons annually, led by Indonesia, the Philippines, and Russia.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Nickel metal is generally safe to handle but can cause allergic reactions (e.g., dermatitis) in some individuals. Inhaling nickel dust or fumes is toxic and carcinogenic; workplace exposure is regulated.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Nickel mining generates tailings and emissions, impacting ecosystems. Smelting releases SO₂, though recycling (e.g., from batteries) reduces environmental strain.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Nickel, a resilient metal born of stars, underpins modern life with quiet strength. From stainless steel to green energy, its adaptability shines, tempered by the need to manage its environmental and health challenges.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Nickel - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Nickel page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indium - Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section h3, .section h4 {
+            color: #3498db;
+            margin: 15px 0 10px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .section th, .section td {
+            padding: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .section th {
+            background: #3498db;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        .section td {
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Indium</h1>
+    </header>
+
+    <div class="container">
+        <div class="section">
+            <h2>Introduction</h2>
+            <p>
+                Indium is a chemical element with the symbol <strong>In</strong> and atomic number 49. It is a soft, silvery-white post-transition metal in Group 13 of the periodic table, positioned between gallium and tin. Named after the indigo blue line in its atomic spectrum, indium is relatively rare in the Earth’s crust, occurring at about 0.000025% by weight, primarily in zinc ores like sphalerite.
+            </p>
+            <p>
+                Discovered in the 19th century, indium is prized for its low melting point, malleability, and electrical conductivity. Though scarce, it plays a critical role in modern technology, especially in electronics, where its compounds enable touchscreens and solar panels.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Isotopes</h2>
+            <p>
+                Indium has 39 known isotopes, with mass numbers ranging from 97 to 135. Two occur naturally: <sup>113</sup>In (stable) and <sup>115</sup>In (mildly radioactive), while the rest are synthetic and short-lived.
+            </p>
+            <h3>Stable Isotope: <sup>113</sup>In</h3>
+            <p>
+                <sup>113</sup>In, with 64 neutrons, makes up 4.3% of natural indium. Its stability supports indium’s use in alloys and electronics.
+            </p>
+            <h3>Naturally Occurring Radioactive Isotope: <sup>115</sup>In</h3>
+            <p>
+                <sup>115</sup>In, with 66 neutrons, constitutes 95.7% of natural indium. It has an extremely long half-life of 4.41 × 10¹⁴ years, decaying via beta emission into <sup>115</sup>Sn, but is considered effectively stable for practical purposes.
+            </p>
+            <h3>Radioactive Isotopes</h3>
+            <p>
+                <sup>111</sup>In (half-life: 2.8 days) is a key synthetic isotope, used in medical imaging (e.g., SPECT scans) due to its gamma emission. Other isotopes, like <sup>114</sup>In (half-life: 49.5 days), are studied in nuclear research.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Properties</h2>
+            <p>
+                Indium is a shiny, soft metal that produces a distinctive "tin cry" when bent. It remains ductile even at low temperatures and adheres well to surfaces, making it versatile in industrial applications.
+            </p>
+            <h3>Physical Properties</h3>
+            <p>
+                Indium has a density of 7.31 g/cm³, a melting point of 156.6°C (313.9°F), and a boiling point of 2072°C (3762°F). Its tetragonal crystal structure contributes to its malleability.
+            </p>
+            <h3>Chemical Properties</h3>
+            <p>
+                With an electronegativity of 1.78 (Pauling scale) and a first ionization energy of 5.79 eV, indium typically exhibits a +3 oxidation state (In³⁺) in compounds like In₂O₃ or InCl₃. It resists corrosion but reacts with strong acids and halogens.
+            </p>
+            <table>
+                <tr>
+                    <th>Property</th>
+                    <th>Value</th>
+                </tr>
+                <tr>
+                    <td>Atomic Number</td>
+                    <td>49</td>
+                </tr>
+                <tr>
+                    <td>Atomic Weight</td>
+                    <td>114.818</td>
+                </tr>
+                <tr>
+                    <td>Density</td>
+                    <td>7.31 g/cm³</td>
+                </tr>
+                <tr>
+                    <td>Melting Point</td>
+                    <td>156.6°C</td>
+                </tr>
+                <tr>
+                    <td>Boiling Point</td>
+                    <td>2072°C</td>
+                </tr>
+                <tr>
+                    <td>Electron Configuration</td>
+                    <td>[Kr] 4d¹⁰ 5s² 5p¹</td>
+                </tr>
+                <tr>
+                    <td>Electronegativity</td>
+                    <td>1.78</td>
+                </tr>
+                <tr>
+                    <td>Ionization Energy</td>
+                    <td>5.79 eV</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>History</h2>
+            <p>
+                Indium’s discovery marked a milestone in spectroscopy and the understanding of rare metals, paving the way for its modern applications.
+            </p>
+            <h3>The Discovery</h3>
+            <p>
+                Indium was discovered in 1863 by German chemists Ferdinand Reich and Hieronymous Theodor Richter while analyzing zinc ore via spectroscopy. They identified its characteristic indigo-blue spectral lines and named it accordingly. It was isolated as a metal in 1867.
+            </p>
+            <h3>Subsequent Developments</h3>
+            <p>
+                Initially a scientific curiosity, indium’s use grew in the 20th century with alloys and semiconductors. Its role in indium tin oxide (ITO) for transparent conductors, developed in the 1950s, revolutionized electronics by the late 20th century.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Applications</h2>
+            <p>Indium’s properties enable its use across diverse fields:</p>
+            <h4>1. Electronics</h4>
+            <p>Indium tin oxide (ITO) coats touchscreens, LCDs, and solar panels, providing transparent conductivity.</p>
+            <h4>2. Alloys</h4>
+            <p>Indium alloys with lead or tin create low-melting solders for electronics and cryogenic seals.</p>
+            <h4>3. Medical Imaging</h4>
+            <p><sup>111</sup>In is used in nuclear medicine to label white blood cells for detecting infections or inflammation.</p>
+            <h4>4. Semiconductors</h4>
+            <p>Indium phosphide (InP) and indium arsenide (InAs) power high-speed electronics and optoelectronic devices like lasers.</p>
+            <h4>5. Coatings</h4>
+            <p>Indium’s adhesion properties make it a coating for bearings and mirrors, enhancing durability.</p>
+        </div>
+
+        <div class="section">
+            <h2>Indium in the Universe</h2>
+            <p>
+                Indium forms in stars via slow neutron capture (s-process) in asymptotic giant branch stars, with a cosmic abundance of about 1 × 10⁻⁷ relative to hydrogen. On Earth, it concentrates in zinc deposits from hydrothermal processes.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Modern Production</h2>
+            <p>
+                Indium is extracted as a byproduct of zinc refining, using electrolysis or acid leaching from sphalerite ore. Global production is around 800 tons annually, led by China, South Korea, and Japan, with recycling from electronics growing in importance.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Safety</h2>
+            <p>
+                Indium metal is non-toxic and safe to handle, though its dust or fumes may irritate lungs if inhaled. Indium compounds like InCl₃ are mildly toxic and require caution in labs.
+            </p>
+            <h3>Environmental Impact</h3>
+            <p>
+                Indium mining, tied to zinc extraction, generates tailings and energy-intensive refining waste. Recycling efforts aim to reduce its environmental footprint.
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>
+                Indium’s subtle brilliance powers the digital age, its rarity belied by its outsized role in technology. From touchscreens to medical diagnostics, this soft metal bridges the gap between scarcity and utility, a quiet hero of modern innovation.
+            </p>
+        </div>
+
+        <button onclick="Element()" class="explore-button">Explore Elements</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Indium - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Indium page loaded!');
+        });
+        function Element() {
+            window.location.href = 'Elements.html';
+        }
+    </script>
+</body>
+</html>
