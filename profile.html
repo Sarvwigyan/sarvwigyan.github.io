@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Sarvwigyan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0f172a;
+            color: #f8f9fa;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #00b4d8;
+        }
+        .profile-pic {
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+        }
+        .profile-info {
+            margin-bottom: 20px;
+        }
+        .profile-info label {
+            font-weight: bold;
+        }
+        .logout-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background: #e63946;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 1.1rem;
+            transition: background 0.3s;
+        }
+        .logout-button:hover {
+            background: #d62839;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Profile</h1>
+        <img id="profilePic" class="profile-pic" src="" alt="Profile Picture">
+        <div class="profile-info">
+            <label>Name:</label>
+            <p id="userName"></p>
+        </div>
+        <div class="profile-info">
+            <label>Email:</label>
+            <p id="userEmail"></p>
+        </div>
+        <button class="logout-button" onclick="logout()">Logout</button>
+    </div>
+
+    <script>
+        // Function to load user data
+        function loadUserProfile() {  // Fixed function name (removed space)
+            const user = JSON.parse(localStorage.getItem('user'));
+            if (user) {
+                document.getElementById('profilePic').src = user.picture || 'default-profile.jpg';  // Added fallback image
+                document.getElementById('userName').textContent = user.name || 'Unknown User';      // Added fallback name
+                document.getElementById('userEmail').textContent = user.email || 'No email';        // Added fallback email
+            } else {
+                // Redirect to login if no user is found
+                window.location.href = "login.html";
+            }
+        }
+
+        // Logout function
+        function logout() {
+            localStorage.removeItem('user');
+            window.location.href = "index.html";
+        }
+
+        // Load user profile on page load
+        window.onload = loadUserProfile;  // Fixed function name (removed space)
+    </script>
+</body>
+</html>
