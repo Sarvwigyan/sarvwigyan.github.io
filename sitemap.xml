@@ -10,7 +10,7 @@
     <loc>https://sarvwigyan.github.io/wordnote/</loc>
     <lastmod>2025-04-14</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>1.1</priority>
+    <priority>1.0</priority> <!-- Changed this value to 1.0 -->
   </url>
   <url>
     <loc>https://sarvwigyan.github.io/sarvstore/</loc>
