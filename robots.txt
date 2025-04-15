@@ -1,1 +1,3 @@
-Sitemap: https://sarvwigyan.github.io/sitemap.txt
+User-agent: *
+Allow: /
+Sitemap: https://sarvwigyan.github.io/sitemap.xml
