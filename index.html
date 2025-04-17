@@ -1,52 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Character encoding and responsive viewport settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO metadata for search engine optimization -->
     <meta name="description" content="Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia, Sarv Store, and more. Explore science, technology, and education today.">
     <meta name="keywords" content="Sarvwigyan, Sarvpedia, Sarv Store, education, technology, knowledge, innovation">
     <meta name="author" content="Sarvwigyan Team">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph Meta Tags for Social Media -->
+    <!-- Open Graph metadata for social media sharing -->
     <meta property="og:title" content="Sarvwigyan - Empowering Knowledge, Shaping the Future">
     <meta property="og:description" content="Discover a world of innovation with Sarvwigyan's platforms for education and technology.">
     <meta property="og:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
-    <meta property="og:url" content="https://sarvwigyan.github.io/index.html">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card metadata for Twitter sharing -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sarvwigyan - Empowering Knowledge">
     <meta name="twitter:description" content="Explore Sarvwigyan's innovative platforms for learning and discovery.">
     <meta name="twitter:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
 
-    <!-- Canonical URL -->
+    <!-- Canonical URL to avoid duplicate content issues -->
     <link rel="canonical" href="https://sarvwigyan.github.io/index.html">
 
-    <!-- Manifest and Favicon -->
+    <!-- Preload critical assets for improved performance -->
+    <link rel="preload" href="Resources/Sarvwigyan.png" as="image">
+    <link rel="preload" href="Resources/a.png" as="image">
+
+    <!-- Web app manifest and favicon for branding -->
     <link rel="manifest" href="Resources/manifest.json">
     <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png" sizes="32x32">
 
     <title>Sarvwigyan - Empowering Knowledge</title>
 
-    <!-- External Stylesheets -->
+    <!-- External stylesheets for fonts and icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <!-- Inline CSS (same as original, unchanged for brevity) -->
     <style>
-        /* CSS Variables */
+        /* Define CSS variables for consistent styling */
         :root {
-            --primary-color: #1e3a8a;
-            --accent-color: #00b4d8;
-            --dark-bg: #0f172a;
-            --light-text: #f8f9fa;
-            --menu-hover-bg: rgba(255, 255, 255, 0.1);
-            --gradient-bg: linear-gradient(135deg, #1e3a8a, #00b4d8);
+            /* Color scheme */
+            --primary-color: #1e3a8a; /* Deep blue for primary elements */
+            --accent-color: #128ea6; /* Cyan for highlights */
+            --background-dark: #0f172a; /* Dark background for sections */
+            --text-light: #f8f9fa; /* Light text for readability */
+            --menu-hover-background: rgba(255, 255, 255, 0.1); /* Hover effect for menu */
+            --navbar-gradient: linear-gradient(135deg, #1e3a8a, #007087); /* Navbar gradient */
+
+            /* Shadows and transitions */
+            --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.2); /* Small shadow for depth */
+            --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.2); /* Medium shadow for hover */
+            --transition-standard: all 0.3s ease; /* Smooth transitions */
+
+            /* Typography and spacing */
+            --font-size-base: clamp(14px, 2.5vw, 16px); /* Base font size */
+            --font-size-heading: clamp(1.8rem, 4vw, 2.5rem); /* Heading size */
+            --font-size-subheading: clamp(1.2rem, 2.5vw, 1.5rem); /* Subheading size */
+            --font-size-hero: clamp(2rem, 5vw, 3.5rem); /* Hero section heading */
+            --font-size-hero-text: clamp(1.2rem, 2.5vw, 1.6rem); /* Hero section text */
+            --spacing-small: clamp(0.8rem, 1.5vw, 1rem); /* Small spacing */
+            --spacing-medium: clamp(1.5rem, 3vw, 2rem); /* Medium spacing */
+            --spacing-large: clamp(3rem, 5vw, 5rem); /* Large spacing */
         }
 
-        /* Reset and Base Styles */
+        /* Light mode adjustments for accessibility */
+        .light-mode {
+            --background-dark: #ffffff; /* White background */
+            --text-light: #333333; /* Dark text */
+            --primary-color: #2563eb; /* Brighter blue */
+            --accent-color: #38bdf8; /* Lighter cyan */
+            --menu-hover-background: rgba(0, 0, 0, 0.1); /* Darker hover effect */
+        }
+
+        /* Reset default styles for consistency */
         * {
             margin: 0;
             padding: 0;
@@ -55,35 +85,43 @@
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
+            background-color: var(--background-dark);
+            color: var(--text-light);
             line-height: 1.6;
+            font-size: var(--font-size-base);
             overflow-x: hidden;
         }
 
-        /* Skip Link for Accessibility */
+        /* Accessibility: Skip link for screen readers */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
             background: var(--accent-color);
-            color: var(--light-text);
-            padding: 8px;
+            color: var(--text-light);
+            padding: var(--spacing-small);
             z-index: 1000;
+            transition: var(--transition-standard);
         }
 
         .skip-link:focus {
             top: 0;
         }
 
-        /* Navbar Styles */
+        /* Navbar styling */
         .navbar {
-            background: var(--gradient-bg);
-            padding: 1rem 0;
+            background: var(--navbar-gradient);
+            padding: var(--spacing-small) 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-small);
+            transition: var(--transition-standard);
+        }
+
+        .navbar.scrolled {
+            padding: clamp(0.5rem, 1.5vw, 0.75rem) 0;
+            box-shadow: var(--shadow-medium);
         }
 
         .nav-container {
@@ -92,32 +130,39 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 var(--spacing-medium);
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 4vw, 2rem);
             font-weight: 700;
-            color: var(--light-text);
+            color: var(--text-light);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: transform 0.3s ease;
+            transition: var(--transition-standard);
+        }
+
+        .navbar.scrolled .logo {
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
         }
 
         .logo:hover {
             transform: scale(1.05);
         }
 
-        .logo img {
-            width: 30px;
-            height: 30px;
+        .logo::before {
+            content: '';
+            width: clamp(24px, 4vw, 30px);
+            height: clamp(24px, 4vw, 30px);
+            background-image: url('Resources/Sarvwigyan.png');
+            background-size: cover;
         }
 
         .nav-menu {
             display: flex;
-            gap: 1rem;
+            gap: var(--spacing-small);
             list-style: none;
         }
 
@@ -126,37 +171,37 @@
         }
 
         .nav-menu a {
-            color: var(--light-text);
+            color: var(--text-light);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.8rem 1.5rem;
+            padding: var(--spacing-small) clamp(1rem, 2vw, 1.5rem);
             border-radius: 25px;
-            transition: all 0.3s ease;
+            transition: var(--transition-standard);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            min-height: 48px;
         }
 
-        .nav-menu a:hover,
-        .nav-menu a:focus {
-            background: var(--menu-hover-bg);
+        .nav-menu a:hover {
+            background: var(--menu-hover-background);
             color: var(--accent-color);
             transform: translateY(-2px);
         }
 
-        /* Dropdown Menus */
+        /* Dropdown menu styling */
         .dropdown-menu,
         .profile-menu {
             display: none;
             position: absolute;
             background: var(--primary-color);
             border-radius: 8px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-medium);
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            min-width: 220px;
-            padding: 0.5rem 0;
+            min-width: clamp(180px, 20vw, 220px);
+            padding: var(--spacing-small) 0;
             z-index: 1000;
             list-style: none;
         }
@@ -168,50 +213,60 @@
 
         .dropdown-menu a,
         .profile-menu a {
-            padding: 0.75rem 1.5rem;
+            padding: var(--spacing-small) clamp(1rem, 2vw, 1.5rem);
             border-radius: 5px;
             display: block;
+            font-size: var(--font-size-base);
         }
 
-        /* Profile Container */
+        .dropdown-menu a:hover,
+        .profile-menu a:hover {
+            background: var(--menu-hover-background);
+            color: var(--accent-color);
+        }
+
+        /* Profile container styling */
         .profile-container {
-            padding: 0.8rem 1.5rem;
+            padding: var(--spacing-small) clamp(1rem, 2vw, 1.5rem);
             border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition-standard);
             display: flex;
             align-items: center;
+            min-height: 48px;
         }
 
-        .profile-container:hover,
-        .profile-container:focus {
-            background: var(--menu-hover-bg);
+        .profile-container:hover {
+            background: var(--menu-hover-background);
             color: var(--accent-color);
         }
 
         .profile-pic {
-            width: 32px;
-            height: 32px;
+            width: clamp(28px, 4vw, 32px);
+            height: clamp(28px, 4vw, 32px);
             border-radius: 50%;
         }
 
         .profile-name {
             margin-left: 0.5rem;
+            font-size: var(--font-size-base);
         }
 
-        /* Hamburger Menu */
+        /* Hamburger menu for mobile */
         .hamburger {
             display: none;
             cursor: pointer;
+            background: transparent;
+            border: none;
         }
 
         .hamburger .bar {
             display: block;
-            width: 25px;
+            width: clamp(20px, 3vw, 25px);
             height: 3px;
             margin: 5px auto;
-            background-color: var(--light-text);
-            transition: all 0.3s ease;
+            background-color: var(--text-light);
+            transition: var(--transition-standard);
         }
 
         .hamburger.active .bar:nth-child(2) {
@@ -226,7 +281,7 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Hero Slider */
+        /* Hero slider section */
         .hero-slider {
             position: relative;
             height: 100vh;
@@ -257,36 +312,42 @@
             align-items: center;
             text-align: center;
             background: rgba(0, 0, 0, 0.65);
-            padding: 2rem;
+            padding: var(--spacing-medium);
             position: relative;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: var(--font-size-hero);
             font-weight: 700;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--spacing-medium);
         }
 
         .hero-content p {
-            font-size: 1.6rem;
-            max-width: 800px;
-            margin-bottom: 2.5rem;
+            font-size: var(--font-size-hero-text);
+            max-width: clamp(600px, 80vw, 800px);
+            margin-bottom: var(--spacing-large);
         }
 
         .cta-button {
-            padding: 1.2rem 3rem;
+            padding: var(--spacing-small) clamp(2rem, 4vw, 3rem);
             background: var(--accent-color);
-            color: var(--light-text);
+            color: var(--text-light);
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition-standard);
+            min-height: 48px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-base);
         }
 
         .cta-button:hover,
@@ -295,52 +356,56 @@
             background: #0288a0;
         }
 
-        /* Slider Controls */
+        /* Slider controls */
         .slider-buttons {
             position: absolute;
             top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 clamp(10px, 2vw, 20px);
             transform: translateY(-50%);
             z-index: 3;
         }
 
         .slider-btn {
             background: rgba(255, 255, 255, 0.35);
-            padding: 0.8rem;
+            padding: var(--spacing-small);
             border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+            width: 3rem;
+            height: 3rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            transition: var(--transition-standard);
             border: none;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .slider-btn:hover,
-        .slider-btn:focus {
+        .slider-btn:hover {
             background: var(--accent-color);
             transform: scale(1.1);
         }
 
         .slider-controls {
             position: absolute;
-            bottom: 20px;
+            bottom: clamp(10px, 2vw, 20px);
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 10px;
+            gap: clamp(8px, 1.5vw, 10px);
             z-index: 3;
         }
 
         .slider-dot {
-            width: 14px;
-            height: 14px;
+            width: clamp(12px, 2vw, 14px);
+            height: clamp(12px, 2vw, 14px);
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.8);
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition-standard);
         }
 
         .slider-dot.active {
@@ -348,10 +413,10 @@
             transform: scale(1.3);
         }
 
-        /* Featured Section */
+        /* Featured content section */
         .featured-section {
-            padding: 5rem 2rem;
-            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--dark-bg));
+            padding: var(--spacing-large) var(--spacing-medium);
+            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--background-dark));
         }
 
         .section-container {
@@ -360,80 +425,146 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: var(--font-size-heading);
             color: var(--accent-color);
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: var(--spacing-large);
             text-transform: uppercase;
         }
 
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: var(--spacing-medium);
         }
 
         .card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
+            padding: var(--spacing-medium);
             border-radius: 15px;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: var(--transition-standard);
+            animation: fadeInUp 0.5s ease-out;
         }
 
         .card:hover,
         .card:focus-within {
             transform: translateY(-10px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-medium);
         }
 
         .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: var(--font-size-subheading);
+            margin-bottom: var(--spacing-small);
             color: var(--accent-color);
         }
 
         .card p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            margin-bottom: var(--spacing-medium);
         }
 
-        /* Footer */
-        footer {
+        /* Footer styling */
+        .footer {
             background: var(--primary-color);
-            padding: 2rem;
+            padding: var(--spacing-medium);
             text-align: center;
         }
 
-        /* Back to Top Button */
+        .newsletter {
+            margin: var(--spacing-medium) 0;
+        }
+
+        .newsletter h3 {
+            font-size: var(--font-size-subheading);
+            margin-bottom: var(--spacing-small);
+        }
+
+        #newsletter-form {
+            display: flex;
+            gap: var(--spacing-small);
+            justify-content: center;
+            max-width: clamp(400px, 60vw, 500px);
+            margin: 0 auto;
+        }
+
+        #newsletter-form input {
+            padding: var(--spacing-small);
+            border-radius: 5px;
+            border: 1px solid var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            flex: 1;
+            font-size: var(--font-size-base);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-small);
+            justify-content: center;
+            margin-top: var(--spacing-medium);
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            transition: var(--transition-standard);
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Back to top button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: clamp(20px, 3vw, 30px);
+            right: clamp(20px, 3vw, 30px);
             background: var(--accent-color);
-            color: var(--light-text);
-            padding: 0.8rem;
+            color: var(--text-light);
+            padding: var(--spacing-small);
             border-radius: 50%;
             cursor: pointer;
             display: none;
-            transition: all 0.3s ease;
+            transition: var(--transition-standard);
+            min-height: 48px;
+            text-align: center;
         }
 
-        .back-to-top:hover,
-        .back-to-top:focus {
+        .back-to-top:hover {
             transform: scale(1.1);
         }
 
-        /* Responsive Design */
+        /* Fade-in animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Accessibility: Focus styles only for keyboard navigation */
+        body:not(.user-is-tabbing) a:focus,
+        body:not(.user-is-tabbing) button:focus,
+        body:not(.user-is-tabbing) input:focus {
+            outline: none;
+        }
+
+        body.user-is-tabbing a:focus,
+        body.user-is-tabbing button:focus,
+        body.user-is-tabbing input:focus {
+            outline: 2px solid var(--accent-color);
+            outline-offset: 2px;
+        }
+
+        /* Responsive design for smaller screens */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: clamp(60px, 10vw, 70px);
                 flex-direction: column;
-                background: var(--dark-bg);
+                background: var(--background-dark);
                 width: 100%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - clamp(60px, 10vw, 70px));
                 text-align: center;
                 transition: left 0.3s ease;
                 overflow-y: auto;
@@ -454,11 +585,11 @@
             }
 
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: clamp(1.8rem, 4vw, 2.2rem);
             }
 
             .hero-content p {
-                font-size: 1.3rem;
+                font-size: clamp(1rem, 2vw, 1.3rem);
             }
 
             .card-grid {
@@ -466,172 +597,173 @@
             }
 
             .slider-buttons {
-                padding: 0 10px;
+                padding: 0 clamp(8px, 1.5vw, 10px);
             }
 
             .slider-controls {
-                bottom: 10px;
+                bottom: clamp(8px, 1.5vw, 10px);
+            }
+        }
+
+        @media (max-width: 768px) {
+            #newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #newsletter-form input {
+                width: 100%;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Skip to Content Link -->
+    <!-- Accessibility: Skip link for screen readers -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation Bar -->
-    <header>
-        <nav class="navbar" aria-label="Main navigation">
-            <div class="nav-container">
-                <a href="index.html" class="logo" aria-label="Sarvwigyan Home">
-                    <img src="Resources/Sarvwigyan.png" alt="Sarvwigyan Logo" class="logo-img"> Sarvwigyan
-                </a>
-                
-                <ul class="nav-menu" role="menubar">
-                    <li role="none">
-                        <a href="index.html" role="menuitem" aria-current="page">
-                            <i class="fas fa-home" aria-hidden="true"></i> Home
-                        </a>
-                    </li>
-                    
-                    <li class="dropdown" role="none">
-                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-globe" aria-hidden="true"></i> Explore
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="none">
-                                <a href="Sarvpedia.html" target="_blank" role="menuitem">
-                                    <i class="fas fa-book" aria-hidden="true"></i> Sarvpedia
-                                </a>
-                            </li>
-                            <li role="none">
-                                <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" role="menuitem">
-                                    <i class="fas fa-store" aria-hidden="true"></i> Sarv Store
-                                </a>
-                            </li>
-                            <li role="none">
-                                <a href="#" onclick="showdevMessage()" role="menuitem">
-                                    <i class="fas fa-atom" aria-hidden="true"></i> Squantum
-                                </a>
-                            </li>
-                            <li role="none">
-                                <a href="#" onclick="showdevMessage()" role="menuitem">
-                                    <i class="fas fa-search" aria-hidden="true"></i> Shodh
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown" role="none">
-                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                            <i class="fas fa-headset" aria-hidden="true"></i> Support
-                        </a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li role="none">
-                                <a href="about.html" role="menuitem">
-                                    <i class="fas fa-info-circle" aria-hidden="true"></i> About Page
-                                </a>
-                            </li>
-                            <li role="none">
-                                <a href="feedback.html" role="menuitem">
-                                    <i class="fas fa-envelope" aria-hidden="true"></i> Message/Feedback
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    
-                    <li class="dropdown" role="none">
-                        <a href="#" onclick="showdevMessage()" role="menuitem">
-                            <i class="fas fa-users" aria-hidden="true"></i> Community
-                        </a>
-                    </li>
-                    
-                    <li id="account-item" class="dropdown" role="none">
-                        <a href="login.html" role="menuitem">
-                            <i class="fas fa-user" aria-hidden="true"></i> Account
-                        </a>
-                    </li>
-                </ul>
-                
-                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
-        </nav>
-    </header>
+    <!-- Navigation bar -->
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <!-- Logo with homepage link -->
+            <a href="index.html" class="logo" aria-label="Sarvwigyan Home">Sarvwigyan</a>
 
-    <!-- Main Content -->
+            <!-- Main navigation menu -->
+            <ul class="nav-menu" role="menubar">
+                <li role="none">
+                    <a href="index.html" role="menuitem" aria-current="page">
+                        <i class="fas fa-home" aria-hidden="true"></i> Home
+                    </a>
+                </li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-globe" aria-hidden="true"></i> Explore
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none">
+                            <a href="Sarvpedia.html" target="_blank" role="menuitem">
+                                <i class="fas fa-book" aria-hidden="true"></i> Sarvpedia
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" role="menuitem">
+                                <i class="fas fa-store" aria-hidden="true"></i> Sarv Store
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="#" onclick="showDevelopmentMessage()" role="menuitem">
+                                <i class="fas fa-atom" aria-hidden="true"></i> Squantum
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="#" onclick="showDevelopmentMessage()" role="menuitem">
+                                <i class="fas fa-search" aria-hidden="true"></i> Shodh
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" role="none">
+                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-headset" aria-hidden="true"></i> Support
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li role="none">
+                            <a href="about.html" role="menuitem">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i> About Page
+                            </a>
+                        </li>
+                        <li role="none">
+                            <a href="feedback.html" role="menuitem">
+                                <i class="fas fa-envelope" aria-hidden="true"></i> Message/Feedback
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="dropdown" role="none">
+                    <a href="#" onclick="showDevelopmentMessage()" role="menuitem">
+                        <i class="fas fa-users" aria-hidden="true"></i> Community
+                    </a>
+                </li>
+                <li id="account-item" class="dropdown" role="none">
+                    <a href="login.html" role="menuitem">
+                        <i class="fas fa-user" aria-hidden="true"></i> Account
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Hamburger menu for mobile navigation -->
+            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main content area -->
     <main id="main-content">
-        <!-- Hero Slider Section -->
-        <section class="hero-slider" id="home" aria-label="Featured Content Slider">
+        <!-- Hero slider section -->
+        <section class="hero-slider" id="home" aria-live="polite" aria-label="Featured Content Slider">
             <div class="slide active" style="background-image: url('Resources/a.png')">
                 <div class="slide-content">
                     <div class="hero-content">
                         <h1>Empowering Knowledge, Shaping the Future</h1>
-                        <p>Discover the world of innovation with Sarvwigyan, your gateway to education and technology.</p>
+                        <p>Discover the world of innovation with Sarvwigyan...</p>
                         <a href="Sarvpedia.html" target="_blank" class="cta-button">Discover Sarvpedia</a>
                     </div>
                 </div>
                 <div class="slider-buttons">
-                    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+                    <button class="slider-btn" onclick="previousSlide()" aria-label="Previous slide">❮</button>
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
-            
             <div class="slide" style="background-image: url('Resources/b.png')">
                 <div class="slide-content">
                     <div class="hero-content">
                         <h1>Explore AI Innovations</h1>
-                        <p>Dive into the future of artificial intelligence with Sarvwigyan's cutting-edge platforms.</p>
-                        <a href="#" onclick="showdevMessage()" class="cta-button">Explore Sarv-AI</a>
+                        <p>Dive into the future of artificial intelligence...</p>
+                        <a href="#" onclick="showDevelopmentMessage()" class="cta-button">Explore Sarv-AI</a>
                     </div>
                 </div>
                 <div class="slider-buttons">
-                    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+                    <button class="slider-btn" onclick="previousSlide()" aria-label="Previous slide">❮</button>
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
-            
             <div class="slide" style="background-image: url('Resources/Sarvwigyan.png')">
                 <div class="slide-content">
                     <div class="hero-content">
                         <h1>About Our Vision</h1>
-                        <p>Learn more about Sarvwigyan's mission to empower learning and innovation globally.</p>
+                        <p>Learn more about our mission and goals...</p>
                         <a href="about.html" class="cta-button">About Us</a>
                     </div>
                 </div>
                 <div class="slider-buttons">
-                    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide">❮</button>
+                    <button class="slider-btn" onclick="previousSlide()" aria-label="Previous slide">❮</button>
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
-            
             <div class="slider-controls" id="slider-dots" role="tablist"></div>
         </section>
 
-        <!-- Featured Content Section -->
+        <!-- Featured content section -->
         <section class="featured-section" aria-label="Featured Platforms">
             <div class="section-container">
-                <h2 class="section-title">Featured Platforms</h2>
+                <h2 class="section-title">Featured Content</h2>
                 <div class="card-grid">
                     <article class="card">
                         <h3>Sarvpedia</h3>
-                        <p>Explore a vast repository of knowledge across science, technology, and education.</p>
+                        <p>Explore a vast repository of knowledge across science and technology.</p>
                         <a href="Sarvpedia.html" target="_blank" class="cta-button">Visit Now</a>
                     </article>
-                    
                     <article class="card">
                         <h3>Sarv Store</h3>
                         <p>Download apps, books, and tools to enhance your learning experience.</p>
                         <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" class="cta-button">Browse Store</a>
                     </article>
-                    
                     <article class="card">
                         <h3>Support</h3>
-                        <p>Get help or share feedback to improve our platform and community.</p>
+                        <p>Get help or share feedback to improve our platform.</p>
                         <a href="feedback.html" class="cta-button">Contact Us</a>
                     </article>
                 </div>
@@ -639,43 +771,67 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer>
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="newsletter">
+            <h3>Stay Updated</h3>
+            <form id="newsletter-form">
+                <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
+                <button type="submit" class="cta-button">Subscribe</button>
+            </form>
+        </div>
+        <div class="social-links">
+            <a href="https://youtube.com/sarvwigyan" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://facebook.com/sarvwigyan" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/sarvwigyan" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/company/sarvwigyan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </div>
         <p>© 2025 Sarvwigyan. All rights reserved.</p>
     </footer>
 
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <!-- Back to top button -->
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Structured Data (JSON-LD) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "name": "Sarvwigyan",
-        "url": "https://sarvwigyan.github.io/",
-        "description": "Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia and Sarv Store.",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://sarvwigyan.github.io/search?q={search_term_string}",
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
+    <!-- JavaScript for interactive features -->
+    <script>
+        // Constants for DOM elements
+        const hamburgerMenu = document.querySelector('.hamburger');
+        const navigationMenu = document.querySelector('.nav-menu');
+        const dropdowns = document.querySelectorAll('.dropdown');
+        const backToTopButton = document.querySelector('#back-to-top');
+        const navbar = document.querySelector('.navbar');
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('#slider-dots');
+        const slider = document.querySelector('.hero-slider');
+        const newsletterForm = document.querySelector('#newsletter-form');
 
-    <!-- JavaScript (Deferred Loading) -->
-    <script defer>
-        // Development Message Alert
-        function showdevMessage() {
-            alert("Sorry, we are currently working on this feature. Kindly co-operate.");
+        // Slider state
+        let currentSlideIndex = 0;
+        let autoSlideInterval = null;
+        const SLIDE_INTERVAL = 3000; // 3 seconds
+
+        // Detect keyboard navigation for accessibility
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Tab') {
+                document.body.classList.add('user-is-tabbing');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('user-is-tabbing');
+        });
+
+        // Display alert for features under development
+        function showDevelopmentMessage() {
+            alert('Sorry, this feature is currently under development. Thank you for your patience.');
         }
 
-        // Update Navigation based on User Login
-        function updateNav() {
+        // Update navigation based on user login status
+        function updateNavigation() {
             const user = JSON.parse(localStorage.getItem('user'));
-            const accountItem = document.getElementById('account-item');
+            const accountItem = document.querySelector('#account-item');
 
             if (user) {
                 accountItem.innerHTML = `
@@ -691,7 +847,7 @@
                                 </a>
                             </li>
                             <li role="none">
-                                <a href="#" onclick="logout()" role="menuitem">
+                                <a href="#" onclick="logoutUser()" role="menuitem">
                                     <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout
                                 </a>
                             </li>
@@ -699,22 +855,14 @@
                     </div>
                 `;
 
-                // Profile Dropdown Event Listener
+                // Add event listener for profile dropdown
                 const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
-
                 if (profileContainer && profileMenu) {
-                    profileContainer.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const isOpen = profileMenu.classList.contains('active');
-                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-                        if (!isOpen) {
-                            profileMenu.classList.add('active');
-                            profileContainer.setAttribute('aria-expanded', 'true');
-                        } else {
-                            profileContainer.setAttribute('aria-expanded', 'false');
-                        }
+                    profileContainer.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        event.stopPropagation();
+                        toggleDropdown(profileMenu, profileContainer);
                     });
                 }
             } else {
@@ -726,118 +874,124 @@
             }
         }
 
-        // Logout Function
-        function logout() {
+        // Logout user and redirect
+        function logoutUser() {
             localStorage.removeItem('user');
-            window.location.href = "index.html";
+            window.location.href = 'index.html';
         }
 
-        // Slider Functionality
-        let currentSlide = 0;
-        let autoSlideInterval;
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('#slider-dots');
-        const slider = document.querySelector('.hero-slider');
+        // Toggle dropdown menu visibility
+        function toggleDropdown(menu, trigger) {
+            const isOpen = menu.classList.contains('active');
+            document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
+            document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => anchor.setAttribute('aria-expanded', 'false'));
+            if (!isOpen) {
+                menu.classList.add('active');
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+        }
 
-        // Initialize Slider Dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('slider-dot');
-            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-            dot.setAttribute('role', 'tab');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => showSlide(index));
-            dotsContainer.appendChild(dot);
-        });
+        // Initialize slider dots
+        function initializeSliderDots() {
+            slides.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('slider-dot');
+                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                dot.setAttribute('role', 'tab');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => showSlide(index));
+                dotsContainer.appendChild(dot);
+            });
+        }
 
+        // Show specific slide
         function showSlide(index) {
             if (index >= slides.length) index = 0;
             if (index < 0) index = slides.length - 1;
             slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-            const dots = document.querySelectorAll('.slider-dot');
-            dots.forEach((dot, i) => {
+            document.querySelectorAll('.slider-dot').forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
                 dot.setAttribute('aria-selected', i === index);
             });
-            currentSlide = index;
+            currentSlideIndex = index;
             restartAutoSlide();
         }
 
+        // Navigate to next slide
         function nextSlide() {
-            showSlide(currentSlide + 1);
+            showSlide(currentSlideIndex + 1);
         }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
+        // Navigate to previous slide
+        function previousSlide() {
+            showSlide(currentSlideIndex - 1);
         }
 
+        // Restart auto-slide interval
         function restartAutoSlide() {
             clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextSlide, 3000);
+            autoSlideInterval = setInterval(nextSlide, SLIDE_INTERVAL);
         }
 
-        // Slider Event Listeners
-        restartAutoSlide();
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        slider.addEventListener('mouseleave', restartAutoSlide);
+        // Handle scroll events
+        function handleScroll() {
+            backToTopButton.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? 'block' : 'none';
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        }
 
-        // DOM Content Loaded Event
-        document.addEventListener('DOMContentLoaded', function() {
-            updateNav();
-            
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const dropdowns = document.querySelectorAll('.dropdown');
+        // Initialize page on DOM load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateNavigation();
+            initializeSliderDots();
+            restartAutoSlide();
 
-            // Hamburger Menu Toggle
-            hamburger.addEventListener('click', () => {
-                const isActive = hamburger.classList.toggle('active');
-                navMenu.classList.toggle('active');
+            // Toggle hamburger menu
+            hamburgerMenu.addEventListener('click', () => {
+                const isActive = hamburgerMenu.classList.toggle('active');
+                navigationMenu.classList.toggle('active');
                 document.body.classList.toggle('no-scroll');
-                hamburger.setAttribute('aria-expanded', isActive);
+                hamburgerMenu.setAttribute('aria-expanded', isActive);
             });
 
-            // Dropdown Menu Toggle
+            // Handle dropdown menus
             dropdowns.forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 const submenu = dropdown.querySelector('.dropdown-menu');
                 if (link && submenu) {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const isOpen = submenu.classList.contains('active');
-                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-                        document.querySelectorAll('.dropdown a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
-                        if (!isOpen) {
-                            submenu.classList.add('active');
-                            link.setAttribute('aria-expanded', 'true');
-                        }
+                    link.addEventListener('click', (event) => {
+                        event.preventDefault();
+                        toggleDropdown(submenu, link);
                     });
                 }
             });
 
-            // Close Dropdowns on Outside Click
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
+            // Close dropdowns on outside click
+            document.addEventListener('click', (event) => {
+                if (!event.target.closest('.dropdown') && !event.target.closest('.profile-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
-                    document.querySelectorAll('.dropdown a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
+                    document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => anchor.setAttribute('aria-expanded', 'false'));
                 }
             });
 
-            // Back to Top Button
-            document.getElementById('backToTop').addEventListener('click', function() {
+            // Back to top button functionality
+            backToTopButton.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Pause slider on hover
+            slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+            slider.addEventListener('mouseleave', restartAutoSlide);
+
+            // Handle newsletter form submission
+            newsletterForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                alert('Thank you for subscribing! Stay tuned for updates.');
+                event.target.reset();
             });
         });
 
-        // Scroll Event for Back to Top Button
-        window.onscroll = function() {
-            const backToTop = document.querySelector('.back-to-top');
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTop.style.display = 'block';
-            } else {
-                backToTop.style.display = 'none';
-            }
-        };
+        // Attach scroll event listener
+        window.addEventListener('scroll', handleScroll);
     </script>
 </body>
 </html>
