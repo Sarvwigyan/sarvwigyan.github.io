@@ -191,13 +191,13 @@
             position: absolute;
             background: var(--primary-color);
             border-radius: 8px;
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             top: 100%;
             left: 50%;
             transform: translateX(-50%);
-            min-width: clamp(180px, 20vw, 220px);
-            padding: var(--spacing-small) 0;
-            z-index: 1001; /* Ensure dropdown is above other elements */
+            min-width: 220px;
+            padding: 0.5rem 0;
+            z-index: 1000;
             list-style: none;
         }
 
@@ -810,6 +810,9 @@
         const dotsContainer = document.querySelector('#slider-dots');
         const slider = document.querySelector('.hero-slider');
         const newsletterForm = document.querySelector('#newsletter-form');
+        const profileMenu = document.querySelector('.profile-menu');
+        const profileContainer = document.querySelector('.profile-container');
+
 
         // Slider state
         let currentSlideIndex = 0;
@@ -832,28 +835,16 @@
             alert('Sorry, this feature is currently under development. Thank you for your patience.');
         }
 
-        // Update navigation based on user login status
-        function updateNavigation() {
-            console.log('updateNavigation called'); // Debugging
-            const accountItem = document.querySelector('#account-item');
-            if (!accountItem) {
-                console.error('Account item not found in DOM');
-                return;
-            }
+        // Update Navigation based on User Login
+        function updateNav() {
+            const user = JSON.parse(localStorage.getItem('user'));
+            const accountItem = document.getElementById('account-item');
 
-            let user = null;
-            try {
-                user = JSON.parse(localStorage.getItem('user'));
-                console.log('User:', user); // Debugging
-            } catch (e) {
-                console.error('Failed to parse user from localStorage:', e);
-            }
-
-            if (user && user.name && user.picture) {
+            if (user) {
                 accountItem.innerHTML = `
                     <div class="dropdown profile-dropdown" role="none">
                         <a class="profile-container" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                            <img src="${user.picture}" alt="Profile picture of ${user.name}" class="profile-pic" loading="lazy" onerror="this.src='Resources/default-profile-pic.jpg'">
+                            <img src="${user.picture}" alt="Profile picture of ${user.name}" class="profile-pic" loading="lazy">
                             <span class="profile-name">${user.name}</span>
                         </a>
                         <ul class="profile-menu dropdown-menu" role="menu">
@@ -863,26 +854,30 @@
                                 </a>
                             </li>
                             <li role="none">
-                                <a href="#" onclick="logoutUser()" role="menuitem">
+                                <a href="#" onclick="logout()" role="menuitem">
                                     <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout
                                 </a>
                             </li>
                         </ul>
                     </div>
                 `;
-
-                // Add event listener for profile dropdown
-                const profileContainer = accountItem.querySelector('.profile-container');
+                 // Profile Dropdown Event Listener
+                 const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
+
                 if (profileContainer && profileMenu) {
-                    profileContainer.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        console.log('Profile container clicked'); // Debugging
-                        toggleDropdown(profileMenu, profileContainer);
+                    profileContainer.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        const isOpen = profileMenu.classList.contains('active');
+                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
+                        if (!isOpen) {
+                            profileMenu.classList.add('active');
+                            profileContainer.setAttribute('aria-expanded', 'true');
+                        } else {
+                            profileContainer.setAttribute('aria-expanded', 'false');
+                        }
                     });
-                } else {
-                    console.error('Profile container or menu not found');
                 }
             } else {
                 accountItem.innerHTML = `
