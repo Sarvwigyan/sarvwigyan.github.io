@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta Tags for SEO and Accessibility -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia, Sarv Store, and more. Explore science, technology, and education today.">
@@ -8,42 +9,45 @@
     <meta name="author" content="Sarvwigyan Team">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph Meta Tags for Social Media -->
+    <!-- Open Graph Meta Tags for Social Media Sharing -->
     <meta property="og:title" content="Sarvwigyan - Empowering Knowledge, Shaping the Future">
     <meta property="og:description" content="Discover a world of innovation with Sarvwigyan's platforms for education and technology.">
     <meta property="og:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
     <meta property="og:url" content="https://sarvwigyan.github.io/index.html">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card Meta Tags -->
+    <!-- Twitter Card Meta Tags for Twitter Sharing -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sarvwigyan - Empowering Knowledge">
     <meta name="twitter:description" content="Explore Sarvwigyan's innovative platforms for learning and discovery.">
     <meta name="twitter:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
 
-    <!-- Canonical URL -->
+    <!-- Canonical URL to Prevent Duplicate Content Issues -->
     <link rel="canonical" href="https://sarvwigyan.github.io/index.html">
 
-    <!-- Manifest and Favicon -->
+    <!-- Manifest and Favicon for Progressive Web App Support -->
     <link rel="manifest" href="Resources/manifest.json">
     <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png" sizes="32x32">
 
+    <!-- Page Title -->
     <title>Sarvwigyan - Empowering Knowledge</title>
 
-    <!-- External Stylesheets -->
+    <!-- External Stylesheets for Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
-    <!-- Inline CSS (same as original, unchanged for brevity) -->
+    <!-- Internal CSS Styles -->
     <style>
-        /* CSS Variables */
+        /* CSS Variables for Consistent Styling */
         :root {
-            --primary-color: #1e3a8a;
-            --accent-color: #00b4d8;
-            --dark-bg: #0f172a;
-            --light-text: #f8f9fa;
-            --menu-hover-bg: rgba(255, 255, 255, 0.1);
-            --gradient-bg: linear-gradient(135deg, #1e3a8a, #00b4d8);
+            --primary-color: #1e3a8a; /* Primary blue color */
+            --accent-color: #00b4d8; /* Accent teal color */
+            --dark-bg: #0f172a; /* Dark background color */
+            --light-text: #f8f9fa; /* Light text color */
+            --menu-hover-bg: rgba(255, 255, 255, 0.1); /* Menu hover background */
+            --gradient-bg: linear-gradient(135deg, #183ea5, #087489); /* Gradient background */
+            --spacing-sm: 0.5rem; /* Small spacing */
+            --transition-base: all 0.2s ease; /* Base transition */
         }
 
         /* Reset and Base Styles */
@@ -61,7 +65,7 @@
             overflow-x: hidden;
         }
 
-        /* Skip Link for Accessibility */
+        /* Accessibility: Skip Link */
         .skip-link {
             position: absolute;
             top: -40px;
@@ -131,7 +135,7 @@
             font-weight: 500;
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -153,7 +157,7 @@
             border-radius: 8px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             top: 100%;
-            left: 50%;
+            left: 50 kvalit;
             transform: translateX(-50%);
             min-width: 220px;
             padding: 0.5rem 0;
@@ -178,7 +182,7 @@
             padding: 0.8rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
             display: flex;
             align-items: center;
         }
@@ -203,6 +207,24 @@
         .hamburger {
             display: none;
             cursor: pointer;
+            background-color: transparent;
+            border-color: #00404d;
+            background: radial-gradient(circle at 30% 30%, #00b4d8, #007a8a);
+            box-shadow:
+                 0 4px 8px rgba(0, 0, 0, 0.3), /* elevation */
+                 inset 0 -2px 4px rgba(0, 0, 0, 0.2), /* inner shadow */
+                 0 0 10px rgba(0, 180, 216, 0.3); /* outer glow */
+            border-radius: 50%;
+            border: none;
+            width: 3rem;
+            height: 3rem;
+        }
+        .hamburger:hover {
+            transform: scale(1.05);
+            box-shadow:
+                0 6px 12px rgba(0, 0, 0, 0.4),
+                inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+                0 0 14px rgba(0, 180, 216, 0.5);
         }
 
         .hamburger .bar {
@@ -211,7 +233,7 @@
             height: 3px;
             margin: 5px auto;
             background-color: var(--light-text);
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
         }
 
         .hamburger.active .bar:nth-child(2) {
@@ -286,7 +308,7 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
         }
 
         .cta-button:hover,
@@ -309,12 +331,17 @@
 
         .slider-btn {
             background: rgba(255, 255, 255, 0.35);
-            padding: 0.8rem;
+            padding: var(--spacing-sm);
             border-radius: 50%;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
+            width: 3rem;
+            height: 3rem;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            transition: var(--transition-base);
             border: none;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .slider-btn:hover,
@@ -340,7 +367,7 @@
             background: rgba(255, 255, 255, 0.8);
             border: none;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
         }
 
         .slider-dot.active {
@@ -410,13 +437,15 @@
             position: fixed;
             bottom: 30px;
             right: 30px;
+            width: 3.6rem;
+            height: 3.6rem;
             background: var(--accent-color);
             color: var(--light-text);
             padding: 0.8rem;
             border-radius: 50%;
             cursor: pointer;
             display: none;
-            transition: all 0.3s ease;
+            transition: var(--transition-base);
         }
 
         .back-to-top:hover,
@@ -477,17 +506,19 @@
 </head>
 
 <body>
-    <!-- Skip to Content Link -->
+    <!-- Accessibility: Skip to Main Content Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar" aria-label="Main navigation">
             <div class="nav-container">
+                <!-- Logo -->
                 <a href="index.html" class="logo" aria-label="Sarvwigyan Home">
                     <img src="Resources/Sarvwigyan.png" alt="Sarvwigyan Logo" class="logo-img"> Sarvwigyan
                 </a>
                 
+                <!-- Navigation Menu -->
                 <ul class="nav-menu" role="menubar">
                     <li role="none">
                         <a href="index.html" role="menuitem" aria-current="page">
@@ -554,6 +585,7 @@
                     </li>
                 </ul>
                 
+                <!-- Hamburger Menu for Mobile -->
                 <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -612,7 +644,7 @@
             <div class="slider-controls" id="slider-dots" role="tablist"></div>
         </section>
 
-        <!-- Featured Content Section -->
+        <!-- Featured Platforms Section -->
         <section class="featured-section" aria-label="Featured Platforms">
             <div class="section-container">
                 <h2 class="section-title">Featured Platforms</h2>
@@ -649,11 +681,11 @@
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Structured Data (JSON-LD) -->
+    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "WebSite",
+        "@'et: WebSite",
         "name": "Sarvwigyan",
         "url": "https://sarvwigyan.github.io/",
         "description": "Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia and Sarv Store.",
@@ -665,14 +697,14 @@
     }
     </script>
 
-    <!-- JavaScript (Deferred Loading) -->
+    <!-- JavaScript for Interactive Features -->
     <script defer>
-        // Development Message Alert
+        // Display development message for features under construction
         function showdevMessage() {
             alert("Sorry, we are currently working on this feature. Kindly co-operate.");
         }
 
-        // Update Navigation based on User Login
+        // Update navigation based on user login status
         function updateNav() {
             const user = JSON.parse(localStorage.getItem('user'));
             const accountItem = document.getElementById('account-item');
@@ -699,7 +731,7 @@
                     </div>
                 `;
 
-                // Profile Dropdown Event Listener
+                // Add event listener for profile dropdown
                 const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
 
@@ -726,20 +758,20 @@
             }
         }
 
-        // Logout Function
+        // Handle user logout
         function logout() {
             localStorage.removeItem('user');
             window.location.href = "index.html";
         }
 
-        // Slider Functionality
+        // Slider functionality
         let currentSlide = 0;
         let autoSlideInterval;
         const slides = document.querySelectorAll('.slide');
         const dotsContainer = document.querySelector('#slider-dots');
         const slider = document.querySelector('.hero-slider');
 
-        // Initialize Slider Dots
+        // Initialize slider dots
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.classList.add('slider-dot');
@@ -750,6 +782,7 @@
             dotsContainer.appendChild(dot);
         });
 
+        // Show specific slide
         function showSlide(index) {
             if (index >= slides.length) index = 0;
             if (index < 0) index = slides.length - 1;
@@ -763,25 +796,28 @@
             restartAutoSlide();
         }
 
+        // Navigate to next slide
         function nextSlide() {
             showSlide(currentSlide + 1);
         }
 
+        // Navigate to previous slide
         function prevSlide() {
             showSlide(currentSlide - 1);
         }
 
+        // Restart auto-slide interval
         function restartAutoSlide() {
             clearInterval(autoSlideInterval);
             autoSlideInterval = setInterval(nextSlide, 3000);
         }
 
-        // Slider Event Listeners
+        // Add slider event listeners
         restartAutoSlide();
         slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
         slider.addEventListener('mouseleave', restartAutoSlide);
 
-        // DOM Content Loaded Event
+        // Initialize page on DOM load
         document.addEventListener('DOMContentLoaded', function() {
             updateNav();
             
@@ -789,7 +825,7 @@
             const navMenu = document.querySelector('.nav-menu');
             const dropdowns = document.querySelectorAll('.dropdown');
 
-            // Hamburger Menu Toggle
+            // Toggle hamburger menu
             hamburger.addEventListener('click', () => {
                 const isActive = hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
@@ -797,7 +833,7 @@
                 hamburger.setAttribute('aria-expanded', isActive);
             });
 
-            // Dropdown Menu Toggle
+            // Toggle dropdown menus
             dropdowns.forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 const submenu = dropdown.querySelector('.dropdown-menu');
@@ -815,7 +851,7 @@
                 }
             });
 
-            // Close Dropdowns on Outside Click
+            // Close dropdowns on outside click
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
@@ -823,13 +859,13 @@
                 }
             });
 
-            // Back to Top Button
+            // Back to top button functionality
             document.getElementById('backToTop').addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
 
-        // Scroll Event for Back to Top Button
+        // Show/hide back to top button on scroll
         window.onscroll = function() {
             const backToTop = document.querySelector('.back-to-top');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
