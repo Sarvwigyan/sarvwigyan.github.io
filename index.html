@@ -1,77 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Character encoding and responsive viewport settings -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO metadata for search engine optimization -->
     <meta name="description" content="Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia, Sarv Store, and more. Explore science, technology, and education today.">
     <meta name="keywords" content="Sarvwigyan, Sarvpedia, Sarv Store, education, technology, knowledge, innovation">
     <meta name="author" content="Sarvwigyan Team">
     <meta name="robots" content="index, follow">
 
-    <!-- Open Graph metadata for social media sharing -->
+    <!-- Open Graph Meta Tags for Social Media -->
     <meta property="og:title" content="Sarvwigyan - Empowering Knowledge, Shaping the Future">
     <meta property="og:description" content="Discover a world of innovation with Sarvwigyan's platforms for education and technology.">
     <meta property="og:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
+    <meta property="og:url" content="https://sarvwigyan.github.io/index.html">
     <meta property="og:type" content="website">
 
-    <!-- Twitter Card metadata for Twitter sharing -->
+    <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sarvwigyan - Empowering Knowledge">
     <meta name="twitter:description" content="Explore Sarvwigyan's innovative platforms for learning and discovery.">
     <meta name="twitter:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
 
-    <!-- Canonical URL to avoid duplicate content issues -->
+    <!-- Canonical URL -->
     <link rel="canonical" href="https://sarvwigyan.github.io/index.html">
 
-    <!-- Preload critical assets for improved performance -->
-    <link rel="preload" href="Resources/Sarvwigyan.png" as="image">
-    <link rel="preload" href="Resources/a.png" as="image">
-
-    <!-- Web app manifest and favicon for branding -->
+    <!-- Manifest and Favicon -->
     <link rel="manifest" href="Resources/manifest.json">
     <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png" sizes="32x32">
 
     <title>Sarvwigyan - Empowering Knowledge</title>
 
-    <!-- External stylesheets for fonts and icons -->
+    <!-- External Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
 
+    <!-- Inline CSS (same as original, unchanged for brevity) -->
     <style>
-        /* Define CSS variables for consistent styling */
+        /* CSS Variables */
         :root {
-            --primary-color: #1e3a8a; /* Deep blue for primary elements */
-            --accent-color: #128ea6; /* Cyan for highlights */
-            --background-dark: #0f172a; /* Dark background for sections */
-            --text-light: #f8f9fa; /* Light text for readability */
-            --menu-hover-background: rgba(255, 255, 255, 0.1); /* Hover effect for menu */
-            --navbar-gradient: linear-gradient(135deg, #1e3a8a, #007087); /* Navbar gradient */
-            --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.2); /* Small shadow for depth */
-            --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.2); /* Medium shadow for hover */
-            --transition-standard: all 0.3s ease; /* Smooth transitions */
-            --font-size-base: clamp(14px, 2.5vw, 16px); /* Base font size */
-            --font-size-heading: clamp(1.8rem, 4vw, 2.5rem); /* Heading size */
-            --font-size-subheading: clamp(1.2rem, 2.5vw, 1.5rem); /* Subheading size */
-            --font-size-hero: clamp(2rem, 5vw, 3.5rem); /* Hero section heading */
-            --font-size-hero-text: clamp(1.2rem, 2.5vw, 1.6rem); /* Hero section text */
-            --spacing-small: clamp(0.8rem, 1.5vw, 1rem); /* Small spacing */
-            --spacing-medium: clamp(1.5rem, 3vw, 2rem); /* Medium spacing */
-            --spacing-large: clamp(3rem, 5vw, 5rem); /* Large spacing */
+            --primary-color: #1e3a8a;
+            --accent-color: #00b4d8;
+            --dark-bg: #0f172a;
+            --light-text: #f8f9fa;
+            --menu-hover-bg: rgba(255, 255, 255, 0.1);
+            --gradient-bg: linear-gradient(135deg, #1e3a8a, #00b4d8);
         }
 
-        /* Light mode adjustments for accessibility */
-        .light-mode {
-            --background-dark: #ffffff; /* White background */
-            --text-light: #333333; /* Dark text */
-            --primary-color: #2563eb; /* Brighter blue */
-            --accent-color: #38bdf8; /* Lighter cyan */
-            --menu-hover-background: rgba(0, 0, 0, 0.1); /* Darker hover effect */
-        }
-
-        /* Reset default styles for consistency */
+        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -80,43 +55,35 @@
         }
 
         body {
-            background-color: var(--background-dark);
-            color: var(--text-light);
+            background-color: var(--dark-bg);
+            color: var(--light-text);
             line-height: 1.6;
-            font-size: var(--font-size-base);
             overflow-x: hidden;
         }
 
-        /* Accessibility: Skip link for screen readers */
+        /* Skip Link for Accessibility */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
             background: var(--accent-color);
-            color: var(--text-light);
-            padding: var(--spacing-small);
+            color: var(--light-text);
+            padding: 8px;
             z-index: 1000;
-            transition: var(--transition-standard);
         }
 
         .skip-link:focus {
             top: 0;
         }
 
-        /* Navbar styling */
+        /* Navbar Styles */
         .navbar {
-            background: var(--navbar-gradient);
-            padding: var(--spacing-small) 0;
+            background: var(--gradient-bg);
+            padding: 1rem 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
-            box-shadow: var(--shadow-small);
-            transition: var(--transition-standard);
-        }
-
-        .navbar.scrolled {
-            padding: clamp(0.5rem, 1.5vw, 0.75rem) 0;
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .nav-container {
@@ -125,39 +92,32 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 var(--spacing-medium);
+            padding: 0 2rem;
         }
 
         .logo {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--text-light);
+            color: var(--light-text);
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: var(--transition-standard);
-        }
-
-        .navbar.scrolled .logo {
-            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            transition: transform 0.3s ease;
         }
 
         .logo:hover {
             transform: scale(1.05);
         }
 
-        .logo::before {
-            content: '';
-            width: clamp(24px, 4vw, 30px);
-            height: clamp(24px, 4vw, 30px);
-            background-image: url('Resources/Sarvwigyan.png');
-            background-size: cover;
+        .logo img {
+            width: 30px;
+            height: 30px;
         }
 
         .nav-menu {
             display: flex;
-            gap: var(--spacing-small);
+            gap: 1rem;
             list-style: none;
         }
 
@@ -166,25 +126,25 @@
         }
 
         .nav-menu a {
-            color: var(--text-light);
+            color: var(--light-text);
             text-decoration: none;
             font-weight: 500;
-            padding: var(--spacing-small) clamp(1rem, 2vw, 1.5rem);
+            padding: 0.8rem 1.5rem;
             border-radius: 25px;
-            transition: var(--transition-standard);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            min-height: 48px;
         }
 
-        .nav-menu a:hover {
-            background: var(--menu-hover-background);
+        .nav-menu a:hover,
+        .nav-menu a:focus {
+            background: var(--menu-hover-bg);
             color: var(--accent-color);
             transform: translateY(-2px);
         }
 
-        /* Dropdown menu styling */
+        /* Dropdown Menus */
         .dropdown-menu,
         .profile-menu {
             display: none;
@@ -203,66 +163,55 @@
 
         .dropdown-menu.active,
         .profile-menu.active {
-            display: block !important; /* Force display when active */
+            display: block;
         }
 
         .dropdown-menu a,
         .profile-menu a {
-            padding: var(--spacing-small) clamp(1rem, 2vw, 1.5rem);
+            padding: 0.75rem 1.5rem;
             border-radius: 5px;
             display: block;
-            font-size: var(--font-size-base);
         }
 
-        .dropdown-menu a:hover,
-        .profile-menu a:hover {
-            background: var(--menu-hover-background);
-            color: var(--accent-color);
-        }
-
-        /* Profile container styling */
+        /* Profile Container */
         .profile-container {
-            padding: var(--spacing-small) clamp(1rem, 2vw, 1.5rem);
+            padding: 0.8rem 1.5rem;
             border-radius: 25px;
             cursor: pointer;
-            transition: var(--transition-standard);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            min-height: 48px;
         }
 
-        .profile-container:hover {
-            background: var(--menu-hover-background);
+        .profile-container:hover,
+        .profile-container:focus {
+            background: var(--menu-hover-bg);
             color: var(--accent-color);
         }
 
         .profile-pic {
-            width: clamp(28px, 4vw, 32px);
-            height: clamp(28px, 4vw, 32px);
+            width: 32px;
+            height: 32px;
             border-radius: 50%;
         }
 
         .profile-name {
             margin-left: 0.5rem;
-            font-size: var(--font-size-base);
         }
 
-        /* Hamburger menu for mobile */
+        /* Hamburger Menu */
         .hamburger {
             display: none;
             cursor: pointer;
-            background: transparent;
-            border: none;
-            padding: var(--spacing-small);
         }
 
         .hamburger .bar {
             display: block;
-            width: clamp(24px, 3.5vw, 28px); /* Larger for better touch target */
-            height: 4px; /* Thicker bars for visibility */
-            margin: 6px auto;
-            background-color: var(--text-light);
-            transition: var(--transition-standard);
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--light-text);
+            transition: all 0.3s ease;
         }
 
         .hamburger.active .bar:nth-child(2) {
@@ -270,14 +219,14 @@
         }
 
         .hamburger.active .bar:nth-child(1) {
-            transform: translateY(10px) rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
         }
 
         .hamburger.active .bar:nth-child(3) {
-            transform: translateY(-10px) rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Hero slider section */
+        /* Hero Slider */
         .hero-slider {
             position: relative;
             height: 100vh;
@@ -308,42 +257,36 @@
             align-items: center;
             text-align: center;
             background: rgba(0, 0, 0, 0.65);
-            padding: var(--spacing-medium);
+            padding: 2rem;
             position: relative;
         }
 
         .hero-content {
             position: relative;
             z-index: 2;
-            animation: fadeInUp 0.5s ease-out;
         }
 
         .hero-content h1 {
-            font-size: var(--font-size-hero);
+            font-size: 3.5rem;
             font-weight: 700;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-            margin-bottom: var(--spacing-medium);
+            margin-bottom: 1.5rem;
         }
 
         .hero-content p {
-            font-size: var(--font-size-hero-text);
-            max-width: clamp(600px, 80vw, 800px);
-            margin-bottom: var(--spacing-large);
+            font-size: 1.6rem;
+            max-width: 800px;
+            margin-bottom: 2.5rem;
         }
 
         .cta-button {
-            padding: var(--spacing-small) clamp(2rem, 4vw, 3rem);
+            padding: 1.2rem 3rem;
             background: var(--accent-color);
-            color: var(--text-light);
+            color: var(--light-text);
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            transition: var(--transition-standard);
-            min-height: 48px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-base);
+            transition: all 0.3s ease;
         }
 
         .cta-button:hover,
@@ -352,56 +295,52 @@
             background: #0288a0;
         }
 
-        /* Slider controls */
+        /* Slider Controls */
         .slider-buttons {
             position: absolute;
             top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 clamp(10px, 2vw, 20px);
+            padding: 0 20px;
             transform: translateY(-50%);
             z-index: 3;
         }
 
         .slider-btn {
             background: rgba(255, 255, 255, 0.35);
-            padding: var(--spacing-small);
+            padding: 0.8rem;
             border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            transition: var(--transition-standard);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
             border: none;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .slider-btn:hover {
+        .slider-btn:hover,
+        .slider-btn:focus {
             background: var(--accent-color);
             transform: scale(1.1);
         }
 
         .slider-controls {
             position: absolute;
-            bottom: clamp(10px, 2vw, 20px);
+            bottom: 20px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: clamp(8px, 1.5vw, 10px);
+            gap: 10px;
             z-index: 3;
         }
 
         .slider-dot {
-            width: clamp(12px, 2vw, 14px);
-            height: clamp(12px, 2vw, 14px);
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.8);
             border: none;
             cursor: pointer;
-            transition: var(--transition-standard);
+            transition: all 0.3s ease;
         }
 
         .slider-dot.active {
@@ -409,10 +348,10 @@
             transform: scale(1.3);
         }
 
-        /* Featured content section */
+        /* Featured Section */
         .featured-section {
-            padding: var(--spacing-large) var(--spacing-medium);
-            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--background-dark));
+            padding: 5rem 2rem;
+            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--dark-bg));
         }
 
         .section-container {
@@ -421,146 +360,80 @@
         }
 
         .section-title {
-            font-size: var(--font-size-heading);
+            font-size: 2.5rem;
             color: var(--accent-color);
             text-align: center;
-            margin-bottom: var(--spacing-large);
+            margin-bottom: 3rem;
             text-transform: uppercase;
         }
 
         .card-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: var(--spacing-medium);
+            gap: 2rem;
         }
 
         .card {
             background: rgba(255, 255, 255, 0.05);
-            padding: var(--spacing-medium);
+            padding: 2rem;
             border-radius: 15px;
             text-align: center;
-            transition: var(--transition-standard);
-            animation: fadeInUp 0.5s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .card:hover,
         .card:focus-within {
             transform: translateY(-10px);
-            box-shadow: var(--shadow-medium);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
         }
 
         .card h3 {
-            font-size: var(--font-size-subheading);
-            margin-bottom: var(--spacing-small);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
             color: var(--accent-color);
         }
 
         .card p {
-            font-size: clamp(0.9rem, 2vw, 1.1rem);
-            margin-bottom: var(--spacing-medium);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Footer styling */
-        .footer {
+        /* Footer */
+        footer {
             background: var(--primary-color);
-            padding: var(--spacing-medium);
+            padding: 2rem;
             text-align: center;
         }
 
-        .newsletter {
-            margin: var(--spacing-medium) 0;
-        }
-
-        .newsletter h3 {
-            font-size: var(--font-size-subheading);
-            margin-bottom: var(--spacing-small);
-        }
-
-        #newsletter-form {
-            display: flex;
-            gap: var(--spacing-small);
-            justify-content: center;
-            max-width: clamp(400px, 60vw, 500px);
-            margin: 0 auto;
-        }
-
-        #newsletter-form input {
-            padding: var(--spacing-small);
-            border-radius: 5px;
-            border: 1px solid var(--accent-color);
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-light);
-            flex: 1;
-            font-size: var(--font-size-base);
-        }
-
-        .social-links {
-            display: flex;
-            gap: var(--spacing-small);
-            justify-content: center;
-            margin-top: var(--spacing-medium);
-        }
-
-        .social-links a {
-            color: var(--text-light);
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
-            transition: var(--transition-standard);
-        }
-
-        .social-links a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Back to top button */
+        /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: clamp(20px, 3vw, 30px);
-            right: clamp(20px, 3vw, 30px);
+            bottom: 30px;
+            right: 30px;
             background: var(--accent-color);
-            color: var(--text-light);
-            padding: var(--spacing-small);
+            color: var(--light-text);
+            padding: 0.8rem;
             border-radius: 50%;
             cursor: pointer;
             display: none;
-            transition: var(--transition-standard);
-            min-height: 48px;
-            text-align: center;
+            transition: all 0.3s ease;
         }
 
-        .back-to-top:hover {
+        .back-to-top:hover,
+        .back-to-top:focus {
             transform: scale(1.1);
         }
 
-        /* Fade-in animation */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Accessibility: Focus styles only for keyboard navigation */
-        body:not(.user-is-tabbing) a:focus,
-        body:not(.user-is-tabbing) button:focus,
-        body:not(.user-is-tabbing) input:focus {
-            outline: none;
-        }
-
-        body.user-is-tabbing a:focus,
-        body.user-is-tabbing button:focus,
-        body.user-is-tabbing input:focus {
-            outline: 2px solid var(--accent-color);
-            outline-offset: 2px;
-        }
-
-        /* Responsive design for smaller screens */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: clamp(60px, 10vw, 70px);
+                top: 70px;
                 flex-direction: column;
-                background: var(--background-dark);
+                background: var(--dark-bg);
                 width: 100%;
-                height: calc(100vh - clamp(60px, 10vw, 70px));
+                height: calc(100vh - 70px);
                 text-align: center;
                 transition: left 0.3s ease;
                 overflow-y: auto;
@@ -581,11 +454,11 @@
             }
 
             .hero-content h1 {
-                font-size: clamp(1.8rem, 4vw, 2.2rem);
+                font-size: 2.2rem;
             }
 
             .hero-content p {
-                font-size: clamp(1rem, 2vw, 1.3rem);
+                font-size: 1.3rem;
             }
 
             .card-grid {
@@ -593,182 +466,172 @@
             }
 
             .slider-buttons {
-                padding: 0 clamp(8px, 1.5vw, 10px);
+                padding: 0 10px;
             }
 
             .slider-controls {
-                bottom: clamp(8px, 1.5vw, 10px);
-            }
-
-            /* Ensure profile menu is positioned correctly on mobile */
-            .profile-menu.active {
-                position: relative;
-                left: 0;
-                transform: none;
-                width: 100%;
-                background: var(--primary-color);
-            }
-        }
-
-        @media (max-width: 768px) {
-            #newsletter-form {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            #newsletter-form input {
-                width: 100%;
+                bottom: 10px;
             }
         }
     </style>
 </head>
 
 <body>
-    <!-- Accessibility: Skip link for screen readers -->
+    <!-- Skip to Content Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navigation bar -->
-    <nav class="navbar" aria-label="Main navigation">
-        <div class="nav-container">
-            <!-- Logo with homepage link -->
-            <a href="index.html" class="logo" aria-label="Sarvwigyan Home">Sarvwigyan</a>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="index.html" class="logo" aria-label="Sarvwigyan Home">
+                    <img src="Resources/Sarvwigyan.png" alt="Sarvwigyan Logo" class="logo-img"> Sarvwigyan
+                </a>
+                
+                <ul class="nav-menu" role="menubar">
+                    <li role="none">
+                        <a href="index.html" role="menuitem" aria-current="page">
+                            <i class="fas fa-home" aria-hidden="true"></i> Home
+                        </a>
+                    </li>
+                    
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-globe" aria-hidden="true"></i> Explore
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none">
+                                <a href="Sarvpedia.html" target="_blank" role="menuitem">
+                                    <i class="fas fa-book" aria-hidden="true"></i> Sarvpedia
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" role="menuitem">
+                                    <i class="fas fa-store" aria-hidden="true"></i> Sarv Store
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#" onclick="showdevMessage()" role="menuitem">
+                                    <i class="fas fa-atom" aria-hidden="true"></i> Squantum
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="#" onclick="showdevMessage()" role="menuitem">
+                                    <i class="fas fa-search" aria-hidden="true"></i> Shodh
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown" role="none">
+                        <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-headset" aria-hidden="true"></i> Support
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li role="none">
+                                <a href="about.html" role="menuitem">
+                                    <i class="fas fa-info-circle" aria-hidden="true"></i> About Page
+                                </a>
+                            </li>
+                            <li role="none">
+                                <a href="feedback.html" role="menuitem">
+                                    <i class="fas fa-envelope" aria-hidden="true"></i> Message/Feedback
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li class="dropdown" role="none">
+                        <a href="#" onclick="showdevMessage()" role="menuitem">
+                            <i class="fas fa-users" aria-hidden="true"></i> Community
+                        </a>
+                    </li>
+                    
+                    <li id="account-item" class="dropdown" role="none">
+                        <a href="login.html" role="menuitem">
+                            <i class="fas fa-user" aria-hidden="true"></i> Account
+                        </a>
+                    </li>
+                </ul>
+                
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </nav>
+    </header>
 
-            <!-- Main navigation menu -->
-            <ul class="nav-menu" role="menubar">
-                <li role="none">
-                    <a href="index.html" role="menuitem" aria-current="page">
-                        <i class="fas fa-home" aria-hidden="true"></i> Home
-                    </a>
-                </li>
-                <li class="dropdown" role="none">
-                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-globe" aria-hidden="true"></i> Explore
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li role="none">
-                            <a href="Sarvpedia.html" target="_blank" role="menuitem">
-                                <i class="fas fa-book" aria-hidden="true"></i> Sarvpedia
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" role="menuitem">
-                                <i class="fas fa-store" aria-hidden="true"></i> Sarv Store
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="#" onclick="showDevelopmentMessage()" role="menuitem">
-                                <i class="fas fa-atom" aria-hidden="true"></i> Squantum
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="#" onclick="showDevelopmentMessage()" role="menuitem">
-                                <i class="fas fa-search" aria-hidden="true"></i> Shodh
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown" role="none">
-                    <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                        <i class="fas fa-headset" aria-hidden="true"></i> Support
-                    </a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li role="none">
-                            <a href="about.html" role="menuitem">
-                                <i class="fas fa-info-circle" aria-hidden="true"></i> About Page
-                            </a>
-                        </li>
-                        <li role="none">
-                            <a href="feedback.html" role="menuitem">
-                                <i class="fas fa-envelope" aria-hidden="true"></i> Message/Feedback
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="dropdown" role="none">
-                    <a href="#" onclick="showDevelopmentMessage()" role="menuitem">
-                        <i class="fas fa-users" aria-hidden="true"></i> Community
-                    </a>
-                </li>
-                <li id="account-item" class="dropdown" role="none">
-                    <a href="login.html" role="menuitem">
-                        <i class="fas fa-user" aria-hidden="true"></i> Account
-                    </a>
-                </li>
-            </ul>
-
-            <!-- Hamburger menu for mobile navigation -->
-            <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </nav>
-
-    <!-- Main content area -->
+    <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero slider section -->
-        <section class="hero-slider" id="home" aria-live="polite" aria-label="Featured Content Slider">
+        <!-- Hero Slider Section -->
+        <section class="hero-slider" id="home" aria-label="Featured Content Slider">
             <div class="slide active" style="background-image: url('Resources/a.png')">
                 <div class="slide-content">
                     <div class="hero-content">
                         <h1>Empowering Knowledge, Shaping the Future</h1>
-                        <p>Discover the world of innovation with Sarvwigyan...</p>
+                        <p>Discover the world of innovation with Sarvwigyan, your gateway to education and technology.</p>
                         <a href="Sarvpedia.html" target="_blank" class="cta-button">Discover Sarvpedia</a>
                     </div>
                 </div>
                 <div class="slider-buttons">
-                    <button class="slider-btn" onclick="previousSlide()" aria-label="Previous slide">❮</button>
+                    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide">❮</button>
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
+            
             <div class="slide" style="background-image: url('Resources/b.png')">
                 <div class="slide-content">
                     <div class="hero-content">
                         <h1>Explore AI Innovations</h1>
-                        <p>Dive into the future of artificial intelligence...</p>
-                        <a href="#" onclick="showDevelopmentMessage()" class="cta-button">Explore Sarv-AI</a>
+                        <p>Dive into the future of artificial intelligence with Sarvwigyan's cutting-edge platforms.</p>
+                        <a href="#" onclick="showdevMessage()" class="cta-button">Explore Sarv-AI</a>
                     </div>
                 </div>
                 <div class="slider-buttons">
-                    <button class="slider-btn" onclick="previousSlide()" aria-label="Previous slide">❮</button>
+                    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide">❮</button>
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
+            
             <div class="slide" style="background-image: url('Resources/Sarvwigyan.png')">
                 <div class="slide-content">
                     <div class="hero-content">
                         <h1>About Our Vision</h1>
-                        <p>Learn more about our mission and goals...</p>
+                        <p>Learn more about Sarvwigyan's mission to empower learning and innovation globally.</p>
                         <a href="about.html" class="cta-button">About Us</a>
                     </div>
                 </div>
                 <div class="slider-buttons">
-                    <button class="slider-btn" onclick="previousSlide()" aria-label="Previous slide">❮</button>
+                    <button class="slider-btn" onclick="prevSlide()" aria-label="Previous slide">❮</button>
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
+            
             <div class="slider-controls" id="slider-dots" role="tablist"></div>
         </section>
 
-        <!-- Featured content section -->
+        <!-- Featured Content Section -->
         <section class="featured-section" aria-label="Featured Platforms">
             <div class="section-container">
-                <h2 class="section-title">Featured Content</h2>
+                <h2 class="section-title">Featured Platforms</h2>
                 <div class="card-grid">
                     <article class="card">
                         <h3>Sarvpedia</h3>
-                        <p>Explore a vast repository of knowledge across science and technology.</p>
+                        <p>Explore a vast repository of knowledge across science, technology, and education.</p>
                         <a href="Sarvpedia.html" target="_blank" class="cta-button">Visit Now</a>
                     </article>
+                    
                     <article class="card">
                         <h3>Sarv Store</h3>
                         <p>Download apps, books, and tools to enhance your learning experience.</p>
                         <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" class="cta-button">Browse Store</a>
                     </article>
+                    
                     <article class="card">
                         <h3>Support</h3>
-                        <p>Get help or share feedback to improve our platform.</p>
+                        <p>Get help or share feedback to improve our platform and community.</p>
                         <a href="feedback.html" class="cta-button">Contact Us</a>
                     </article>
                 </div>
@@ -776,63 +639,37 @@
         </section>
     </main>
 
-    <!-- Footer section -->
-    <footer class="footer">
-        <div class="newsletter">
-            <h3>Stay Updated</h3>
-            <form id="newsletter-form">
-                <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
-                <button type="submit" class="cta-button">Subscribe</button>
-            </form>
-        </div>
-        <div class="social-links">
-            <a href="https://youtube.com/@sarvwigyan?si=YCMEfQmykBMFMOS4" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/profile.php?id=61570026324353&locale=hi_IN#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://x.com/sarvwigyan" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-        </div>
+    <!-- Footer -->
+    <footer>
         <p>© 2025 Sarvwigyan. All rights reserved.</p>
     </footer>
 
-    <!-- Back to top button -->
-    <button class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- JavaScript for interactive features -->
-    <script>
-        // Constants for DOM elements
-        const hamburgerMenu = document.querySelector('.hamburger');
-        const navigationMenu = document.querySelector('.nav-menu');
-        const dropdowns = document.querySelectorAll('.dropdown');
-        const backToTopButton = document.querySelector('#back-to-top');
-        const navbar = document.querySelector('.navbar');
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('#slider-dots');
-        const slider = document.querySelector('.hero-slider');
-        const newsletterForm = document.querySelector('#newsletter-form');
-        const profileMenu = document.querySelector('.profile-menu');
-        const profileContainer = document.querySelector('.profile-container');
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Sarvwigyan",
+        "url": "https://sarvwigyan.github.io/",
+        "description": "Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia and Sarv Store.",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://sarvwigyan.github.io/search?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
 
-
-        // Slider state
-        let currentSlideIndex = 0;
-        let autoSlideInterval = null;
-        const SLIDE_INTERVAL = 2000; // 3 seconds
-
-        // Detect keyboard navigation for accessibility
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Tab') {
-                document.body.classList.add('user-is-tabbing');
-            }
-        });
-
-        document.addEventListener('mousedown', () => {
-            document.body.classList.remove('user-is-tabbing');
-        });
-
-        // Display alert for features under development
-        function showDevelopmentMessage() {
-            alert('Sorry, this feature is currently under development. Thank you for your patience.');
+    <!-- JavaScript (Deferred Loading) -->
+    <script defer>
+        // Development Message Alert
+        function showdevMessage() {
+            alert("Sorry, we are currently working on this feature. Kindly co-operate.");
         }
 
         // Update Navigation based on User Login
@@ -861,8 +698,9 @@
                         </ul>
                     </div>
                 `;
-                 // Profile Dropdown Event Listener
-                 const profileContainer = accountItem.querySelector('.profile-container');
+
+                // Profile Dropdown Event Listener
+                const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
 
                 if (profileContainer && profileMenu) {
@@ -888,136 +726,118 @@
             }
         }
 
-        // Logout user and redirect
-        function logoutUser() {
+        // Logout Function
+        function logout() {
             localStorage.removeItem('user');
-            window.location.href = 'index.html';
+            window.location.href = "index.html";
         }
 
-        // Toggle dropdown menu visibility
-        function toggleDropdown(menu, trigger) {
-            console.log('Toggling dropdown'); // Debugging
-            const isOpen = menu.classList.contains('active');
-            // Close all other dropdowns
-            document.querySelectorAll('.dropdown-menu').forEach(submenu => {
-                submenu.classList.remove('active');
-            });
-            document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => {
-                anchor.setAttribute('aria-expanded', 'false');
-            });
-            // Toggle current dropdown
-            if (!isOpen) {
-                menu.classList.add('active');
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-        }
+        // Slider Functionality
+        let currentSlide = 0;
+        let autoSlideInterval;
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('#slider-dots');
+        const slider = document.querySelector('.hero-slider');
 
-        // Initialize slider dots
-        function initializeSliderDots() {
-            slides.forEach((_, index) => {
-                const dot = document.createElement('button');
-                dot.classList.add('slider-dot');
-                dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-                dot.setAttribute('role', 'tab');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => showSlide(index));
-                dotsContainer.appendChild(dot);
-            });
-        }
+        // Initialize Slider Dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+            dot.setAttribute('role', 'tab');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => showSlide(index));
+            dotsContainer.appendChild(dot);
+        });
 
-        // Show specific slide
         function showSlide(index) {
             if (index >= slides.length) index = 0;
             if (index < 0) index = slides.length - 1;
             slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-            document.querySelectorAll('.slider-dot').forEach((dot, i) => {
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, i) => {
                 dot.classList.toggle('active', i === index);
                 dot.setAttribute('aria-selected', i === index);
             });
-            currentSlideIndex = index;
+            currentSlide = index;
             restartAutoSlide();
         }
 
-        // Navigate to next slide
         function nextSlide() {
-            showSlide(currentSlideIndex + 1);
+            showSlide(currentSlide + 1);
         }
 
-        // Navigate to previous slide
-        function previousSlide() {
-            showSlide(currentSlideIndex - 1);
+        function prevSlide() {
+            showSlide(currentSlide - 1);
         }
 
-        // Restart auto-slide interval
         function restartAutoSlide() {
             clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextSlide, SLIDE_INTERVAL);
+            autoSlideInterval = setInterval(nextSlide, 3000);
         }
 
-        // Handle scroll events
-        function handleScroll() {
-            backToTopButton.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? 'block' : 'none';
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        }
+        // Slider Event Listeners
+        restartAutoSlide();
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slider.addEventListener('mouseleave', restartAutoSlide);
 
-        // Initialize page on DOM load
-        document.addEventListener('DOMContentLoaded', () => {
-            console.log('DOM fully loaded'); // Debugging
-            updateNavigation();
-            initializeSliderDots();
-            restartAutoSlide();
+        // DOM Content Loaded Event
+        document.addEventListener('DOMContentLoaded', function() {
+            updateNav();
+            
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const dropdowns = document.querySelectorAll('.dropdown');
 
-            // Toggle hamburger menu
-            hamburgerMenu.addEventListener('click', () => {
-                const isActive = hamburgerMenu.classList.toggle('active');
-                navigationMenu.classList.toggle('active');
+            // Hamburger Menu Toggle
+            hamburger.addEventListener('click', () => {
+                const isActive = hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
                 document.body.classList.toggle('no-scroll');
-                hamburgerMenu.setAttribute('aria-expanded', isActive);
+                hamburger.setAttribute('aria-expanded', isActive);
             });
 
-            // Handle dropdown menus
+            // Dropdown Menu Toggle
             dropdowns.forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 const submenu = dropdown.querySelector('.dropdown-menu');
                 if (link && submenu) {
-                    link.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        toggleDropdown(submenu, link);
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const isOpen = submenu.classList.contains('active');
+                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
+                        document.querySelectorAll('.dropdown a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
+                        if (!isOpen) {
+                            submenu.classList.add('active');
+                            link.setAttribute('aria-expanded', 'true');
+                        }
                     });
                 }
             });
 
-            // Close dropdowns on outside click
-            document.addEventListener('click', (event) => {
-                if (!event.target.closest('.dropdown') && !event.target.closest('.profile-dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(submenu => {
-                        submenu.classList.remove('active');
-                    });
-                    document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => {
-                        anchor.setAttribute('aria-expanded', 'false');
-                    });
+            // Close Dropdowns on Outside Click
+            document.addEventListener('click', (e) => {
+                if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
+                    document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
+                    document.querySelectorAll('.dropdown a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
                 }
             });
 
-            // Back to top button functionality
-            backToTopButton.addEventListener('click', () => {
+            // Back to Top Button
+            document.getElementById('backToTop').addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-
-            // Pause slider on hover
-            slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-            slider.addEventListener('mouseleave', restartAutoSlide);
-
-            // Handle newsletter form submission
-            newsletterForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                alert('Thank you for subscribing! Stay tuned for updates.');
-                event.target.reset();
             });
         });
 
-        // Attach scroll event listener
-        window.addEventListener('scroll', handleScroll);
+        // Scroll Event for Back to Top Button
+        window.onscroll = function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        };
     </script>
 </body>
 </html>
