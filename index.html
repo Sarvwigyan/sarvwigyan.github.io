@@ -43,20 +43,15 @@
     <style>
         /* Define CSS variables for consistent styling */
         :root {
-            /* Color scheme */
             --primary-color: #1e3a8a; /* Deep blue for primary elements */
             --accent-color: #128ea6; /* Cyan for highlights */
             --background-dark: #0f172a; /* Dark background for sections */
             --text-light: #f8f9fa; /* Light text for readability */
             --menu-hover-background: rgba(255, 255, 255, 0.1); /* Hover effect for menu */
             --navbar-gradient: linear-gradient(135deg, #1e3a8a, #007087); /* Navbar gradient */
-
-            /* Shadows and transitions */
             --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.2); /* Small shadow for depth */
             --shadow-medium: 0 6px 12px rgba(0, 0, 0, 0.2); /* Medium shadow for hover */
             --transition-standard: all 0.3s ease; /* Smooth transitions */
-
-            /* Typography and spacing */
             --font-size-base: clamp(14px, 2.5vw, 16px); /* Base font size */
             --font-size-heading: clamp(1.8rem, 4vw, 2.5rem); /* Heading size */
             --font-size-subheading: clamp(1.2rem, 2.5vw, 1.5rem); /* Subheading size */
@@ -202,13 +197,13 @@
             transform: translateX(-50%);
             min-width: clamp(180px, 20vw, 220px);
             padding: var(--spacing-small) 0;
-            z-index: 1000;
+            z-index: 1001; /* Ensure dropdown is above other elements */
             list-style: none;
         }
 
         .dropdown-menu.active,
         .profile-menu.active {
-            display: block;
+            display: block !important; /* Force display when active */
         }
 
         .dropdown-menu a,
@@ -258,13 +253,14 @@
             cursor: pointer;
             background: transparent;
             border: none;
+            padding: var(--spacing-small);
         }
 
         .hamburger .bar {
             display: block;
-            width: clamp(20px, 3vw, 25px);
-            height: 3px;
-            margin: 5px auto;
+            width: clamp(24px, 3.5vw, 28px); /* Larger for better touch target */
+            height: 4px; /* Thicker bars for visibility */
+            margin: 6px auto;
             background-color: var(--text-light);
             transition: var(--transition-standard);
         }
@@ -274,11 +270,11 @@
         }
 
         .hamburger.active .bar:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
+            transform: translateY(10px) rotate(45deg);
         }
 
         .hamburger.active .bar:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
+            transform: translateY(-10px) rotate(-45deg);
         }
 
         /* Hero slider section */
@@ -603,6 +599,15 @@
             .slider-controls {
                 bottom: clamp(8px, 1.5vw, 10px);
             }
+
+            /* Ensure profile menu is positioned correctly on mobile */
+            .profile-menu.active {
+                position: relative;
+                left: 0;
+                transform: none;
+                width: 100%;
+                background: var(--primary-color);
+            }
         }
 
         @media (max-width: 768px) {
@@ -781,10 +786,9 @@
             </form>
         </div>
         <div class="social-links">
-            <a href="https://youtube.com/sarvwigyan" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://facebook.com/sarvwigyan" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/sarvwigyan" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://linkedin.com/company/sarvwigyan" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://youtube.com/@sarvwigyan?si=YCMEfQmykBMFMOS4" target="_blank" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=61570026324353&locale=hi_IN#" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://x.com/sarvwigyan" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         </div>
         <p>© 2025 Sarvwigyan. All rights reserved.</p>
     </footer>
@@ -810,7 +814,7 @@
         // Slider state
         let currentSlideIndex = 0;
         let autoSlideInterval = null;
-        const SLIDE_INTERVAL = 3000; // 3 seconds
+        const SLIDE_INTERVAL = 2000; // 3 seconds
 
         // Detect keyboard navigation for accessibility
         document.addEventListener('keydown', (event) => {
@@ -830,14 +834,26 @@
 
         // Update navigation based on user login status
         function updateNavigation() {
-            const user = JSON.parse(localStorage.getItem('user'));
+            console.log('updateNavigation called'); // Debugging
             const accountItem = document.querySelector('#account-item');
+            if (!accountItem) {
+                console.error('Account item not found in DOM');
+                return;
+            }
 
-            if (user) {
+            let user = null;
+            try {
+                user = JSON.parse(localStorage.getItem('user'));
+                console.log('User:', user); // Debugging
+            } catch (e) {
+                console.error('Failed to parse user from localStorage:', e);
+            }
+
+            if (user && user.name && user.picture) {
                 accountItem.innerHTML = `
                     <div class="dropdown profile-dropdown" role="none">
                         <a class="profile-container" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                            <img src="${user.picture}" alt="Profile picture of ${user.name}" class="profile-pic" loading="lazy">
+                            <img src="${user.picture}" alt="Profile picture of ${user.name}" class="profile-pic" loading="lazy" onerror="this.src='Resources/default-profile-pic.jpg'">
                             <span class="profile-name">${user.name}</span>
                         </a>
                         <ul class="profile-menu dropdown-menu" role="menu">
@@ -862,8 +878,11 @@
                     profileContainer.addEventListener('click', (event) => {
                         event.preventDefault();
                         event.stopPropagation();
+                        console.log('Profile container clicked'); // Debugging
                         toggleDropdown(profileMenu, profileContainer);
                     });
+                } else {
+                    console.error('Profile container or menu not found');
                 }
             } else {
                 accountItem.innerHTML = `
@@ -882,9 +901,16 @@
 
         // Toggle dropdown menu visibility
         function toggleDropdown(menu, trigger) {
+            console.log('Toggling dropdown'); // Debugging
             const isOpen = menu.classList.contains('active');
-            document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
-            document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => anchor.setAttribute('aria-expanded', 'false'));
+            // Close all other dropdowns
+            document.querySelectorAll('.dropdown-menu').forEach(submenu => {
+                submenu.classList.remove('active');
+            });
+            document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => {
+                anchor.setAttribute('aria-expanded', 'false');
+            });
+            // Toggle current dropdown
             if (!isOpen) {
                 menu.classList.add('active');
                 trigger.setAttribute('aria-expanded', 'true');
@@ -941,6 +967,7 @@
 
         // Initialize page on DOM load
         document.addEventListener('DOMContentLoaded', () => {
+            console.log('DOM fully loaded'); // Debugging
             updateNavigation();
             initializeSliderDots();
             restartAutoSlide();
@@ -968,8 +995,12 @@
             // Close dropdowns on outside click
             document.addEventListener('click', (event) => {
                 if (!event.target.closest('.dropdown') && !event.target.closest('.profile-dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
-                    document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => anchor.setAttribute('aria-expanded', 'false'));
+                    document.querySelectorAll('.dropdown-menu').forEach(submenu => {
+                        submenu.classList.remove('active');
+                    });
+                    document.querySelectorAll('[aria-expanded="true"]').forEach(anchor => {
+                        anchor.setAttribute('aria-expanded', 'false');
+                    });
                 }
             });
 
