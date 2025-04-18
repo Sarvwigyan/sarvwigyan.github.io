@@ -1,206 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sarvwigyan - Feedback</title>
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <style>
-    :root {
-        --primary-color: #1f204f;
-        --accent-color: #00b4d8;
-        --dark-bg: #1a232e;
-        --light-text: #f8f9fa;
-        --menu-hover-bg: rgba(255, 255, 255, 0.05);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarvwigyan - Feedback</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <style>
+        :root {
+            --primary-color: #1f204f;
+            --accent-color: #00b4d8;
+            --dark-bg: #1a232e;
+            --light-text: #f8f9fa;
+            --shadow: rgba(0, 0, 0, 0.2);
+            --border: rgba(255, 255, 255, 0.1);
+            --hover-bg: rgba(255, 255, 255, 0.05);
+            --error-color: #f87171;
+        }
 
-    body {
-        font-family: 'Segoe UI', sans-serif;
-        line-height: 1.6;
-        margin: 0;
-        padding: 80px 20px 20px;
-        background-color: var(--dark-bg);
-        color: var(--light-text);
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
 
-    .container {
-        max-width: 600px;
-        margin: 2rem auto;
-        background-color: rgba(255, 255, 255, 0.1);
-        padding: 2rem;
-        border-radius: 8px;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
+        body {
+            background: var(--dark-bg);
+            color: var(--light-text);
+            line-height: 1.5;
+            min-height: 100vh;
+            padding: 2rem;
+        }
 
-    h2 {
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-size: 2.2rem;
-        color: var(--accent-color);
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    }
-
-    h5 {
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 1.1rem;
-        opacity: 0.9;
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-
-    label {
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-        display: block;
-        color: var(--accent-color);
-    }
-
-    input, textarea {
-        width: 90%;
-        padding: 1rem;
-        background: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 4px;
-        color: var(--light-text);
-        transition: all 0.3s ease;
-        font-size: 1rem;
-        resize: none;
-    }
-
-    input:focus, textarea:focus {
-        outline: none;
-        border-color: var(--accent-color);
-        box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.2);
-        background: rgba(255, 255, 255, 0.08);
-        
-    }
-
-    button {
-        padding: 1rem 2rem;
-        background-color: var(--accent-color);
-        color: var(--light-text);
-        border: none;
-        border-radius: 4px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    button:hover {
-        transform: translateY(-2px);
-    }
-
-    .g-recaptcha {
-        margin: 1.5rem 0;
-        display: flex;
-        justify-content: center;
-    }
-
-    .container em {
-        display: block;
-        margin: 1.5rem 0;
-        font-size: 0.9rem;
-        opacity: 0.8;
-        line-height: 1.4;
-    }
-
-    .container p {
-        margin: 0.5rem 0;
-        font-size: 1.1rem;
-    }
-
-    @media (max-width: 768px) {
         .container {
-            margin: 1rem auto;
-            padding: 1.5rem;
+            max-width: 600px;
+            margin: 2rem auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .container:hover {
+            transform: translateY(-4px);
         }
 
         h2 {
-            font-size: 1.8rem;
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        h5 {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        label {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--accent-color);
+            margin-bottom: 0.25rem;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75rem;
+            background: var(--hover-bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--light-text);
+            font-size: 1rem;
+            transition: border-color 0.2s, background 0.2s;
+            resize: none;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background: rgba(255, 255, 255, fries);
+        }
+
+        .rating-container {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin: 1rem 0;
+            position: relative;
+        }
+
+        .star {
+            font-size: 1.75rem;
+            color: var(--border);
+            cursor: pointer;
+            transition: color 0.2s, transform 0.2s, text-shadow 0.2s;
+            position: relative;
+        }
+
+        .star.filled {
+            color: var(--accent-color);
+            text-shadow: 0 0 8px var(--accent-color);
+            animation: pulse 0.3s ease;
+        }
+
+        .star:hover, .star.hovered {
+            transform: scale(1.2);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        .rating-tooltip {
+            position: absolute;
+            top: -2.25rem;
+            background: var(--primary-color);
+            color: var(--light-text);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.2s;
+            pointer-events: none;
+        }
+
+        .rating-container:hover .rating-tooltip {
+            opacity: 1;
+        }
+
+        .rating-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .clear-rating {
+            background: transparent;
+            border: 1px solid var(--error-color);
+            color: var(--error-color);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: none;
+        }
+
+        .clear-rating.visible {
+            display: inline-flex;
+        }
+
+        .clear-rating:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(248, 113, 113, 0.3);
+        }
+
+        .error-message {
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--error-color);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .error-message.visible {
+            opacity: 1;
+        }
+
+        .char-counter {
+            font-size: 0.75rem;
+            color: var(--light-text);
+            opacity: 0.8;
+            text-align: right;
+            margin-top: 0.25rem;
+        }
+
+        .char-counter.warning {
+            color: var(--error-color);
+        }
+
+        .g-recaptcha {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
         }
 
         button {
-            width: 100%;
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-color);
+            color: var(--light-text);
+            border: none;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
-    }
-</style>
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0, 180, 216, 0.3);
+        }
+
+        button:disabled {
+            background: var(--border);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        button i {
+            font-size: 1rem;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .secondary-button {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+        }
+
+        .secondary-button:hover {
+            background: var(--hover-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(0, 180, 216, 0.3);
+        }
+
+        em {
+            display: block;
+            font-size: 0.875rem;
+            opacity: 0.8;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 4px 12px var(--shadow);
+            transform: translateY(20px);
+            transition: transform 0.3s;
+        }
+
+        .modal.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-content h3 {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-content button {
+            background: var(--accent-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+        }
+
+        .shake {
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.75rem;
+            }
+
+            h5 {
+                font-size: 0.875rem;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button, .secondary-button {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .star {
+                font-size: 1.5rem;
+            }
+
+            .rating-tooltip {
+                font-size: 0.625rem;
+                top: -2rem;
+            }
+
+            .modal-content {
+                padding: 1.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <div class="container">
-    <h2>Message</h2>
-    <h5 style="text-align: center;"><strong>Your opinion is valuable for us!</strong></h5>
-    <form id="contactForm">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" required>
+    <div class="container">
+        <h2>Share Your Feedback</h2>
+        <h5><strong>Your opinion helps us improve!</strong></h5>
+        <form id="contactForm">
+            <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required aria-required="true">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required aria-required="true">
+            </div>
+            <div>
+                <label for="rating">Rating</label>
+                <div class="rating-container" role="radiogroup" aria-label="Rating">
+                    <i class="fas fa-star star" data-value="1" tabindex="0" role="radio" aria-checked="false"></i>
+                    <i class="fas fa-star star" data-value="2" tabindex="0" role="radio" aria-checked="false"></i>
+                    <i class="fas fa-star star" data-value="3" tabindex="0" role="radio" aria-checked="false"></i>
+                    <i class="fas fa-star star" data-value="4" tabindex="0" role="radio" aria-checked="false"></i>
+                    <i class="fas fa-star star" data-value="5" tabindex="0" role="radio" aria-checked="false"></i>
+                    <span class="rating-tooltip" id="ratingTooltip">0</span>
+                </div>
+                <div class="rating-actions">
+                    <button type="button" class="clear-rating" id="clearRating"><i class="fas fa-times"></i> Clear Rating</button>
+                </div>
+                <div class="error-message" id="ratingError">Please select a rating.</div>
+                <input type="hidden" id="rating" name="rating" value="0">
+            </div>
+            <div>
+                <label for="message">Message/Feedback</label>
+                <textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="charCounter">Deep regards!</textarea>
+                <div class="char-counter" id="charCounter">0/500 characters</div>
+            </div>
+            <div class="g-recaptcha" data-sitekey="6LeLQ8oqAAAAABaKcrO-TcGpWtuij7tTf-KqjJtA"></div>
+            <button type="submit" id="submitButton"><i class="fas fa-message"></i> Send Message</button>
+        </form>
+    </div>
+    <div class="container">
+        <em>Help us improve by providing your valuable feedback to deliver the best resources.</em>
+        <div class="button-group">
+            <button class="secondary-button" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</button>
+            <button class="secondary-button" onclick="window.location.reload()"><i class="fas fa-rotate-right"></i> Reload</button>
+        </div>
+    </div>
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" required>
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <h3>Thank You!</h3>
+            <p id="modalSummary">Your feedback has been submitted successfully.</p>
+            <button onclick="closeModal()">OK</button>
+        </div>
+    </div>
 
-      <label for="message">Message/Feedback</label>
-      <textarea id="message" name="message">Deep regards!</textarea>
+    <script>
+        (function () {
+            emailjs.init("ej6WG7Xts0WLxOW0R");
+        })();
 
-      <!-- Google reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="6LeLQ8oqAAAAABaKcrO-TcGpWtuij7tTf-KqjJtA"></div>
+        const form = document.getElementById('contactForm');
+        const submitButton = document.getElementById('submitButton');
+        const messageInput = document.getElementById('message');
+        const charCounter = document.getElementById('charCounter');
+        const stars = document.querySelectorAll('.star');
+        const ratingInput = document.getElementById('rating');
+        const ratingTooltip = document.getElementById('ratingTooltip');
+        const clearRatingButton = document.getElementById('clearRating');
+        const ratingError = document.getElementById('ratingError');
+        const modal = document.getElementById('confirmationModal');
+        const modalSummary = document.getElementById('modalSummary');
 
-      <button type="submit"><i class="fa-solid fa-message"></i> Send Message</button>
-    </form>
-  </div>
-  <div class="container">
-    <em>Help us improve by providing your valuable feedback, so that we could provide you the best resources.</em>
-    <button onclick="window.open('index.html', '_self')"><a style="cursor: pointer;" >🏠︎ Home</a></button>
-    <button onclick="window.open('feedback.html', '_self')"><a style="cursor: pointer;"><i class="fa-solid fa-rotate-right fa-spin" style="color: #ffffff;"></i> Reload</a></button>
-  </div>
+        // Character counter
+        messageInput.addEventListener('input', () => {
+            const length = messageInput.value.length;
+            charCounter.textContent = `${length}/500 characters`;
+            charCounter.classList.toggle('warning', length > 450);
+        });
 
-  <script>
-    (function () {
-      emailjs.init("ej6WG7Xts0WLxOW0R"); // Initialize EmailJS with your public key
-    })();
+        // Star rating system
+        function updateRating(value) {
+            ratingInput.value = value;
+            ratingTooltip.textContent = value ? `${value}/5` : '0';
+            clearRatingButton.classList.toggle('visible', value > 0);
+            ratingError.classList.remove('visible');
 
-    document.getElementById('contactForm').addEventListener('submit', function(event) {
-      event.preventDefault();
+            stars.forEach(star => {
+                const starValue = parseInt(star.dataset.value);
+                star.classList.toggle('filled', starValue <= value);
+                star.classList.remove('hovered');
+                star.setAttribute('aria-checked', starValue === value);
+            });
+        }
 
-      // Ensure that the feedback field has a default value if left empty
-      var feedback = document.getElementById('message').value.trim();
-      if (feedback === "") {
-        document.getElementById('message').value = "Deep regards!";
-      }
+        stars.forEach(star => {
+            star.addEventListener('click', () => {
+                updateRating(parseInt(star.dataset.value));
+            });
 
-      // Get reCAPTCHA response
-      var captchaResponse = grecaptcha.getResponse();
+            star.addEventListener('mouseover', () => {
+                const value = parseInt(star.dataset.value);
+                ratingTooltip.textContent = `${value}/5`;
+                stars.forEach(s => {
+                    s.classList.toggle('hovered', parseInt(s.dataset.value) <= value);
+                });
+            });
 
-      // Check if reCAPTCHA is verified
-      if (captchaResponse.length === 0) {
-        alert("Please verify that you are a human.");
-        return; // Stop form submission if CAPTCHA is not solved
-      }
+            star.addEventListener('mouseout', () => {
+                stars.forEach(s => s.classList.remove('hovered'));
+                ratingTooltip.textContent = ratingInput.value ? `${ratingInput.value}/5` : '0';
+            });
 
-      const form = event.target;
+            star.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    updateRating(parseInt(star.dataset.value));
+                }
+            });
+        });
 
-      // Send the email through EmailJS
-      emailjs.sendForm('service_yqc5l1m', 'template_xi6usec', form)
-        .then(function(response) {
-          alert("Your message has been sent successfully!");
-        // Redirect to index.html after 2 seconds
-      setTimeout(function() {
-        window.location.href = "index.html";
-      }, 2000); // 2000ms = 2 seconds
+        // Clear rating
+        clearRatingButton.addEventListener('click', () => {
+            updateRating(0);
+            clearRatingButton.classList.remove('visible');
+        });
 
-      }, function(error) {
-      alert("Sorry, there was an error sending your message. Please try again.");
-      });
-      });
-  </script>
+        // Modal handling
+        function openModal(name, email, rating, message) {
+            modalSummary.innerHTML = `
+                <strong>Name:</strong> ${name}<br>
+                <strong>Email:</strong> ${email}<br>
+                <strong>Rating:</strong> ${rating}/5 stars<br>
+                <strong>Message:</strong> ${message}
+            `;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
 
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            window.location.href = 'index.html';
+        }
+
+        // Form submission
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (!ratingInput.value || ratingInput.value === '0') {
+                ratingError.classList.add('visible');
+                ratingContainer.classList.add('shake');
+                setTimeout(() => ratingContainer.classList.remove('shake'), 500);
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            const feedback = messageInput.value.trim() || 'Deep regards!';
+            messageInput.value = feedback;
+
+            const captchaResponse = grecaptcha.getResponse();
+            if (!captchaResponse) {
+                alert('Please verify that you are a human.');
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                return;
+            }
+
+            const formData = new FormData(form);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const rating = formData.get('rating');
+            const message = formData.get('message');
+
+            emailjs.sendForm('service_yqc5l1m', 'template_xi6usec', form)
+                .then(() => {
+                    openModal(name, email, rating, message);
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                }, (error) => {
+                    alert('Sorry, there was an error sending your message. Please try again.');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                });
+        });
+
+        const ratingContainer = document.querySelector('.rating-container');
+    </script>
 </body>
 </html>
