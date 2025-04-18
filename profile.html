@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - Sarvwigyan</title>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
@@ -45,8 +45,8 @@
 
         .container {
             max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 20px auto;
+            padding: 0 15px;
         }
 
         .profile-card {
@@ -56,6 +56,7 @@
             overflow: hidden;
             transition: all var(--transition-speed);
             position: relative;
+            margin-bottom: 20px;
         }
 
         .profile-header {
@@ -64,18 +65,18 @@
             position: relative;
             display: flex;
             align-items: flex-end;
-            padding: 0 30px 30px;
+            padding: 0 20px 30px;
         }
 
         .profile-pic-container {
             position: relative;
-            margin-right: 30px;
+            margin-right: 20px;
             margin-bottom: -60px;
         }
 
         .profile-pic {
-            width: 140px;
-            height: 140px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 4px solid var(--card-bg);
             object-fit: cover;
@@ -112,7 +113,7 @@
         }
 
         .profile-name {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 500;
             margin: 0;
             color: white;
@@ -121,11 +122,11 @@
         }
 
         .profile-content {
-            padding: 80px 30px 30px;
+            padding: 80px 20px 20px;
         }
 
         .profile-section {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .section-title {
@@ -135,6 +136,7 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
+            cursor: pointer;
         }
 
         .section-title .material-symbols-outlined {
@@ -144,8 +146,8 @@
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
         }
 
         .info-item {
@@ -181,13 +183,13 @@
 
         .action-buttons {
             display: flex;
-            gap: 15px;
-            margin-top: 30px;
+            gap: 12px;
+            margin-top: 25px;
             flex-wrap: wrap;
         }
 
         .button {
-            padding: 12px 24px;
+            padding: 12px 20px;
             border-radius: 8px;
             font-weight: 500;
             cursor: pointer;
@@ -240,8 +242,8 @@
 
         .theme-toggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 20px;
+            right: 20px;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -297,7 +299,159 @@
             color: var(--text-primary);
         }
 
+        /* New additions */
+        .stats-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 120px;
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            transition: transform var(--transition-speed);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .activity-list {
+            margin-top: 15px;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        [data-theme="dark"] .activity-item {
+            border-bottom-color: rgba(255,255,255,0.05);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(66,133,244,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary-color);
+        }
+
+        .activity-details {
+            flex: 1;
+        }
+
+        .activity-title {
+            font-weight: 500;
+            margin-bottom: 3px;
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .progress-container {
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background-color: rgba(0,0,0,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 5px;
+        }
+
+        [data-theme="dark"] .progress-bar {
+            background-color: rgba(255,255,255,0.05);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .tab-container {
+            display: flex;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        [data-theme="dark"] .tab-container {
+            border-bottom-color: rgba(255,255,255,0.1);
+        }
+
+        .tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .tab.active {
+            color: var(--primary-color);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Mobile optimizations */
         @media (max-width: 768px) {
+            .container {
+                margin: 10px auto;
+                padding: 0 10px;
+            }
+
             .profile-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -307,16 +461,25 @@
 
             .profile-pic-container {
                 margin-bottom: -70px;
-                margin-left: 20px;
+                margin-left: 15px;
+                margin-right: 0;
+            }
+
+            .profile-pic {
+                width: 100px;
+                height: 100px;
             }
 
             .profile-name {
-                margin-top: 20px;
-                margin-left: 20px;
+                margin-top: 15px;
+                margin-left: 15px;
+                font-size: 20px;
             }
 
             .profile-content {
-                padding-top: 100px;
+                padding-top: 90px;
+                padding-left: 15px;
+                padding-right: 15px;
             }
 
             .action-buttons {
@@ -325,6 +488,49 @@
 
             .button {
                 width: 100%;
+            }
+
+            .stats-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .stat-card {
+                min-width: 100%;
+            }
+
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tab-container {
+                overflow-x: auto;
+                white-space: nowrap;
+                padding-bottom: 5px;
+            }
+
+            .tab {
+                padding: 10px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-pic {
+                width: 80px;
+                height: 80px;
+            }
+
+            .edit-profile-pic {
+                width: 30px;
+                height: 30px;
+            }
+
+            .section-title {
+                font-size: 16px;
+            }
+
+            .info-value {
+                font-size: 14px;
             }
         }
 
@@ -381,73 +587,228 @@
             </div>
 
             <div class="profile-content">
-                <div class="profile-section fade-in" style="animation-delay: 0.1s">
-                    <h2 class="section-title">
-                        <span class="material-symbols-outlined">person</span>
-                        Personal Information
-                    </h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-label">Full Name</div>
-                            <div class="info-value" id="fullName">Loading...</div>
+                <!-- Stats Section -->
+                <div class="stats-container fade-in" style="animation-delay: 0.1s">
+                    <div class="stat-card">
+                        <div class="stat-value" id="projectsCount">12</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="connectionsCount">48</div>
+                        <div class="stat-label">Connections</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="activityScore">87%</div>
+                        <div class="stat-label">Activity</div>
+                    </div>
+                </div>
+
+                <!-- Tab Navigation -->
+                <div class="tab-container">
+                    <div class="tab active" onclick="switchTab('personal')">Personal</div>
+                    <div class="tab" onclick="switchTab('security')">Security</div>
+                    <div class="tab" onclick="switchTab('activity')">Activity</div>
+                    <div class="tab" onclick="switchTab('settings')">Settings</div>
+                </div>
+
+                <!-- Personal Tab -->
+                <div id="personal-tab" class="tab-content active">
+                    <div class="profile-section">
+                        <h2 class="section-title" onclick="toggleSection('personal-info')">
+                            <span class="material-symbols-outlined">person</span>
+                            Personal Information
+                        </h2>
+                        <div class="info-grid" id="personal-info">
+                            <div class="info-item">
+                                <div class="info-label">Full Name</div>
+                                <div class="info-value" id="fullName">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Email Address</div>
+                                <div class="info-value" id="userEmail">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Phone Number</div>
+                                <div class="info-value" id="phoneNumber">+1 (555) 123-4567</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Location</div>
+                                <div class="info-value" id="location">San Francisco, CA</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Account Created</div>
+                                <div class="info-value" id="accountCreated">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">User ID</div>
+                                <div class="info-value" id="userId">Loading...</div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-label">Email Address</div>
-                            <div class="info-value" id="userEmail">Loading...</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Account Created</div>
-                            <div class="info-value" id="accountCreated">Loading...</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">User ID</div>
-                            <div class="info-value" id="userId">Loading...</div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2 class="section-title" onclick="toggleSection('bio-section')">
+                            <span class="material-symbols-outlined">description</span>
+                            Bio
+                        </h2>
+                        <div class="info-item" id="bio-section">
+                            <div class="info-label">About Me</div>
+                            <div class="info-value" id="userBio">Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.</div>
                         </div>
                     </div>
                 </div>
 
-                <div class="profile-section fade-in" style="animation-delay: 0.2s">
-                    <h2 class="section-title">
-                        <span class="material-symbols-outlined">security</span>
-                        Security
-                    </h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-label">Last Login</div>
-                            <div class="info-value" id="lastLogin">Loading...</div>
+                <!-- Security Tab -->
+                <div id="security-tab" class="tab-content">
+                    <div class="profile-section">
+                        <h2 class="section-title" onclick="toggleSection('security-info')">
+                            <span class="material-symbols-outlined">security</span>
+                            Security
+                        </h2>
+                        <div class="info-grid" id="security-info">
+                            <div class="info-item">
+                                <div class="info-label">Last Login</div>
+                                <div class="info-value" id="lastLogin">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Password Last Changed</div>
+                                <div class="info-value" id="passwordChanged">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Two-Factor Authentication</div>
+                                <div class="info-value" id="twoFactorStatus">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Active Sessions</div>
+                                <div class="info-value">2 devices</div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-label">Password Last Changed</div>
-                            <div class="info-value" id="passwordChanged">Loading...</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Two-Factor Authentication</div>
-                            <div class="info-value" id="twoFactorStatus">Loading...</div>
+                        <div class="security-status" id="securityStatus">
+                            <span class="material-symbols-outlined security-icon">verified</span>
+                            <span class="security-text">Your account security is strong</span>
                         </div>
                     </div>
-                    <div class="security-status" id="securityStatus">
-                        <span class="material-symbols-outlined security-icon">verified</span>
-                        <span class="security-text">Your account security is strong</span>
+
+                    <div class="profile-section">
+                        <h2 class="section-title">
+                            <span class="material-symbols-outlined">lock</span>
+                            Security Progress
+                        </h2>
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span>Account Security</span>
+                                <span>85% complete</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="profile-section fade-in" style="animation-delay: 0.3s">
-                    <h2 class="section-title">
-                        <span class="material-symbols-outlined">settings</span>
-                        Preferences
-                    </h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-label">Theme</div>
-                            <div class="info-value" id="themePreference">Loading...</div>
+                <!-- Activity Tab -->
+                <div id="activity-tab" class="tab-content">
+                    <div class="profile-section">
+                        <h2 class="section-title">
+                            <span class="material-symbols-outlined">history</span>
+                            Recent Activity
+                        </h2>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <span class="material-symbols-outlined">login</span>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-title">Logged in from Chrome on Windows</div>
+                                    <div class="activity-time">Just now</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <span class="material-symbols-outlined">edit</span>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-title">Updated profile information</div>
+                                    <div class="activity-time">2 hours ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <span class="material-symbols-outlined">lock</span>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-title">Changed password</div>
+                                    <div class="activity-time">1 week ago</div>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <span class="material-symbols-outlined">devices</span>
+                                </div>
+                                <div class="activity-details">
+                                    <div class="activity-title">Logged in from Mobile App</div>
+                                    <div class="activity-time">2 weeks ago</div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-label">Language</div>
-                            <div class="info-value" id="languagePreference">Loading...</div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div id="settings-tab" class="tab-content">
+                    <div class="profile-section">
+                        <h2 class="section-title" onclick="toggleSection('preferences')">
+                            <span class="material-symbols-outlined">settings</span>
+                            Preferences
+                        </h2>
+                        <div class="info-grid" id="preferences">
+                            <div class="info-item">
+                                <div class="info-label">Theme</div>
+                                <div class="info-value" id="themePreference">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Language</div>
+                                <div class="info-value" id="languagePreference">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Notification Settings</div>
+                                <div class="info-value" id="notificationSettings">Loading...</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">Email Frequency</div>
+                                <div class="info-value">Weekly digest</div>
+                            </div>
                         </div>
+                    </div>
+
+                    <div class="profile-section">
+                        <h2 class="section-title">
+                            <span class="material-symbols-outlined">notifications</span>
+                            Notification Preferences
+                        </h2>
                         <div class="info-item">
-                            <div class="info-label">Notification Settings</div>
-                            <div class="info-value" id="notificationSettings">Loading...</div>
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div class="info-label">Email Notifications</div>
+                                    <div class="info-value">Receive important updates via email</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="info-item" style="margin-top: 10px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <div>
+                                    <div class="info-label">Push Notifications</div>
+                                    <div class="info-value">Get instant alerts on your device</div>
+                                </div>
+                                <label class="switch">
+                                    <input type="checkbox" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -489,7 +850,15 @@
             themePreference: "System default",
             languagePreference: "English (United States)",
             notificationSettings: "Email alerts only",
-            securityStatus: "strong"
+            securityStatus: "strong",
+            phoneNumber: "+1 (555) 123-4567",
+            location: "San Francisco, CA",
+            bio: "Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.",
+            stats: {
+                projects: 12,
+                connections: 48,
+                activity: 87
+            }
         };
 
         // Function to load user data with simulated delay
@@ -512,6 +881,14 @@
                 document.getElementById('userId').textContent = user.userId || 'Not available';
                 document.getElementById('lastLogin').textContent = user.lastLogin || 'Unknown';
                 document.getElementById('passwordChanged').textContent = user.passwordChanged || 'Never';
+                document.getElementById('phoneNumber').textContent = user.phoneNumber || 'Not provided';
+                document.getElementById('location').textContent = user.location || 'Not specified';
+                document.getElementById('userBio').textContent = user.bio || 'No bio provided';
+                
+                // Stats
+                document.getElementById('projectsCount').textContent = user.stats?.projects || '0';
+                document.getElementById('connectionsCount').textContent = user.stats?.connections || '0';
+                document.getElementById('activityScore').textContent = user.stats?.activity ? `${user.stats.activity}%` : '0%';
                 
                 // Two-factor status with badge
                 const twoFactorEl = document.getElementById('twoFactorStatus');
@@ -595,6 +972,29 @@
         // Open image upload
         function openImageUpload() {
             alert('Image upload dialog would open here in a real application.');
+        }
+
+        // Toggle section visibility
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            section.style.display = section.style.display === 'none' ? 'grid' : 'none';
+        }
+
+        // Switch between tabs
+        function switchTab(tabName) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Deactivate all tabs
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Activate selected tab
+            document.getElementById(`${tabName}-tab`).classList.add('active');
+            document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
         }
 
         // Load user profile on page load
