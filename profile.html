@@ -1,439 +1,168 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile - Sarvwigyan</title>
-    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --primary-color: #4285F4;
-            --secondary-color: #34A853;
-            --danger-color: #EA4335;
-            --warning-color: #FBBC05;
-            --text-primary: #202124;
-            --text-secondary: #5F6368;
-            --bg-color: #FFFFFF;
-            --card-bg: #FFFFFF;
-            --card-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 2px 6px 2px rgba(60,64,67,0.15);
-            --transition-speed: 0.3s;
+            --background: #fafafa;
+            --card-bg: #ffffff;
+            --text: #1a1a1a;
+            --secondary-text: #6b7280;
+            --primary: #2563eb;
+            --secondary: #10b981;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --border: #e5e7eb;
         }
 
         [data-theme="dark"] {
-            --primary-color: #8AB4F8;
-            --secondary-color: #81C995;
-            --danger-color: #F28B82;
-            --warning-color: #FDDF7F;
-            --text-primary: #E8EAED;
-            --text-secondary: #9AA0A6;
-            --bg-color: #202124;
-            --card-bg: #303134;
-            --card-shadow: 0 1px 3px 0 rgba(0,0,0,0.6), 0 4px 8px 3px rgba(0,0,0,0.3);
+            --background: #1f1f1f;
+            --card-bg: #2d2d2d;
+            --text: #f3f4f6;
+            --secondary-text: #9ca3af;
+            --primary: #3b82f6;
+            --secondary: #34d399;
+            --danger: #f87171;
+            --warning: #fbbf24;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border: #374151;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
         }
 
         body {
-            font-family: 'Google Sans', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            transition: background-color var(--transition-speed);
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 0 15px;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
         }
 
         .profile-card {
-            background-color: var(--card-bg);
+            background: var(--card-bg);
             border-radius: 12px;
-            box-shadow: var(--card-shadow);
+            box-shadow: 0 2px 8px var(--shadow);
             overflow: hidden;
-            transition: all var(--transition-speed);
-            position: relative;
-            margin-bottom: 20px;
         }
 
         .profile-header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            height: 180px;
-            position: relative;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 2rem;
             display: flex;
-            align-items: flex-end;
-            padding: 0 20px 30px;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .profile-pic-container {
             position: relative;
-            margin-right: 20px;
-            margin-bottom: -60px;
         }
 
         .profile-pic {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
-            border: 4px solid var(--card-bg);
+            border: 3px solid var(--card-bg);
             object-fit: cover;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            transition: all var(--transition-speed);
-            cursor: pointer;
+            transition: transform 0.2s;
         }
 
         .profile-pic:hover {
             transform: scale(1.05);
-            box-shadow: 0 6px 16px rgba(0,0,0,0.3);
         }
 
         .edit-profile-pic {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
-            background-color: var(--card-bg);
+            bottom: 0;
+            right: 0;
+            background: var(--card-bg);
             border-radius: 50%;
-            width: 36px;
-            height: 36px;
+            width: 32px;
+            height: 32px;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
             cursor: pointer;
-            transition: all var(--transition-speed);
+            transition: background 0.2s;
         }
 
         .edit-profile-pic:hover {
-            background-color: var(--primary-color);
+            background: var(--primary);
             color: white;
-            transform: scale(1.1);
         }
 
         .profile-name {
-            font-size: 24px;
-            font-weight: 500;
-            margin: 0;
+            font-size: 1.75rem;
+            font-weight: 600;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            flex-grow: 1;
+            flex: 1;
         }
 
         .profile-content {
-            padding: 80px 20px 20px;
+            padding: 2rem;
         }
 
-        .profile-section {
-            margin-bottom: 25px;
-        }
-
-        .section-title {
-            font-size: 18px;
-            font-weight: 500;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-        }
-
-        .section-title .material-symbols-outlined {
-            margin-right: 10px;
-            font-size: 22px;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 15px;
-        }
-
-        .info-item {
-            background-color: rgba(0,0,0,0.03);
-            border-radius: 8px;
-            padding: 15px;
-            transition: all var(--transition-speed);
-        }
-
-        [data-theme="dark"] .info-item {
-            background-color: rgba(255,255,255,0.05);
-        }
-
-        .info-item:hover {
-            background-color: rgba(0,0,0,0.05);
-            transform: translateY(-2px);
-        }
-
-        [data-theme="dark"] .info-item:hover {
-            background-color: rgba(255,255,255,0.08);
-        }
-
-        .info-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 5px;
-        }
-
-        .info-value {
-            font-size: 16px;
-            font-weight: 500;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-
-        .button {
-            padding: 12px 20px;
-            border-radius: 8px;
-            font-weight: 500;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            transition: all var(--transition-speed);
-            border: none;
-            font-family: 'Google Sans', sans-serif;
-            font-size: 14px;
-        }
-
-        .button-primary {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .button-primary:hover {
-            background-color: var(--primary-color);
-            box-shadow: 0 2px 6px rgba(66,133,244,0.4);
-            transform: translateY(-2px);
-        }
-
-        .button-danger {
-            background-color: var(--danger-color);
-            color: white;
-        }
-
-        .button-danger:hover {
-            background-color: var(--danger-color);
-            box-shadow: 0 2px 6px rgba(234,67,53,0.4);
-            transform: translateY(-2px);
-        }
-
-        .button-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-        }
-
-        .button-secondary:hover {
-            background-color: rgba(66,133,244,0.08);
-            transform: translateY(-2px);
-        }
-
-        .button .material-symbols-outlined {
-            margin-right: 8px;
-            font-size: 18px;
-        }
-
-        .theme-toggle {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 100;
-            transition: all var(--transition-speed);
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.1) rotate(30deg);
-        }
-
-        .security-status {
-            display: flex;
-            align-items: center;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 8px;
-            background-color: rgba(52,168,83,0.1);
-        }
-
-        .security-status.alert {
-            background-color: rgba(234,67,53,0.1);
-        }
-
-        .security-icon {
-            margin-right: 10px;
-            color: var(--secondary-color);
-        }
-
-        .security-icon.alert {
-            color: var(--danger-color);
-        }
-
-        .security-text {
-            font-size: 14px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 3px 8px;
-            border-radius: 12px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-left: 10px;
-            background-color: var(--warning-color);
-            color: var(--text-primary);
-        }
-
-        /* New additions */
         .stats-container {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
         .stat-card {
-            flex: 1;
-            min-width: 120px;
-            background-color: var(--card-bg);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: var(--card-shadow);
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1rem;
             text-align: center;
-            transition: transform var(--transition-speed);
+            box-shadow: 0 1px 4px var(--shadow);
+            transition: transform 0.2s;
         }
 
         .stat-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
         }
 
         .stat-value {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary);
         }
 
         .stat-label {
-            font-size: 14px;
-            color: var(--text-secondary);
-        }
-
-        .activity-list {
-            margin-top: 15px;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 0;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
-
-        [data-theme="dark"] .activity-item {
-            border-bottom-color: rgba(255,255,255,0.05);
-        }
-
-        .activity-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: rgba(66,133,244,0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: var(--primary-color);
-        }
-
-        .activity-details {
-            flex: 1;
-        }
-
-        .activity-title {
-            font-weight: 500;
-            margin-bottom: 3px;
-        }
-
-        .activity-time {
-            font-size: 12px;
-            color: var(--text-secondary);
-        }
-
-        .progress-container {
-            margin-top: 20px;
-        }
-
-        .progress-bar {
-            height: 8px;
-            background-color: rgba(0,0,0,0.05);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-bottom: 5px;
-        }
-
-        [data-theme="dark"] .progress-bar {
-            background-color: rgba(255,255,255,0.05);
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            border-radius: 4px;
-            transition: width 0.5s ease;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 13px;
-            color: var(--text-secondary);
+            font-size: 0.875rem;
+            color: var(--secondary-text);
         }
 
         .tab-container {
             display: flex;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-            margin-bottom: 20px;
-        }
-
-        [data-theme="dark"] .tab-container {
-            border-bottom-color: rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 1.5rem;
         }
 
         .tab {
-            padding: 10px 20px;
+            padding: 0.75rem 1.5rem;
             cursor: pointer;
             font-weight: 500;
-            color: var(--text-secondary);
-            position: relative;
+            color: var(--secondary-text);
+            transition: color 0.2s;
         }
 
         .tab.active {
-            color: var(--primary-color);
-        }
-
-        .tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: var(--primary-color);
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
         }
 
         .tab-content {
@@ -444,58 +173,260 @@
             display: block;
         }
 
-        /* Mobile optimizations */
-        @media (max-width: 768px) {
-            .container {
-                margin: 10px auto;
-                padding: 0 10px;
-            }
+        .profile-section {
+            margin-bottom: 1.5rem;
+        }
 
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1rem;
+        }
+
+        .info-item {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 1px 4px var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .info-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .info-label {
+            font-size: 0.875rem;
+            color: var(--secondary-text);
+            margin-bottom: 0.25rem;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .security-status {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem;
+            border-radius: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            margin-top: 1rem;
+        }
+
+        .security-status.alert {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .security-icon {
+            color: var(--secondary);
+            margin-right: 0.5rem;
+        }
+
+        .security-icon.alert {
+            color: var(--danger);
+        }
+
+        .security-text {
+            font-size: 0.875rem;
+        }
+
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: var(--border);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--secondary-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-list {
+            margin-top: 1rem;
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(37, 99, 235, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+
+        .activity-title {
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--secondary-text);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            font-size: 0.875rem;
+        }
+
+        .button-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .button-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--primary);
+            border: 1px solid var(--primary);
+        }
+
+        .button-secondary:hover {
+            background: rgba(37, 99, 235, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .button-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        .button-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 6px var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+            background: var(--warning);
+            color: var(--text);
+        }
+
+        .skeleton {
+            background: var(--border);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skeleton::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        @media (max-width: 768px) {
             .profile-header {
                 flex-direction: column;
                 align-items: flex-start;
-                height: auto;
-                padding-bottom: 80px;
-            }
-
-            .profile-pic-container {
-                margin-bottom: -70px;
-                margin-left: 15px;
-                margin-right: 0;
+                padding: 1.5rem;
             }
 
             .profile-pic {
-                width: 100px;
-                height: 100px;
+                width: 80px;
+                height: 80px;
             }
 
             .profile-name {
-                margin-top: 15px;
-                margin-left: 15px;
-                font-size: 20px;
+                font-size: 1.5rem;
+                margin-top: 1rem;
             }
 
             .profile-content {
-                padding-top: 90px;
-                padding-left: 15px;
-                padding-right: 15px;
-            }
-
-            .action-buttons {
-                flex-direction: column;
-            }
-
-            .button {
-                width: 100%;
-            }
-
-            .stats-container {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            .stat-card {
-                min-width: 100%;
+                padding: 1.5rem;
             }
 
             .info-grid {
@@ -505,75 +436,40 @@
             .tab-container {
                 overflow-x: auto;
                 white-space: nowrap;
-                padding-bottom: 5px;
             }
 
-            .tab {
-                padding: 10px 15px;
+            .action-buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
             }
         }
 
         @media (max-width: 480px) {
             .profile-pic {
-                width: 80px;
-                height: 80px;
+                width: 64px;
+                height: 64px;
             }
 
             .edit-profile-pic {
-                width: 30px;
-                height: 30px;
+                width: 28px;
+                height: 28px;
             }
 
             .section-title {
-                font-size: 16px;
+                font-size: 1.125rem;
             }
 
-            .info-value {
-                font-size: 14px;
+            .tab {
+                padding: 0.5rem 1rem;
             }
-        }
-
-        /* Animation classes */
-        .fade-in {
-            animation: fadeIn 0.5s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Loading skeleton */
-        .skeleton {
-            background-color: #e0e0e0;
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        [data-theme="dark"] .skeleton {
-            background-color: #3c4043;
-        }
-
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            animation: shimmer 1.5s infinite;
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
     </style>
 </head>
 <body>
-    <div class="container animate__animated animate__fadeIn">
+    <div class="container">
         <div class="profile-card">
             <div class="profile-header">
                 <div class="profile-pic-container">
@@ -586,8 +482,7 @@
             </div>
 
             <div class="profile-content">
-                <!-- Stats Section -->
-                <div class="stats-container fade-in" style="animation-delay: 0.1s">
+                <div class="stats-container">
                     <div class="stat-card">
                         <div class="stat-value" id="projectsCount">12</div>
                         <div class="stat-label">Projects</div>
@@ -602,7 +497,6 @@
                     </div>
                 </div>
 
-                <!-- Tab Navigation -->
                 <div class="tab-container">
                     <div class="tab active" onclick="switchTab('personal')">Personal</div>
                     <div class="tab" onclick="switchTab('security')">Security</div>
@@ -610,7 +504,6 @@
                     <div class="tab" onclick="switchTab('settings')">Settings</div>
                 </div>
 
-                <!-- Personal Tab -->
                 <div id="personal-tab" class="tab-content active">
                     <div class="profile-section">
                         <h2 class="section-title" onclick="toggleSection('personal-info')">
@@ -644,7 +537,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="profile-section">
                         <h2 class="section-title" onclick="toggleSection('bio-section')">
                             <span class="material-symbols-outlined">description</span>
@@ -657,7 +549,6 @@
                     </div>
                 </div>
 
-                <!-- Security Tab -->
                 <div id="security-tab" class="tab-content">
                     <div class="profile-section">
                         <h2 class="section-title" onclick="toggleSection('security-info')">
@@ -687,7 +578,6 @@
                             <span class="security-text">Your account security is strong</span>
                         </div>
                     </div>
-
                     <div class="profile-section">
                         <h2 class="section-title">
                             <span class="material-symbols-outlined">lock</span>
@@ -705,7 +595,6 @@
                     </div>
                 </div>
 
-                <!-- Activity Tab -->
                 <div id="activity-tab" class="tab-content">
                     <div class="profile-section">
                         <h2 class="section-title">
@@ -753,7 +642,6 @@
                     </div>
                 </div>
 
-                <!-- Settings Tab -->
                 <div id="settings-tab" class="tab-content">
                     <div class="profile-section">
                         <h2 class="section-title" onclick="toggleSection('preferences')">
@@ -779,7 +667,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="profile-section">
                         <h2 class="section-title">
                             <span class="material-symbols-outlined">notifications</span>
@@ -797,11 +684,11 @@
                                 </label>
                             </div>
                         </div>
-                        <div class="info-item" style="margin-top: 10px;">
+                        <div class="info-item" style="margin-top: 0.5rem;">
                             <div style="display: flex; justify-content: space-between; align-items: center;">
                                 <div>
                                     <div class="info-label">Push Notifications</div>
-                                    <div class="info-value">Get instant alerts on your device</div>
+                                    <div class="info-value">Get incomprised alerts on your device</div>
                                 </div>
                                 <label class="switch">
                                     <input type="checkbox" checked>
@@ -812,7 +699,7 @@
                     </div>
                 </div>
 
-                <div class="action-buttons fade-in" style="animation-delay: 0.4s">
+                <div class="action-buttons">
                     <button class="button button-primary" onclick="editProfile()">
                         <span class="material-symbols-outlined">edit</span>
                         Edit Profile
@@ -835,14 +722,11 @@
     </div>
 
     <script>
-        // Function to load user data with simulated delay
         function loadUserProfile() {
-            // Show loading state
             document.querySelectorAll('.info-value').forEach(el => {
-                el.innerHTML = '<div class="skeleton" style="height: 20px; width: 80%;"></div>';
+                el.innerHTML = '<div class="skeleton" style="height: 16px; width: 80%;"></div>';
             });
-            
-            // Simulate API call delay
+
             setTimeout(() => {
                 const user = JSON.parse(localStorage.getItem('user'));
                 if (!user) {
@@ -850,9 +734,8 @@
                     window.location.href = "login.html";
                     return;
                 }
-                
-                // Set profile picture with fallback
-                document.getElementById('profilePic').src = user.picture || 'https://www.gstatic.com/images/branding/product/1x/avatar_square_blue_120dp.png';
+
+                document.getElementById('profilePic').src = user.picture || 'https://via.placeholder.com/100';
                 document.getElementById('userName').textContent = user.name || 'Unknown User';
                 document.getElementById('userEmail').textContent = user.email || 'No email provided';
                 document.getElementById('fullName').textContent = user.fullName || 'Not specified';
@@ -863,13 +746,11 @@
                 document.getElementById('phoneNumber').textContent = user.phoneNumber || 'Not provided';
                 document.getElementById('location').textContent = user.location || 'Not specified';
                 document.getElementById('userBio').textContent = user.bio || 'No bio provided';
-                
-                // Stats
+
                 document.getElementById('projectsCount').textContent = user.stats?.projects || '0';
                 document.getElementById('connectionsCount').textContent = user.stats?.connections || '0';
                 document.getElementById('activityScore').textContent = user.stats?.activity ? `${user.stats.activity}%` : '0%';
-                
-                // Two-factor status with badge
+
                 const twoFactorEl = document.getElementById('twoFactorStatus');
                 twoFactorEl.textContent = user.twoFactorEnabled ? 'Enabled' : 'Disabled';
                 if (user.twoFactorEnabled) {
@@ -878,13 +759,11 @@
                     badge.textContent = 'Recommended';
                     twoFactorEl.appendChild(badge);
                 }
-                
-                // Preferences
+
                 document.getElementById('themePreference').textContent = user.themePreference || 'System default';
                 document.getElementById('languagePreference').textContent = user.languagePreference || 'English';
                 document.getElementById('notificationSettings').textContent = user.notificationSettings || 'All notifications';
-                
-                // Security status
+
                 const securityStatusEl = document.getElementById('securityStatus');
                 if (user.securityStatus === 'weak') {
                     securityStatusEl.classList.add('alert');
@@ -892,91 +771,60 @@
                     securityStatusEl.querySelector('.security-icon').classList.add('alert');
                     securityStatusEl.querySelector('.security-text').textContent = 'Your account security needs attention';
                 }
-                
-                // Apply theme from localStorage if set
+
                 const savedTheme = localStorage.getItem('theme') || 'light';
-                document.documentElement.setAttribute('data-theme', savedTheme);
+                document.body.dataset.theme = savedTheme;
                 updateThemeIcon(savedTheme);
-                
-            }, 1500); // 1.5 second delay to simulate network request
+            }, 1500);
         }
-    
-        // Theme toggle function
+
         function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const currentTheme = document.body.dataset.theme;
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
+            document.body.dataset.theme = newTheme;
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
-            
-            // Add animation to theme toggle
-            const icon = document.getElementById('themeIcon');
-            icon.style.transform = 'rotate(360deg)';
-            setTimeout(() => {
-                icon.style.transform = 'rotate(0deg)';
-            }, 500);
         }
-        
+
         function updateThemeIcon(theme) {
-            const icon = document.getElementById('themeIcon');
-            icon.textContent = theme === 'dark' ? 'light_mode' : 'dark_mode';
+            document.getElementById('themeIcon').textContent = theme === 'dark' ? 'light_mode' : 'dark_mode';
         }
-    
-        // Enhanced logout with confirmation
+
         function confirmLogout() {
             if (confirm('Are you sure you want to sign out?')) {
-                // Show loading state
                 document.body.style.opacity = '0.7';
                 document.body.style.pointerEvents = 'none';
-                
-                // Simulate logout delay
                 setTimeout(() => {
                     localStorage.removeItem('user');
                     window.location.href = "index.html";
                 }, 800);
             }
         }
-    
-        // Edit profile function
+
         function editProfile() {
-            alert('Edit profile functionality would open a modal or redirect to edit page in a real application.');
+            alert('Edit profile functionality would open a modal or redirect to edit page.');
         }
-    
-        // Change password function
+
         function changePassword() {
-            alert('Change password functionality would open a secure form in a real application.');
+            alert('Change password functionality would open a secure form.');
         }
-    
-        // Open image upload
+
         function openImageUpload() {
-            alert('Image upload dialog would open here in a real application.');
+            alert('Image upload dialog would open here.');
         }
-    
-        // Toggle section visibility
+
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             section.style.display = section.style.display === 'none' ? 'grid' : 'none';
         }
-    
-        // Switch between tabs
+
         function switchTab(tabName) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Deactivate all tabs
-            document.querySelectorAll('.tab').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            
-            // Activate selected tab
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
             document.getElementById(`${tabName}-tab`).classList.add('active');
             document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
         }
-    
-        // Load user profile on page load
+
         window.onload = loadUserProfile;
     </script>
 </body>
