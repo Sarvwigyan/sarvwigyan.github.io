@@ -659,7 +659,7 @@
             alert("Sorry, we are currently working on this feature. Kindly co-operate.");
         }
     
-        // Enhanced user data structure that matches profile.html requirements
+        // Comprehensive user data structure
         const enhancedUserData = {
             name: "Alex Johnson",
             email: "alex.johnson@sarvwigyan.com",
@@ -673,7 +673,15 @@
             themePreference: "System default",
             languagePreference: "English (United States)",
             notificationSettings: "Email alerts only",
-            securityStatus: "strong"
+            securityStatus: "strong",
+            phoneNumber: "+1 (555) 123-4567",
+            location: "San Francisco, CA",
+            bio: "Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.",
+            stats: {
+                projects: 12,
+                connections: 48,
+                activity: 87
+            }
         };
     
         // Simulate login function
@@ -737,10 +745,7 @@
             window.location.href = "index.html";
         }
     
-        // Add login simulation for demo purposes
-        // In a real app, this would be replaced with actual login form handling
         document.addEventListener('DOMContentLoaded', function() {
-            // Check if we're coming from a login redirect
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('login') && urlParams.get('login') === 'success') {
                 simulateLogin();
@@ -797,7 +802,6 @@
             }
         };
     
-        // Slider code remains unchanged
         let currentSlide = 0;
         let autoSlideInterval;
         const slides = document.querySelectorAll('.slide');

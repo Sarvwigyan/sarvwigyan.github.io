@@ -836,31 +836,6 @@
     </div>
 
     <script>
-        // Enhanced user data with more fields
-        const enhancedUserData = {
-            name: "Alex Johnson",
-            email: "alex.johnson@sarvwigyan.com",
-            picture: "https://randomuser.me/api/portraits/men/32.jpg",
-            fullName: "Alex Michael Johnson",
-            accountCreated: "January 15, 2022",
-            userId: "USR-7890-4567-1234",
-            lastLogin: "Just now",
-            passwordChanged: "3 months ago",
-            twoFactorEnabled: true,
-            themePreference: "System default",
-            languagePreference: "English (United States)",
-            notificationSettings: "Email alerts only",
-            securityStatus: "strong",
-            phoneNumber: "+1 (555) 123-4567",
-            location: "San Francisco, CA",
-            bio: "Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.",
-            stats: {
-                projects: 12,
-                connections: 48,
-                activity: 87
-            }
-        };
-
         // Function to load user data with simulated delay
         function loadUserProfile() {
             // Show loading state
@@ -870,7 +845,12 @@
             
             // Simulate API call delay
             setTimeout(() => {
-                const user = JSON.parse(localStorage.getItem('user')) || enhancedUserData;
+                const user = JSON.parse(localStorage.getItem('user'));
+                if (!user) {
+                    alert('No user data found. Please log in.');
+                    window.location.href = "login.html";
+                    return;
+                }
                 
                 // Set profile picture with fallback
                 document.getElementById('profilePic').src = user.picture || 'https://www.gstatic.com/images/branding/product/1x/avatar_square_blue_120dp.png';
@@ -921,7 +901,7 @@
                 
             }, 1500); // 1.5 second delay to simulate network request
         }
-
+    
         // Theme toggle function
         function toggleTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
@@ -943,7 +923,7 @@
             const icon = document.getElementById('themeIcon');
             icon.textContent = theme === 'dark' ? 'light_mode' : 'dark_mode';
         }
-
+    
         // Enhanced logout with confirmation
         function confirmLogout() {
             if (confirm('Are you sure you want to sign out?')) {
@@ -958,28 +938,28 @@
                 }, 800);
             }
         }
-
+    
         // Edit profile function
         function editProfile() {
             alert('Edit profile functionality would open a modal or redirect to edit page in a real application.');
         }
-
+    
         // Change password function
         function changePassword() {
             alert('Change password functionality would open a secure form in a real application.');
         }
-
+    
         // Open image upload
         function openImageUpload() {
             alert('Image upload dialog would open here in a real application.');
         }
-
+    
         // Toggle section visibility
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
             section.style.display = section.style.display === 'none' ? 'grid' : 'none';
         }
-
+    
         // Switch between tabs
         function switchTab(tabName) {
             // Hide all tab contents
@@ -996,7 +976,7 @@
             document.getElementById(`${tabName}-tab`).classList.add('active');
             document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
         }
-
+    
         // Load user profile on page load
         window.onload = loadUserProfile;
     </script>
