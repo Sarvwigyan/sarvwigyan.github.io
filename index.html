@@ -1,56 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Meta Tags for SEO and Accessibility -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia, Sarv Store, and more. Explore science, technology, and education today.">
     <meta name="keywords" content="Sarvwigyan, Sarvpedia, Sarv Store, education, technology, knowledge, innovation">
     <meta name="author" content="Sarvwigyan Team">
     <meta name="robots" content="index, follow">
-
-    <!-- Open Graph Meta Tags for Social Media Sharing -->
     <meta property="og:title" content="Sarvwigyan - Empowering Knowledge, Shaping the Future">
     <meta property="og:description" content="Discover a world of innovation with Sarvwigyan's platforms for education and technology.">
     <meta property="og:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
     <meta property="og:url" content="https://sarvwigyan.github.io/index.html">
     <meta property="og:type" content="website">
-
-    <!-- Twitter Card Meta Tags for Twitter Sharing -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Sarvwigyan - Empowering Knowledge">
     <meta name="twitter:description" content="Explore Sarvwigyan's innovative platforms for learning and discovery.">
     <meta name="twitter:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
-
-    <!-- Canonical URL to Prevent Duplicate Content Issues -->
     <link rel="canonical" href="https://sarvwigyan.github.io/index.html">
-
-    <!-- Manifest and Favicon for Progressive Web App Support -->
     <link rel="manifest" href="Resources/manifest.json">
     <link rel="icon" type="image/png" href="Resources/Sarvwigyan.png" sizes="32x32">
-
-    <!-- Page Title -->
     <title>Sarvwigyan - Empowering Knowledge</title>
-
-    <!-- External Stylesheets for Fonts and Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer">
-
-    <!-- Internal CSS Styles -->
     <style>
-        /* CSS Variables for Consistent Styling */
         :root {
-            --primary-color: #1e3a8a; /* Primary blue color */
-            --accent-color: #00b4d8; /* Accent teal color */
-            --dark-bg: #0f172a; /* Dark background color */
-            --light-text: #f8f9fa; /* Light text color */
-            --menu-hover-bg: rgba(255, 255, 255, 0.1); /* Menu hover background */
-            --gradient-bg: linear-gradient(135deg, #183ea5, #087489); /* Gradient background */
-            --spacing-sm: 0.5rem; /* Small spacing */
-            --transition-base: all 0.2s ease; /* Base transition */
+            --primary-color: #1e3a8a;
+            --accent-color: #00b4d8;
+            --dark-bg: #0f172a;
+            --light-text: #f8f9fa;
+            --menu-hover-bg: rgba(255, 255, 255, 0.1);
+            --gradient-bg: linear-gradient(135deg, #183ea5, #087489);
+            --transition-base: all 0.2s ease;
         }
 
-        /* Reset and Base Styles */
         * {
             margin: 0;
             padding: 0;
@@ -65,25 +47,24 @@
             overflow-x: hidden;
         }
 
-        /* Accessibility: Skip Link */
         .skip-link {
             position: absolute;
             top: -40px;
             left: 0;
             background: var(--accent-color);
             color: var(--light-text);
-            padding: 8px;
+            padding: 0.5rem;
             z-index: 1000;
+            font-size: clamp(0.875rem, 1.5vw, 1rem);
         }
 
         .skip-link:focus {
             top: 0;
         }
 
-        /* Navbar Styles */
         .navbar {
             background: var(--gradient-bg);
-            padding: 1rem 0;
+            padding: clamp(0.5rem, 2vw, 1rem) 0;
             position: fixed;
             width: 100%;
             z-index: 1000;
@@ -91,16 +72,16 @@
         }
 
         .nav-container {
-            max-width: 1300px;
+            max-width: min(1300px, 95vw);
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
+            padding: 0 clamp(1rem, 3vw, 2rem);
         }
 
         .logo {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
             font-weight: 700;
             color: var(--light-text);
             text-decoration: none;
@@ -115,13 +96,13 @@
         }
 
         .logo img {
-            width: 30px;
-            height: 30px;
+            width: clamp(24px, 5vw, 30px);
+            height: clamp(24px, 5vw, 30px);
         }
 
         .nav-menu {
             display: flex;
-            gap: 1rem;
+            gap: clamp(0.5rem, 1.5vw, 1rem);
             list-style: none;
         }
 
@@ -133,12 +114,13 @@
             color: var(--light-text);
             text-decoration: none;
             font-weight: 500;
-            padding: 0.8rem 1.5rem;
+            padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
             border-radius: 25px;
             transition: var(--transition-base);
             display: flex;
             align-items: center;
             gap: 0.5rem;
+            font-size: clamp(0.875rem, 1.8vw, 1rem);
         }
 
         .nav-menu a:hover,
@@ -148,7 +130,6 @@
             transform: translateY(-2px);
         }
 
-        /* Dropdown Menus */
         .dropdown-menu,
         .profile-menu {
             display: none;
@@ -157,9 +138,8 @@
             border-radius: 8px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             top: 100%;
-            left: 50 kvalit;
-            transform: translateX(-50%);
-            min-width: 220px;
+            left: 0;
+            min-width: clamp(180px, 20vw, 220px);
             padding: 0.5rem 0;
             z-index: 1000;
             list-style: none;
@@ -172,19 +152,20 @@
 
         .dropdown-menu a,
         .profile-menu a {
-            padding: 0.75rem 1.5rem;
+            padding: clamp(0.5rem, 1.5vw, 0.75rem) clamp(1rem, 2vw, 1.5rem);
             border-radius: 5px;
             display: block;
+            font-size: clamp(0.875rem, 1.8vw, 1rem);
         }
 
-        /* Profile Container */
         .profile-container {
-            padding: 0.8rem 1.5rem;
+            padding: clamp(0.5rem, 1.5vw, 0.8rem) clamp(1rem, 2vw, 1.5rem);
             border-radius: 25px;
             cursor: pointer;
             transition: var(--transition-base);
             display: flex;
             align-items: center;
+            font-size: clamp(0.875rem, 1.8vw, 1rem);
         }
 
         .profile-container:hover,
@@ -194,8 +175,8 @@
         }
 
         .profile-pic {
-            width: 32px;
-            height: 32px;
+            width: clamp(24px, 5vw, 32px);
+            height: clamp(24px, 5vw, 32px);
             border-radius: 50%;
         }
 
@@ -203,22 +184,20 @@
             margin-left: 0.5rem;
         }
 
-        /* Hamburger Menu */
         .hamburger {
             display: none;
             cursor: pointer;
-            background-color: transparent;
-            border-color: #00404d;
             background: radial-gradient(circle at 30% 30%, #00b4d8, #007a8a);
             box-shadow:
-                 0 4px 8px rgba(0, 0, 0, 0.3), /* elevation */
-                 inset 0 -2px 4px rgba(0, 0, 0, 0.2), /* inner shadow */
-                 0 0 10px rgba(0, 180, 216, 0.3); /* outer glow */
+                0 4px 8px rgba(0, 0, 0, 0.3),
+                inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+                0 0 10px rgba(0, 180, 216, 0.3);
             border-radius: 50%;
             border: none;
-            width: 3rem;
-            height: 3rem;
+            width: clamp(2.5rem, 6vw, 3rem);
+            height: clamp(2.5rem, 6vw, 3rem);
         }
+
         .hamburger:hover {
             transform: scale(1.05);
             box-shadow:
@@ -229,7 +208,7 @@
 
         .hamburger .bar {
             display: block;
-            width: 25px;
+            width: clamp(20px, 4vw, 25px);
             height: 3px;
             margin: 5px auto;
             background-color: var(--light-text);
@@ -248,7 +227,6 @@
             transform: translateY(-8px) rotate(-45deg);
         }
 
-        /* Hero Slider */
         .hero-slider {
             position: relative;
             height: 100vh;
@@ -279,36 +257,32 @@
             align-items: center;
             text-align: center;
             background: rgba(0, 0, 0, 0.65);
-            padding: 2rem;
+            padding: clamp(1rem, 3vw, 2rem);
             position: relative;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 5vw, 3.5rem);
             font-weight: 700;
             text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
         }
 
         .hero-content p {
-            font-size: 1.6rem;
-            max-width: 800px;
-            margin-bottom: 2.5rem;
+            font-size: clamp(1rem, 2.5vw, 1.6rem);
+            max-width: min(800px, 90vw);
+            margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
         }
 
         .cta-button {
-            padding: 1.2rem 3rem;
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3rem);
             background: var(--accent-color);
             color: var(--light-text);
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition-base);
+            font-size: clamp(0.875rem, 1.8vw, 1rem);
         }
 
         .cta-button:hover,
@@ -317,24 +291,23 @@
             background: #0288a0;
         }
 
-        /* Slider Controls */
         .slider-buttons {
             position: absolute;
             top: 50%;
             width: 100%;
             display: flex;
             justify-content: space-between;
-            padding: 0 20px;
+            padding: 0 clamp(10px, 2vw, 20px);
             transform: translateY(-50%);
             z-index: 3;
         }
 
         .slider-btn {
             background: rgba(255, 255, 255, 0.35);
-            padding: var(--spacing-sm);
+            padding: 0.5rem;
             border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
+            width: clamp(2.5rem, 5vw, 3rem);
+            height: clamp(2.5rem, 5vw, 3rem);
             font-size: clamp(1rem, 2vw, 1.2rem);
             transition: var(--transition-base);
             border: none;
@@ -352,7 +325,7 @@
 
         .slider-controls {
             position: absolute;
-            bottom: 20px;
+            bottom: clamp(10px, 2vw, 20px);
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -361,8 +334,8 @@
         }
 
         .slider-dot {
-            width: 14px;
-            height: 14px;
+            width: clamp(10px, 2vw, 14px);
+            height: clamp(10px, 2vw, 14px);
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.8);
             border: none;
@@ -375,34 +348,33 @@
             transform: scale(1.3);
         }
 
-        /* Featured Section */
         .featured-section {
-            padding: 5rem 2rem;
+            padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 3vw, 2rem);
             background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--dark-bg));
         }
 
         .section-container {
-            max-width: 1300px;
+            max-width: min(1300px, 95vw);
             margin: 0 auto;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             color: var(--accent-color);
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: clamp(2rem, 4vw, 3rem);
             text-transform: uppercase;
         }
 
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(min(300px, 90vw), 1fr));
+            gap: clamp(1.5rem, 3vw, 2rem);
         }
 
         .card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
+            padding: clamp(1.5rem, 3vw, 2rem);
             border-radius: 15px;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -415,30 +387,29 @@
         }
 
         .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: clamp(0.8rem, 1.5vw, 1rem);
             color: var(--accent-color);
         }
 
         .card p {
-            font-size: 1.1rem;
-            margin-bottom: 1.5rem;
+            font-size: clamp(0.9rem, 1.8vw, 1.1rem);
+            margin-bottom: clamp(1rem, 2vw, 1.5rem);
         }
 
-        /* Footer */
         footer {
             background: var(--primary-color);
-            padding: 2rem;
+            padding: clamp(1.5rem, 3vw, 2rem);
             text-align: center;
+            font-size: clamp(0.875rem, 1.8vw, 1rem);
         }
 
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 3.6rem;
-            height: 3.6rem;
+            bottom: clamp(20px, 4vw, 30px);
+            right: clamp(20px, 4vw, 30px);
+            width: clamp(3rem, 6vw, 3.6rem);
+            height: clamp(3rem, 6vw, 3.6rem);
             background: var(--accent-color);
             color: var(--light-text);
             padding: 0.8rem;
@@ -446,6 +417,7 @@
             cursor: pointer;
             display: none;
             transition: var(--transition-base);
+            font-size: clamp(1rem, 2vw, 1.2rem);
         }
 
         .back-to-top:hover,
@@ -453,16 +425,15 @@
             transform: scale(1.1);
         }
 
-        /* Responsive Design */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: 70px;
+                top: clamp(60px, 10vw, 70px);
                 flex-direction: column;
                 background: var(--dark-bg);
                 width: 100%;
-                height: calc(100vh - 70px);
+                height: calc(100vh - clamp(60px, 10vw, 70px));
                 text-align: center;
                 transition: left 0.3s ease;
                 overflow-y: auto;
@@ -482,50 +453,58 @@
                 display: block;
             }
 
+            .dropdown-menu,
+            .profile-menu {
+                position: static;
+                transform: none;
+                background: rgba(255, 255, 255, 0.1);
+                box-shadow: none;
+                margin: 0.5rem auto;
+                width: 90%;
+                max-width: 300px;
+            }
+
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: clamp(1.8rem, 5vw, 2.2rem);
             }
 
             .hero-content p {
-                font-size: 1.3rem;
+                font-size: clamp(0.9rem, 2.5vw, 1.3rem);
             }
 
             .card-grid {
                 grid-template-columns: 1fr;
             }
+        }
 
-            .slider-buttons {
-                padding: 0 10px;
+        @media (max-width: 768px) {
+            .dropdown-menu a,
+            .profile-menu a {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
             }
 
-            .slider-controls {
-                bottom: 10px;
+            .slider-btn {
+                width: clamp(2rem, 6vw, 2.5rem);
+                height: clamp(2rem, 6vw, 2.5rem);
+                font-size: clamp(0.8rem, 2vw, 1rem);
             }
         }
     </style>
 </head>
-
 <body>
-    <!-- Accessibility: Skip to Main Content Link -->
     <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <!-- Navigation Bar -->
     <header>
         <nav class="navbar" aria-label="Main navigation">
             <div class="nav-container">
-                <!-- Logo -->
                 <a href="index.html" class="logo" aria-label="Sarvwigyan Home">
                     <img src="Resources/Sarvwigyan.png" alt="Sarvwigyan Logo" class="logo-img"> Sarvwigyan
                 </a>
-                
-                <!-- Navigation Menu -->
                 <ul class="nav-menu" role="menubar">
                     <li role="none">
                         <a href="index.html" role="menuitem" aria-current="page">
                             <i class="fas fa-home" aria-hidden="true"></i> Home
                         </a>
                     </li>
-                    
                     <li class="dropdown" role="none">
                         <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-globe" aria-hidden="true"></i> Explore
@@ -553,7 +532,6 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li class="dropdown" role="none">
                         <a href="#" role="menuitem" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-headset" aria-hidden="true"></i> Support
@@ -571,21 +549,17 @@
                             </li>
                         </ul>
                     </li>
-                    
                     <li class="dropdown" role="none">
                         <a href="#" onclick="showdevMessage()" role="menuitem">
                             <i class="fas fa-users" aria-hidden="true"></i> Community
                         </a>
                     </li>
-                    
                     <li id="account-item" class="dropdown" role="none">
                         <a href="login.html" role="menuitem">
                             <i class="fas fa-user" aria-hidden="true"></i> Account
                         </a>
                     </li>
                 </ul>
-                
-                <!-- Hamburger Menu for Mobile -->
                 <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -594,10 +568,7 @@
             </div>
         </nav>
     </header>
-
-    <!-- Main Content -->
     <main id="main-content">
-        <!-- Hero Slider Section -->
         <section class="hero-slider" id="home" aria-label="Featured Content Slider">
             <div class="slide active" style="background-image: url('Resources/a.png')">
                 <div class="slide-content">
@@ -612,7 +583,6 @@
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
-            
             <div class="slide" style="background-image: url('Resources/b.png')">
                 <div class="slide-content">
                     <div class="hero-content">
@@ -626,7 +596,6 @@
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
-            
             <div class="slide" style="background-image: url('Resources/Sarvwigyan.png')">
                 <div class="slide-content">
                     <div class="hero-content">
@@ -640,11 +609,8 @@
                     <button class="slider-btn" onclick="nextSlide()" aria-label="Next slide">❯</button>
                 </div>
             </div>
-            
             <div class="slider-controls" id="slider-dots" role="tablist"></div>
         </section>
-
-        <!-- Featured Platforms Section -->
         <section class="featured-section" aria-label="Featured Platforms">
             <div class="section-container">
                 <h2 class="section-title">Featured Platforms</h2>
@@ -654,13 +620,11 @@
                         <p>Explore a vast repository of knowledge across science, technology, and education.</p>
                         <a href="Sarvpedia.html" target="_blank" class="cta-button">Visit Now</a>
                     </article>
-                    
                     <article class="card">
                         <h3>Sarv Store</h3>
                         <p>Download apps, books, and tools to enhance your learning experience.</p>
                         <a href="https://sarvwigyan.github.io/sarvstore/" target="_blank" class="cta-button">Browse Store</a>
                     </article>
-                    
                     <article class="card">
                         <h3>Support</h3>
                         <p>Get help or share feedback to improve our platform and community.</p>
@@ -670,22 +634,16 @@
             </div>
         </section>
     </main>
-
-    <!-- Footer -->
     <footer>
         <p>© 2025 Sarvwigyan. All rights reserved.</p>
     </footer>
-
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
         <i class="fas fa-arrow-up" aria-hidden="true"></i>
     </button>
-
-    <!-- Structured Data for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@'et: WebSite",
+        "@type": "WebSite",
         "name": "Sarvwigyan",
         "url": "https://sarvwigyan.github.io/",
         "description": "Sarvwigyan empowers knowledge through innovative platforms like Sarvpedia and Sarv Store.",
@@ -696,19 +654,38 @@
         }
     }
     </script>
-
-    <!-- JavaScript for Interactive Features -->
     <script defer>
-        // Display development message for features under construction
         function showdevMessage() {
             alert("Sorry, we are currently working on this feature. Kindly co-operate.");
         }
-
-        // Update navigation based on user login status
+    
+        // Enhanced user data structure that matches profile.html requirements
+        const enhancedUserData = {
+            name: "Alex Johnson",
+            email: "alex.johnson@sarvwigyan.com",
+            picture: "https://randomuser.me/api/portraits/men/32.jpg",
+            fullName: "Alex Michael Johnson",
+            accountCreated: "January 15, 2022",
+            userId: "USR-7890-4567-1234",
+            lastLogin: new Date().toLocaleString(),
+            passwordChanged: "3 months ago",
+            twoFactorEnabled: true,
+            themePreference: "System default",
+            languagePreference: "English (United States)",
+            notificationSettings: "Email alerts only",
+            securityStatus: "strong"
+        };
+    
+        // Simulate login function
+        function simulateLogin() {
+            localStorage.setItem('user', JSON.stringify(enhancedUserData));
+            updateNav();
+        }
+    
         function updateNav() {
             const user = JSON.parse(localStorage.getItem('user'));
             const accountItem = document.getElementById('account-item');
-
+    
             if (user) {
                 accountItem.innerHTML = `
                     <div class="dropdown profile-dropdown" role="none">
@@ -730,11 +707,8 @@
                         </ul>
                     </div>
                 `;
-
-                // Add event listener for profile dropdown
                 const profileContainer = accountItem.querySelector('.profile-container');
                 const profileMenu = accountItem.querySelector('.profile-menu');
-
                 if (profileContainer && profileMenu) {
                     profileContainer.addEventListener('click', (e) => {
                         e.preventDefault();
@@ -757,83 +731,34 @@
                 `;
             }
         }
-
-        // Handle user logout
+    
         function logout() {
             localStorage.removeItem('user');
             window.location.href = "index.html";
         }
-
-        // Slider functionality
-        let currentSlide = 0;
-        let autoSlideInterval;
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('#slider-dots');
-        const slider = document.querySelector('.hero-slider');
-
-        // Initialize slider dots
-        slides.forEach((_, index) => {
-            const dot = document.createElement('button');
-            dot.classList.add('slider-dot');
-            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-            dot.setAttribute('role', 'tab');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => showSlide(index));
-            dotsContainer.appendChild(dot);
-        });
-
-        // Show specific slide
-        function showSlide(index) {
-            if (index >= slides.length) index = 0;
-            if (index < 0) index = slides.length - 1;
-            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-            const dots = document.querySelectorAll('.slider-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-                dot.setAttribute('aria-selected', i === index);
-            });
-            currentSlide = index;
-            restartAutoSlide();
-        }
-
-        // Navigate to next slide
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
-
-        // Navigate to previous slide
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-
-        // Restart auto-slide interval
-        function restartAutoSlide() {
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextSlide, 3000);
-        }
-
-        // Add slider event listeners
-        restartAutoSlide();
-        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-        slider.addEventListener('mouseleave', restartAutoSlide);
-
-        // Initialize page on DOM load
+    
+        // Add login simulation for demo purposes
+        // In a real app, this would be replaced with actual login form handling
         document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're coming from a login redirect
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.has('login') && urlParams.get('login') === 'success') {
+                simulateLogin();
+            }
+            
             updateNav();
             
             const hamburger = document.querySelector('.hamburger');
             const navMenu = document.querySelector('.nav-menu');
             const dropdowns = document.querySelectorAll('.dropdown');
-
-            // Toggle hamburger menu
+    
             hamburger.addEventListener('click', () => {
                 const isActive = hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.classList.toggle('no-scroll');
                 hamburger.setAttribute('aria-expanded', isActive);
             });
-
-            // Toggle dropdown menus
+    
             dropdowns.forEach(dropdown => {
                 const link = dropdown.querySelector('a');
                 const submenu = dropdown.querySelector('.dropdown-menu');
@@ -850,22 +775,19 @@
                     });
                 }
             });
-
-            // Close dropdowns on outside click
+    
             document.addEventListener('click', (e) => {
                 if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
                     document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
                     document.querySelectorAll('.dropdown a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
                 }
             });
-
-            // Back to top button functionality
+    
             document.getElementById('backToTop').addEventListener('click', function() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
-
-        // Show/hide back to top button on scroll
+    
         window.onscroll = function() {
             const backToTop = document.querySelector('.back-to-top');
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -874,6 +796,53 @@
                 backToTop.style.display = 'none';
             }
         };
+    
+        // Slider code remains unchanged
+        let currentSlide = 0;
+        let autoSlideInterval;
+        const slides = document.querySelectorAll('.slide');
+        const dotsContainer = document.querySelector('#slider-dots');
+        const slider = document.querySelector('.hero-slider');
+    
+        slides.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.classList.add('slider-dot');
+            dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+            dot.setAttribute('role', 'tab');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => showSlide(index));
+            dotsContainer.appendChild(dot);
+        });
+    
+        function showSlide(index) {
+            if (index >= slides.length) index = 0;
+            if (index < 0) index = slides.length - 1;
+            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+            const dots = document.querySelectorAll('.slider-dot');
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+                dot.setAttribute('aria-selected', i === index);
+            });
+            currentSlide = index;
+            restartAutoSlide();
+        }
+    
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+    
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+    
+        function restartAutoSlide() {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(nextSlide, 3000);
+        }
+    
+        restartAutoSlide();
+        slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        slider.addEventListener('mouseleave', restartAutoSlide);
     </script>
 </body>
 </html>
