@@ -31,12 +31,11 @@
             color: var(--light-text);
             line-height: 1.5;
             min-height: 100vh;
-            padding: 0.1rem;
+            padding: 2rem;
         }
 
         .container {
-            max-width: 98%;
-            width: 95%;
+            max-width: 600px;
             margin: 2rem auto;
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
@@ -95,7 +94,7 @@
         input:focus, textarea:focus {
             outline: none;
             border-color: var(--accent-color);
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, fries);
         }
 
         .rating-container {
@@ -373,8 +372,7 @@
     <div class="container">
         <h2>Share Your Feedback</h2>
         <h5><strong>Your opinion helps us improve!</strong></h5>
-        <form id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-recaptcha="true">
-            <input type="hidden" name="form-name" value="contact" />
+        <form id="contactForm">
             <div>
                 <label for="name">Name</label>
                 <input type="text" id="name" name="name" required aria-required="true">
@@ -401,7 +399,7 @@
             </div>
             <div>
                 <label for="message">Message/Feedback</label>
-                <textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="charCounter" placeholder="Enter your feedback here"></textarea>
+                <textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="charCounter">Deep regards!</textarea>
                 <div class="char-counter" id="charCounter">0/500 characters</div>
             </div>
             <div class="g-recaptcha" data-sitekey="6LeLQ8oqAAAAABaKcrO-TcGpWtuij7tTf-KqjJtA"></div>
@@ -440,7 +438,6 @@
         const ratingError = document.getElementById('ratingError');
         const modal = document.getElementById('confirmationModal');
         const modalSummary = document.getElementById('modalSummary');
-        const ratingContainer = document.querySelector('.rating-container');
 
         // Character counter
         messageInput.addEventListener('input', () => {
@@ -518,7 +515,6 @@
         form.addEventListener('submit', function (event) {
             event.preventDefault();
 
-            // Validate rating
             if (!ratingInput.value || ratingInput.value === '0') {
                 ratingError.classList.add('visible');
                 ratingContainer.classList.add('shake');
@@ -526,53 +522,39 @@
                 return;
             }
 
-            // Validate reCAPTCHA
-            const captchaResponse = grecaptcha.getResponse();
-            if (!captchaResponse) {
-                alert('Please verify that you are a human.');
-                return;
-            }
-
             submitButton.disabled = true;
             submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-            // Prepare form data
+            const feedback = messageInput.value.trim() || 'Deep regards!';
+            messageInput.value = feedback;
+
+            const captchaResponse = grecaptcha.getResponse();
+            if (!captchaResponse) {
+                alert('Please verify that you are a human.');
+                submitButton.disabled = false;
+                submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                return;
+            }
+
             const formData = new FormData(form);
             const name = formData.get('name');
             const email = formData.get('email');
             const rating = formData.get('rating');
-            const message = formData.get('message') || 'No message provided';
+            const message = formData.get('message');
 
-            // Send email via EmailJS
-            emailjs.send('service_yqc5l1m', 'template_xi6usec', {
-                name: name,
-                email: email,
-                rating: rating,
-                message: message
-            }).then(() => {
-                // Submit to Netlify Forms
-                fetch('/', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams(formData).toString()
-                }).then(() => {
+            emailjs.sendForm('service_yqc5l1m', 'template_xi6usec', form)
+                .then(() => {
                     openModal(name, email, rating, message);
-                    form.reset();
-                    updateRating(0);
-                    charCounter.textContent = '0/500 characters';
-                    grecaptcha.reset();
-                }).catch(error => {
-                    console.error('Netlify submission error:', error);
-                    alert('Feedback sent via email, but Netlify submission failed.');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                }, (error) => {
+                    alert('Sorry, there was an error sending your message. Please try again.');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
                 });
-            }).catch(error => {
-                console.error('EmailJS error:', error);
-                alert('Failed to send feedback via email. Please try again.');
-            }).finally(() => {
-                submitButton.disabled = false;
-                submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
-            });
         });
+
+        const ratingContainer = document.querySelector('.rating-container');
     </script>
 </body>
 </html>
