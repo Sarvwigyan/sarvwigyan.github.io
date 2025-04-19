@@ -425,6 +425,15 @@
         .back-to-top:focus {
             transform: scale(1.1);
         }
+        .arrow {
+                margin-left: 0.9rem;
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+                transition: transform 0.2s ease;
+            }
+        
+        .dropdown a[aria-expanded="true"] .arrow {
+            transform: rotate(180deg);
+        }
 
         @media (max-width: 1024px) {
             .nav-menu {
@@ -496,6 +505,15 @@
                 width: clamp(2rem, 6vw, 2.5rem);
                 height: clamp(2rem, 6vw, 2.5rem);
                 font-size: clamp(0.8rem, 2vw, 1rem);
+            }
+            .arrow {
+                margin-left: 0.9rem;
+                font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+                transition: transform 0.2s ease;
+            }
+        
+            .dropdown a[aria-expanded="true"] .arrow {
+                transform: rotate(180deg);
             }
         }
     </style>
