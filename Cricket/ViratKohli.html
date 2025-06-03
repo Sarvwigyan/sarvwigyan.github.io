@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virat Kohli: The King of Cricket</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styles for a more refined look */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* Light blue-gray background */
+            color: #334155; /* Darker text for readability */
+        }
+        .hero-background {
+            /* Using a more specific placeholder for a hero image */
+            background-image: url('https://placehold.co/1920x800/d1d5db/334155?text=Virat+Kohli+Hero+Shot');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden; /* Ensures no overflow from pseudo-elements */
+        }
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%); /* Dark overlay */
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2; /* Bring content to front of overlay */
+        }
+
+        .section-heading {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem; /* Increased margin for better spacing */
+            display: inline-block; /* To apply width to the pseudo-element */
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%; /* Center the underline */
+            transform: translateX(-50%); /* Adjust for centering */
+            bottom: 0;
+            width: 80px; /* Slightly wider underline */
+            height: 5px; /* Thicker underline */
+            background-color: #ef4444; /* Red accent */
+            border-radius: 9999px; /* Fully rounded */
+        }
+        /* Smooth scroll for navigation */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Card hover effect for sections */
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header Section -->
+    <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold text-red-500 mb-2 md:mb-0 tracking-wide">KING KOHLI</a>
+            <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8 text-lg">
+                <li><a href="#home" class="hover:text-red-500 transition duration-300 font-medium">Home</a></li>
+                <li><a href="#early-life" class="hover:text-red-500 transition duration-300 font-medium">Early Life</a></li>
+                <li><a href="#career-highlights" class="hover:text-red-500 transition duration-300 font-medium">Career Highlights</a></li>
+                <li><a href="#records-awards" class="hover:text-red-500 transition duration-300 font-medium">Records & Awards</a></li>
+                <li><a href="#gallery" class="hover:text-red-500 transition duration-300 font-medium">Gallery</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-background h-screen flex items-center justify-center text-center text-white p-4">
+        <div class="hero-content bg-black bg-opacity-60 rounded-xl p-8 md:p-12 max-w-4xl mx-auto shadow-2xl transform transition-all duration-500 hover:scale-105">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">
+                Virat Kohli: The Modern Maestro
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8 drop-shadow-md">
+                A journey through the life and unparalleled achievements of one of cricket's greatest.
+            </p>
+            <a href="#career-highlights" class="inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 transform hover:scale-110">
+                Explore His Legacy <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Early Life Section -->
+    <section id="early-life" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Early Life</h2>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="md:w-1/2 lg:w-2/5">
+                    <img src="https://placehold.co/600x400/a78bfa/ffffff?text=Young+Virat" alt="Virat Kohli Childhood" class="rounded-xl shadow-xl transform transition-all duration-500 hover:scale-105">
+                </div>
+                <div class="md:w-1/2 lg:w-3/5 text-lg leading-relaxed text-gray-700">
+                    <p class="mb-4">
+                        Born on <span class="font-semibold text-gray-900">November 5, 1988, in Delhi, India</span>, Virat Kohli's journey into the world of cricket began at a tender age. From the bustling streets of Uttam Nagar, where he spent his formative years, his innate passion for the game was evident. Even as a three-year-old, he would pick up a bat and ask his father to bowl to him, a clear sign of the cricketing genius that would later emerge.
+                    </p>
+                    <p class="mb-4">
+                        His father, <span class="font-semibold text-gray-900">Prem Kohli</span>, a criminal lawyer, quickly recognized his son's extraordinary talent. In 1998, he enrolled young Virat in the West Delhi Cricket Academy. Under the meticulous guidance of coach <span class="font-semibold text-gray-900">Rajkumar Sharma</span>, Virat diligently honed his skills, displaying an unwavering determination and an insatiable hunger for success that would become hallmarks of his illustrious career.
+                    </p>
+                    <p class="mb-4">
+                        A pivotal moment in his early life came on <span class="font-semibold text-gray-900">December 18, 2006</span>, when his father passed away due to a stroke. Despite this profound personal tragedy, a remarkably resilient 18-year-old Virat chose to play a crucial Ranji Trophy match for Delhi the very next day, scoring 90 runs. This incident is widely regarded as a testament to his immense mental fortitude, deep commitment to the sport, and the early signs of the maturity that would define his approach to cricket.
+                    </p>
+                    <p>
+                        He continued to impress through the age-group levels, making his way into the U-15 team and later captaining the Delhi U-17 team. His dedication saw him transfer to Saviour Convent School during his ninth grade to further his cricketing career, prioritizing the sport that would eventually make him a global icon.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Highlights Section -->
+    <section id="career-highlights" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Career Highlights</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Highlight 1: U19 World Cup -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover-effect">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3 flex items-center"><i class="fas fa-trophy mr-3 text-red-500"></i>U19 World Cup Victory (2008)</h3>
+                    <p class="text-gray-700">
+                        Virat Kohli rose to prominence by leading the Indian U19 team to a memorable World Cup triumph in Malaysia. This victory, where he also finished as the third-highest run-getter with 235 runs in 6 matches, showcased his early leadership qualities and batting prowess, paving his way for international cricket.
+                    </p>
+                </div>
+                <!-- Highlight 2: ODI Debut & Rapid Ascent -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover-effect">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3 flex items-center"><i class="fas fa-chart-line mr-3 text-red-500"></i>ODI Debut & Rapid Ascent (2008-2011)</h3>
+                    <p class="text-gray-700">
+                        He made his One Day International (ODI) debut on <span class="font-semibold">August 18, 2008, against Sri Lanka</span> at the age of 19. His consistent performances, including his maiden ODI century against Sri Lanka in 2009, quickly cemented his place. He was a crucial member of the <span class="font-semibold">2011 ODI World Cup winning squad</span>, scoring a century on his World Cup debut against Bangladesh.
+                    </p>
+                </div>
+                <!-- Highlight 3: Test Debut & Captaincy Era -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover-effect">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3 flex items-center"><i class="fas fa-shield-alt mr-3 text-red-500"></i>Test Debut & Captaincy Era (2011-2022)</h3>
+                    <p class="text-gray-700">
+                        Kohli received his coveted Test cap on <span class="font-semibold">June 20, 2011, against West Indies</span>. He went on to become <span class="font-semibold">India's most successful Test captain</span>, leading the team to 40 victories out of 68 matches. Under his leadership, India achieved historic overseas victories and maintained a dominant run at the top of the ICC Test rankings.
+                    </p>
+                </div>
+                <!-- Highlight 4: T20 World Cup Champion (2024) -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover-effect">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3 flex items-center"><i class="fas fa-medal mr-3 text-red-500"></i>T20 World Cup Champion (2024)</h3>
+                    <p class="text-gray-700">
+                        A recent and significant achievement saw him as a key member of the Indian team that clinched the <span class="font-semibold">ICC T20 World Cup in 2024</span>. He was also adjudged the Player of the Match in the final for his match-winning knock of 76 runs off 59 balls, adding another major ICC trophy to his illustrious cabinet.
+                    </p>
+                </div>
+                <!-- Highlight 5: The Chase Master -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover-effect">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3 flex items-center"><i class="fas fa-running mr-3 text-red-500"></i>The Chase Master</h3>
+                    <p class="text-gray-700">
+                        Renowned globally for his exceptional ability to perform under pressure, especially in run-chases in limited-overs cricket. His calculated aggression and ability to anchor an innings while accelerating at will have earned him the moniker <span class="font-semibold">"The Chase Master"</span>.
+                    </p>
+                </div>
+                <!-- Highlight 6: Unmatched Consistency -->
+                <div class="bg-white rounded-xl shadow-lg p-6 card-hover-effect">
+                    <h3 class="text-2xl font-semibold text-red-600 mb-3 flex items-center"><i class="fas fa-check-circle mr-3 text-red-500"></i>Unmatched Consistency Across Formats</h3>
+                    <p class="text-gray-700">
+                        His career is defined by an incredible level of consistency across all three formats of the game. He has maintained high batting averages and scored centuries regularly against all opposition, showcasing his adaptability and elite skill set. He is the only batter to earn 900 rating points in all three formats.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Records & Awards Section -->
+    <section id="records-awards" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Records & Awards</h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Records Column -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center"><i class="fas fa-list-ol mr-3 text-gray-600"></i>Key Batting Records</h3>
+                    <ul class="list-none space-y-4 text-lg text-gray-700">
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Most ODI Centuries:</span> Holds the record for the most centuries in One Day Internationals, surpassing Sachin Tendulkar with <span class="font-semibold text-red-600">51+ hundreds</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Most Runs in T20Is:</span> He is the highest run-scorer in Men's Twenty20 Internationals with over <span class="font-semibold text-red-600">4,188 runs</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Fastest to ODI Milestones:</span> Fastest to reach 8,000 (175 innings), 9,000 (194 innings), 10,000 (205 innings), 11,000 (222 innings), 12,000 (242 innings), and 13,000 (267 innings) ODI runs.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Most Successful Indian Test Captain:</span> Led India to a record <span class="font-semibold text-red-600">40 Test victories</span> out of 68 matches.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">First Player to Win All Four ICC Titles:</span> Achieved the unique feat of winning the U19 World Cup (2008), ODI World Cup (2011), Champions Trophy (2013), and T20 World Cup (2024).
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Most Player of the Series Awards:</span> Holds the record with <span class="font-semibold text-red-600">21 awards</span> across all formats (11 ODI, 7 T20, 3 Test).
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Most Runs in a Single ODI World Cup Edition:</span> Scored a staggering <span class="font-semibold text-red-600">765 runs</span> in the 2023 ODI World Cup.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Most ODI Centuries while Chasing:</span> An incredible <span class="font-semibold text-red-600">27 centuries</span> in successful ODI run-chases.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Highest Run-scorer in IPL:</span> Leads the Indian Premier League with over <span class="font-semibold text-red-600">7,263 runs</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-star text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Only Player to Play 300 ODIs, 100 Tests, and 100 T20Is:</span> A unique record showcasing his longevity and versatility across formats.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Awards Column -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6 flex items-center"><i class="fas fa-award mr-3 text-gray-600"></i>Prestigious Awards</h3>
+                    <ul class="list-none space-y-4 text-lg text-gray-700">
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Arjuna Award:</span> Conferred in <span class="font-semibold text-red-600">2013</span>, recognizing his outstanding achievements in sports.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Padma Shri:</span> Awarded in <span class="font-semibold text-red-600">2017</span>, India's fourth-highest civilian award.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Major Dhyan Chand Khel Ratna Award:</span> India's highest sporting honor, received in <span class="font-semibold text-red-600">2018</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">ICC Awards Clean Sweep (2018):</span> Became the first player to win the ICC ODI Player of the Year, ICC Test Player of the Year, and Sir Garfield Sobers Trophy (ICC Cricketer of the Year) in a single year.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Sir Garfield Sobers Trophy (ICC Cricketer of the Year):</span> Awarded in <span class="font-semibold text-red-600">2017, 2018, 2020</span>. Also named <span class="font-semibold text-red-600">ICC Cricketer of the Decade (2011-2020)</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">ICC ODI Player of the Year:</span> Multiple times: <span class="font-semibold text-red-600">2012, 2017, 2018, 2023</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">ICC Test Player of the Year:</span> Received the award in <span class="font-semibold text-red-600">2018</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">ICC Spirit of Cricket Award:</span> Honored in <span class="font-semibold text-red-600">2019</span>.
+                            </div>
+                        </li>
+                        <li class="bg-gray-50 p-4 rounded-lg shadow-sm flex items-start">
+                            <i class="fas fa-trophy text-red-500 mr-3 mt-1"></i>
+                            <div>
+                                <span class="font-bold text-gray-900">Wisden Leading Cricketer in the World:</span> Recognized in <span class="font-semibold text-red-600">2017, 2018, 2019</span>.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Gallery</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Image 1: Batting Action -->
+                <div class="relative group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/ef4444/ffffff?text=Batting+Action" alt="Virat Kohli batting" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Master of the Bat</p>
+                    </div>
+                </div>
+                <!-- Image 2: Lifting a Trophy -->
+                <div class="relative group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/22c55e/ffffff?text=Trophy+Celebration" alt="Virat Kohli with trophy" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Champion's Moment</p>
+                    </div>
+                </div>
+                <!-- Image 3: Captaincy -->
+                <div class="relative group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/3b82f6/ffffff?text=Leading+the+Team" alt="Virat Kohli as captain" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Leading from the Front</p>
+                    </div>
+                </div>
+                <!-- Image 4: Fitness -->
+                <div class="relative group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/f97316/ffffff?text=Fitness+Regime" alt="Virat Kohli training" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Dedication to Fitness</p>
+                    </div>
+                </div>
+                <!-- Image 5: Fan Interaction -->
+                <div class="relative group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/8b5cf6/ffffff?text=Fan+Love" alt="Virat Kohli with fans" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">Connecting with Fans</p>
+                    </div>
+                </div>
+                <!-- Image 6: Iconic Pose -->
+                <div class="relative group rounded-xl overflow-hidden shadow-lg transform transition-all duration-300 hover:scale-105">
+                    <img src="https://placehold.co/600x400/06b6d4/ffffff?text=Iconic+Pose" alt="Virat Kohli iconic pose" class="w-full h-auto object-cover">
+                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-white text-xl font-semibold">The Signature Style</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300">&copy; 2025 Virat Kohli Fan Page. All rights reserved. <br> Designed with passion for the King of Cricket.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-red-500 transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-500 transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-500 transition duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-red-500 transition duration-300"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button onclick="scrollToTop()" class="fixed bottom-8 right-8 bg-red-600 hover:bg-red-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-75">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>

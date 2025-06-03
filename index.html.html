@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarvpedia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e2a44, #34495e);
+            color: #fff;
+            line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #1e2a44;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .section:hover {
+            transform: translateY(-3px);
+        }
+
+        .section h2 {
+            font-size: 1.8em;
+            color: #3498db;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(52, 152, 219, 0.5);
+            padding-bottom: 8px;
+        }
+
+        .section p {
+            font-size: 1.1em;
+            color: #ddd;
+            text-align: justify;
+        }
+
+        .search-container {
+            position: relative;
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        #search-bar {
+            width: 100%;
+            padding: 15px 40px 15px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        #search-bar:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        #search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        #clear-button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #e74c3c;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            font-size: 1em;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        #clear-button:hover {
+            background: #c0392b;
+        }
+
+        #suggestions-list {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1000;
+            padding: 10px 0;
+        }
+
+        .suggestion-item {
+            padding: 4px 10px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+            font-size: 1em;
+        }
+
+        .suggestion-item:hover {
+            background: #e8f4ff;
+        }
+
+        .suggestion-item.highlight {
+            background: #e8f4ff;
+            font-weight: bold;
+        }
+
+        .suggestion-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            background: transparent;
+            color: #333;
+            border: none;
+            border-radius: 8px;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .suggestion-button:hover {
+            background: #2980b9;
+            color: #fff;
+        }
+
+        .suggestion-button.focused {
+            background: #3498db;
+            color: #fff;
+        }
+
+        .explore-button {
+            background: #3498db;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto;
+            transition: background 0.3s ease;
+        }
+
+        .explore-button:hover {
+            background: #2980b9;
+        }
+
+        footer {
+            background: #1e2a44;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer p {
+            font-size: 1em;
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            .container { width: 95%; padding: 20px; }
+            .section h2 { font-size: 1.5em; }
+            .section p { font-size: 1em; }
+            #search-bar { font-size: 1em; padding: 12px 40px 12px 15px; }
+            .explore-button { font-size: 1em; padding: 10px 20px; }
+            #clear-button { width: 20px; height: 20px; font-size: 0.9em; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sarvpedia</h1>
+    </header>
+
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="search-bar" oninput="debouncedFilterSuggestions()" placeholder="Search...">
+            <button id="clear-button" onclick="clearSearch()">×</button>
+            <div id="suggestions-list"></div>
+        </div>
+        <div class="section">
+            <h2>Empowering Humanity Through Knowledge</h2>
+            <p>
+                Welcome to <i><strong>Sarvpedia!</strong></i> Your gateway to a universe of wisdom, inspired by a mission to uplift humanity. Our AI-powered search connects you to insights on science, elements, culture, and solutions for global challenges—sustainability, health, and unity. Explore topics like renewable energy, medical breakthroughs, or cultural heritage, and join a global quest for progress. Type any term to unlock curated, relevant results instantly!
+            </p>
+        </div>
+        <button class="explore-button" onclick="Expsarvwigyan()">Explore Sarvwigyan</button>
+    </div>
+
+    <footer>
+        <p>Copyright © Sarvwigyan - Sarvpedia. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Sample data for elements
+        const data = [
+            { title: "Actinium(Elements)", link: "Sarvpedia/Elements/Actinium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive metal in the actinide series, used in research." },
+            { title: "Aluminium(Elements)", link: "Sarvpedia/Elements/Aluminium_sarvpedia.html", tags: ["metal", "light", "common", "aluminum"], description: "A lightweight, durable metal, widely used in construction and packaging." },
+            { title: "Americium(Elements)", link: "Sarvpedia/Elements/Americium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A synthetic radioactive metal, used in smoke detectors." },
+            { title: "Antimony(Elements)", link: "Sarvpedia/Elements/Antimony_sarvpedia.html", tags: ["metalloid", "brittle"], description: "A brittle metalloid, used in alloys and flame retardants." },
+            { title: "Argon(Elements)", link: "Sarvpedia/Elements/Argon_sarvpedia.html", tags: ["gas", "noble", "inert"], description: "An inert noble gas, used in lighting and welding." },
+            { title: "Arsenic(Elements)", link: "Sarvpedia/Elements/Arsenic_sarvpedia.html", tags: ["metalloid", "toxic", "poison"], description: "A toxic metalloid, historically used as a poison." },
+            { title: "Astatine(Elements)", link: "Sarvpedia/Elements/Astatine_sarvpedia.html", tags: ["halogen", "radioactive", "rare"], description: "A rare, radioactive halogen, with limited applications." },
+            { title: "Barium(Elements)", link: "Sarvpedia/Elements/Barium_sarvpedia.html", tags: ["metal", "alkaline", "reactive"], description: "A reactive alkaline earth metal, used in medical imaging." },
+            { title: "Berkelium(Elements)", link: "Sarvpedia/Elements/Berkelium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A synthetic radioactive actinide, used in scientific studies." },
+            { title: "Beryllium(Elements)", link: "Sarvpedia/Elements/Beryllium_sarvpedia.html", tags: ["metal", "light", "toxic"], description: "A light, toxic metal, used in aerospace and nuclear industries." },
+            { title: "Bismuth(Elements)", link: "Sarvpedia/Elements/Bismuth_sarvpedia.html", tags: ["metal", "heavy", "brittle"], description: "A heavy, brittle metal, used in cosmetics and medicine." },
+            { title: "Bohrium(Elements)", link: "Sarvpedia/Elements/Bohrium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in labs." },
+            { title: "Boron(Elements)", link: "Sarvpedia/Elements/Boron_sarvpedia.html", tags: ["metalloid", "hard"], description: "A hard metalloid, essential for plant growth and used in glass." },
+            { title: "Bromine(Elements)", link: "Sarvpedia/Elements/Bromine_sarvpedia.html", tags: ["halogen", "liquid", "toxic"], description: "A toxic liquid halogen, used in disinfectants and flame retardants." },
+            { title: "Cadmium(Elements)", link: "Sarvpedia/Elements/Cadmium_sarvpedia.html", tags: ["metal", "toxic", "soft"], description: "A soft, toxic metal, used in batteries and pigments." },
+            { title: "Caesium(Elements)", link: "Sarvpedia/Elements/Caesium_sarvpedia.html", tags: ["metal", "alkali", "reactive", "cesium"], description: "A highly reactive alkali metal, used in atomic clocks." },
+            { title: "Calcium(Elements)", link: "Sarvpedia/Elements/Calcium_sarvpedia.html", tags: ["metal", "alkaline", "essential", "bone"], description: "An essential alkaline metal, vital for bones and teeth." },
+            { title: "Californium(Elements)", link: "Sarvpedia/Elements/Californium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, used in neutron sources." },
+            { title: "Carbon(Elements)", link: "Sarvpedia/Elements/Carbon_sarvpedia.html", tags: ["nonmetal", "essential", "versatile", "life"], description: "A versatile nonmetal, the basis of life and materials like graphite." },
+            { title: "Cerium(Elements)", link: "Sarvpedia/Elements/Cerium_sarvpedia.html", tags: ["metal", "lanthanide", "reactive"], description: "A reactive lanthanide, used in catalysts and polishing." },
+            { title: "Chlorine(Elements)", link: "Sarvpedia/Elements/Chlorine_sarvpedia.html", tags: ["halogen", "gas", "toxic", "disinfectant"], description: "A toxic gas halogen, widely used as a disinfectant." },
+            { title: "Chromium(Elements)", link: "Sarvpedia/Elements/Chromium_sarvpedia.html", tags: ["metal", "transition", "hard", "shiny"], description: "A hard, shiny transition metal, used in stainless steel." },
+            { title: "Cobalt(Elements)", link: "Sarvpedia/Elements/Cobalt_sarvpedia.html", tags: ["metal", "transition", "magnetic"], description: "A magnetic transition metal, used in alloys and batteries." },
+            { title: "Copernicium(Elements)", link: "Sarvpedia/Elements/Copernicium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in research." },
+            { title: "Copper(Elements)", link: "Sarvpedia/Elements/Copper_sarvpedia.html", tags: ["metal", "transition", "conductive", "wire"], description: "A conductive transition metal, used in wiring and electronics." },
+            { title: "Curium(Elements)", link: "Sarvpedia/Elements/Curium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, used in space research." },
+            { title: "Cricket", link: "Sarvpedia/Cricket/Cricketo.html", tags: ["cricket", "game", "batting"], description: "Cricket lovers, you are at the right place!" },
+            { title: "Darmstadtium(Elements)", link: "Sarvpedia/Elements/Darmstadtium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, produced in labs." },
+            { title: "Dubnium(Elements)", link: "Sarvpedia/Elements/Dubnium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, used in scientific studies." },
+            { title: "Dysprosium(Elements)", link: "Sarvpedia/Elements/Dysprosium_sarvpedia.html", tags: ["metal", "lanthanide", "magnetic"], description: "A magnetic lanthanide, used in magnets and lasers." },
+            { title: "Einsteinium(Elements)", link: "Sarvpedia/Elements/Einsteinium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, studied in labs." },
+            { title: "Elements", link: "Sarvpedia/Elements/Elements.html", tags: ["general", "periodic", "chemistry"], description: "Overview of the periodic table and chemical elements." },
+            { title: "Erbium(Elements)", link: "Sarvpedia/Elements/Erbium_sarvpedia.html", tags: ["metal", "lanthanide"], description: "A lanthanide, used in fiber optics and lasers." },
+            { title: "Europium(Elements)", link: "Sarvpedia/Elements/Europium_sarvpedia.html", tags: ["metal", "lanthanide", "reactive"], description: "A reactive lanthanide, used in phosphors and lighting." },
+            { title: "Fermium(Elements)", link: "Sarvpedia/Elements/Fermium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, synthesized for research." },
+            { title: "Flerovium(Elements)", link: "Sarvpedia/Elements/Flerovium_sarvpedia.html", tags: ["synthetic", "metal"], description: "A synthetic metal, studied in laboratories." },
+            { title: "Fluorine(Elements)", link: "Sarvpedia/Elements/Fluorine_sarvpedia.html", tags: ["halogen", "gas", "reactive"], description: "A highly reactive gas halogen, used in toothpaste." },
+            { title: "Francium(Elements)", link: "Sarvpedia/Elements/Francium_sarvpedia.html", tags: ["metal", "alkali", "radioactive"], description: "A rare, radioactive alkali metal, highly unstable." },
+            { title: "Gadolinium(Elements)", link: "Sarvpedia/Elements/Gadolinium_sarvpedia.html", tags: ["metal", "lanthanide", "magnetic"], description: "A magnetic lanthanide, used in MRI contrast agents." },
+            { title: "Gallium(Elements)", link: "Sarvpedia/Elements/Gallium_sarvpedia.html", tags: ["metal", "soft", "liquid"], description: "A soft metal, melts near room temperature, used in semiconductors." },
+            { title: "Germanium(Elements)", link: "Sarvpedia/Elements/Germanium_sarvpedia.html", tags: ["metalloid", "semiconductor"], description: "A metalloid, used in semiconductors and optics." },
+            { title: "Gold(Elements)", link: "Sarvpedia/Elements/Gold_sarvpedia.html", tags: ["metal", "transition", "precious", "jewelry"], description: "A precious transition metal, used in jewelry and electronics." },
+            { title: "Hafnium(Elements)", link: "Sarvpedia/Elements/Hafnium_sarvpedia.html", tags: ["metal", "transition", "resistant"], description: "A resistant transition metal, used in nuclear reactors." },
+            { title: "Hassium(Elements)", link: "Sarvpedia/Elements/Hassium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in labs." },
+            { title: "Helium(Elements)", link: "Sarvpedia/Elements/Helium_sarvpedia.html", tags: ["gas", "noble", "light", "balloon"], description: "A light noble gas, used in balloons and cooling." },
+            { title: "Holmium(Elements)", link: "Sarvpedia/Elements/Holmium_sarvpedia.html", tags: ["metal", "lanthanide", "magnetic"], description: "A magnetic lanthanide, used in magnets and lasers." },
+            { title: "Hydrogen(Elements)", link: "Sarvpedia/Elements/Hydrogen_sarvpedia.html", tags: ["gas", "nonmetal", "abundant", "fuel"], description: "An abundant nonmetal gas, potential clean fuel." },
+            { title: "Indium(Elements)", link: "Sarvpedia/Elements/Indium_sarvpedia.html", tags: ["metal", "soft"], description: "A soft metal, used in electronics and touchscreens." },
+            { title: "Iodine(Elements)", link: "Sarvpedia/Elements/Iodine_sarvpedia.html", tags: ["halogen", "solid", "essential", "thyroid"], description: "An essential halogen, vital for thyroid function." },
+            { title: "Iridium(Elements)", link: "Sarvpedia/Elements/Iridium_sarvpedia.html", tags: ["metal", "transition", "dense"], description: "A dense transition metal, used in spark plugs." },
+            { title: "Iron(Elements)", link: "Sarvpedia/Elements/Iron_sarvpedia.html", tags: ["metal", "transition", "magnetic", "steel"], description: "A magnetic transition metal, key in steel production." },
+            { title: "Krypton(Elements)", link: "Sarvpedia/Elements/Krypton_sarvpedia.html", tags: ["gas", "noble", "inert"], description: "An inert noble gas, used in lighting and photography." },
+            { title: "Lanthanum(Elements)", link: "Sarvpedia/Elements/Lanthanum_sarvpedia.html", tags: ["metal", "lanthanide"], description: "A lanthanide, used in catalysts and optics." },
+            { title: "Lawrencium(Elements)", link: "Sarvpedia/Elements/Lawrencium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, studied in research." },
+            { title: "Lead(Elements)", link: "Sarvpedia/Elements/Lead_sarvpedia.html", tags: ["metal", "heavy", "toxic"], description: "A heavy, toxic metal, used in batteries and shielding." },
+            { title: "Lithium(Elements)", link: "Sarvpedia/Elements/Lithium_sarvpedia.html", tags: ["metal", "alkali", "light", "battery"], description: "A light alkali metal, used in batteries." },
+            { title: "Livermorium(Elements)", link: "Sarvpedia/Elements/Livermorium_sarvpedia.html", tags: ["synthetic", "metal"], description: "A synthetic metal, studied in labs." },
+            { title: "Lutetium(Elements)", link: "Sarvpedia/Elements/Lutetium_sarvpedia.html", tags: ["metal", "lanthanide"], description: "A lanthanide, used in catalysts and medical imaging." },
+            { title: "Magnesium(Elements)", link: "Sarvpedia/Elements/Magnesium_sarvpedia.html", tags: ["metal", "alkaline", "light"], description: "A light alkaline metal, used in alloys and medicine." },
+            { title: "Manganese(Elements)", link: "Sarvpedia/Elements/Manganese_sarvpedia.html", tags: ["metal", "transition", "hard"], description: "A hard transition metal, used in steel production." },
+            { title: "Meitnerium(Elements)", link: "Sarvpedia/Elements/Meitnerium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in labs." },
+            { title: "Mendelevium(Elements)", link: "Sarvpedia/Elements/Mendelevium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, used in research." },
+            { title: "Mercury(Elements)", link: "Sarvpedia/Elements/Mercury_sarvpedia.html", tags: ["metal", "liquid", "toxic", "thermometer"], description: "A toxic liquid metal, used in thermometers." },
+            { title: "Molybdenum(Elements)", link: "Sarvpedia/Elements/Molybdenum_sarvpedia.html", tags: ["metal", "transition", "hard"], description: "A hard transition metal, used in alloys." },
+            { title: "Moscovium(Elements)", link: "Sarvpedia/Elements/Moscovium_sarvpedia.html", tags: ["synthetic", "metal"], description: "A synthetic metal, studied in labs." },
+            { title: "Neodymium(Elements)", link: "Sarvpedia/Elements/Neodymium_sarvpedia.html", tags: ["metal", "lanthanide", "magnetic"], description: "A magnetic lanthanide, used in strong magnets." },
+            { title: "Neon(Elements)", link: "Sarvpedia/Elements/Neon_sarvpedia.html", tags: ["gas", "noble", "inert", "lights"], description: "An inert noble gas, used in neon lights." },
+            { title: "Neptunium(Elements)", link: "Sarvpedia/Elements/Neptunium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, used in research." },
+            { title: "Nickel(Elements)", link: "Sarvpedia/Elements/Nickel_sarvpedia.html", tags: ["metal", "transition", "magnetic"], description: "A magnetic transition metal, used in coins and alloys." },
+            { title: "Nihonium(Elements)", link: "Sarvpedia/Elements/Nihonium_sarvpedia.html", tags: ["synthetic", "metal"], description: "A synthetic metal, studied in labs." },
+            { title: "Niobium(Elements)", link: "Sarvpedia/Elements/Niobium_sarvpedia.html", tags: ["metal", "transition", "resistant"], description: "A resistant transition metal, used in alloys." },
+            { title: "Nitrogen(Elements)", link: "Sarvpedia/Elements/Nitrogen_sarvpedia.html", tags: ["gas", "nonmetal", "abundant", "air"], description: "An abundant nonmetal gas, major component of air." },
+            { title: "Nobelium(Elements)", link: "Sarvpedia/Elements/Nobelium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, studied in labs." },
+            { title: "Oganesson(Elements)", link: "Sarvpedia/Elements/Oganesson_sarvpedia.html", tags: ["synthetic", "gas", "noble"], description: "A synthetic noble gas, highly unstable." },
+            { title: "Osmium(Elements)", link: "Sarvpedia/Elements/Osmium_sarvpedia.html", tags: ["metal", "transition", "dense"], description: "A dense transition metal, used in alloys." },
+            { title: "Oxygen(Elements)", link: "Sarvpedia/Elements/Oxygen_sarvpedia.html", tags: ["gas", "nonmetal", "essential", "breath"], description: "An essential nonmetal gas, vital for breathing." },
+            { title: "Palladium(Elements)", link: "Sarvpedia/Elements/Palladium_sarvpedia.html", tags: ["metal", "transition", "precious"], description: "A precious transition metal, used in catalytic converters." },
+            { title: "Phosphorus(Elements)", link: "Sarvpedia/Elements/Phosphorus_sarvpedia.html", tags: ["nonmetal", "reactive", "essential"], description: "A reactive nonmetal, essential for DNA and bones." },
+            { title: "Platinum(Elements)", link: "Sarvpedia/Elements/Platinum_sarvpedia.html", tags: ["metal", "transition", "precious"], description: "A precious transition metal, used in jewelry and catalysts." },
+            { title: "Plutonium(Elements)", link: "Sarvpedia/Elements/Plutonium_sarvpedia.html", tags: ["radioactive", "metal", "actinide", "nuclear"], description: "A radioactive actinide, used in nuclear reactors." },
+            { title: "Polonium(Elements)", link: "Sarvpedia/Elements/Polonium_sarvpedia.html", tags: ["metalloid", "radioactive"], description: "A radioactive metalloid, highly toxic." },
+            { title: "Potassium(Elements)", link: "Sarvpedia/Elements/Potassium_sarvpedia.html", tags: ["metal", "alkali", "essential"], description: "An essential alkali metal, vital for cell function." },
+            { title: "Praseodymium(Elements)", link: "Sarvpedia/Elements/Praseodymium_sarvpedia.html", tags: ["metal", "lanthanide"], description: "A lanthanide, used in magnets and glass coloring." },
+            { title: "Promethium(Elements)", link: "Sarvpedia/Elements/Promethium_sarvpedia.html", tags: ["radioactive", "metal", "lanthanide"], description: "A radioactive lanthanide, used in glow-in-the-dark materials." },
+            { title: "Protactinium(Elements)", link: "Sarvpedia/Elements/Protactinium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, rare and unstable." },
+            { title: "Radium(Elements)", link: "Sarvpedia/Elements/Radium_sarvpedia.html", tags: ["metal", "alkaline", "radioactive"], description: "A radioactive alkaline metal, used in early medicine." },
+            { title: "Radon(Elements)", link: "Sarvpedia/Elements/Radon_sarvpedia.html", tags: ["gas", "noble", "radioactive"], description: "A radioactive noble gas, a health hazard indoors." },
+            { title: "Rhenium(Elements)", link: "Sarvpedia/Elements/Rhenium_sarvpedia.html", tags: ["metal", "transition", "rare"], description: "A rare transition metal, used in high-temperature alloys." },
+            { title: "Rhodium(Elements)", link: "Sarvpedia/Elements/Rhodium_sarvpedia.html", tags: ["metal", "transition", "precious"], description: "A precious transition metal, used in catalytic converters." },
+            { title: "Roentgenium(Elements)", link: "Sarvpedia/Elements/Roentgenium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in labs." },
+            { title: "Rubidium(Elements)", link: "Sarvpedia/Elements/Rubidium_sarvpedia.html", tags: ["metal", "alkali", "reactive"], description: "A reactive alkali metal, used in research and clocks." },
+            { title: "Ruthenium(Elements)", link: "Sarvpedia/Elements/Ruthenium_sarvpedia.html", tags: ["metal", "transition", "hard"], description: "A hard transition metal, used in electronics and alloys." },
+            { title: "Rutherfordium(Elements)", link: "Sarvpedia/Elements/Rutherfordium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in labs." },
+            { title: "Samarium(Elements)", link: "Sarvpedia/Elements/Samarium_sarvpedia.html", tags: ["metal", "lanthanide", "magnetic"], description: "A magnetic lanthanide, used in magnets and cancer treatment." },
+            { title: "Scandium(Elements)", link: "Sarvpedia/Elements/Scandium_sarvpedia.html", tags: ["metal", "transition", "rare"], description: "A rare transition metal, used in aerospace alloys." },
+            { title: "Seaborgium(Elements)", link: "Sarvpedia/Elements/Seaborgium_sarvpedia.html", tags: ["synthetic", "metal", "transition"], description: "A synthetic transition metal, studied in labs." },
+            { title: "Selenium(Elements)", link: "Sarvpedia/Elements/Selenium_sarvpedia.html", tags: ["nonmetal", "essential"], description: "An essential nonmetal, used in electronics and health." },
+            { title: "Silicon(Elements)", link: "Sarvpedia/Elements/Silicon_sarvpedia.html", tags: ["metalloid", "semiconductor", "chip"], description: "A metalloid, key for semiconductors and computer chips." },
+            { title: "Silver(Elements)", link: "Sarvpedia/Elements/Silver_sarvpedia.html", tags: ["metal", "transition", "precious", "jewelry"], description: "A precious transition metal, used in jewelry and coins." },
+            { title: "Sodium(Elements)", link: "Sarvpedia/Elements/Sodium_sarvpedia.html", tags: ["metal", "alkali", "essential", "salt"], description: "An essential alkali metal, found in table salt." },
+            { title: "Strontium(Elements)", link: "Sarvpedia/Elements/Strontium_sarvpedia.html", tags: ["metal", "alkaline"], description: "An alkaline earth metal, used in fireworks and medicine." },
+            { title: "Sulfur(Elements)", link: "Sarvpedia/Elements/Sulfur_sarvpedia.html", tags: ["nonmetal", "reactive", "yellow"], description: "A reactive, yellow nonmetal, used in fertilizers." },
+            { title: "Tantalum(Elements)", link: "Sarvpedia/Elements/Tantalum_sarvpedia.html", tags: ["metal", "transition", "resistant"], description: "A resistant transition metal, used in electronics." },
+            { title: "Technetium(Elements)", link: "Sarvpedia/Elements/Technetium_sarvpedia.html", tags: ["radioactive", "metal", "transition"], description: "A radioactive transition metal, used in medical imaging." },
+            { title: "Tellurium(Elements)", link: "Sarvpedia/Elements/Tellurium_sarvpedia.html", tags: ["metalloid", "brittle"], description: "A brittle metalloid, used in solar cells and alloys." },
+            { title: "Tennessine(Elements)", link: "Sarvpedia/Elements/Tennessine_sarvpedia.html", tags: ["synthetic", "halogen"], description: "A synthetic halogen, highly unstable." },
+            { title: "Terbium(Elements)", link: "Sarvpedia/Elements/Terbium_sarvpedia.html", tags: ["metal", "lanthanide", "magnetic"], description: "A magnetic lanthanide, used in phosphors and magnets." },
+            { title: "Thallium(Elements)", link: "Sarvpedia/Elements/Thallium_sarvpedia.html", tags: ["metal", "toxic"], description: "A toxic metal, used in electronics and research." },
+            { title: "Thorium(Elements)", link: "Sarvpedia/Elements/Thorium_sarvpedia.html", tags: ["radioactive", "metal", "actinide"], description: "A radioactive actinide, potential nuclear fuel." },
+            { title: "Thulium(Elements)", link: "Sarvpedia/Elements/Thulium_sarvpedia.html", tags: ["metal", "lanthanide", "rare"], description: "A rare lanthanide, used in lasers and imaging." },
+            { title: "Tin(Elements)", link: "Sarvpedia/Elements/Tin_sarvpedia.html", tags: ["metal", "soft"], description: "A soft metal, used in solder and coatings." },
+            { title: "Titanium(Elements)", link: "Sarvpedia/Elements/Titanium_sarvpedia.html", tags: ["metal", "transition", "strong"], description: "A strong transition metal, used in aerospace and implants." },
+            { title: "Tungsten(Elements)", link: "Sarvpedia/Elements/Tungsten_sarvpedia.html", tags: ["metal", "transition", "dense", "hard"], description: "A dense, hard transition metal, used in bulbs and alloys." },
+            { title: "Uranium(Elements)", link: "Sarvpedia/Elements/Uranium_sarvpedia.html", tags: ["radioactive", "metal", "actinide", "nuclear"], description: "A radioactive actinide, used in nuclear power." },
+            { title: "Vanadium(Elements)", link: "Sarvpedia/Elements/Vanadium_sarvpedia.html", tags: ["metal", "transition", "hard"], description: "A hard transition metal, used in steel alloys." },
+            { title: "Xenon(Elements)", link: "Sarvpedia/Elements/Xenon_sarvpedia.html", tags: ["gas", "noble", "inert"], description: "An inert noble gas, used in lighting and anesthesia." },
+            { title: "Ytterbium(Elements)", link: "Sarvpedia/Elements/Ytterbium_sarvpedia.html", tags: ["metal", "lanthanide"], description: "A lanthanide, used in lasers and alloys." },
+            { title: "Yttrium(Elements)", link: "Sarvpedia/Elements/Yttrium_sarvpedia.html", tags: ["metal", "transition", "rare"], description: "A rare transition metal, used in LEDs and phosphors." },
+            { title: "Zinc(Elements)", link: "Sarvpedia/Elements/Zinc_sarvpedia.html", tags: ["metal", "transition", "essential"], description: "An essential transition metal, used in galvanizing." },
+            { title: "Zirconium(Elements)", link: "Sarvpedia/Elements/Zirconium_sarvpedia.html", tags: ["metal", "transition", "resistant"], description: "A resistant transition metal, used in nuclear reactors." }
+        ];
+
+        // Expanded synonym dictionary
+        const synonyms = {
+            "gas": ["vapor", "gaseous", "air"],
+            "metal": ["metallic", "element", "alloy"],
+            "radioactive": ["nuclear", "radiant", "unstable"],
+            "light": ["lightweight", "low-density", "featherweight"],
+            "heavy": ["dense", "weighty", "massive"],
+            "toxic": ["poisonous", "harmful", "dangerous"],
+            "noble": ["inert", "unreactive", "stable"],
+            "halogen": ["reactive", "chemical"],
+            "lanthanide": ["rare earth", "lanthanoid"],
+            "actinide": ["radioactive series", "actinoid"],
+            "synthetic": ["artificial", "man-made"],
+            "essential": ["vital", "necessary", "crucial"],
+            "transition": ["metallic", "versatile"],
+            "cricket": ["game", "batting", "sport"]
+        };
+
+        // Search history tracking
+        let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+        // Tokenize query for multi-word searches
+        function tokenizeQuery(query) {
+            return query.toLowerCase().split(/\s+/).filter(token => token.length > 0);
+        }
+
+        // Advanced fuzzy matching with Levenshtein distance
+        function levenshteinDistance(a, b) {
+            const matrix = Array(b.length + 1).fill(null).map(() => Array(a.length + 1).fill(null));
+            for (let i = 0; i <= a.length; i++) matrix[0][i] = i;
+            for (let j = 0; j <= b.length; j++) matrix[j][0] = j;
+            
+            for (let j = 1; j <= b.length; j++) {
+                for (let i = 1; i <= a.length; i++) {
+                    const indicator = a[i - 1] === b[j - 1] ? 0 : 1;
+                    matrix[j][i] = Math.min(
+                        matrix[j][i - 1] + 1, // deletion
+                        matrix[j - 1][i] + 1, // insertion
+                        matrix[j - 1][i - 1] + indicator // substitution
+                    );
+                }
+            }
+            return matrix[b.length][a.length];
+        }
+
+        // Enhanced relevance scoring with AI-like features
+        function calculateRelevance(item, queryTokens) {
+            let totalScore = 0;
+
+            queryTokens.forEach(query => {
+                // Title matching
+                const title = item.title.toLowerCase();
+                const titleExact = title.includes(query) ? 100 : 0;
+                const titleLevenshtein = levenshteinDistance(title, query);
+                const titleScore = titleExact + (query.length / (titleLevenshtein + 1)) * 20;
+
+                // Tag matching
+                let tagScore = 0;
+                item.tags.forEach(tag => {
+                    const tagExact = tag.toLowerCase() === query ? 50 : 0;
+                    const tagLevenshtein = levenshteinDistance(tag, query);
+                    tagScore += tagExact + (query.length / (tagLevenshtein + 1)) * 10;
+
+                    // Synonym matching
+                    if (synonyms[tag]) {
+                        synonyms[tag].forEach(syn => {
+                            if (syn === query) tagScore += 30;
+                            const synLevenshtein = levenshteinDistance(syn, query);
+                            tagScore += (query.length / (synLevenshtein + 1)) * 5;
+                        });
+                    }
+                });
+
+                // Description matching (new AI feature)
+                const desc = item.description.toLowerCase();
+                const descExact = desc.includes(query) ? 80 : 0;
+                const descLevenshtein = levenshteinDistance(desc, query);
+                const descScore = descExact + (query.length / (descLevenshtein + 1)) * 15;
+
+                // Context-based boost (e.g., "noble gas" context)
+                let contextBoost = 0;
+                if (queryTokens.length > 1) {
+                    const queryPhrase = queryTokens.join(' ');
+                    if (item.tags.join(' ').toLowerCase().includes(queryPhrase) ||
+                        item.description.toLowerCase().includes(queryPhrase)) {
+                        contextBoost += 50;
+                    }
+                }
+
+                totalScore += titleScore + tagScore + descScore + contextBoost;
+            });
+
+            // History-based boost
+            const historyBoost = getHistoryBoost(queryTokens);
+            totalScore += historyBoost;
+
+            // Penalize less relevant results
+            if (totalScore > 0 && queryTokens.length > 1) {
+                const matchedTokens = queryTokens.filter(token => 
+                    item.title.toLowerCase().includes(token) ||
+                    item.tags.some(tag => tag.toLowerCase().includes(token)) ||
+                    item.description.toLowerCase().includes(token)
+                ).length;
+                totalScore *= (matchedTokens / queryTokens.length); // Weight by token coverage
+            }
+
+            return totalScore;
+        }
+
+        // Boost scores based on search history
+        function getHistoryBoost(queryTokens) {
+            let boost = 0;
+            queryTokens.forEach(token => {
+                const historyItem = searchHistory.find(h => h.query.toLowerCase().includes(token));
+                if (historyItem) {
+                    boost += historyItem.count * 15; // Weight by frequency
+                    const timeDiff = Date.now() - historyItem.timestamp;
+                    if (timeDiff < 24 * 60 * 60 * 1000) boost += 25; // Recent search boost
+                    if (timeDiff < 7 * 24 * 60 * 60 * 1000) boost += 10; // Week-long relevance
+                }
+            });
+            return boost;
+        }
+
+        // Add to search history
+        function addToSearchHistory(query) {
+            const existing = searchHistory.find(item => item.query.toLowerCase() === query.toLowerCase());
+            if (existing) {
+                existing.count++;
+                existing.timestamp = Date.now();
+            } else {
+                searchHistory.push({ query, count: 1, timestamp: Date.now() });
+            }
+            // Keep only last 50 searches to manage storage
+            searchHistory = searchHistory.sort((a, b) => b.timestamp - a.timestamp).slice(0, 50);
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+        }
+
+        // Filter and display suggestions
+        function filterSuggestions() {
+            const query = document.getElementById('search-bar').value.trim();
+            const suggestionsList = document.getElementById('suggestions-list');
+            const clearButton = document.getElementById('clear-button');
+            suggestionsList.innerHTML = '';
+
+            // Show or hide clear button based on search bar content
+            if (query.length > 0) {
+                clearButton.style.display = 'flex';
+            } else {
+                clearButton.style.display = 'none';
+                suggestionsList.style.display = 'none';
+                return;
+            }
+
+            const queryTokens = tokenizeQuery(query);
+
+            // Calculate relevance scores for all items
+            const scoredItems = data.map(item => ({
+                ...item,
+                score: calculateRelevance(item, queryTokens)
+            })).filter(item => item.score > 10); // Minimum threshold for relevance
+
+            // Sort by relevance score (descending)
+            scoredItems.sort((a, b) => b.score - a.score);
+
+            // Take top 10 suggestions
+            const topSuggestions = scoredItems.slice(0, 10);
+
+            if (topSuggestions.length > 0) {
+                suggestionsList.style.display = 'block';
+                
+                topSuggestions.forEach(item => {
+                    const div = document.createElement('div');
+                    div.classList.add('suggestion-item');
+                    if (item.score > 150) div.classList.add('highlight');
+
+                    const button = document.createElement('button');
+                    button.classList.add('suggestion-button');
+                    button.textContent = item.title + ' - ' + item.description.substring(0, 50) + '...';
+
+                    button.onclick = function() {
+                        window.open(item.link, '_blank');
+                        addToSearchHistory(query);
+                    };
+
+                    div.appendChild(button);
+                    suggestionsList.appendChild(div);
+                });
+            } else {
+                suggestionsList.style.display = 'block';
+                const div = document.createElement('div');
+                div.classList.add('suggestion-item');
+                div.textContent = 'No results found. Try broader terms or check spelling.';
+                suggestionsList.appendChild(div);
+            }
+        }
+
+        // Clear search bar function
+        function clearSearch() {
+            const searchBar = document.getElementById('search-bar');
+            const clearButton = document.getElementById('clear-button');
+            const suggestionsList = document.getElementById('suggestions-list');
+            searchBar.value = '';
+            clearButton.style.display = 'none';
+            suggestionsList.style.display = 'none';
+            searchBar.focus();
+        }
+
+        // Debounce function to limit frequent calls
+        function debounce(func, wait) {
+            let timeout;
+            return function(...args) {
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(this, args), wait);
+            };
+        }
+
+        // Debounced filter suggestions
+        const debouncedFilterSuggestions = debounce(filterSuggestions, 200);
+        document.getElementById('search-bar').oninput = debouncedFilterSuggestions;
+
+        // Keyboard navigation
+        document.getElementById('search-bar').addEventListener('keydown', function(e) {
+            const suggestions = document.querySelectorAll('.suggestion-button');
+            let currentIndex = -1;
+            
+            suggestions.forEach((sug, index) => {
+                if (sug.classList.contains('focused')) currentIndex = index;
+            });
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (currentIndex < suggestions.length - 1) {
+                    if (currentIndex >= 0) suggestions[currentIndex].classList.remove('focused');
+                    currentIndex++;
+                    suggestions[currentIndex].classList.add('focused');
+                    suggestions[currentIndex].scrollIntoView({ block: 'nearest' });
+                }
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (currentIndex > 0) {
+                    suggestions[currentIndex].classList.remove('focused');
+                    currentIndex--;
+                    suggestions[currentIndex].classList.add('focused');
+                    suggestions[currentIndex].scrollIntoView({ block: 'nearest' });
+                }
+            } else if (e.key === 'Enter' && currentIndex >= 0) {
+                e.preventDefault();
+                suggestions[currentIndex].click();
+            }
+        });
+
+        // Click outside to hide suggestions
+        document.addEventListener('click', function(event) {
+            const suggestionsList = document.getElementById('suggestions-list');
+            const searchBar = document.getElementById('search-bar');
+            const clearButton = document.getElementById('clear-button');
+
+            if (!searchBar.contains(event.target) && !suggestionsList.contains(event.target) && !clearButton.contains(event.target)) {
+                suggestionsList.style.display = 'none';
+            }
+        });
+
+        function Expsarvwigyan() {
+            window.open("index.html", "_blank");
+        }
+    </script>
+</body>
+</html>
