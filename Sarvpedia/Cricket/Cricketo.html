@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Hub: Cricketers, Scores & News</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts - Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Animate on Scroll (AOS) for animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+            color: #334155;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        body.dark-mode {
+            background-color: #1e293b;
+            color: #e2e8f0;
+        }
+        .hero-background {
+            background-image: url('https://placehold.co/1920x800/64748b/e2e8f0?text=Cricket+Stadium');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .section-heading {
+            position: relative;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            display: inline-block;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            width: 80px;
+            height: 5px;
+            background-color: #10b981;
+            border-radius: 9999px;
+        }
+        body.dark-mode .section-heading::after {
+            background-color: #34d399;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .card-hover-effect {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+        }
+        .scorecard {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+        }
+        body.dark-mode .scorecard {
+            background-color: #2d3748;
+        }
+        .scorecard:hover {
+            transform: translateY(-5px);
+        }
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 200px;
+            background-color: #1e293b;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 8px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        body.dark-mode .tooltip .tooltip-text {
+            background-color: #4b5563;
+        }
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        .live-ticker {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.7; }
+            100% { opacity: 1; }
+        }
+        @media (max-width: 768px) {
+            .hero-background {
+                background-attachment: scroll;
+            }
+            .tooltip .tooltip-text {
+                width: 150px;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Header Section -->
+    <header class="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold text-green-500 mb-2 md:mb-0 tracking-wide flex items-center">
+                <i class="fas fa-cricket-bat-ball mr-2"></i> CRICKET HUB
+            </a>
+            <div class="flex flex-wrap justify-center items-center space-x-4 md:space-x-8 text-lg">
+                <ul class="flex flex-wrap justify-center space-x-4 md:space-x-8">
+                    <li><a href="#home" class="hover:text-green-500 transition duration-300 font-medium">Home</a></li>
+                    <li><a href="#cricketers" class="hover:text-green-500 transition duration-300 font-medium">Cricketers</a></li>
+                    <li><a href="#live-scores" class="hover:text-green-500 transition duration-300 font-medium">Live Scores</a></li>
+                    <li><a href="#news" class="hover:text-green-500 transition duration-300 font-medium">News</a></li>
+                    <li><a href="#stats" class="hover:text-green-500 transition duration-300 font-medium">Stats</a></li>
+                    <li><a href="#schedule" class="hover:text-green-500 transition duration-300 font-medium">Schedule</a></li>
+                </ul>
+                <button id="darkModeToggle" class="text-gray-400 hover:text-green-500 transition duration-300 p-2 rounded-full bg-gray-800 hover:bg-gray-700">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-background h-screen flex items-center justify-center text-center text-white p-4" data-aos="fade-up">
+        <div class="hero-content bg-black bg-opacity-70 rounded-xl p-8 md:p-12 max-w-4xl mx-auto shadow-2xl transform transition-all duration-500 hover:scale-105">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight drop-shadow-lg">
+                Your Ultimate Cricket Destination
+            </h1>
+            <p class="text-lg md:text-xl font-light mb-8 drop-shadow-md">
+                Dive into live scores, in-depth player profiles, breaking news, and advanced stats from the world of cricket.
+            </p>
+            <a href="#live-scores" class="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-xl transition duration-300 transform hover:scale-110">
+                Check Live Scores <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Cricketers Section -->
+    <section id="cricketers" class="py-16 md:py-24 bg-white dark:bg-gray-800" data-aos="fade-up" data-aos-delay="100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Featured Cricketers</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Cricketer Card 1: Virat Kohli -->
+                <a href="virat-kohli-website.html" target="_blank" class="block bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center card-hover-effect">
+                    <img src="https://placehold.co/150x150/ef4444/ffffff?text=Virat+K" alt="Virat Kohli" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Virat Kohli</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">Right-handed Batsman</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">India | Royal Challengers Bengaluru</p>
+                    <div class="tooltip mt-3">
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Career Stats</span>
+                        <div class="tooltip-text">
+                            Tests: 9,230 runs, 46.85 avg, 30 100s<br>
+                            ODIs: 14,181 runs, 58.18 avg, 51 100s<br>
+                            T20Is: 4,188 runs, 49 avg, 1 100
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">Bio: Former India captain, known as the 'Chase Master', led RCB since IPL 2008.</p>
+                    <span class="inline-block mt-4 text-green-600 hover:text-green-800 font-medium">View Profile <i class="fas fa-external-link-alt ml-1 text-sm"></i></span>
+                </a>
+                <!-- Cricketer Card 2: Rohit Sharma -->
+                <a href="#" class="block bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center card-hover-effect">
+                    <img src="https://placehold.co/150x150/3b82f6/ffffff?text=Rohit+S" alt="Rohit Sharma" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Rohit Sharma</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">Right-handed Opening Batsman</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">India | Mumbai Indians</p>
+                    <div class="tooltip mt-3">
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Career Stats</span>
+                        <div class="tooltip-text">
+                            Tests: 4,137 runs, 45.46 avg, 12 100s<br>
+                            ODIs: 10,866 runs, 49.39 avg, 31 100s<br>
+                            T20Is: 4,231 runs, 32.05 avg, 5 100s
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">Bio: 'Hitman', led India to T20 WC 2024, 3 double-tons in ODIs.</p>
+                    <span class="inline-block mt-4 text-green-600 hover:text-green-800 font-medium">View Profile <i class="fas fa-external-link-alt ml-1 text-sm"></i></span>
+                </a>
+                <!-- Cricketer Card 3: Jasprit Bumrah -->
+                <a href="#" class="block bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center card-hover-effect">
+                    <img src="https://placehold.co/150x150/f97316/ffffff?text=Jasprit+B" alt="Jasprit Bumrah" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Jasprit Bumrah</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">Right-arm Fast Bowler</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">India | Mumbai Indians</p>
+                    <div class="tooltip mt-3">
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Career Stats</span>
+                        <div class="tooltip-text">
+                            Tests: 270 wkts, 20.69 avg, 12 5-fers<br>
+                            ODIs: 149 wkts, 24.08 avg, 2 5-fers<br>
+                            T20Is: 89 wkts, 19.66 avg, 0 5-fers
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">Bio: Unique action, lethal yorkers, key in T20 WC 2024 win.</p>
+                    <span class="inline-block mt-4 text-green-600 hover:text-green-800 font-medium">View Profile <i class="fas fa-external-link-alt ml-1 text-sm"></i></span>
+                </a>
+                <!-- Cricketer Card 4: Smriti Mandhana -->
+                <a href="#" class="block bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 text-center card-hover-effect">
+                    <img src="https://placehold.co/150x150/8b5cf6/ffffff?text=Smriti+M" alt="Smriti Mandhana" class="w-32 h-32 rounded-full mx-auto mb-4 object-cover border-4 border-green-500">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Smriti Mandhana</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm">Left-handed Opening Batsman</p>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">India Women | Royal Challengers Bangalore</p>
+                    <div class="tooltip mt-3">
+                        <span class="text-sm text-gray-700 dark:text-gray-300">Career Stats</span>
+                        <div class="tooltip-text">
+                            Tests: 336 runs, 42 avg, 1 100<br>
+                            ODIs: 3,540 runs, 43.17 avg, 7 100s<br>
+                            T20Is: 3,266 runs, 29.69 avg, 0 100s
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">Bio: Stylish opener, led RCB to WPL 2024 title.</p>
+                    <span class="inline-block mt-4 text-green-600 hover:text-green-800 font-medium">View Profile <i class="fas fa-external-link-alt ml-1 text-sm"></i></span>
+                </a>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105">
+                    View All Cricketers <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Scores Section -->
+    <section id="live-scores" class="py-16 md:py-24 bg-gray-200 dark:bg-gray-900" data-aos="fade-up" data-aos-delay="200">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Live Match Scores</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Live Match 1 -->
+                <div class="scorecard">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-semibold text-green-600 live-ticker"><i class="fas fa-circle text-green-500 text-xs mr-2"></i>LIVE</span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">T20 World Cup 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">India vs. Australia</h3>
+                    <div class="flex justify-between items-center text-lg mb-2">
+                        <span class="font-semibold">India:</span> <span class="font-bold text-green-700 dark:text-green-400" id="india-score">185/4 (18.2 Overs)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg mb-2">
+                        <span class="font-semibold">Batting:</span> <span class="text-gray-700 dark:text-gray-300">Virat Kohli 82* (54), Suryakumar Yadav 15* (12)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg mb-4">
+                        <span class="font-semibold">Australia:</span> <span class="font-bold text-gray-700 dark:text-gray-300">184/7 (20 Overs)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg mb-4">
+                        <span class="font-semibold">Bowling:</span> <span class="text-gray-700 dark:text-gray-300">Pat Cummins 2/34 (4)</span>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" id="match-status">India needs 0 runs to win.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2" id="last-updated">Last updated: Just now</p>
+                </div>
+                <!-- Live Match 2 -->
+                <div class="scorecard">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-semibold text-green-600 live-ticker"><i class="fas fa-circle text-green-500 text-xs mr-2"></i>LIVE</span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">IPL 2025</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Mumbai Indians vs. Chennai Super Kings</h3>
+                    <div class="flex justify-between items-center text-lg mb-2">
+                        <span class="font-semibold">MI:</span> <span class="font-bold text-green-700 dark:text-green-400" id="mi-score">120/2 (10.5 Overs)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg mb-2">
+                        <span class="font-semibold">Batting:</span> <span class="text-gray-700 dark:text-gray-300">Rohit Sharma 65* (38), Ishan Kishan 42* (28)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg mb-4">
+                        <span class="font-semibold">CSK:</span> <span class="font-bold text-gray-700 dark:text-gray-300">190/5 (20 Overs)</span>
+                    </div>
+                    <div class="flex justify-between items-center text-lg mb-4">
+                        <span class="font-semibold">Bowling:</span> <span class="text-gray-700 dark:text-gray-300">Ravindra Jadeja 1/28 (3)</span>
+                    </div>
+                    <p class="text-sm text-gray-600 dark:text-gray-400" id="mi-status">MI needs 71 runs in 55 balls.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2" id="mi-updated">Last updated: 2 minutes ago</p>
+                </div>
+                <!-- Upcoming Match 1 -->
+                <div class="scorecard opacity-70">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm font-semibold text-blue-600"><i class="fas fa-clock text-blue-500 text-xs mr-2"></i>UPCOMING</span>
+                        <span class="text-xs text-gray-500 dark:text-gray-400">ODI Series</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">England vs. New Zealand</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Match starts: June 5, 2025, 10:00 AM GMT</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Venue: Lord's, London</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105">
+                    View All Matches <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Dashboard Section -->
+    <section id="stats" class="py-16 md:py-24 bg-white dark:bg-gray-800" data-aos="fade-up" data-aos-delay="300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Player Stats Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="scorecard">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Virat Kohli</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Tests: 9,230 runs, 46.85 avg, 30 100s, 31 50s</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">ODIs: 14,181 runs, 58.18 avg, 51 100s, 72 50s</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">T20Is: 4,188 runs, 49 avg, 1 100, 38 50s</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Peak Year: 2016-18, dominated all formats</p>
+                </div>
+                <div class="scorecard">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Rohit Sharma</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Tests: 4,137 runs, 45.46 avg, 12 100s, 17 50s</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">ODIs: 10,866 runs, 49.39 avg, 31 100s, 55 50s</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">T20Is: 4,231 runs, 32.05 avg, 5 100s, 29 50s</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Peak Year: 2019, 5 ODI 100s in WC</p>
+                </div>
+                <div class="scorecard">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Jasprit Bumrah</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Tests: 270 wkts, 20.69 avg, 12 5-fers</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">ODIs: 149 wkts, 24.08 avg, 2 5-fers</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">T20Is: 89 wkts, 19.66 avg, 0 5-fers</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Peak Year: 2024, T20 WC hero</p>
+                </div>
+                <div class="scorecard">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Smriti Mandhana</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">Tests: 336 runs, 42 avg, 1 100, 2 50s</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-2">ODIs: 3,540 runs, 43.17 avg, 7 100s, 25 50s</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-4">T20Is: 3,266 runs, 29.69 avg, 0 100s, 23 50s</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400">Peak Year: 2024, WPL champion</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Match Schedule Section -->
+    <section id="schedule" class="py-16 md:py-24 bg-gray-200 dark:bg-gray-900" data-aos="fade-up" data-aos-delay="400">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Match Schedule</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="scorecard opacity-70">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">England vs. New Zealand</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Date: June 5, 2025</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Format: ODI</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Time: 10:00 AM GMT</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Venue: Lord's, London</p>
+                </div>
+                <div class="scorecard opacity-70">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">India vs. South Africa</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Date: June 8, 2025</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Format: Test</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Time: 9:30 AM IST</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Venue: Bengaluru, India</p>
+                </div>
+                <div class="scorecard opacity-70">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Australia vs. Pakistan</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Date: June 10, 2025</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Format: T20I</p>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-4">Time: 7:00 PM AEDT</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">Venue: Sydney, Australia</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105">
+                    View Full Schedule <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="py-16 md:py-24 bg-white dark:bg-gray-800" data-aos="fade-up" data-aos-delay="500">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Latest Cricket News</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Article 1 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 card-hover-effect">
+                    <img src="https://placehold.co/400x250/d1d5db/4b5563?text=News+Image+1" alt="News Headline 1" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Team India's New Strategy for Upcoming Series</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">June 3, 2025 | International</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">Experts analyze India's potential XI, with focus on bolstering spin attack for Tests against South Africa. Rohit Sharma hints at aggressive approach.</p>
+                    <a href="#" class="text-green-600 hover:text-green-800 font-medium text-sm">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+                <!-- News Article 2 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 card-hover-effect">
+                    <img src="https://placehold.co/400x250/d1d5db/4b5563?text=News+Image+2" alt="News Headline 2" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Young Talent Shines in Domestic Cricket</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">June 2, 2025 | Domestic</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">Rising stars like Yashasvi Jaiswal and Tilak Varma dominate Ranji Trophy, signaling bright future for India. BCCI eyes them for T20Is.</p>
+                    <a href="#" class="text-green-600 hover:text-green-800 font-medium text-sm">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+                <!-- News Article 3 -->
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-xl shadow-lg p-6 card-hover-effect">
+                    <img src="https://placehold.co/400x250/d1d5db/4b5563?text=News+Image+3" alt="News Headline 3" class="rounded-lg mb-4 w-full h-auto object-cover">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">Impact of Recent Rule Changes</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">June 1, 2025 | Rules</p>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">ICC's new T20 timeout and DRS tweaks shift gameplay. Teams adapt strategies; bowlers gain edge in close finishes.</p>
+                    <a href="#" class="text-green-600 hover:text-green-800 font-medium text-sm">Read More <i class="fas fa-arrow-right ml-1 text-xs"></i></a>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block bg-gray-300 dark:bg-gray-600 hover:bg-gray-400 dark:hover:bg-gray-500 text-gray-800 dark:text-white font-bold py-3 px-8 rounded-full shadow-md transition duration-300 transform hover:scale-105">
+                    View All News <i class="fas fa-chevron-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup Section -->
+    <section class="py-16 md:py-24 bg-gray-200 dark:bg-gray-900" data-aos="fade-up" data-aos-delay="600">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 section-heading mx-auto">Stay Updated</h2>
+            <div class="max-w-lg mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-lg p-6">
+                <p class="text-gray-700 dark:text-gray-300 text-center mb-6">Subscribe to our newsletter for the latest cricket updates, scores, and exclusive content!</p>
+                <form class="flex flex-col sm:flex-row gap-4">
+                    <input type="email" placeholder="Enter your email" class="flex-1 p-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-green-500">
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 transform hover:scale-105">
+                        Subscribe <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-300">© 2025 Cricket Hub. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-green-500 transition duration-300"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button onclick="scrollToTop()" class="fixed bottom-8 right-8 bg-green-600 hover:bg-green-700 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-75">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init();
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Dark mode toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = darkModeToggle.querySelector('i');
+            if (document.body.classList.contains('dark-mode')) {
+                icon.classList.remove('fa-moon');
+                icon.classList.add('fa-sun');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+            }
+        });
+
+        // Simulate live score updates
+        let indiaOvers = 18.2;
+        let indiaRuns = 185;
+        let indiaWickets = 4;
+        let miOvers = 10.5;
+        let miRuns = 120;
+        let miWickets = 2;
+
+        function updateScores() {
+            // India vs Australia
+            indiaOvers += 0.1;
+            indiaRuns += Math.floor(Math.random() * 6); // Random runs (0-6)
+            if (Math.random() < 0.1) indiaWickets++; // 10% chance of wicket
+            if (indiaOvers > 20 || indiaRuns >= 185) {
+                document.getElementById('india-score').textContent = `${indiaRuns}/${indiaWickets} (${indiaOvers.toFixed(1)} Overs)`;
+                document.getElementById('match-status').textContent = 'India wins!';
+                return;
+            }
+            document.getElementById('india-score').textContent = `${indiaRuns}/${indiaWickets} (${indiaOvers.toFixed(1)} Overs)`;
+            document.getElementById('match-status').textContent = `India needs ${185 - indiaRuns} runs to win.`;
+            document.getElementById('last-updated').textContent = 'Last updated: Just now';
+
+            // MI vs CSK
+            miOvers += 0.1;
+            miRuns += Math.floor(Math.random() * 6);
+            if (Math.random() < 0.1) miWickets++;
+            if (miOvers > 20 || miRuns >= 190) {
+                document.getElementById('mi-score').textContent = `${miRuns}/${miWickets} (${miOvers.toFixed(1)} Overs)`;
+                document.getElementById('mi-status').textContent = miRuns >= 190 ? 'MI wins!' : 'CSK wins!';
+                return;
+            }
+            document.getElementById('mi-score').textContent = `${miRuns}/${miWickets} (${miOvers.toFixed(1)} Overs)`;
+            document.getElementById('mi-status').textContent = `MI needs ${190 - miRuns} runs in ${(20 - miOvers) * 6} balls.`;
+            document.getElementById('mi-updated').textContent = 'Last updated: Just now';
+        }
+
+        setInterval(updateScores, 10000); // Update every 10 seconds
+    </script>
+</body>
+</html>
