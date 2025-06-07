@@ -184,7 +184,6 @@
             margin-left: 0.5rem;
         }
 
-        /* Hamburger menu styles from Code 1 */
         .hamburger {
             display: none;
             cursor: pointer;
@@ -447,29 +446,29 @@
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: clamp(60px, 10vw, 70px); /* From Code 1 for sliding effect */
+                top: clamp(60px, 10vw, 70px);
                 flex-direction: column;
                 background: var(--dark-bg);
                 width: 100%;
-                height: calc(100vh - clamp(60px, 10vw, 70px)); /* From Code 1 */
+                height: calc(100vh - clamp(60px, 10vw, 70px));
                 text-align: center;
-                transition: left 0.3s ease; /* From Code 1 */
+                transition: left 0.3s ease;
                 padding: 1rem 0;
-                overflow-y: auto; /* From Code 1: Enable vertical scrolling */
-                scrollbar-width: none; /* From Code 1: Hide scrollbar */
-                -ms-overflow-style: none; /* From Code 1: Hide scrollbar for IE/Edge */
+                overflow-y: auto;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
             }
 
             .nav-menu::-webkit-scrollbar {
-                display: none; /* From Code 1: Hide scrollbar for Chrome/Safari */
+                display: none;
             }
 
             .nav-menu.active {
-                left: 0; /* From Code 1: Slide in menu */
+                left: 0;
             }
 
             .hamburger {
-                display: block; /* From Code 1: Show hamburger menu */
+                display: block;
             }
 
             .dropdown-menu,
@@ -606,6 +605,47 @@
                 height: 1.75rem;
                 font-size: 0.75rem;
             }
+        }
+
+        /* New styles to remove blue outline on mobile while preserving keyboard navigation */
+        * {
+            -webkit-tap-highlight-color: transparent; /* Remove tap highlight on mobile */
+        }
+
+        button,
+        a,
+        [role="button"],
+        [role="menuitem"] {
+            outline: none; /* Remove default blue outline */
+        }
+
+        /* Apply focus styles only for keyboard navigation */
+        button:focus-visible,
+        a:focus-visible,
+        [role="button"]:focus-visible,
+        [role="menuitem"]:focus-visible {
+            outline: 2px solid var(--accent-color); /* Custom outline for keyboard navigation */
+            outline-offset: 2px;
+        }
+
+        /* Suppress outline for touch interactions */
+        button:focus:not(:focus-visible),
+        a:focus:not(:focus-visible),
+        [role="button"]:focus:not(:focus-visible),
+        [role="menuitem"]:focus:not(:focus-visible) {
+            outline: none; /* No outline for mouse/touch */
+        }
+
+        /* Enhance active state to match design */
+        .hamburger:active,
+        .slider-btn:active,
+        .nav-menu a:active,
+        .profile-container:active,
+        .cta-button:active,
+        .back-to-top:active,
+        .slider-dot:active {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
         }
     </style>
 </head>
@@ -877,7 +917,7 @@
             hamburger.addEventListener('click', () => {
                 const isActive = hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
-                document.body.style.overflow = isActive ? 'hidden' : ''; /* Keep Code 2's body scroll lock */
+                document.body.style.overflow = isActive ? 'hidden' : '';
                 hamburger.setAttribute('aria-expanded', isActive);
             });
 
