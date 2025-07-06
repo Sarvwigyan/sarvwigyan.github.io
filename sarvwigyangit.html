@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sarvwigyan GitHub Repositories</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #161b22;
+      color: white;
+      padding: 20px 10px;
+      text-align: center;
+    }
+
+    header img {
+      width: 100px;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin-bottom: 10px;
+    }
+
+    .org-info {
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .org-info a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+
+    h1 {
+      margin: 10px 0 5px;
+      font-size: 1.8rem;
+    }
+
+    .container {
+      padding: 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    .repo {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s;
+    }
+
+    .repo:hover {
+      transform: translateY(-5px);
+    }
+
+    .repo h2 {
+      margin: 0 0 10px;
+      font-size: 1.3rem;
+    }
+
+    .repo p {
+      margin: 5px 0;
+      color: #444;
+    }
+
+    .info-line {
+      font-size: 0.9rem;
+      margin: 5px 0;
+      color: #555;
+    }
+
+    .topic {
+      display: inline-block;
+      background: #e1ecf4;
+      color: #0366d6;
+      padding: 3px 8px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-right: 5px;
+      margin-bottom: 5px;
+    }
+
+    .links {
+      margin-top: 10px;
+    }
+
+    .links a {
+      text-decoration: none;
+      margin-right: 10px;
+      font-size: 0.9rem;
+      color: #0366d6;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 20px;
+      color: #888;
+    }
+
+    .members-section {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .member-avatar {
+      width: 60px;
+      border-radius: 50%;
+      margin: 5px;
+      border: 2px solid #0366d6;
+    }
+
+    .members-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 10px 20px;
+    }
+
+    .members-container a {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header id="org-header">
+    <img src="" id="org-avatar" alt="Organization Logo" style="display:none">
+    <h1 id="org-name">Sarvwigyan</h1>
+    <p class="org-info" id="org-desc">Exploring all public repositories</p>
+  </header>
+
+  <main class="container" id="repo-container">
+    <p>Loading repositories...</p>
+  </main>
+
+  <div class="members-section">
+    <h2>🌐 Organization Members</h2>
+    <div class="members-container" id="members"></div>
+  </div>
+
+  <div class="footer">
+    Made with ❤️ by Sarvwigyan | Powered by GitHub API
+  </div>
+
+  <script>
+    const org = "Sarvwigyan";
+
+    async function loadOrgInfo() {
+      const res = await fetch(`https://api.github.com/orgs/${org}`);
+      const orgData = await res.json();
+
+      document.getElementById('org-avatar').src = orgData.avatar_url;
+      document.getElementById('org-avatar').style.display = "inline-block";
+      document.getElementById('org-name').textContent = orgData.name || orgData.login;
+      document.getElementById('org-desc').innerHTML =
+        `${orgData.description || "No description"} <br><a href="${orgData.blog || orgData.html_url}" target="_blank">${orgData.blog || orgData.html_url}</a>`;
+    }
+
+    async function loadRepos() {
+      const url = `https://api.github.com/orgs/${org}/repos?per_page=100`;
+      const res = await fetch(url);
+      const repos = await res.json();
+
+      const container = document.getElementById('repo-container');
+      container.innerHTML = "";
+
+      repos.forEach(repo => {
+        const div = document.createElement('div');
+        div.className = 'repo';
+
+        let topicsHTML = "";
+        if (repo.topics && repo.topics.length > 0) {
+          topicsHTML = repo.topics.map(t => `<span class="topic">${t}</span>`).join("");
+        }
+
+        div.innerHTML = `
+          <h2><a href="${repo.html_url}" target="_blank">${repo.name}</a></h2>
+          <p>${repo.description || "No description available."}</p>
+          <div class="info-line">⭐ ${repo.stargazers_count} | 🍴 ${repo.forks_count} | 👀 ${repo.watchers_count}</div>
+          <div class="info-line">🧠 Language: ${repo.language || "N/A"} | 💾 Size: ${repo.size} KB</div>
+          <div class="info-line">📄 License: ${repo.license?.name || "No license"} | ⏰ Updated: ${new Date(repo.updated_at).toLocaleString()}</div>
+          <div class="info-line">🏷️ ${topicsHTML || "No tags"}</div>
+          <div class="links">
+            <a href="${repo.html_url}/issues" target="_blank">🐞 Issues</a>
+            <a href="${repo.html_url}/pulls" target="_blank">🔁 Pull Requests</a>
+            <a href="${repo.html_url}" target="_blank">🔗 View Repo</a>
+          </div>
+        `;
+        container.appendChild(div);
+      });
+
+      if (repos.length === 0) {
+        container.innerHTML = "<p>No public repositories found.</p>";
+      }
+    }
+
+    async function loadMembers() {
+      const res = await fetch(`https://api.github.com/orgs/${org}/members`);
+      const members = await res.json();
+      const container = document.getElementById('members');
+      container.innerHTML = "";
+
+      members.forEach(member => {
+        const a = document.createElement('a');
+        a.href = member.html_url;
+        a.target = "_blank";
+        a.innerHTML = `<img src="${member.avatar_url}" alt="${member.login}" class="member-avatar" title="${member.login}">`;
+        container.appendChild(a);
+      });
+
+      if (members.length === 0) {
+        container.innerHTML = "<p>No public members found.</p>";
+      }
+    }
+
+    // Load everything
+    loadOrgInfo();
+    loadRepos();
+    loadMembers();
+  </script>
+</body>
+</html>
