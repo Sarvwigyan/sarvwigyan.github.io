@@ -22,25 +22,23 @@
 <!-- NEW: Firebase SDK (Modular – Loads Only What We Need for Auth & DB) -->
 <!-- Learning: Initializes Firebase with your config (paste your real firebaseConfig below). Connects auth/DB globally. Without this, no DB sync. -->
 <script type="module">
-  import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
-  import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
-  import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // PASTE YOUR firebaseConfig HERE (From Firebase Console > Project Settings > General > Your apps > Web config)
-  // Example (REPLACE WITH YOURS – No placeholders!):
+  // Your web app's Firebase configuration
   const firebaseConfig = {
-    apiKey: "AIzaSy...your-actual-api-key...",  // e.g., "AIzaSyB123..."
-    authDomain: "sarvwigyan.firebaseapp.com",  // e.g., "sarvwigyan.firebaseapp.com"
-    projectId: "sarvwigyan",  // Your project ID
-    storageBucket: "sarvwigyan.appspot.com",  // e.g., "sarvwigyan.appspot.com"
-    messagingSenderId: "123456789",  // From config
-    appId: "1:123456789:web:abcdef123456"  // From config
+    apiKey: "AIzaSyBwjw77no1KXvACIifGYI3_B5zPhoTk9P0",
+    authDomain: "sarvwigyan-108.firebaseapp.com",
+    projectId: "sarvwigyan-108",
+    storageBucket: "sarvwigyan-108.firebasestorage.app",
+    messagingSenderId: "1006916640398",
+    appId: "1:1006916640398:web:57db23b319ac7c4f22b3df"
   };
 
+  // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  window.firebaseAuth = getAuth(app);  // Global: Manages sign-ins & user state
-  window.firebaseDB = getFirestore(app);  // Global: Your database connection
-  window.googleProvider = new GoogleAuthProvider();  // Google provider for popup auth
 </script>
 
 <!-- ✅ Open Graph -->
