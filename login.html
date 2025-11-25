@@ -15,31 +15,8 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://sarvwigyan.github.io/login.html" />
 
-<!-- ✅ Google Sign-In (UPDATED: Your New Firebase Client ID) -->
-<!-- Learning: This meta tells the Google button "Use this ID for verification." Matches the one from Firebase Auth settings. -->
-<meta name="google-signin-client_id" content="1006916640398-p40d68m0f5hu91vcm93r41vlflrtbvp5.apps.googleusercontent.com">
-
-<!-- NEW: Firebase SDK (Modular – Loads Only What We Need for Auth & DB) -->
-<!-- Learning: Initializes Firebase with your config (paste your real firebaseConfig below). Connects auth/DB globally. Without this, no DB sync. -->
-<script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyBwjw77no1KXvACIifGYI3_B5zPhoTk9P0",
-    authDomain: "sarvwigyan-108.firebaseapp.com",
-    projectId: "sarvwigyan-108",
-    storageBucket: "sarvwigyan-108.firebasestorage.app",
-    messagingSenderId: "1006916640398",
-    appId: "1:1006916640398:web:57db23b319ac7c4f22b3df"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
+<!-- ✅ Google Sign-In -->
+<meta name="google-signin-client_id" content="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com">
 
 <!-- ✅ Open Graph -->
 <meta property="og:title" content="Login to Sarvwigyan – Access Innovation & Learning">
@@ -257,10 +234,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <h1>Welcome to Sarvwigyan</h1>
         <p>Sign in with Google to continue</p>
-        <!-- UPDATED: g_id_onload with Your New Firebase Client ID -->
-        <!-- Learning: This initializes the button with the ID from Firebase—matches the meta for seamless auth. -->
         <div id="g_id_onload"
-             data-client_id="1006916640398-p40d68m0f5hu91vcm93r41vlflrtbvp5.apps.googleusercontent.com"
+             data-client_id="306442103991-kvp575rlp1obn3t651f7mdj6q8b4nl1g.apps.googleusercontent.com"
              data-callback="onSignIn">
         </div>
         <div class="g_id_signin" data-type="standard" data-shape="pill" data-size="large"></div>
@@ -269,69 +244,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </div>
 
-    <!-- UPDATED: Full onSignIn Script (Handles Google Decode + Firebase DB Creation) -->
-    <!-- Learning: Unpacks ALL Google identity, saves to localStorage, then creates/updates Firestore doc. Errors log but don't block. onAuthStateChanged auto-skips if signed in. -->
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     <script>
-      function onSignIn(response) {
-        // Step 1: Decode Google's JWT Token (Original Logic – Unchanged)
-        const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
-        
-        // Step 2: Unpack ALL Possible Identity Fields (Captures Everything Google Shares)
-        // Learning: Builds complete profile—future-proof for more fields like 'iat' (timestamp).
-        const fullUserData = {
-          sub: responsePayload.sub,  // Unique Google ID (DB key)
-          name: responsePayload.name,  // Full name
-          given_name: responsePayload.given_name,  // First name
-          family_name: responsePayload.family_name,  // Last name
-          email: responsePayload.email,  // Email
-          email_verified: responsePayload.email_verified,  // Verified?
-          picture: responsePayload.picture,  // Pic URL
-          locale: responsePayload.locale,  // Language (e.g., "en-US")
-          hd: responsePayload.hd  // Domain (e.g., "company.com")
-        };
-
-        // Step 3: Save to localStorage (Original – Fallback Access)
-        localStorage.setItem('user', JSON.stringify(fullUserData));
-
-        // Step 4: Firebase Sign-In & DB Sync (Creates/Updates User Doc)
-        // Learning: signInWithPopup reuses button for token. setDoc merges—creates if new, updates timestamps.
-        signInWithPopup(window.firebaseAuth, window.googleProvider)
-          .then(async (result) => {
-            const user = result.user;  // Firebase user
-            const userId = user.uid;  // Key
-
-            // Write EVERYTHING to /users/{userId}
-            await setDoc(doc(window.firebaseDB, 'users', userId), {
-              ...fullUserData,  // Copies all fields
-              uid: userId,  // Firebase UID
-              displayName: user.displayName,  // Synced name
-              photoURL: user.photoURL,  // Synced pic
-              joined: new Date().toISOString(),  // First login
-              lastLogin: new Date().toISOString(),  // Refreshes
-              interests: []  // For future recs
-            }, { merge: true });  // Safe merge
-
-            console.log(`Success! User DB Doc Created/Updated. ID: ${userId}. Check Firestore > Data > users.`);
-          })
-          .catch((error) => {
-            console.error('Firebase Sync Error:', error.code, error.message);  // Logs issues
-          });
-
-        // Step 5: Original Redirect
-        window.location.href = "index.html";
-      }
-
-      // NEW: Auth State Listener (On Load – Handles Signed-In Users)
-      // Learning: Watches login state—skips screen if auth'd for smooth UX.
-      onAuthStateChanged(window.firebaseAuth, (user) => {
-        if (user) {
-          console.log('User Already Signed In:', user.email);
-          if (window.location.pathname.includes('login.html')) {
+        function onSignIn(response) {
+            const responsePayload = JSON.parse(atob(response.credential.split('.')[1]));
+            const userData = {
+                id: responsePayload.sub,
+                name: responsePayload.name,
+                email: responsePayload.email,
+                picture: responsePayload.picture
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
             window.location.href = "index.html";
-          }
         }
-      });
     </script>
 </body>
 </html>
