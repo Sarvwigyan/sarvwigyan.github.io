@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sarvwigyan SciCom - Join Our Community</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      padding: 50px 20px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .science-icon {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      background: linear-gradient(45deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Stats */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 8px;
+    }
+
+    /* Discord Section */
+    .discord-section {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 40px;
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .discord-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .discord-icon {
+      width: 80px;
+      height: 80px;
+      background: linear-gradient(45deg, #5865F2, #9b59b6);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .discord-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #5865F2;
+      color: white;
+      padding: 18px 35px;
+      font-size: 1.3rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+      border: 3px solid transparent;
+    }
+
+    .discord-btn:hover {
+      background: #4752c4;
+      transform: scale(1.05);
+      border-color: rgba(255,255,255,0.3);
+    }
+
+    .discord-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .feature {
+      background: rgba(255,255,255,0.05);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .feature i {
+      font-size: 2.5rem;
+      color: #5865F2;
+      margin-bottom: 15px;
+    }
+
+    /* Platforms */
+    .platforms {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px;
+      text-align: center;
+      backdrop-filter: blur(10px);
+    }
+
+    .platforms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .platform-card {
+      background: rgba(255,255,255,0.1);
+      padding: 30px 20px;
+      border-radius: 15px;
+      text-decoration: none;
+      color: white;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+
+    .platform-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255,255,255,0.2);
+    }
+
+    .facebook-card:hover { border-color: #1877F2; }
+    .youtube-card:hover { border-color: #FF0000; }
+    .whatsapp-card:hover { border-color: #25D366; }
+
+    .platform-icon {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    .facebook-icon { color: #1877F2; }
+    .youtube-icon { color: #FF0000; }
+    .whatsapp-icon { color: #25D366; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 2.2rem;
+      }
+      
+      .discord-info {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .science-icon {
+        font-size: 3.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <div class="science-icon">🔬</div>
+      <h1>Sarvwigyan SciCom</h1>
+      <p>Scientific Community • Research Discussions • Real-time Chat</p>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <div class="stat-number" id="onlineCount">…</div>
+        <div>Members Online</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">💬</div>
+        <div>Live Discord</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">🔬</div>
+        <div>Science Focus</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">🌍</div>
+        <div>Global Community</div>
+      </div>
+    </div>
+
+    <!-- Discord Section -->
+    <div class="discord-section">
+      <div class="discord-info">
+        <div class="discord-icon">
+          <i class="fab fa-discord"></i>
+        </div>
+        <div>
+          <h2 style="margin-bottom: 10px;">Join Our Live Discord</h2>
+          <p style="opacity: 0.8;">Click below to join our community chat on Discord</p>
+        </div>
+      </div>
+
+      <!-- Single Discord Join Button -->
+      <a href="https://discord.gg/qRnVfBsT" class="discord-btn" target="_blank">
+        <i class="fab fa-discord"></i>
+        JOIN DISCORD COMMUNITY
+      </a>
+
+      <div class="discord-features">
+        <div class="feature">
+          <i class="fas fa-comments"></i>
+          <h3>Real-time Chat</h3>
+          <p>Live discussions with community members</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-users"></i>
+          <h3>Active Community</h3>
+          <p>Connect with science enthusiasts</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-share-alt"></i>
+          <h3>Share Research</h3>
+          <p>Discuss papers and projects</p>
+        </div>
+        <div class="feature">
+          <i class="fas fa-rocket"></i>
+          <h3>Instant Access</h3>
+          <p>Start chatting immediately</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Other Platforms -->
+    <div class="platforms">
+      <h2>Connect With Us</h2>
+      <p style="opacity: 0.8; margin-top: 10px;">Follow our community on other platforms</p>
+      
+      <div class="platforms-grid">
+        <a href="https://facebook.com/your-page" class="platform-card facebook-card" target="_blank">
+          <div class="platform-icon facebook-icon">
+            <i class="fab fa-facebook"></i>
+          </div>
+          <h3>Facebook</h3>
+          <p style="opacity: 0.8;">Community Updates</p>
+        </a>
+        
+        <a href="https://youtube.com/your-channel" class="platform-card youtube-card" target="_blank">
+          <div class="platform-icon youtube-icon">
+            <i class="fab fa-youtube"></i>
+          </div>
+          <h3>YouTube</h3>
+          <p style="opacity: 0.8;">Science Content</p>
+        </a>
+        
+        <a href="https://wa.me/yournumber" class="platform-card whatsapp-card" target="_blank">
+          <div class="platform-icon whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+          </div>
+          <h3>WhatsApp</h3>
+          <p style="opacity: 0.8;">Quick Updates</p>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>🔬 <strong>Sarvwigyan SciCom</strong> - Scientific Community Platform</p>
+    </div>
+  </div>
+
+  <!-- WidgetBot Script -->
+  <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer>
+    new Crate({
+      server: '1442192331112579217',
+      channel: '1442192332123279534',
+      theme: 'dark'
+    })
+
+    // Auto update online count every 8 sec
+    setInterval(() => {
+      fetch('https://discord.com/api/guilds/1442192331112579217/widget.json')
+        .then(r => r.json())
+        .then(d => document.getElementById('onlineCount').textContent = d.presence_count)
+    }, 8000);
+  </script>
+</body>
+</html>
