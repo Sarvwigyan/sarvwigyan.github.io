@@ -54,55 +54,76 @@
 
     <!-- Firebase SDK (modular) -->
     <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-        import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
-        import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+    import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
-            authDomain: "sarvwigyan-auth.firebaseapp.com",
-            projectId: "sarvwigyan-auth",
-            storageBucket: "sarvwigyan-auth.firebasestorage.app",
-            messagingSenderId: "503809453858",
-            appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
-            measurementId: "G-BV5G1LSH6F"
-        };
+    const firebaseConfig = {
+        apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+        authDomain: "sarvwigyan-auth.firebaseapp.com",
+        projectId: "sarvwigyan-auth",
+        storageBucket: "sarvwigyan-auth.firebasestorage.app",
+        messagingSenderId: "503809453858",
+        appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+        measurementId: "G-BV5G1LSH6F"
+    };
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
-        const db = getFirestore(app);
-        const provider = new GoogleAuthProvider();
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+    const provider = new GoogleAuthProvider();
 
-        // THIS LINE IS THE FIX → Forces Google account chooser every time
-        provider.setCustomParameters({ prompt: 'select_account' });
+    provider.setCustomParameters({ prompt: 'select_account' });
 
-        window.signInWithGoogle = async () => {
-            try {
-                const result = await signInWithPopup(auth, provider);
-                const user = result.user;
+    window.signInWithGoogle = async () => {
+        try {
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
 
-                // Save user data to Firestore
-                await setDoc(doc(db, "users", user.uid), {
-                    name: user.displayName,
-                    email: user.email,
-                    picture: user.photoURL,
-                    lastLogin: new Date().toISOString()
-                }, { merge: true });
+            // Save to Firestore
+            const now = new Date().toISOString();
+            await setDoc(doc(db, "users", user.uid), {
+                name: user.displayName,
+                email: user.email,
+                picture: user.photoURL,
+                lastLogin: now
+            }, { merge: true });
 
-                // Redirect to home
-                window.location.href = "index.html";
-            } catch (error) {
-                console.error("Login error:", error);
-                alert("Login failed: " + error.message);
-            }
-        };
+            // Save to localStorage for profile page consistency
+            localStorage.setItem('user', JSON.stringify({
+                name: user.displayName,
+                email: user.email,
+                picture: user.photoURL,
+                lastLogin: now,
+                userId: user.uid,
+                fullName: user.displayName,
+                accountCreated: user.metadata.creationTime || now,
+                passwordChanged: 'Never (Google Auth)',
+                phoneNumber: 'Not provided',
+                location: 'Not specified',
+                bio: 'Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.',
+                stats: { projects: 12, connections: 48, activity: 87 },
+                twoFactorEnabled: false,
+                securityStatus: 'strong',
+                themePreference: 'System default',
+                languagePreference: 'English',
+                notificationSettings: 'All notifications'
+            }));
 
-        // Auto-redirect if already logged in
-        auth.onAuthStateChanged(user => {
-            if (user) {
-                window.location.href = "index.html";
-            }
-        });
-    </script>
+            // Redirect to home
+            window.location.href = "index.html";
+        } catch (error) {
+            console.error("Login error:", error);
+            alert("Login failed: " + error.message);
+        }
+    };
+
+    // Auto-redirect if already logged in
+    auth.onAuthStateChanged(user => {
+        if (user) {
+            window.location.href = "index.html";
+        }
+    });
+</script>
 </body>
 </html>

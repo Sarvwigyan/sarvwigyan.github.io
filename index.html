@@ -880,36 +880,40 @@ provider.setCustomParameters({
 });
 
 function updateNav() {
-    const accountItem = document.querySelector('#account-item'); // ✔ FIXED ID SELECTOR
-    const user = auth.currentUser;
+        const accountItem = document.querySelector('#account-item');
+        const user = auth.currentUser;
 
-    if (user && accountItem) {
-        accountItem.innerHTML = `
-            <a class="profile-container">
-                <img src="${user.photoURL}" class="profile-pic">
-                <span class="profile-name">${user.displayName}</span>
-            </a>
-            <ul class="profile-menu active">
-                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-        `;
+        if (user && accountItem) {
+            accountItem.innerHTML = `
+                <a class="profile-container">
+                    <img src="${user.photoURL}" class="profile-pic">
+                    <span class="profile-name">${user.displayName}</span>
+                </a>
+                <ul class="profile-menu active">
+                    <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            `;
 
-        const logoutBtn = document.querySelector("#logoutBtn");
-        logoutBtn?.addEventListener("click", async () => {
-            await signOut(auth);
-            window.location.href = "index.html";
-        });
-    } else if (accountItem) {
-        accountItem.innerHTML = `
-            <a href="login.html"><i class="fas fa-user"></i> Account</a>
-        `;
+            const logoutBtn = document.querySelector("#logoutBtn");
+            logoutBtn?.addEventListener("click", async () => {
+                await signOut(auth);
+                localStorage.removeItem('user'); // Clear localStorage on logout
+                window.location.href = "index.html";
+            });
+        } else if (accountItem) {
+            accountItem.innerHTML = `
+                <a href="login.html"><i class="fas fa-user"></i> Account</a>
+            `;
+        }
     }
-}
 
-onAuthStateChanged(auth, () => {
-    updateNav();
-});
+    onAuthStateChanged(auth, () => {
+        updateNav();
+    });
+
+    // Force update on load to handle redirection timing
+    window.addEventListener('load', updateNav);
 </script>
 
     <script>

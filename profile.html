@@ -731,64 +731,91 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="theme-toggle" onclick="toggleTheme()">
         <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
     </div>
+        <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+    import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
 
-    <script>
-        function loadUserProfile() {
-            document.querySelectorAll('.info-value').forEach(el => {
-                el.innerHTML = '<div class="skeleton" style="height: 16px; width: 80%;"></div>';
-            });
+    const firebaseConfig = {
+        apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+        authDomain: "sarvwigyan-auth.firebaseapp.com",
+        projectId: "sarvwigyan-auth",
+        storageBucket: "sarvwigyan-auth.firebasestorage.app",
+        messagingSenderId: "503809453858",
+        appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+        measurementId: "G-BV5G1LSH6F"
+    };
 
-            setTimeout(() => {
-                const user = JSON.parse(localStorage.getItem('user'));
-                if (!user) {
-                    alert('No user data found. Please log in.');
-                    window.location.href = "login.html";
-                    return;
-                }
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
 
-                document.getElementById('profilePic').src = user.picture || 'https://via.placeholder.com/100';
-                document.getElementById('userName').textContent = user.name || 'Unknown User';
-                document.getElementById('userEmail').textContent = user.email || 'No email provided';
-                document.getElementById('fullName').textContent = user.fullName || 'Not specified';
-                document.getElementById('accountCreated').textContent = user.accountCreated || 'Unknown';
-                document.getElementById('userId').textContent = user.userId || 'Not available';
-                document.getElementById('lastLogin').textContent = user.lastLogin || 'Unknown';
-                document.getElementById('passwordChanged').textContent = user.passwordChanged || 'Never';
-                document.getElementById('phoneNumber').textContent = user.phoneNumber || 'Not provided';
-                document.getElementById('location').textContent = user.location || 'Not specified';
-                document.getElementById('userBio').textContent = user.bio || 'No bio provided';
+    function loadUserProfile() {
+        document.querySelectorAll('.info-value').forEach(el => {
+            el.innerHTML = '<div class="skeleton" style="height: 16px; width: 80%;"></div>';
+        });
 
-                document.getElementById('projectsCount').textContent = user.stats?.projects || '0';
-                document.getElementById('connectionsCount').textContent = user.stats?.connections || '0';
-                document.getElementById('activityScore').textContent = user.stats?.activity ? `${user.stats.activity}%` : '0%';
+        setTimeout(() => {
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (!storedUser) {
+                alert('No user data found. Please log in.');
+                window.location.href = "login.html";
+                return;
+            }
 
-                const twoFactorEl = document.getElementById('twoFactorStatus');
-                twoFactorEl.textContent = user.twoFactorEnabled ? 'Enabled' : 'Disabled';
-                if (user.twoFactorEnabled) {
-                    const badge = document.createElement('span');
-                    badge.className = 'badge';
-                    badge.textContent = 'Recommended';
-                    twoFactorEl.appendChild(badge);
-                }
+            // Populate fields from localStorage
+            document.getElementById('profilePic').src = storedUser.picture || 'https://via.placeholder.com/100';
+            document.getElementById('userName').textContent = storedUser.name || 'Unknown User';
+            document.getElementById('userEmail').textContent = storedUser.email || 'No email provided';
+            document.getElementById('fullName').textContent = storedUser.fullName || 'Not specified';
+            document.getElementById('accountCreated').textContent = storedUser.accountCreated || 'Unknown';
+            document.getElementById('userId').textContent = storedUser.userId || 'Not available';
+            document.getElementById('lastLogin').textContent = storedUser.lastLogin || 'Unknown';
+            document.getElementById('passwordChanged').textContent = storedUser.passwordChanged || 'Never';
+            document.getElementById('phoneNumber').textContent = storedUser.phoneNumber || 'Not provided';
+            document.getElementById('location').textContent = storedUser.location || 'Not specified';
+            document.getElementById('userBio').textContent = storedUser.bio || 'No bio provided';
 
-                document.getElementById('themePreference').textContent = user.themePreference || 'System default';
-                document.getElementById('languagePreference').textContent = user.languagePreference || 'English';
-                document.getElementById('notificationSettings').textContent = user.notificationSettings || 'All notifications';
+            document.getElementById('projectsCount').textContent = storedUser.stats?.projects || '0';
+            document.getElementById('connectionsCount').textContent = storedUser.stats?.connections || '0';
+            document.getElementById('activityScore').textContent = storedUser.stats?.activity ? `${storedUser.stats.activity}%` : '0%';
 
-                const securityStatusEl = document.getElementById('securityStatus');
-                if (user.securityStatus === 'weak') {
-                    securityStatusEl.classList.add('alert');
-                    securityStatusEl.querySelector('.security-icon').textContent = 'warning';
-                    securityStatusEl.querySelector('.security-icon').classList.add('alert');
-                    securityStatusEl.querySelector('.security-text').textContent = 'Your account security needs attention';
-                }
+            const twoFactorEl = document.getElementById('twoFactorStatus');
+            twoFactorEl.textContent = storedUser.twoFactorEnabled ? 'Enabled' : 'Disabled';
+            if (storedUser.twoFactorEnabled) {
+                const badge = document.createElement('span');
+                badge.className = 'badge';
+                badge.textContent = 'Recommended';
+                twoFactorEl.appendChild(badge);
+            }
 
-                const savedTheme = localStorage.getItem('theme') || 'light';
-                document.body.dataset.theme = savedTheme;
-                updateThemeIcon(savedTheme);
-            }, 1500);
+            document.getElementById('themePreference').textContent = storedUser.themePreference || 'System default';
+            document.getElementById('languagePreference').textContent = storedUser.languagePreference || 'English';
+            document.getElementById('notificationSettings').textContent = storedUser.notificationSettings || 'All notifications';
+
+            const securityStatusEl = document.getElementById('securityStatus');
+            if (storedUser.securityStatus === 'weak') {
+                securityStatusEl.classList.add('alert');
+                securityStatusEl.querySelector('.security-icon').textContent = 'warning';
+                securityStatusEl.querySelector('.security-icon').classList.add('alert');
+                securityStatusEl.querySelector('.security-text').textContent = 'Your account security needs attention';
+            }
+
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            document.body.dataset.theme = savedTheme;
+            updateThemeIcon(savedTheme);
+        }, 1500);
+    }
+
+    // Validate auth state before loading
+    onAuthStateChanged(auth, user => {
+        if (!user) {
+            localStorage.removeItem('user');
+            window.location.href = "login.html";
+        } else {
+            loadUserProfile();
         }
-
+    });
+</script>
+    <script>
         function toggleTheme() {
             const currentTheme = document.body.dataset.theme;
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
