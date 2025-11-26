@@ -733,116 +733,129 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
 
     <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-        import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
-        const firebaseConfig = {
-            apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
-            authDomain: "sarvwigyan-auth.firebaseapp.com",
-            projectId: "sarvwigyan-auth",
-            storageBucket: "sarvwigyan-auth.firebasestorage.app",
-            messagingSenderId: "503809453858",
-            appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
-            measurementId: "G-BV5G1LSH6F"
-        };
+const firebaseConfig = {
+    apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+    authDomain: "sarvwigyan-auth.firebaseapp.com",
+    projectId: "sarvwigyan-auth",
+    storageBucket: "sarvwigyan-auth.firebasestorage.app",
+    messagingSenderId: "503809453858",
+    appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+    measurementId: "G-BV5G1LSH6F"
+};
 
-        const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
 
-        function loadUserProfile() {
-            document.querySelectorAll('.info-value').forEach(el => {
-                el.innerHTML = '<div class="skeleton" style="height: 16px; width: 80%;"></div>';
-            });
+// Load user profile with Firestore data
+async function loadUserProfile() {
+    const user = auth.currentUser;
+    
+    if (!user) {
+        window.location.href = "login.html";
+        return;
+    }
 
-            setTimeout(() => {
-                const storedUser = JSON.parse(localStorage.getItem('user'));
-                if (!storedUser) {
-                    alert('No user data found. Please log in.');
-                    window.location.href = "login.html";
-                    return;
-                }
+    // Show loading state
+    document.querySelectorAll('.info-value').forEach(el => {
+        el.innerHTML = '<div class="skeleton" style="height: 16px; width: 80%;"></div>';
+    });
 
-                // Populate fields from localStorage
-                document.getElementById('profilePic').src = storedUser.picture || 'https://via.placeholder.com/100';
-                document.getElementById('userName').textContent = storedUser.name || 'Unknown User';
-                document.getElementById('userEmail').textContent = storedUser.email || 'No email provided';
-                document.getElementById('fullName').textContent = storedUser.fullName || 'Not specified';
-                document.getElementById('accountCreated').textContent = storedUser.accountCreated || 'Unknown';
-                document.getElementById('userId').textContent = storedUser.userId || 'Not available';
-                document.getElementById('lastLogin').textContent = storedUser.lastLogin || 'Unknown';
-                document.getElementById('passwordChanged').textContent = storedUser.passwordChanged || 'Never';
-                document.getElementById('phoneNumber').textContent = storedUser.phoneNumber || 'Not provided';
-                document.getElementById('location').textContent = storedUser.location || 'Not specified';
-                document.getElementById('userBio').textContent = storedUser.bio || 'No bio provided';
-
-                document.getElementById('projectsCount').textContent = storedUser.stats?.projects || '0';
-                document.getElementById('connectionsCount').textContent = storedUser.stats?.connections || '0';
-                document.getElementById('activityScore').textContent = storedUser.stats?.activity ? `${storedUser.stats.activity}%` : '0%';
-
-                const twoFactorEl = document.getElementById('twoFactorStatus');
-                twoFactorEl.textContent = storedUser.twoFactorEnabled ? 'Enabled' : 'Disabled';
-                if (storedUser.twoFactorEnabled) {
-                    const badge = document.createElement('span');
-                    badge.className = 'badge';
-                    badge.textContent = 'Recommended';
-                    twoFactorEl.appendChild(badge);
-                }
-
-                document.getElementById('themePreference').textContent = storedUser.themePreference || 'System default';
-                document.getElementById('languagePreference').textContent = storedUser.languagePreference || 'English';
-                document.getElementById('notificationSettings').textContent = storedUser.notificationSettings || 'All notifications';
-
-                const securityStatusEl = document.getElementById('securityStatus');
-                if (storedUser.securityStatus === 'weak') {
-                    securityStatusEl.classList.add('alert');
-                    securityStatusEl.querySelector('.security-icon').textContent = 'warning';
-                    securityStatusEl.querySelector('.security-icon').classList.add('alert');
-                    securityStatusEl.querySelector('.security-text').textContent = 'Your account security needs attention';
-                }
-
-                const savedTheme = localStorage.getItem('theme') || 'light';
-                document.body.dataset.theme = savedTheme;
-                updateThemeIcon(savedTheme);
-            }, 1500);
-        }
-
-        // Enhanced auth state validation
-        onAuthStateChanged(auth, user => {
-            if (!user) {
-                localStorage.removeItem('user');
-                window.location.href = "login.html";
+    try {
+        // Try to get data from Firestore first
+        const userDoc = await getDoc(doc(db, "users", user.uid));
+        
+        if (userDoc.exists()) {
+            const firestoreData = userDoc.data();
+            populateProfileFromFirestore(firestoreData, user);
+        } else {
+            // Fallback to localStorage
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+            if (storedUser) {
+                populateProfileFromLocalStorage(storedUser);
             } else {
-                // Verify localStorage user matches Firebase user
-                const storedUser = JSON.parse(localStorage.getItem('user'));
-                if (!storedUser || storedUser.userId !== user.uid) {
-                    // If mismatch, redirect to login to refresh data
-                    window.location.href = "login.html";
-                } else {
-                    loadUserProfile();
-                }
+                throw new Error("No user data found");
             }
-        });
+        }
+    } catch (error) {
+        console.error("Error loading profile:", error);
+        // Fallback to localStorage
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (storedUser) {
+            populateProfileFromLocalStorage(storedUser);
+        } else {
+            alert('No user data found. Please log in again.');
+            window.location.href = "login.html";
+        }
+    }
+}
 
-        // Make confirmLogout available globally with Firebase integration
-        window.confirmLogout = async function() {
-            if (confirm('Are you sure you want to sign out?')) {
-                document.body.style.opacity = '0.7';
-                document.body.style.pointerEvents = 'none';
-                try {
-                    await signOut(auth);
-                    localStorage.removeItem('user');
-                    setTimeout(() => {
-                        window.location.href = "index.html";
-                    }, 800);
-                } catch (error) {
-                    console.error("Logout error:", error);
-                    // Fallback: clear localStorage and redirect anyway
-                    localStorage.removeItem('user');
-                    window.location.href = "index.html";
-                }
-            }
-        };
-    </script>
+function populateProfileFromFirestore(firestoreData, user) {
+    document.getElementById('profilePic').src = firestoreData.photoURL || user.photoURL || 'https://via.placeholder.com/100';
+    document.getElementById('userName').textContent = firestoreData.displayName || user.displayName;
+    document.getElementById('userEmail').textContent = firestoreData.email || user.email;
+    document.getElementById('fullName').textContent = firestoreData.profile?.fullName || firestoreData.displayName;
+    document.getElementById('accountCreated').textContent = firestoreData.createdAt || 'Unknown';
+    document.getElementById('userId').textContent = user.uid;
+    document.getElementById('lastLogin').textContent = firestoreData.lastLoginAt || 'Unknown';
+    document.getElementById('phoneNumber').textContent = firestoreData.phoneNumber || 'Not provided';
+    document.getElementById('location').textContent = firestoreData.profile?.location || 'Not specified';
+    document.getElementById('userBio').textContent = firestoreData.profile?.bio || 'No bio provided';
+
+    document.getElementById('projectsCount').textContent = firestoreData.statistics?.projects || '0';
+    document.getElementById('connectionsCount').textContent = firestoreData.statistics?.connections || '0';
+    document.getElementById('activityScore').textContent = firestoreData.statistics?.activityScore ? `${firestoreData.statistics.activityScore}%` : '0%';
+
+    // Update other fields as needed...
+}
+
+function populateProfileFromLocalStorage(storedUser) {
+    document.getElementById('profilePic').src = storedUser.picture || 'https://via.placeholder.com/100';
+    document.getElementById('userName').textContent = storedUser.name || 'Unknown User';
+    document.getElementById('userEmail').textContent = storedUser.email || 'No email provided';
+    document.getElementById('fullName').textContent = storedUser.fullName || 'Not specified';
+    document.getElementById('accountCreated').textContent = storedUser.accountCreated || 'Unknown';
+    document.getElementById('userId').textContent = storedUser.userId || 'Not available';
+    document.getElementById('lastLogin').textContent = storedUser.lastLogin || 'Unknown';
+    document.getElementById('phoneNumber').textContent = storedUser.phoneNumber || 'Not provided';
+    document.getElementById('location').textContent = storedUser.location || 'Not specified';
+    document.getElementById('userBio').textContent = storedUser.bio || 'No bio provided';
+
+    document.getElementById('projectsCount').textContent = storedUser.stats?.projects || '0';
+    document.getElementById('connectionsCount').textContent = storedUser.stats?.connections || '0';
+    document.getElementById('activityScore').textContent = storedUser.stats?.activityScore ? `${storedUser.stats.activityScore}%` : '0%';
+}
+
+// Auth state listener
+onAuthStateChanged(auth, (user) => {
+    if (!user) {
+        localStorage.removeItem('user');
+        window.location.href = "login.html";
+    } else {
+        loadUserProfile();
+    }
+});
+
+// Logout function
+window.confirmLogout = async function() {
+    if (confirm('Are you sure you want to sign out?')) {
+        try {
+            await signOut(auth);
+            localStorage.removeItem('user');
+            window.location.href = "index.html";
+        } catch (error) {
+            console.error("Logout error:", error);
+            // Fallback
+            localStorage.removeItem('user');
+            window.location.href = "index.html";
+        }
+    }
+};
+</script>
 
     <script>
         function toggleTheme() {
