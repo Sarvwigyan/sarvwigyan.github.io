@@ -510,22 +510,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             color: var(--accent-color);
         }
 
-        /* Tablet and smaller screens */
+                /* Tablet and smaller screens */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
                 left: -100%;
-                top: clamp(60px, 10vw, 70px);
+                top: 0; /* Start from very top */
                 flex-direction: column;
                 background: var(--dark-bg);
                 width: 100%;
-                height: calc(100vh - clamp(60px, 10vw, 70px));
+                height: 100vh; /* Full viewport height */
                 text-align: center;
                 transition: left 0.3s ease;
-                padding: 1rem 0;
+                padding: 2rem 0 1rem 0;
                 overflow-y: auto;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
+                z-index: 999;
             }
 
             .nav-menu::-webkit-scrollbar {
@@ -538,6 +539,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             .hamburger {
                 display: block;
+                z-index: 1000; /* Ensure hamburger stays above menu */
             }
 
             .dropdown-menu,
@@ -547,12 +549,30 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 box-shadow: none;
                 margin: 0.5rem auto;
                 width: 90%;
+                display: none !important;
+            }
+
+            .dropdown-menu.active,
+            .profile-menu.active {
+                display: block !important;
+                position: static !important;
             }
 
             .profile-menu {
                 right: auto;
                 left: 50%;
                 transform: translateX(-50%);
+            }
+
+            .profile-menu a {
+                justify-content: center;
+                padding: 0.75rem 1rem !important;
+                font-size: 0.875rem !important;
+            }
+
+            /* Add some top padding to first menu item to account for status bar */
+            .nav-menu > li:first-child {
+                margin-top: 1rem;
             }
 
             .hero-slider {
@@ -914,24 +934,6 @@ provider.setCustomParameters({
     prompt: 'select_account'
 });
 
-// Function to toggle profile menu
-function toggleProfileMenu(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const profileMenu = document.getElementById('profileMenu');
-    if (profileMenu) {
-        profileMenu.classList.toggle('active');
-    }
-}
-
-// Close profile menu when clicking outside
-document.addEventListener('click', function(event) {
-    const profileMenu = document.getElementById('profileMenu');
-    if (profileMenu && !event.target.closest('.profile-dropdown')) {
-        profileMenu.classList.remove('active');
-    }
-});
-
 function updateNav() {
     const accountItem = document.querySelector('#account-item');
     const user = auth.currentUser;
@@ -940,7 +942,7 @@ function updateNav() {
         accountItem.innerHTML = `
             <div class="profile-dropdown">
                 <a href="#" class="profile-container" onclick="toggleProfileMenu(event)">
-                    <img src="${user.photoURL || 'https://via.placeholder.com/32'}" class="profile-pic" alt="Profile">
+                    <img src="${user.photoURL || 'https://via.placeholder.com/32'}" class="profile-pic" alt="Profile" loading="lazy">
                     <span class="profile-name">${user.displayName || 'User'}</span>
                 </a>
                 <ul class="profile-menu" id="profileMenu">
@@ -973,14 +975,11 @@ function updateNav() {
 // Enhanced auth state listener
 onAuthStateChanged(auth, (user) => {
     if (user) {
-        // User is signed in
         console.log("User is signed in:", user.email);
         updateNav();
         
-        // Ensure user data is in localStorage for profile page
         const storedUser = JSON.parse(localStorage.getItem('user'));
         if (!storedUser || storedUser.userId !== user.uid) {
-            // Update localStorage with current user data
             const userData = {
                 name: user.displayName,
                 email: user.email,
@@ -1003,7 +1002,6 @@ onAuthStateChanged(auth, (user) => {
             localStorage.setItem('user', JSON.stringify(userData));
         }
     } else {
-        // User is signed out
         console.log("User is signed out");
         localStorage.removeItem('user');
         updateNav();
@@ -1011,15 +1009,41 @@ onAuthStateChanged(auth, (user) => {
 });
 
 // Make functions globally available
-window.toggleProfileMenu = toggleProfileMenu;
+window.toggleProfileMenu = function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileMenu) {
+        const isActive = profileMenu.classList.contains('active');
+        
+        // Close all other dropdowns
+        document.querySelectorAll('.dropdown-menu').forEach(menu => {
+            if (menu !== profileMenu) menu.classList.remove('active');
+        });
+        document.querySelectorAll('.profile-menu').forEach(menu => {
+            if (menu !== profileMenu) menu.classList.remove('active');
+        });
+        
+        // Toggle current profile menu
+        if (!isActive) {
+            profileMenu.classList.add('active');
+        } else {
+            profileMenu.classList.remove('active');
+        }
+    }
+};
+
 window.updateNav = updateNav;
 </script>
 
 <script>
+    function showdevMessage() {
+        alert("Sorry, we are currently working on this feature. Kindly co-operate.");
+    }
+
     document.addEventListener('DOMContentLoaded', function() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.has('login') && urlParams.get('login') === 'success') {
-            // simulateLogin function if needed
             console.log('Login success detected');
         }
         
@@ -1034,7 +1058,8 @@ window.updateNav = updateNav;
 
         // Hamburger menu functionality
         if (hamburger) {
-            hamburger.addEventListener('click', () => {
+            hamburger.addEventListener('click', (e) => {
+                e.stopPropagation();
                 const isActive = hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.style.overflow = isActive ? 'hidden' : '';
@@ -1042,24 +1067,26 @@ window.updateNav = updateNav;
             });
         }
 
-        // Dropdown menu functionality
+        // Enhanced dropdown menu functionality
         dropdowns.forEach(dropdown => {
-            const link = dropdown.querySelector('a');
+            const link = dropdown.querySelector('a[aria-haspopup="true"]');
             const submenu = dropdown.querySelector('.dropdown-menu');
+            
             if (link && submenu) {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     const isOpen = submenu.classList.contains('active');
+                    
                     // Close all other dropdowns
                     document.querySelectorAll('.dropdown-menu').forEach(s => {
-                        if (s !== submenu) {
-                            s.classList.remove('active');
-                        }
+                        if (s !== submenu) s.classList.remove('active');
+                    });
+                    document.querySelectorAll('.profile-menu').forEach(s => {
+                        if (s !== submenu) s.classList.remove('active');
                     });
                     document.querySelectorAll('a[aria-expanded="true"]').forEach(a => {
-                        if (a !== link) {
-                            a.setAttribute('aria-expanded', 'false');
-                        }
+                        if (a !== link) a.setAttribute('aria-expanded', 'false');
                     });
                     
                     // Toggle current dropdown
@@ -1078,6 +1105,7 @@ window.updateNav = updateNav;
         document.addEventListener('click', (e) => {
             if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
                 document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
+                document.querySelectorAll('.profile-menu').forEach(submenu => submenu.classList.remove('active'));
                 document.querySelectorAll('a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
             }
         });
