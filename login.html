@@ -54,76 +54,123 @@
 
     <!-- Firebase SDK (modular) -->
     <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-    import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
-    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
-        authDomain: "sarvwigyan-auth.firebaseapp.com",
-        projectId: "sarvwigyan-auth",
-        storageBucket: "sarvwigyan-auth.firebasestorage.app",
-        messagingSenderId: "503809453858",
-        appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
-        measurementId: "G-BV5G1LSH6F"
-    };
+const firebaseConfig = {
+    apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+    authDomain: "sarvwigyan-auth.firebaseapp.com",
+    projectId: "sarvwigyan-auth",
+    storageBucket: "sarvwigyan-auth.firebasestorage.app",
+    messagingSenderId: "503809453858",
+    appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+    measurementId: "G-BV5G1LSH6F"
+};
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    const provider = new GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
 
-    provider.setCustomParameters({ prompt: 'select_account' });
+provider.setCustomParameters({ prompt: 'select_account' });
 
-    window.signInWithGoogle = async () => {
+window.signInWithGoogle = async () => {
+    try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+
+        // Prepare complete user data from Google
+        const userData = {
+            uid: user.uid,
+            name: user.displayName,
+            email: user.email,
+            picture: user.photoURL,
+            emailVerified: user.emailVerified,
+            phoneNumber: user.phoneNumber || 'Not provided',
+            // Google profile details
+            googleProfile: {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                emailVerified: user.emailVerified,
+                phoneNumber: user.phoneNumber
+            },
+            // Account metadata
+            accountCreated: user.metadata.creationTime,
+            lastLogin: new Date().toISOString(),
+            lastSignInTime: user.metadata.lastSignInTime,
+            // Additional profile fields
+            fullName: user.displayName,
+            location: 'Not specified',
+            bio: 'Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.',
+            // Stats
+            stats: {
+                projects: Math.floor(Math.random() * 20) + 1, // Random between 1-20
+                connections: Math.floor(Math.random() * 100) + 1, // Random between 1-100
+                activity: Math.floor(Math.random() * 30) + 70 // Random between 70-100
+            },
+            // Security
+            twoFactorEnabled: false,
+            securityStatus: 'strong',
+            passwordChanged: 'Never (Google Auth)',
+            // Preferences
+            themePreference: 'System default',
+            languagePreference: 'English',
+            notificationSettings: 'All notifications',
+            // Timestamps
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+        };
+
+        // Save to Firestore - this will create or update the user document
         try {
-            const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-
-            // Save to Firestore
-            const now = new Date().toISOString();
-            await setDoc(doc(db, "users", user.uid), {
-                name: user.displayName,
-                email: user.email,
-                picture: user.photoURL,
-                lastLogin: now
-            }, { merge: true });
-
-            // Save to localStorage for profile page consistency
-            localStorage.setItem('user', JSON.stringify({
-                name: user.displayName,
-                email: user.email,
-                picture: user.photoURL,
-                lastLogin: now,
-                userId: user.uid,
-                fullName: user.displayName,
-                accountCreated: user.metadata.creationTime || now,
-                passwordChanged: 'Never (Google Auth)',
-                phoneNumber: 'Not provided',
-                location: 'Not specified',
-                bio: 'Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.',
-                stats: { projects: 12, connections: 48, activity: 87 },
-                twoFactorEnabled: false,
-                securityStatus: 'strong',
-                themePreference: 'System default',
-                languagePreference: 'English',
-                notificationSettings: 'All notifications'
-            }));
-
-            // Redirect to home
-            window.location.href = "index.html";
-        } catch (error) {
-            console.error("Login error:", error);
-            alert("Login failed: " + error.message);
+            await setDoc(doc(db, "users", user.uid), userData, { merge: true });
+            console.log("User data saved to Firestore successfully!");
+        } catch (firestoreError) {
+            console.error("Firestore save error:", firestoreError);
+            // Continue even if Firestore fails - we'll still use localStorage
         }
-    };
 
-    // Auto-redirect if already logged in
-    auth.onAuthStateChanged(user => {
-        if (user) {
-            window.location.href = "index.html";
-        }
-    });
+        // Also save essential data to localStorage for immediate access
+        const localStorageUser = {
+            userId: user.uid,
+            name: user.displayName,
+            email: user.email,
+            picture: user.photoURL,
+            fullName: user.displayName,
+            accountCreated: user.metadata.creationTime,
+            lastLogin: new Date().toISOString(),
+            passwordChanged: 'Never (Google Auth)',
+            phoneNumber: user.phoneNumber || 'Not provided',
+            location: 'Not specified',
+            bio: 'Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.',
+            stats: userData.stats,
+            twoFactorEnabled: false,
+            securityStatus: 'strong',
+            themePreference: 'System default',
+            languagePreference: 'English',
+            notificationSettings: 'All notifications'
+        };
+        
+        localStorage.setItem('user', JSON.stringify(localStorageUser));
+
+        // Redirect to home
+        window.location.href = "index.html";
+
+    } catch (error) {
+        console.error("Login error:", error);
+        alert("Login failed: " + error.message);
+    }
+};
+
+// Auto-redirect if already logged in
+auth.onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "index.html";
+    }
+});
 </script>
 </body>
 </html>
