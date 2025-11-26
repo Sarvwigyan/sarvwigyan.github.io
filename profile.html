@@ -322,6 +322,7 @@
             border: none;
             font-size: 0.9375rem;
             letter-spacing: -0.01em;
+            text-decoration: none;
         }
 
         .button:active {
@@ -348,6 +349,17 @@
         .button-secondary:hover {
             background: rgba(37, 99, 235, 0.05);
             transform: translateY(-2px);
+        }
+
+        .button-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .button-success:hover {
+            background: #059669;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(5, 150, 105, 0.3);
         }
 
         .button-danger {
@@ -479,7 +491,7 @@
             font-size: 0.9375rem;
         }
 
-        .form-input, .form-textarea {
+        .form-input, .form-textarea, .form-select {
             width: 100%;
             padding: 1rem;
             border: 2px solid var(--border);
@@ -491,7 +503,7 @@
             font-family: inherit;
         }
 
-        .form-input:focus, .form-textarea:focus {
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
             outline: none;
             border-color: var(--primary);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
@@ -793,12 +805,6 @@
                                     <div class="skeleton" style="height: 20px; width: 80%;"></div>
                                 </div>
                             </div>
-                            <div class="info-item">
-                                <div class="info-label">User ID</div>
-                                <div class="info-value" id="userId">
-                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="profile-section">
@@ -814,6 +820,17 @@
                             <span class="material-symbols-outlined edit-icon" onclick="openEditModal('bio')">edit</span>
                         </div>
                     </div>
+
+                    <div class="action-buttons">
+                        <a href="index.html" class="button button-primary">
+                            <span class="material-symbols-outlined">home</span>
+                            Go Home
+                        </a>
+                        <button class="button button-danger" onclick="confirmLogout()">
+                            <span class="material-symbols-outlined">logout</span>
+                            Sign Out
+                        </button>
+                    </div>
                 </div>
 
                 <div id="settings-tab" class="tab-content">
@@ -826,7 +843,7 @@
                             <div class="info-item">
                                 <div class="info-label">Theme</div>
                                 <div class="info-value">
-                                    <select id="themeSelect" class="form-input" onchange="changeTheme(this.value)">
+                                    <select id="themeSelect" class="form-select" onchange="changeTheme(this.value)">
                                         <option value="light">Light</option>
                                         <option value="dark">Dark</option>
                                         <option value="system">System Default</option>
@@ -836,15 +853,35 @@
                             <div class="info-item">
                                 <div class="info-label">Language</div>
                                 <div class="info-value">
-                                    <select class="form-input">
-                                        <option>English</option>
-                                        <option>Hindi</option>
-                                        <option>Spanish</option>
+                                    <select id="languageSelect" class="form-select">
+                                        <option value="en">English</option>
+                                        <option value="hi">Hindi</option>
+                                        <option value="es">Spanish</option>
+                                        <option value="fr">French</option>
+                                        <option value="de">German</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    <div class="profile-section">
+                        <h2 class="section-title">
+                            <span class="material-symbols-outlined">edit</span>
+                            Profile Management
+                        </h2>
+                        <div class="action-buttons">
+                            <button class="button button-primary" onclick="switchTab('personal')">
+                                <span class="material-symbols-outlined">edit</span>
+                                Edit Profile
+                            </button>
+                            <button class="button button-success" onclick="saveSettings()">
+                                <span class="material-symbols-outlined">save</span>
+                                Save Settings
+                            </button>
+                        </div>
+                    </div>
+
                     <div class="profile-section">
                         <h2 class="section-title">
                             <span class="material-symbols-outlined">security</span>
@@ -857,17 +894,6 @@
                             </button>
                         </div>
                     </div>
-                </div>
-
-                <div class="action-buttons">
-                    <button class="button button-primary" onclick="editProfile()">
-                        <span class="material-symbols-outlined">edit</span>
-                        Edit Profile
-                    </button>
-                    <button class="button button-danger" onclick="confirmLogout()">
-                        <span class="material-symbols-outlined">logout</span>
-                        Sign Out
-                    </button>
                 </div>
             </div>
         </div>
@@ -940,6 +966,10 @@
         // Global variables
         let currentUser = null;
         let currentEditingField = null;
+        let userSettings = {
+            theme: 'light',
+            language: 'en'
+        };
 
         // Calculate profile completion score
         function calculateProfileScore(userData) {
@@ -954,7 +984,7 @@
             return Math.round((completed / fields.length) * 100);
         }
 
-        // Load user profile with Firestore data
+        // Load user profile with proper Firestore sync
         async function loadUserProfile() {
             const user = auth.currentUser;
             
@@ -966,27 +996,43 @@
             currentUser = user;
 
             try {
-                // Try to get data from Firestore first
+                // Always try to get data from Firestore first
                 const userDoc = await getDoc(doc(db, "users", user.uid));
                 
                 if (userDoc.exists()) {
                     const firestoreData = userDoc.data();
-                    populateProfileFromFirestore(firestoreData, user);
+                    console.log("📥 Loaded from Firestore:", firestoreData);
+                    
+                    // Merge Firestore data with localStorage, prioritizing Firestore
+                    const storedUser = JSON.parse(localStorage.getItem('user')) || {};
+                    const mergedUser = {
+                        ...storedUser, // Start with localStorage
+                        ...firestoreData, // Override with Firestore data
+                        profile: {
+                            ...storedUser.profile,
+                            ...firestoreData.profile // Merge profile objects
+                        }
+                    };
+                    
+                    // Update localStorage with merged data
+                    localStorage.setItem('user', JSON.stringify(mergedUser));
+                    
+                    populateProfileFromData(mergedUser, user);
                 } else {
-                    // Fallback to localStorage
+                    // No Firestore data, use localStorage only
                     const storedUser = JSON.parse(localStorage.getItem('user'));
                     if (storedUser) {
-                        populateProfileFromLocalStorage(storedUser);
+                        console.log("📥 Loaded from localStorage:", storedUser);
+                        populateProfileFromData(storedUser, user);
                     } else {
                         throw new Error("No user data found");
                     }
                 }
             } catch (error) {
                 console.error("Error loading profile:", error);
-                // Fallback to localStorage
                 const storedUser = JSON.parse(localStorage.getItem('user'));
                 if (storedUser) {
-                    populateProfileFromLocalStorage(storedUser);
+                    populateProfileFromData(storedUser, user);
                 } else {
                     alert('No user data found. Please log in again.');
                     window.location.href = "login.html";
@@ -994,61 +1040,77 @@
             }
         }
 
-        function populateProfileFromFirestore(firestoreData, user) {
+        function populateProfileFromData(userData, user) {
             // Remove skeleton loading
             document.querySelectorAll('.skeleton').forEach(el => {
                 el.style.display = 'none';
             });
 
-            document.getElementById('profilePic').src = firestoreData.photoURL || user.photoURL || 'https://via.placeholder.com/100';
-            document.getElementById('userName').textContent = firestoreData.displayName || user.displayName;
-            document.getElementById('userEmail').textContent = firestoreData.email || user.email;
+            document.getElementById('profilePic').src = userData.photoURL || user.photoURL || 'https://via.placeholder.com/100';
+            document.getElementById('userName').textContent = userData.displayName || user.displayName;
+            document.getElementById('userEmail').textContent = userData.email || user.email;
             
-            // Use data from profile field if available, otherwise use root fields
-            const fullName = firestoreData.profile?.fullName || firestoreData.displayName || 'Not set';
-            const phoneNumber = firestoreData.profile?.phoneNumber || firestoreData.phoneNumber || 'Not provided';
-            const location = firestoreData.profile?.location || 'Not specified';
-            const bio = firestoreData.profile?.bio || "You haven't set your bio yet!";
+            // Use merged data from profile field if available
+            const fullName = userData.profile?.fullName || userData.displayName || user.displayName || 'Not set';
+            const phoneNumber = userData.profile?.phoneNumber || userData.phoneNumber || 'Not provided';
+            const location = userData.profile?.location || 'Not specified';
+            const bio = userData.profile?.bio || "You haven't set your bio yet!";
             
             document.getElementById('fullName').textContent = fullName;
             document.getElementById('phoneNumber').textContent = phoneNumber;
             document.getElementById('location').textContent = location;
             document.getElementById('userBio').textContent = bio;
-            document.getElementById('accountCreated').textContent = firestoreData.createdAt || 'Unknown';
-            document.getElementById('userId').textContent = user.uid;
+            document.getElementById('accountCreated').textContent = userData.createdAt || 'Unknown';
 
-            document.getElementById('projectsCount').textContent = firestoreData.statistics?.projects || '0';
-            document.getElementById('connectionsCount').textContent = firestoreData.statistics?.connections || '0';
-            document.getElementById('activityScore').textContent = firestoreData.statistics?.activityScore ? `${firestoreData.statistics.activityScore}%` : '0%';
+            document.getElementById('projectsCount').textContent = userData.statistics?.projects || userData.stats?.projects || '0';
+            document.getElementById('connectionsCount').textContent = userData.statistics?.connections || userData.stats?.connections || '0';
+            document.getElementById('activityScore').textContent = userData.statistics?.activityScore ? `${userData.statistics.activityScore}%` : '0%';
 
             // Update profile completion score
             const profileScore = calculateProfileScore({ fullName, phoneNumber, location, bio });
             document.getElementById('profileCompletion').textContent = `${profileScore}% Complete`;
+
+            // Load settings
+            loadUserSettings();
         }
 
-        function populateProfileFromLocalStorage(storedUser) {
-            // Remove skeleton loading
-            document.querySelectorAll('.skeleton').forEach(el => {
-                el.style.display = 'none';
-            });
+        // Load user settings
+        function loadUserSettings() {
+            const savedSettings = JSON.parse(localStorage.getItem('userSettings')) || {};
+            userSettings = { ...userSettings, ...savedSettings };
+            
+            // Apply settings to UI
+            if (document.getElementById('themeSelect')) {
+                document.getElementById('themeSelect').value = userSettings.theme;
+            }
+            if (document.getElementById('languageSelect')) {
+                document.getElementById('languageSelect').value = userSettings.language;
+            }
+        }
 
-            document.getElementById('profilePic').src = storedUser.picture || 'https://via.placeholder.com/100';
-            document.getElementById('userName').textContent = storedUser.name || 'Unknown User';
-            document.getElementById('userEmail').textContent = storedUser.email || 'No email provided';
-            document.getElementById('fullName').textContent = storedUser.fullName || 'Not set';
-            document.getElementById('accountCreated').textContent = storedUser.accountCreated || 'Unknown';
-            document.getElementById('userId').textContent = storedUser.userId || 'Not available';
-            document.getElementById('phoneNumber').textContent = storedUser.phoneNumber || 'Not provided';
-            document.getElementById('location').textContent = storedUser.location || 'Not specified';
-            document.getElementById('userBio').textContent = storedUser.bio || "You haven't set your bio yet!";
-
-            document.getElementById('projectsCount').textContent = storedUser.stats?.projects || '0';
-            document.getElementById('connectionsCount').textContent = storedUser.stats?.connections || '0';
-            document.getElementById('activityScore').textContent = storedUser.stats?.activityScore ? `${storedUser.stats.activityScore}%` : '0%';
-
-            // Update profile completion score
-            const profileScore = calculateProfileScore(storedUser);
-            document.getElementById('profileCompletion').textContent = `${profileScore}% Complete`;
+        // Save user settings
+        async function saveUserSettings() {
+            try {
+                userSettings.theme = document.getElementById('themeSelect').value;
+                userSettings.language = document.getElementById('languageSelect').value;
+                
+                // Save to localStorage
+                localStorage.setItem('userSettings', JSON.stringify(userSettings));
+                
+                // Save to Firestore if user is logged in
+                if (currentUser) {
+                    const userDocRef = doc(db, "users", currentUser.uid);
+                    await updateDoc(userDocRef, {
+                        settings: userSettings,
+                        updatedAt: new Date().toISOString()
+                    });
+                }
+                
+                return true;
+            } catch (error) {
+                console.error("Error saving settings:", error);
+                return false;
+            }
         }
 
         // Open edit modal for specific field
@@ -1141,6 +1203,11 @@
             
             try {
                 const userDocRef = doc(db, "users", currentUser.uid);
+                
+                // Get current data first to preserve existing fields
+                const currentDoc = await getDoc(userDocRef);
+                const currentData = currentDoc.exists() ? currentDoc.data() : {};
+                
                 const updateData = {
                     updatedAt: new Date().toISOString()
                 };
@@ -1149,25 +1216,27 @@
                 switch(field) {
                     case 'fullName':
                         updateData.profile = {
+                            ...currentData.profile,
                             fullName: value || 'Not set'
                         };
-                        // Also update displayName at root level for compatibility
                         updateData.displayName = value || currentUser.displayName;
                         break;
                     case 'phoneNumber':
                         updateData.profile = {
+                            ...currentData.profile,
                             phoneNumber: value || 'Not provided'
                         };
-                        // Also update at root level for compatibility
                         updateData.phoneNumber = value || null;
                         break;
                     case 'location':
                         updateData.profile = {
+                            ...currentData.profile,
                             location: value || 'Not specified'
                         };
                         break;
                     case 'bio':
                         updateData.profile = {
+                            ...currentData.profile,
                             bio: value || "You haven't set your bio yet!"
                         };
                         break;
@@ -1177,24 +1246,18 @@
                 await updateDoc(userDocRef, updateData);
                 console.log(`✅ ${field} updated in Firestore`);
                 
-                // Update localStorage
+                // Update localStorage with the same structure
                 const storedUser = JSON.parse(localStorage.getItem('user')) || {};
-                switch(field) {
-                    case 'fullName':
-                        storedUser.fullName = value || 'Not set';
-                        storedUser.name = value || currentUser.displayName;
-                        break;
-                    case 'phoneNumber':
-                        storedUser.phoneNumber = value || 'Not provided';
-                        break;
-                    case 'location':
-                        storedUser.location = value || 'Not specified';
-                        break;
-                    case 'bio':
-                        storedUser.bio = value || "You haven't set your bio yet!";
-                        break;
-                }
-                localStorage.setItem('user', JSON.stringify(storedUser));
+                const updatedUser = {
+                    ...storedUser,
+                    ...updateData,
+                    profile: {
+                        ...storedUser.profile,
+                        ...updateData.profile
+                    }
+                };
+                
+                localStorage.setItem('user', JSON.stringify(updatedUser));
                 console.log(`💾 ${field} updated in localStorage`);
                 
                 return true;
@@ -1369,6 +1432,16 @@
             }
         }
 
+        // Save settings function
+        window.saveSettings = async function() {
+            const success = await saveUserSettings();
+            if (success) {
+                showToast('Settings saved successfully!');
+            } else {
+                showToast('Failed to save settings', 'error');
+            }
+        };
+
         // Initialize theme
         const savedTheme = localStorage.getItem('theme') || 'light';
         document.body.dataset.theme = savedTheme;
@@ -1378,10 +1451,6 @@
         }
 
         // Profile functions
-        function editProfile() {
-            switchTab('personal');
-        }
-
         function openImageUpload() {
             alert('Profile picture upload will be implemented soon!');
         }
