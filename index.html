@@ -513,6 +513,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 /* Tablet and smaller screens */
                 /* Tablet and smaller screens */
                 /* Tablet and smaller screens */
+                /* Tablet and smaller screens */
         @media (max-width: 1024px) {
             .nav-menu {
                 position: fixed;
@@ -524,11 +525,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 height: 100vh;
                 text-align: center;
                 transition: left 0.3s ease;
-                padding: 2rem 0 1rem 0;
+                padding: 4rem 1rem 2rem 1rem;
                 overflow-y: auto;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
                 z-index: 999;
+                backdrop-filter: blur(10px);
+                background: rgba(15, 23, 42, 0.95);
             }
 
             .nav-menu::-webkit-scrollbar {
@@ -542,12 +545,48 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             .hamburger {
                 display: block;
                 z-index: 1000;
+                position: relative;
+            }
+
+            /* Improved menu items styling */
+            .nav-menu > li {
+                width: 100%;
+                margin: 0.5rem 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.1rem;
+                padding: 1rem 1.5rem;
+                border-radius: 12px;
+                margin: 0.25rem 0;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                transition: all 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                gap: 1rem;
+                font-weight: 500;
+            }
+
+            .nav-menu a:hover,
+            .nav-menu a:focus {
+                background: var(--accent-color);
+                color: var(--dark-bg);
+                transform: translateX(10px);
+                box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            }
+
+            .nav-menu a i {
+                font-size: 1.2rem;
+                width: 24px;
+                text-align: center;
             }
 
             .dropdown-menu,
             .profile-menu {
                 position: static !important;
-                background: rgba(255, 255, 255, 0.1) !important;
+                background: rgba(255, 255, 255, 0.08) !important;
                 box-shadow: none !important;
                 margin: 0.5rem auto !important;
                 width: 90% !important;
@@ -555,12 +594,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 left: auto !important;
                 right: auto !important;
                 transform: none !important;
+                border-radius: 12px;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 0.5rem 0;
             }
 
             .dropdown-menu.active,
             .profile-menu.active {
                 display: block !important;
                 position: static !important;
+                animation: slideDown 0.3s ease;
+            }
+
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateY(-10px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
             }
 
             /* Center only the submenu items */
@@ -576,24 +630,54 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             .profile-menu a {
                 justify-content: center !important;
-                padding: 0.75rem 1rem !important;
-                font-size: 0.875rem !important;
+                padding: 1rem 1.5rem !important;
+                font-size: 1rem !important;
                 width: 100% !important;
                 display: flex !important;
                 align-items: center !important;
                 text-align: center !important;
+                background: transparent !important;
+                border: none !important;
+                margin: 0 !important;
+                border-radius: 8px !important;
             }
 
-            /* Keep the profile container in normal flow */
+            .profile-menu a:hover,
+            .profile-menu a:focus {
+                background: var(--accent-color) !important;
+                color: var(--dark-bg) !important;
+                transform: scale(1.05) !important;
+                box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3) !important;
+            }
+
+            /* Profile container styling */
             .profile-container {
                 display: flex !important;
                 justify-content: flex-start !important;
                 width: auto !important;
+                background: rgba(255, 255, 255, 0.05) !important;
+                border: 1px solid rgba(255, 255, 255, 0.1) !important;
             }
 
-            /* Add some top padding to first menu item to account for status bar */
-            .nav-menu > li:first-child {
-                margin-top: 1rem;
+            .profile-pic {
+                width: 2rem;
+                height: 2rem;
+                border: 2px solid var(--accent-color);
+            }
+
+            .profile-name {
+                font-weight: 600;
+                color: var(--accent-color);
+            }
+
+            /* Arrow animation */
+            .arrow {
+                transition: transform 0.3s ease;
+                margin-left: auto;
+            }
+
+            .dropdown a[aria-expanded="true"] .arrow {
+                transform: rotate(180deg);
             }
 
             .hero-slider {
@@ -616,6 +700,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
             .card-grid {
                 grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+
+        /* Mobile screens */
+        @media (max-width: 768px) {
+            .nav-menu {
+                padding: 5rem 1rem 2rem 1rem;
+            }
+
+            .nav-menu a {
+                font-size: 1rem;
+                padding: 0.875rem 1.25rem;
+            }
+
+            .profile-menu a {
+                padding: 0.875rem 1.25rem !important;
+                font-size: 0.9rem !important;
             }
         }
 
