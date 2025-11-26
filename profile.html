@@ -13,17 +13,24 @@
     <title>User Profile - Sarvwigyan</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
     <style>
+        /* Professional Color Scheme */
         :root {
+            --primary: #2563eb;
+            --secondary: #059669;
+            --accent: #7c3aed;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --error: #dc2626;
             --background: #fafafa;
             --card-bg: #ffffff;
             --text: #1a1a1a;
             --secondary-text: #6b7280;
-            --primary: #2563eb;
-            --secondary: #10b981;
-            --danger: #ef4444;
-            --warning: #f59e0b;
-            --shadow: rgba(0, 0, 0, 0.05);
             --border: #e5e7eb;
+            --shadow: rgba(0, 0, 0, 0.05);
+            
+            /* Professional gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary), var(--accent));
+            --gradient-success: linear-gradient(135deg, var(--success), var(--secondary));
         }
 
         [data-theme="dark"] {
@@ -31,26 +38,26 @@
             --card-bg: #2d2d2d;
             --text: #f3f4f6;
             --secondary-text: #9ca3af;
-            --primary: #3b82f6;
-            --secondary: #34d399;
-            --danger: #f87171;
-            --warning: #fbbf24;
-            --shadow: rgba(0, 0, 0, 0.3);
             --border: #374151;
+            --shadow: rgba(0, 0, 0, 0.3);
         }
+
+        /* Professional Typography */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
         }
 
         body {
             background: var(--background);
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.6;
             min-height: 100vh;
+            font-feature-settings: 'kern' 1, 'liga' 1, 'calt' 1;
         }
 
         .container {
@@ -61,17 +68,32 @@
 
         .profile-card {
             background: var(--card-bg);
-            border-radius: 12px;
-            box-shadow: 0 2px 8px var(--shadow);
+            border-radius: 16px;
+            box-shadow: 0 4px 20px var(--shadow);
             overflow: hidden;
+            border: 1px solid var(--border);
         }
 
         .profile-header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            padding: 2rem;
+            background: var(--gradient-primary);
+            padding: 2.5rem 2rem;
             display: flex;
             align-items: center;
             gap: 1.5rem;
+            position: relative;
+        }
+
+        .profile-completion {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
         .profile-pic-container {
@@ -82,13 +104,14 @@
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            border: 3px solid var(--card-bg);
+            border: 4px solid rgba(255, 255, 255, 0.2);
             object-fit: cover;
-            transition: transform 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .profile-pic:hover {
             transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.4);
         }
 
         .edit-profile-pic {
@@ -97,79 +120,106 @@
             right: 0;
             background: var(--card-bg);
             border-radius: 50%;
-            width: 32px;
-            height: 32px;
+            width: 36px;
+            height: 36px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         }
 
         .edit-profile-pic:hover {
             background: var(--primary);
             color: white;
+            transform: scale(1.1);
         }
 
         .profile-name {
-            font-size: 1.75rem;
-            font-weight: 600;
+            font-size: 1.875rem;
+            font-weight: 700;
             color: white;
             flex: 1;
+            letter-spacing: -0.025em;
         }
 
         .profile-content {
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         .stats-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
         }
 
         .stat-card {
             background: var(--card-bg);
-            border-radius: 8px;
-            padding: 1rem;
+            border-radius: 12px;
+            padding: 1.5rem;
             text-align: center;
-            box-shadow: 0 1px 4px var(--shadow);
-            transition: transform 0.2s;
+            box-shadow: 0 2px 8px var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
         }
 
         .stat-card:hover {
             transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
         .stat-value {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 1.75rem;
+            font-weight: 700;
             color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
         .stat-label {
             font-size: 0.875rem;
             color: var(--secondary-text);
+            font-weight: 500;
         }
 
         .tab-container {
             display: flex;
             border-bottom: 1px solid var(--border);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            gap: 0.5rem;
         }
 
         .tab {
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 1.5rem;
             cursor: pointer;
             font-weight: 500;
             color: var(--secondary-text);
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            white-space: nowrap;
         }
 
         .tab.active {
             color: var(--primary);
-            border-bottom: 2px solid var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        .tab:hover:not(.active) {
+            color: var(--text);
+            background: var(--background);
         }
 
         .tab-content {
@@ -181,166 +231,101 @@
         }
 
         .profile-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .section-title {
-            font-size: 1.25rem;
+            font-size: 1.375rem;
             font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 1rem;
+            color: var(--text);
+            margin-bottom: 1.25rem;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
+            gap: 0.75rem;
+            letter-spacing: -0.015em;
         }
 
         .info-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.25rem;
         }
 
         .info-item {
             background: var(--card-bg);
-            border-radius: 8px;
-            padding: 1rem;
-            box-shadow: 0 1px 4px var(--shadow);
-            transition: transform 0.2s;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px var(--shadow);
+            border: 1px solid var(--border);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            overflow: hidden;
         }
 
         .info-item:hover {
             transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
 
         .info-label {
             font-size: 0.875rem;
             color: var(--secondary-text);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .info-value {
-            font-size: 1rem;
+            font-size: 1.125rem;
             font-weight: 500;
+            color: var(--text);
+            line-height: 1.5;
         }
 
         .edit-icon {
             position: absolute;
-            top: 0.5rem;
-            right: 0.5rem;
+            top: 1rem;
+            right: 1rem;
             color: var(--secondary-text);
             cursor: pointer;
-            transition: color 0.2s;
+            transition: all 0.3s ease;
+            background: var(--background);
+            border-radius: 6px;
+            padding: 0.375rem;
+            font-size: 1.125rem;
         }
 
         .edit-icon:hover {
             color: var(--primary);
-        }
-
-        .security-status {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem;
-            border-radius: 8px;
-            background: rgba(16, 185, 129, 0.1);
-            margin-top: 1rem;
-        }
-
-        .security-status.alert {
-            background: rgba(239, 68, 68, 0.1);
-        }
-
-        .security-icon {
-            color: var(--secondary);
-            margin-right: 0.5rem;
-        }
-
-        .security-icon.alert {
-            color: var(--danger);
-        }
-
-        .security-text {
-            font-size: 0.875rem;
-        }
-
-        .progress-container {
-            margin-top: 1rem;
-        }
-
-        .progress-bar {
-            height: 6px;
-            background: var(--border);
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
             background: var(--primary);
-            border-radius: 3px;
-            transition: width 0.5s ease;
-        }
-
-        .progress-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.875rem;
-            color: var(--secondary-text);
-            margin-bottom: 0.5rem;
-        }
-
-        .activity-list {
-            margin-top: 1rem;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .activity-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            background: rgba(37, 99, 235, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 1rem;
-            color: var(--primary);
-        }
-
-        .activity-title {
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-
-        .activity-time {
-            font-size: 0.75rem;
-            color: var(--secondary-text);
+            color: white;
+            transform: scale(1.1);
         }
 
         .action-buttons {
             display: flex;
-            gap: 0.75rem;
-            margin-top: 2rem;
+            gap: 1rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
 
         .button {
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            font-weight: 500;
+            padding: 0.875rem 1.75rem;
+            border-radius: 10px;
+            font-weight: 600;
             cursor: pointer;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.2s, box-shadow 0.2s;
+            gap: 0.75rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             border: none;
-            font-size: 0.875rem;
+            font-size: 0.9375rem;
+            letter-spacing: -0.01em;
+        }
+
+        .button:active {
+            transform: scale(0.98);
         }
 
         .button-primary {
@@ -349,14 +334,15 @@
         }
 
         .button-primary:hover {
+            background: #1d4ed8;
             transform: translateY(-2px);
-            box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
         }
 
         .button-secondary {
             background: transparent;
             color: var(--primary);
-            border: 1px solid var(--primary);
+            border: 2px solid var(--primary);
         }
 
         .button-secondary:hover {
@@ -365,63 +351,51 @@
         }
 
         .button-danger {
-            background: var(--danger);
+            background: var(--error);
             color: white;
         }
 
         .button-danger:hover {
+            background: #b91c1c;
             transform: translateY(-2px);
-            box-shadow: 0 2px 6px rgba(239, 68, 68, 0.3);
+            box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
         }
 
         .theme-toggle {
             position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            width: 48px;
-            height: 48px;
+            bottom: 2rem;
+            right: 2rem;
+            width: 56px;
+            height: 56px;
             border-radius: 50%;
-            background: var(--primary);
+            background: var(--gradient-primary);
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 2px 6px var(--shadow);
-            transition: transform 0.2s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            z-index: 100;
         }
 
         .theme-toggle:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(15deg);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .badge {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 12px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            margin-left: 0.5rem;
-            background: var(--warning);
-            color: var(--text);
-        }
-
+        /* Skeleton Loading */
         .skeleton {
-            background: var(--border);
+            background: linear-gradient(90deg, var(--border) 25%, var(--background) 50%, var(--border) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
             border-radius: 4px;
-            position: relative;
-            overflow: hidden;
         }
 
-        .skeleton::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shimmer 1.5s infinite;
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
         }
 
         /* Edit Modal Styles */
@@ -432,13 +406,14 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(4px);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 1000;
             opacity: 0;
             visibility: hidden;
-            transition: opacity 0.3s, visibility 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .modal-overlay.active {
@@ -448,43 +423,48 @@
 
         .modal {
             background: var(--card-bg);
-            border-radius: 12px;
-            padding: 2rem;
+            border-radius: 16px;
+            padding: 2.5rem;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            transform: translateY(-20px);
-            transition: transform 0.3s;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid var(--border);
+            transform: translateY(-20px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .modal-overlay.active .modal {
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
 
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
         }
 
         .modal-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.025em;
         }
 
         .close-modal {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             cursor: pointer;
             color: var(--secondary-text);
             transition: color 0.2s;
+            padding: 0.25rem;
+            border-radius: 6px;
         }
 
         .close-modal:hover {
-            color: var(--danger);
+            color: var(--error);
+            background: var(--background);
         }
 
         .form-group {
@@ -493,37 +473,42 @@
 
         .form-label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
             color: var(--text);
+            font-size: 0.9375rem;
         }
 
         .form-input, .form-textarea {
             width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
+            padding: 1rem;
+            border: 2px solid var(--border);
+            border-radius: 10px;
             background: var(--card-bg);
             color: var(--text);
             font-size: 1rem;
-            transition: border-color 0.2s;
+            transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .form-input:focus, .form-textarea:focus {
             outline: none;
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
 
         .form-textarea {
             min-height: 120px;
             resize: vertical;
+            line-height: 1.5;
         }
 
         .char-counter {
             text-align: right;
             font-size: 0.75rem;
             color: var(--secondary-text);
-            margin-top: 0.25rem;
+            margin-top: 0.5rem;
+            font-weight: 500;
         }
 
         .char-counter.warning {
@@ -531,29 +516,32 @@
         }
 
         .char-counter.error {
-            color: var(--danger);
+            color: var(--error);
         }
 
         .modal-actions {
             display: flex;
             gap: 1rem;
             justify-content: flex-end;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .button-cancel {
             background: transparent;
             color: var(--secondary-text);
-            border: 1px solid var(--border);
+            border: 2px solid var(--border);
         }
 
         .button-cancel:hover {
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--background);
+            color: var(--text);
         }
 
         .button-save {
             background: var(--primary);
             color: white;
+            position: relative;
+            overflow: hidden;
         }
 
         .button-save:hover {
@@ -563,8 +551,29 @@
         .button-save:disabled {
             background: var(--secondary-text);
             cursor: not-allowed;
+            transform: none !important;
         }
 
+        .button-saving::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            margin: -10px 0 0 -10px;
+            border: 2px solid transparent;
+            border-top: 2px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Toast Notification */
         .toast {
             position: fixed;
             bottom: 2rem;
@@ -573,11 +582,17 @@
             background: var(--card-bg);
             color: var(--text);
             padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
             z-index: 1001;
             opacity: 0;
-            transition: transform 0.3s, opacity 0.3s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-left: 4px solid var(--success);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            max-width: 400px;
+            width: 90%;
         }
 
         .toast.show {
@@ -585,19 +600,32 @@
             opacity: 1;
         }
 
-        .toast.success {
-            border-left: 4px solid var(--secondary);
-        }
-
         .toast.error {
-            border-left: 4px solid var(--danger);
+            border-left-color: var(--error);
         }
 
+        .toast-icon {
+            font-size: 1.25rem;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .container {
+                margin: 1rem auto;
+                padding: 0 0.75rem;
+            }
+
             .profile-header {
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 1.5rem;
+                text-align: center;
+                padding: 2rem 1.5rem;
+                gap: 1rem;
+            }
+
+            .profile-completion {
+                position: static;
+                align-self: center;
+                margin-bottom: 0.5rem;
             }
 
             .profile-pic {
@@ -607,11 +635,15 @@
 
             .profile-name {
                 font-size: 1.5rem;
-                margin-top: 1rem;
             }
 
             .profile-content {
                 padding: 1.5rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+                gap: 1rem;
             }
 
             .info-grid {
@@ -620,7 +652,7 @@
 
             .tab-container {
                 overflow-x: auto;
-                white-space: nowrap;
+                padding-bottom: 0.5rem;
             }
 
             .action-buttons {
@@ -629,15 +661,24 @@
 
             .button {
                 width: 100%;
+                justify-content: center;
             }
 
             .modal {
                 padding: 1.5rem;
                 width: 95%;
+                margin: 1rem;
             }
 
             .modal-actions {
                 flex-direction: column;
+            }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 48px;
+                height: 48px;
             }
         }
 
@@ -653,17 +694,12 @@
             }
 
             .section-title {
-                font-size: 1.125rem;
+                font-size: 1.25rem;
             }
 
             .tab {
-                padding: 0.5rem 1rem;
+                padding: 0.75rem 1rem;
             }
-        }
-
-        @keyframes shimmer {
-            0% { transform: translateX(-100%); }
-            100% { transform: translateX(100%); }
         }
     </style>
 </head>
@@ -682,227 +718,143 @@
                         <span class="material-symbols-outlined">edit</span>
                     </div>
                 </div>
-                <h1 class="profile-name" id="userName">Loading...</h1>
+                <h1 class="profile-name" id="userName">
+                    <div class="skeleton" style="height: 32px; width: 200px;"></div>
+                </h1>
+                <div class="profile-completion" id="profileCompletion">
+                    <div class="skeleton" style="height: 20px; width: 100px;"></div>
+                </div>
             </div>
 
             <div class="profile-content">
                 <div class="stats-container">
                     <div class="stat-card">
-                        <div class="stat-value" id="projectsCount">12</div>
+                        <div class="stat-value" id="projectsCount">
+                            <div class="skeleton" style="height: 28px; width: 40px; margin: 0 auto;"></div>
+                        </div>
                         <div class="stat-label">Projects</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" id="connectionsCount">48</div>
+                        <div class="stat-value" id="connectionsCount">
+                            <div class="skeleton" style="height: 28px; width: 40px; margin: 0 auto;"></div>
+                        </div>
                         <div class="stat-label">Connections</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-value" id="activityScore">87%</div>
+                        <div class="stat-value" id="activityScore">
+                            <div class="skeleton" style="height: 28px; width: 50px; margin: 0 auto;"></div>
+                        </div>
                         <div class="stat-label">Activity</div>
                     </div>
                 </div>
 
                 <div class="tab-container">
                     <div class="tab active" onclick="switchTab('personal')">Personal</div>
-                    <div class="tab" onclick="switchTab('security')">Security</div>
-                    <div class="tab" onclick="switchTab('activity')">Activity</div>
                     <div class="tab" onclick="switchTab('settings')">Settings</div>
                 </div>
 
                 <div id="personal-tab" class="tab-content active">
                     <div class="profile-section">
-                        <h2 class="section-title" onclick="toggleSection('personal-info')">
+                        <h2 class="section-title">
                             <span class="material-symbols-outlined">person</span>
                             Personal Information
                         </h2>
-                        <div class="info-grid" id="personal-info">
+                        <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-label">Full Name</div>
-                                <div class="info-value" id="fullName">Loading...</div>
+                                <div class="info-value" id="fullName">
+                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
+                                </div>
                                 <span class="material-symbols-outlined edit-icon" onclick="openEditModal('fullName')">edit</span>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Email Address</div>
-                                <div class="info-value" id="userEmail">Loading...</div>
+                                <div class="info-value" id="userEmail">
+                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
+                                </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Phone Number</div>
-                                <div class="info-value" id="phoneNumber">+1 (555) 123-4567</div>
+                                <div class="info-value" id="phoneNumber">
+                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
+                                </div>
                                 <span class="material-symbols-outlined edit-icon" onclick="openEditModal('phoneNumber')">edit</span>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Location</div>
-                                <div class="info-value" id="location">San Francisco, CA</div>
+                                <div class="info-value" id="location">
+                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
+                                </div>
                                 <span class="material-symbols-outlined edit-icon" onclick="openEditModal('location')">edit</span>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Account Created</div>
-                                <div class="info-value" id="accountCreated">Loading...</div>
+                                <div class="info-value" id="accountCreated">
+                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
+                                </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">User ID</div>
-                                <div class="info-value" id="userId">Loading...</div>
+                                <div class="info-value" id="userId">
+                                    <div class="skeleton" style="height: 20px; width: 80%;"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="profile-section">
-                        <h2 class="section-title" onclick="toggleSection('bio-section')">
+                        <h2 class="section-title">
                             <span class="material-symbols-outlined">description</span>
                             Bio
                         </h2>
-                        <div class="info-item" id="bio-section">
+                        <div class="info-item">
                             <div class="info-label">About Me</div>
-                            <div class="info-value" id="userBio">Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.</div>
+                            <div class="info-value" id="userBio">
+                                <div class="skeleton" style="height: 60px; width: 90%;"></div>
+                            </div>
                             <span class="material-symbols-outlined edit-icon" onclick="openEditModal('bio')">edit</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="security-tab" class="tab-content">
-                    <div class="profile-section">
-                        <h2 class="section-title" onclick="toggleSection('security-info')">
-                            <span class="material-symbols-outlined">security</span>
-                            Security
-                        </h2>
-                        <div class="info-grid" id="security-info">
-                            <div class="info-item">
-                                <div class="info-label">Last Login</div>
-                                <div class="info-value" id="lastLogin">Loading...</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Password Last Changed</div>
-                                <div class="info-value" id="passwordChanged">Loading...</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Two-Factor Authentication</div>
-                                <div class="info-value" id="twoFactorStatus">Loading...</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Active Sessions</div>
-                                <div class="info-value">2 devices</div>
-                            </div>
-                        </div>
-                        <div class="security-status" id="securityStatus">
-                            <span class="material-symbols-outlined security-icon">verified</span>
-                            <span class="security-text">Your account security is strong</span>
-                        </div>
-                    </div>
-                    <div class="profile-section">
-                        <h2 class="section-title">
-                            <span class="material-symbols-outlined">lock</span>
-                            Security Progress
-                        </h2>
-                        <div class="progress-container">
-                            <div class="progress-label">
-                                <span>Account Security</span>
-                                <span>85% complete</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div id="activity-tab" class="tab-content">
-                    <div class="profile-section">
-                        <h2 class="section-title">
-                            <span class="material-symbols-outlined">history</span>
-                            Recent Activity
-                        </h2>
-                        <div class="activity-list">
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <span class="material-symbols-outlined">login</span>
-                                </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Logged in from Chrome on Windows</div>
-                                    <div class="activity-time">Just now</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <span class="material-symbols-outlined">edit</span>
-                                </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Updated profile information</div>
-                                    <div class="activity-time">2 hours ago</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <span class="material-symbols-outlined">lock</span>
-                                </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Changed password</div>
-                                    <div class="activity-time">1 week ago</div>
-                                </div>
-                            </div>
-                            <div class="activity-item">
-                                <div class="activity-icon">
-                                    <span class="material-symbols-outlined">devices</span>
-                                </div>
-                                <div class="activity-details">
-                                    <div class="activity-title">Logged in from Mobile App</div>
-                                    <div class="activity-time">2 weeks ago</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
 
                 <div id="settings-tab" class="tab-content">
                     <div class="profile-section">
-                        <h2 class="section-title" onclick="toggleSection('preferences')">
-                            <span class="material-symbols-outlined">settings</span>
-                            Preferences
+                        <h2 class="section-title">
+                            <span class="material-symbols-outlined">palette</span>
+                            Appearance
                         </h2>
-                        <div class="info-grid" id="preferences">
+                        <div class="info-grid">
                             <div class="info-item">
                                 <div class="info-label">Theme</div>
-                                <div class="info-value" id="themePreference">Loading...</div>
+                                <div class="info-value">
+                                    <select id="themeSelect" class="form-input" onchange="changeTheme(this.value)">
+                                        <option value="light">Light</option>
+                                        <option value="dark">Dark</option>
+                                        <option value="system">System Default</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class="info-item">
                                 <div class="info-label">Language</div>
-                                <div class="info-value" id="languagePreference">Loading...</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Notification Settings</div>
-                                <div class="info-value" id="notificationSettings">Loading...</div>
-                            </div>
-                            <div class="info-item">
-                                <div class="info-label">Email Frequency</div>
-                                <div class="info-value">Weekly digest</div>
+                                <div class="info-value">
+                                    <select class="form-input">
+                                        <option>English</option>
+                                        <option>Hindi</option>
+                                        <option>Spanish</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="profile-section">
                         <h2 class="section-title">
-                            <span class="material-symbols-outlined">notifications</span>
-                            Notification Preferences
+                            <span class="material-symbols-outlined">security</span>
+                            Data & Privacy
                         </h2>
-                        <div class="info-item">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <div class="info-label">Email Notifications</div>
-                                    <div class="info-value">Receive important updates via email</div>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="info-item" style="margin-top: 0.5rem;">
-                            <div style="display: flex; justify-content: space-between; align-items: center;">
-                                <div>
-                                    <div class="info-label">Push Notifications</div>
-                                    <div class="info-value">Get incomprised alerts on your device</div>
-                                </div>
-                                <label class="switch">
-                                    <input type="checkbox" checked>
-                                    <span class="slider round"></span>
-                                </label>
-                            </div>
+                        <div class="action-buttons">
+                            <button class="button button-secondary" onclick="exportData()">
+                                <span class="material-symbols-outlined">download</span>
+                                Export My Data
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -911,10 +863,6 @@
                     <button class="button button-primary" onclick="editProfile()">
                         <span class="material-symbols-outlined">edit</span>
                         Edit Profile
-                    </button>
-                    <button class="button button-secondary" onclick="changePassword()">
-                        <span class="material-symbols-outlined">lock_reset</span>
-                        Change Password
                     </button>
                     <button class="button button-danger" onclick="confirmLogout()">
                         <span class="material-symbols-outlined">logout</span>
@@ -952,23 +900,28 @@
                 </div>
                 <div class="modal-actions">
                     <button type="button" class="button button-cancel" onclick="closeEditModal()">Cancel</button>
-                    <button type="submit" class="button button-save" id="saveButton">Save Changes</button>
+                    <button type="submit" class="button button-save" id="saveButton">
+                        <span class="button-text">Save Changes</span>
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
     <!-- Toast Notification -->
-    <div class="toast" id="toast"></div>
-
-    <div class="theme-toggle" onclick="toggleTheme()">
-        <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+    <div class="toast" id="toast">
+        <span class="material-symbols-outlined toast-icon" id="toastIcon">check_circle</span>
+        <span id="toastMessage">Profile updated successfully!</span>
     </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">
+        <span class="material-symbols-outlined" id="themeIcon">dark_mode</span>
+    </button>
 
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
         import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
-        import { getFirestore, doc, getDoc, setDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
+        import { getFirestore, doc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
         const firebaseConfig = {
             apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
@@ -988,6 +941,19 @@
         let currentUser = null;
         let currentEditingField = null;
 
+        // Calculate profile completion score
+        function calculateProfileScore(userData) {
+            const fields = [
+                userData.fullName && userData.fullName !== 'Not set',
+                userData.bio && userData.bio !== "You haven't set your bio yet!",
+                userData.phoneNumber && userData.phoneNumber !== 'Not provided',
+                userData.location && userData.location !== 'Not specified'
+            ];
+            
+            const completed = fields.filter(Boolean).length;
+            return Math.round((completed / fields.length) * 100);
+        }
+
         // Load user profile with Firestore data
         async function loadUserProfile() {
             const user = auth.currentUser;
@@ -998,11 +964,6 @@
             }
 
             currentUser = user;
-
-            // Show loading state
-            document.querySelectorAll('.info-value').forEach(el => {
-                el.innerHTML = '<div class="skeleton" style="height: 16px; width: 80%;"></div>';
-            });
 
             try {
                 // Try to get data from Firestore first
@@ -1034,30 +995,49 @@
         }
 
         function populateProfileFromFirestore(firestoreData, user) {
+            // Remove skeleton loading
+            document.querySelectorAll('.skeleton').forEach(el => {
+                el.style.display = 'none';
+            });
+
             document.getElementById('profilePic').src = firestoreData.photoURL || user.photoURL || 'https://via.placeholder.com/100';
             document.getElementById('userName').textContent = firestoreData.displayName || user.displayName;
             document.getElementById('userEmail').textContent = firestoreData.email || user.email;
-            document.getElementById('fullName').textContent = firestoreData.profile?.fullName || firestoreData.displayName || 'Not set';
+            
+            // Use data from profile field if available, otherwise use root fields
+            const fullName = firestoreData.profile?.fullName || firestoreData.displayName || 'Not set';
+            const phoneNumber = firestoreData.profile?.phoneNumber || firestoreData.phoneNumber || 'Not provided';
+            const location = firestoreData.profile?.location || 'Not specified';
+            const bio = firestoreData.profile?.bio || "You haven't set your bio yet!";
+            
+            document.getElementById('fullName').textContent = fullName;
+            document.getElementById('phoneNumber').textContent = phoneNumber;
+            document.getElementById('location').textContent = location;
+            document.getElementById('userBio').textContent = bio;
             document.getElementById('accountCreated').textContent = firestoreData.createdAt || 'Unknown';
             document.getElementById('userId').textContent = user.uid;
-            document.getElementById('lastLogin').textContent = firestoreData.lastLoginAt || 'Unknown';
-            document.getElementById('phoneNumber').textContent = firestoreData.phoneNumber || firestoreData.profile?.phoneNumber || 'Not provided';
-            document.getElementById('location').textContent = firestoreData.profile?.location || 'Not specified';
-            document.getElementById('userBio').textContent = firestoreData.profile?.bio || "You haven't set your bio yet!";
 
             document.getElementById('projectsCount').textContent = firestoreData.statistics?.projects || '0';
             document.getElementById('connectionsCount').textContent = firestoreData.statistics?.connections || '0';
             document.getElementById('activityScore').textContent = firestoreData.statistics?.activityScore ? `${firestoreData.statistics.activityScore}%` : '0%';
+
+            // Update profile completion score
+            const profileScore = calculateProfileScore({ fullName, phoneNumber, location, bio });
+            document.getElementById('profileCompletion').textContent = `${profileScore}% Complete`;
         }
 
         function populateProfileFromLocalStorage(storedUser) {
+            // Remove skeleton loading
+            document.querySelectorAll('.skeleton').forEach(el => {
+                el.style.display = 'none';
+            });
+
             document.getElementById('profilePic').src = storedUser.picture || 'https://via.placeholder.com/100';
             document.getElementById('userName').textContent = storedUser.name || 'Unknown User';
             document.getElementById('userEmail').textContent = storedUser.email || 'No email provided';
             document.getElementById('fullName').textContent = storedUser.fullName || 'Not set';
             document.getElementById('accountCreated').textContent = storedUser.accountCreated || 'Unknown';
             document.getElementById('userId').textContent = storedUser.userId || 'Not available';
-            document.getElementById('lastLogin').textContent = storedUser.lastLogin || 'Unknown';
             document.getElementById('phoneNumber').textContent = storedUser.phoneNumber || 'Not provided';
             document.getElementById('location').textContent = storedUser.location || 'Not specified';
             document.getElementById('userBio').textContent = storedUser.bio || "You haven't set your bio yet!";
@@ -1065,6 +1045,10 @@
             document.getElementById('projectsCount').textContent = storedUser.stats?.projects || '0';
             document.getElementById('connectionsCount').textContent = storedUser.stats?.connections || '0';
             document.getElementById('activityScore').textContent = storedUser.stats?.activityScore ? `${storedUser.stats.activityScore}%` : '0%';
+
+            // Update profile completion score
+            const profileScore = calculateProfileScore(storedUser);
+            document.getElementById('profileCompletion').textContent = `${profileScore}% Complete`;
         }
 
         // Open edit modal for specific field
@@ -1084,26 +1068,32 @@
             
             // Set modal title and show appropriate field
             let fieldLabel = '';
+            let currentValue = '';
+            
             switch(field) {
                 case 'fullName':
                     fieldLabel = 'Full Name';
                     document.getElementById('fullNameField').style.display = 'block';
-                    document.getElementById('editFullName').value = document.getElementById('fullName').textContent;
+                    currentValue = document.getElementById('fullName').textContent;
+                    document.getElementById('editFullName').value = currentValue === 'Not set' ? '' : currentValue;
                     break;
                 case 'phoneNumber':
                     fieldLabel = 'Phone Number';
                     document.getElementById('phoneNumberField').style.display = 'block';
-                    document.getElementById('editPhoneNumber').value = document.getElementById('phoneNumber').textContent;
+                    currentValue = document.getElementById('phoneNumber').textContent;
+                    document.getElementById('editPhoneNumber').value = currentValue === 'Not provided' ? '' : currentValue;
                     break;
                 case 'location':
                     fieldLabel = 'Location';
                     document.getElementById('locationField').style.display = 'block';
-                    document.getElementById('editLocation').value = document.getElementById('location').textContent;
+                    currentValue = document.getElementById('location').textContent;
+                    document.getElementById('editLocation').value = currentValue === 'Not specified' ? '' : currentValue;
                     break;
                 case 'bio':
                     fieldLabel = 'Bio';
                     document.getElementById('bioField').style.display = 'block';
-                    document.getElementById('editBio').value = document.getElementById('userBio').textContent;
+                    currentValue = document.getElementById('userBio').textContent;
+                    document.getElementById('editBio').value = currentValue === "You haven't set your bio yet!" ? '' : currentValue;
                     updateBioCharCounter();
                     break;
             }
@@ -1159,46 +1149,53 @@
                 switch(field) {
                     case 'fullName':
                         updateData.profile = {
-                            fullName: value
+                            fullName: value || 'Not set'
                         };
+                        // Also update displayName at root level for compatibility
+                        updateData.displayName = value || currentUser.displayName;
                         break;
                     case 'phoneNumber':
                         updateData.profile = {
-                            phoneNumber: value
+                            phoneNumber: value || 'Not provided'
                         };
+                        // Also update at root level for compatibility
+                        updateData.phoneNumber = value || null;
                         break;
                     case 'location':
                         updateData.profile = {
-                            location: value
+                            location: value || 'Not specified'
                         };
                         break;
                     case 'bio':
                         updateData.profile = {
-                            bio: value
+                            bio: value || "You haven't set your bio yet!"
                         };
                         break;
                 }
                 
                 // Update Firestore
                 await updateDoc(userDocRef, updateData);
+                console.log(`✅ ${field} updated in Firestore`);
                 
                 // Update localStorage
                 const storedUser = JSON.parse(localStorage.getItem('user')) || {};
                 switch(field) {
                     case 'fullName':
-                        storedUser.fullName = value;
+                        storedUser.fullName = value || 'Not set';
+                        storedUser.name = value || currentUser.displayName;
                         break;
                     case 'phoneNumber':
-                        storedUser.phoneNumber = value;
+                        storedUser.phoneNumber = value || 'Not provided';
                         break;
                     case 'location':
-                        storedUser.location = value;
+                        storedUser.location = value || 'Not specified';
                         break;
                     case 'bio':
-                        storedUser.bio = value;
+                        storedUser.bio = value || "You haven't set your bio yet!";
                         break;
                 }
                 localStorage.setItem('user', JSON.stringify(storedUser));
+                console.log(`💾 ${field} updated in localStorage`);
                 
                 return true;
             } catch (error) {
@@ -1210,8 +1207,18 @@
         // Show toast notification
         function showToast(message, type = 'success') {
             const toast = document.getElementById('toast');
-            toast.textContent = message;
+            const toastIcon = document.getElementById('toastIcon');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastMessage.textContent = message;
             toast.className = `toast ${type}`;
+            
+            if (type === 'success') {
+                toastIcon.textContent = 'check_circle';
+            } else {
+                toastIcon.textContent = 'error';
+            }
+            
             toast.classList.add('show');
             
             setTimeout(() => {
@@ -1250,8 +1257,11 @@
             e.preventDefault();
             
             const saveButton = document.getElementById('saveButton');
+            const buttonText = saveButton.querySelector('.button-text');
+            
             saveButton.disabled = true;
-            saveButton.textContent = 'Saving...';
+            saveButton.classList.add('button-saving');
+            buttonText.textContent = 'Saving...';
             
             let value = '';
             switch(currentEditingField) {
@@ -1273,7 +1283,8 @@
             if (currentEditingField === 'bio' && value.length > 200) {
                 showToast('Bio cannot exceed 200 characters', 'error');
                 saveButton.disabled = false;
-                saveButton.textContent = 'Save Changes';
+                saveButton.classList.remove('button-saving');
+                buttonText.textContent = 'Save Changes';
                 return;
             }
             
@@ -1284,6 +1295,7 @@
                 switch(currentEditingField) {
                     case 'fullName':
                         document.getElementById('fullName').textContent = value || 'Not set';
+                        document.getElementById('userName').textContent = value || currentUser.displayName;
                         break;
                     case 'phoneNumber':
                         document.getElementById('phoneNumber').textContent = value || 'Not provided';
@@ -1296,14 +1308,25 @@
                         break;
                 }
                 
+                // Update profile completion score
+                const updatedData = {
+                    fullName: document.getElementById('fullName').textContent,
+                    phoneNumber: document.getElementById('phoneNumber').textContent,
+                    location: document.getElementById('location').textContent,
+                    bio: document.getElementById('userBio').textContent
+                };
+                const profileScore = calculateProfileScore(updatedData);
+                document.getElementById('profileCompletion').textContent = `${profileScore}% Complete`;
+                
                 showToast('Profile updated successfully!');
-                closeEditModal();
+                setTimeout(() => closeEditModal(), 1000);
             } else {
                 showToast('Failed to update profile. Please try again.', 'error');
             }
             
             saveButton.disabled = false;
-            saveButton.textContent = 'Save Changes';
+            saveButton.classList.remove('button-saving');
+            buttonText.textContent = 'Save Changes';
         });
 
         // Event listeners
@@ -1318,36 +1341,49 @@
     </script>
 
     <script>
+        // Theme functionality
         function toggleTheme() {
-            const currentTheme = document.body.dataset.theme;
+            const currentTheme = document.body.dataset.theme || 'light';
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             document.body.dataset.theme = newTheme;
             localStorage.setItem('theme', newTheme);
             updateThemeIcon(newTheme);
+            updateThemeSelect(newTheme);
+        }
+
+        function changeTheme(theme) {
+            document.body.dataset.theme = theme;
+            localStorage.setItem('theme', theme);
+            updateThemeIcon(theme);
         }
 
         function updateThemeIcon(theme) {
-            document.getElementById('themeIcon').textContent = theme === 'dark' ? 'light_mode' : 'dark_mode';
+            const themeIcon = document.getElementById('themeIcon');
+            themeIcon.textContent = theme === 'dark' ? 'light_mode' : 'dark_mode';
         }
 
+        function updateThemeSelect(theme) {
+            const themeSelect = document.getElementById('themeSelect');
+            if (themeSelect) {
+                themeSelect.value = theme;
+            }
+        }
+
+        // Initialize theme
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        document.body.dataset.theme = savedTheme;
+        updateThemeIcon(savedTheme);
+        if (document.getElementById('themeSelect')) {
+            document.getElementById('themeSelect').value = savedTheme;
+        }
+
+        // Profile functions
         function editProfile() {
-            // Open the personal tab and show all editable fields
             switchTab('personal');
-            document.getElementById('personal-info').style.display = 'grid';
-            document.getElementById('bio-section').style.display = 'block';
-        }
-
-        function changePassword() {
-            alert('Change password functionality would open a secure form.');
         }
 
         function openImageUpload() {
-            alert('Image upload dialog would open here.');
-        }
-
-        function toggleSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            section.style.display = section.style.display === 'none' ? 'grid' : 'none';
+            alert('Profile picture upload will be implemented soon!');
         }
 
         function switchTab(tabName) {
@@ -1357,10 +1393,23 @@
             document.querySelector(`.tab[onclick="switchTab('${tabName}')"]`).classList.add('active');
         }
 
-        // Initialize theme
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.dataset.theme = savedTheme;
-        updateThemeIcon(savedTheme);
+        function exportData() {
+            const userData = localStorage.getItem('user');
+            if (userData) {
+                const blob = new Blob([userData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'sarvwigyan-profile-data.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                showToast('Data exported successfully!');
+            } else {
+                showToast('No data available to export', 'error');
+            }
+        }
     </script>
 </body>
 </html>
