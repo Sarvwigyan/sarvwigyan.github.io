@@ -54,123 +54,130 @@
 
     <!-- Firebase SDK (production-ready) -->
     <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-    import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
-    import { getFirestore, doc, setDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+import { getFirestore, doc, setDoc, getDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
-        authDomain: "sarvwigyan-auth.firebaseapp.com",
-        projectId: "sarvwigyan-auth",
-        storageBucket: "sarvwigyan-auth.firebasestorage.app",
-        messagingSenderId: "503809453858",
-        appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
-        measurementId: "G-BV5G1LSH6F"
-    };
+const firebaseConfig = {
+    apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+    authDomain: "sarvwigyan-auth.firebaseapp.com",
+    projectId: "sarvwigyan-auth",
+    storageBucket: "sarvwigyan-auth.firebasestorage.app",
+    messagingSenderId: "503809453858",
+    appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+    measurementId: "G-BV5G1LSH6F"
+};
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const db = getFirestore(app);
-    const provider = new GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+const provider = new GoogleAuthProvider();
 
-    provider.setCustomParameters({ prompt: 'select_account' });
+provider.setCustomParameters({ prompt: 'select_account' });
 
-    window.signInWithGoogle = async () => {
-        try {
-            const result = await signInWithPopup(auth, provider);
-            const user = result.user;
+window.signInWithGoogle = async () => {
+    try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
 
-            // Create user data for Firestore
-            const userData = {
-                // Basic user info from Google
+        console.log("✅ Google login successful:", user.email);
+
+        // Check if user already exists in Firestore
+        const userDocRef = doc(db, "users", user.uid);
+        const userDocSnap = await getDoc(userDocRef);
+
+        let userData;
+        
+        if (!userDocSnap.exists()) {
+            // New user - create full profile
+            userData = {
                 uid: user.uid,
                 displayName: user.displayName,
                 email: user.email,
                 photoURL: user.photoURL,
                 emailVerified: user.emailVerified,
                 phoneNumber: user.phoneNumber || null,
-                
-                // Account metadata
                 createdAt: user.metadata.creationTime,
                 lastLoginAt: new Date().toISOString(),
                 lastSignInTime: user.metadata.lastSignInTime,
-                
-                // Profile information
                 profile: {
                     fullName: user.displayName,
                     bio: "Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects.",
-                    location: "Not specified",
-                    website: null
+                    location: "Not specified"
                 },
-                
-                // User statistics
                 statistics: {
                     projects: 12,
                     connections: 48,
                     activityScore: 87
                 },
-                
-                // Security settings
                 security: {
                     twoFactorEnabled: false,
-                    lastPasswordChange: null,
                     securityLevel: "high"
                 },
-                
-                // Preferences
                 preferences: {
                     theme: "system",
                     language: "english",
                     emailNotifications: true,
                     pushNotifications: true
                 },
-                
-                // System
                 updatedAt: new Date().toISOString(),
-                loginCount: 1 // Will be incremented on subsequent logins
+                loginCount: 1
             };
 
-            // Save to Firestore
-            await setDoc(doc(db, "users", user.uid), userData);
-            console.log("User profile created in Firestore");
-
-            // Create simplified version for localStorage
-            const localStorageUser = {
-                userId: user.uid,
-                name: user.displayName,
-                email: user.email,
-                picture: user.photoURL,
-                fullName: user.displayName,
-                accountCreated: user.metadata.creationTime,
-                lastLogin: new Date().toISOString(),
-                phoneNumber: user.phoneNumber || 'Not provided',
-                location: 'Not specified',
-                bio: userData.profile.bio,
-                stats: userData.statistics,
-                twoFactorEnabled: false,
-                securityStatus: 'strong',
-                themePreference: 'System default',
-                languagePreference: 'English',
-                notificationSettings: 'All notifications'
-            };
-
-            localStorage.setItem('user', JSON.stringify(localStorageUser));
-
-            // Redirect to home
-            window.location.href = "index.html";
-
-        } catch (error) {
-            console.error("Login error:", error);
-            alert("Login failed. Please try again.");
+            await setDoc(userDocRef, userData);
+            console.log("🆕 New user profile created in Firestore");
+        } else {
+            // Existing user - update login info
+            userData = userDocSnap.data();
+            await setDoc(userDocRef, {
+                lastLoginAt: new Date().toISOString(),
+                loginCount: (userData.loginCount || 0) + 1,
+                updatedAt: new Date().toISOString()
+            }, { merge: true });
+            console.log("🔄 Existing user profile updated in Firestore");
         }
-    };
 
-    // Auto-redirect if already logged in
-    auth.onAuthStateChanged(user => {
-        if (user) {
-            window.location.href = "index.html";
-        }
-    });
-    </script>
+        // Create localStorage data
+        const localStorageUser = {
+            userId: user.uid,
+            name: user.displayName,
+            email: user.email,
+            picture: user.photoURL,
+            fullName: user.displayName,
+            accountCreated: user.metadata.creationTime,
+            lastLogin: new Date().toISOString(),
+            phoneNumber: user.phoneNumber || 'Not provided',
+            location: 'Not specified',
+            bio: userData.profile?.bio || "Technology enthusiast and lifelong learner.",
+            stats: userData.statistics || { projects: 12, connections: 48, activityScore: 87 },
+            twoFactorEnabled: false,
+            securityStatus: 'strong',
+            themePreference: 'System default',
+            languagePreference: 'English',
+            notificationSettings: 'All notifications'
+        };
+
+        localStorage.setItem('user', JSON.stringify(localStorageUser));
+        console.log("💾 localStorage updated");
+
+        // ONLY NOW redirect after everything is done
+        window.location.href = "index.html";
+
+    } catch (error) {
+        console.error("❌ Login failed:", error);
+        alert("Login failed. Please try again.");
+    }
+};
+
+// REMOVE or COMMENT OUT the onAuthStateChanged listener on login page
+// This is what was causing the race condition!
+/*
+auth.onAuthStateChanged(user => {
+    if (user) {
+        window.location.href = "index.html";
+    }
+});
+*/
+</script>
 </body>
 </html>
