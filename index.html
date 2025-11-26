@@ -857,12 +857,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     </script>
     <script type="module">
-    // Import Firebase (same version as login.html)
     import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-    import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
-    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
+    import { getAuth, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
 
-    // Your Firebase config (same as in login.html)
     const firebaseConfig = {
         apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
         authDomain: "sarvwigyan-auth.firebaseapp.com",
@@ -873,79 +870,67 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         measurementId: "G-BV5G1LSH6F"
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    const db = getFirestore(app);
+    const provider = new GoogleAuthProvider();
 
-    // This function updates the navbar based on real login state
+    // ←←← THIS FIXES BOTH PROBLEMS ←←←
+    provider.setCustomParameters({
+        prompt: 'select_account'  // Forces Google account chooser EVERY time
+    });
+
     function updateNav() {
         const accountItem = document.querySelector('.account-item');
         const user = auth.currentUser;
 
-        if (user) {
-            // Real logged-in user
+        if (user && accountItem) {
             accountItem.innerHTML = `
-                <div class="profile-dropdown" role="menu" aria-labelledby="profile-btn">
+                <div class="profile-dropdown">
                     <button id="profile-btn" class="profile-btn" aria-haspopup="true" aria-expanded="false">
                         <img src="${user.photoURL || 'Resources/default-avatar.png'}" alt="Profile" class="profile-img">
                         <span>${user.displayName || 'User'}</span>
                         <i class="fas fa-chevron-down"></i>
                     </button>
-                    <div class="profile-menu" role="menu">
-                        <a href="profile.html" role="menuitem"><i class="fas fa-user"></i> Profile</a>
-                        <a href="#" role="menuitem" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    <div class="profile-menu">
+                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
                 </div>
             `;
 
-            // Re-attach dropdown toggle after DOM update
-            const profileBtn = document.getElementById('profile-btn');
-            const profileMenu = document.querySelector('.profile-menu');
-            profileBtn.addEventListener('click', () => {
-                profileMenu.classList.toggle('active');
-                const expanded = profileBtn.getAttribute('aria-expanded') === 'true';
-                profileBtn.setAttribute('aria-expanded', !expanded);
+            // Re-attach dropdown
+            document.getElementById('profile-btn')?.addEventListener('click', (e) => {
+                e.stopPropagation();
+                document.querySelector('.profile-menu').classList.toggle('active');
             });
-        } else {
-            // Not logged in
-            accountItem.innerHTML = `
-                <a href="login.html" role="menuitem">
-                    <i class="fas fa-user" aria-hidden="true"></i> Login
-                </a>
-            `;
+        } else if (accountItem) {
+            accountItem.innerHTML = `<a href="login.html"><i class="fas fa-user"></i> Login</a>`;
         }
     }
 
-    // Real logout
-    window.logout = function() {
-        signOut(auth).then(() => {
-            localStorage.removeItem('user');
+    window.logout = async function() {
+        try {
+            await signOut(auth);
+            localStorage.clear();
             window.location.href = "index.html";
-        }).catch((error) => {
-            alert("Logout failed: " + error.message);
-        });
+        } catch (e) { console.error(e); }
     };
 
-    // Listen for auth changes (this runs on every page load)
-    onAuthStateChanged(auth, async (user) => {
-        if (user) {
-            // Optional: Fetch extra data from Firestore if needed later
-            // const docSnap = await getDoc(doc(db, "users", user.uid));
-            // if (docSnap.exists()) console.log("User data:", docSnap.data());
+    // ←←← THIS FIXES THE "NO UPDATE AFTER LOGIN" BUG ←←←
+    document.addEventListener('DOMContentLoaded', () => {
+        // Wait for auth to fully initialize + DOM ready
+        onAuthStateChanged(auth, (user) => {
+            updateNav();  // This now runs at the right time
+        });
 
-            // Save minimal data to localStorage for fast access (optional)
-            localStorage.setItem('user', JSON.stringify({
-                name: user.displayName,
-                email: user.email,
-                picture: user.photoURL
-            }));
-        } else {
-            localStorage.removeItem('user');
-        }
-        updateNav(); // Update navbar every time auth state changes
+        // Run once immediately in case user is already signed in
+        if (auth.currentUser) updateNav();
     });
 
+    // Keep all your existing non-Firebase code (hamburger, slider, etc.) below
+    // → Just move your old DOMContentLoaded code here, outside the module
+</script>
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
             if (urlParams.has('login') && urlParams.get('login') === 'success') {

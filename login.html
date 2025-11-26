@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Access Portal – Sarvwigyan</title>
     <meta name="description" content="Log in to access Sarvwigyan's innovative educational platforms.">
+    <meta name="keywords" content="Sarvwigyan Login, Education Platform, Sign In, Google Login">
+    <meta name="author" content="Sarvwigyan Team">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://sarvwigyan.github.io/login.html" />
     <meta property="og:title" content="Login to Sarvwigyan">
@@ -36,6 +38,7 @@
         }
         .google-btn:hover { background:#3367d6; transform:translateY(-2px); }
         .footer { margin-top:2rem; font-size:0.875rem; color:var(--muted); }
+        @media (max-width:480px) { .login-container { padding:2rem; } h1 { font-size:1.6rem; } }
     </style>
 </head>
 <body>
@@ -70,11 +73,15 @@
         const db = getFirestore(app);
         const provider = new GoogleAuthProvider();
 
+        // THIS LINE IS THE FIX → Forces Google account chooser every time
+        provider.setCustomParameters({ prompt: 'select_account' });
+
         window.signInWithGoogle = async () => {
             try {
                 const result = await signInWithPopup(auth, provider);
                 const user = result.user;
 
+                // Save user data to Firestore
                 await setDoc(doc(db, "users", user.uid), {
                     name: user.displayName,
                     email: user.email,
@@ -82,15 +89,19 @@
                     lastLogin: new Date().toISOString()
                 }, { merge: true });
 
+                // Redirect to home
                 window.location.href = "index.html";
             } catch (error) {
+                console.error("Login error:", error);
                 alert("Login failed: " + error.message);
             }
         };
 
-        // Auto redirect if already signed in
+        // Auto-redirect if already logged in
         auth.onAuthStateChanged(user => {
-            if (user) window.location.href = "index.html";
+            if (user) {
+                window.location.href = "index.html";
+            }
         });
     </script>
 </body>
