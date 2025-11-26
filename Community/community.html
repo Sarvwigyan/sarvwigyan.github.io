@@ -1,197 +1,373 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Sarvwigyan Scicom - Join Our Community</title>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarvwigyan Scicom - Scientific Community</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    :root {
+      --primary: #1e3c72;
+      --secondary: #2a5298;
+      --accent: #5865F2;
+      --glass: rgba(255, 255, 255, 0.15);
+      --glass-border: rgba(255, 255, 255, 0.25);
+      --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      --text-white: rgba(255, 255, 255, 0.95);
+      --text-light: rgba(255, 255, 255, 0.75);
     }
 
     body {
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
       min-height: 100vh;
+      padding: 15px;
+      overflow-x: hidden;
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 0 10px;
+      contain: layout style;
     }
 
     /* Header */
     .header {
       text-align: center;
-      padding: 50px 20px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      margin-bottom: 30px;
-      backdrop-filter: blur(10px);
+      padding: 25px 15px;
+      background: var(--glass);
+      border-radius: 18px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: all 0.4s ease;
+      will-change: transform;
+    }
+
+    .header:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px 0 rgba(31, 38, 135, 0.5);
     }
 
     .science-icon {
-      font-size: 5rem;
-      margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .header h1 {
-      font-size: 3rem;
-      margin-bottom: 15px;
+      font-size: 2.5rem;
+      margin-bottom: 12px;
+      animation: float 4s ease-in-out infinite;
+      display: inline-block;
       background: linear-gradient(45deg, #fff, #a8edea);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .header h1 {
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+      background: linear-gradient(45deg, #fff, #a8edea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-weight: 700;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
     /* Stats */
     .stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 15px;
-      margin-bottom: 40px;
+      margin-bottom: 25px;
+      transition: all 0.4s ease;
+      contain: content;
+      will-change: transform;
     }
 
     .stat-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 25px;
-      border-radius: 15px;
+      background: var(--glass);
+      padding: 20px 12px;
+      border-radius: 14px;
       text-align: center;
       backdrop-filter: blur(10px);
-      transition: transform 0.3s ease;
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      will-change: transform;
     }
 
     .stat-card:hover {
       transform: translateY(-5px);
+      box-shadow: 0 10px 25px 0 rgba(31, 38, 135, 0.5);
     }
 
     .stat-number {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       font-weight: bold;
       color: #4CAF50;
       margin-bottom: 8px;
+      text-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+    }
+
+    .stat-card div:last-child {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      font-weight: 500;
     }
 
     /* Discord Section */
     .discord-section {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px;
-      margin-bottom: 40px;
-      backdrop-filter: blur(10px);
-      text-align: center;
+      background: var(--glass);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 25px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: all 0.4s ease;
+      contain: content;
+      will-change: transform;
     }
 
     .discord-info {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 30px;
+      gap: 15px;
+      margin-bottom: 20px;
       flex-wrap: wrap;
     }
 
     .discord-icon {
-      width: 80px;
-      height: 80px;
-      background: linear-gradient(45deg, #5865F2, #9b59b6);
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(45deg, var(--accent), #9b59b6);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
+      font-size: 1.6rem;
+      box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .discord-icon:hover {
+      transform: rotate(15deg) scale(1.05);
+    }
+
+    .discord-info-text h2 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .discord-info-text p {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .discord-btn-container {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
     }
 
     .discord-btn {
       display: inline-flex;
       align-items: center;
-      gap: 12px;
-      background: #5865F2;
+      gap: 10px;
+      background: var(--accent);
       color: white;
-      padding: 18px 35px;
-      font-size: 1.3rem;
+      padding: 14px 28px;
+      font-size: 1rem;
       font-weight: bold;
       text-decoration: none;
-      border-radius: 12px;
+      border-radius: 10px;
       transition: all 0.3s ease;
-      border: 3px solid transparent;
+      border: 2px solid rgba(255,255,255,0.3);
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(88, 101, 242, 0.4);
+      will-change: transform;
     }
 
     .discord-btn:hover {
       background: #4752c4;
-      transform: scale(1.05);
-      border-color: rgba(255,255,255,0.3);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
     }
 
     .discord-features {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+      transition: all 0.4s ease;
+      contain: content;
+      will-change: transform;
     }
 
     .feature {
-      background: rgba(255,255,255,0.05);
-      padding: 25px;
-      border-radius: 12px;
+      background: rgba(255,255,255,0.1);
+      padding: 20px 12px;
+      border-radius: 14px;
       text-align: center;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+      will-change: transform;
+    }
+
+    .feature:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.15);
     }
 
     .feature i {
-      font-size: 2.5rem;
-      color: #5865F2;
-      margin-bottom: 15px;
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-shadow: 0 2px 8px rgba(88, 101, 242, 0.3);
+    }
+
+    .feature h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .feature p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.4;
     }
 
     /* Platforms */
     .platforms {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      padding: 40px;
+      background: var(--glass);
+      border-radius: 18px;
+      padding: 25px;
+      margin-bottom: 20px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      box-shadow: var(--glass-shadow);
+      transition: all 0.4s ease;
+      contain: content;
+      will-change: transform;
+    }
+
+    .platforms-header {
       text-align: center;
-      backdrop-filter: blur(10px);
+      margin-bottom: 20px;
+    }
+
+    .platforms h2 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .platforms > p {
+      font-size: 1rem;
+      color: var(--text-light);
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .platforms-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 20px;
+      transition: all 0.4s ease;
+      contain: content;
+      will-change: transform;
     }
 
     .platform-card {
       background: rgba(255,255,255,0.1);
-      padding: 30px 20px;
-      border-radius: 15px;
+      padding: 22px 15px;
+      border-radius: 14px;
       text-decoration: none;
       color: white;
       transition: all 0.3s ease;
       border: 2px solid transparent;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      will-change: transform;
     }
 
     .platform-card:hover {
-      transform: translateY(-8px);
-      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px);
+      background: rgba(255,255,255,0.15);
     }
 
-    .facebook-card:hover { border-color: #1877F2; }
-    .youtube-card:hover { border-color: #FF0000; }
-    .whatsapp-card:hover { border-color: #25D366; }
+    .facebook-card:hover { 
+      border-color: #1877F2; 
+      box-shadow: 0 8px 20px rgba(24, 119, 242, 0.4); 
+    }
+    .youtube-card:hover { 
+      border-color: #FF0000; 
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4); 
+    }
+    .whatsapp-card:hover { 
+      border-color: #25D366; 
+      box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); 
+    }
 
     .platform-icon {
-      font-size: 3rem;
-      margin-bottom: 15px;
+      font-size: 2rem;
+      margin-bottom: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .platform-card:hover .platform-icon {
+      transform: scale(1.1);
+    }
+
+    .platform-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .platform-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.4;
     }
 
     .facebook-icon { color: #1877F2; }
@@ -201,14 +377,166 @@
     /* Footer */
     .footer {
       text-align: center;
-      padding: 30px;
-      margin-top: 40px;
-      opacity: 0.8;
+      padding: 20px 15px;
+      margin-top: 25px;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      background: var(--glass);
+      border-radius: 14px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 15px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 450px;
+      background: var(--glass);
+      border-radius: 20px;
+      overflow: hidden;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+      animation: modalAppear 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    @keyframes modalAppear {
+      0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 22px;
+      background: rgba(0, 0, 0, 0.2);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .modal-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .modal-close {
+      background: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      padding: 6px;
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: rotate(90deg);
+    }
+
+    .modal-body {
+      padding: 30px 25px;
+      text-align: center;
+    }
+
+    .modal-icon {
+      font-size: 4rem;
+      margin-bottom: 20px;
+      display: inline-block;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+    }
+
+    .modal-description {
+      margin-bottom: 25px;
+      color: var(--text-light);
+      line-height: 1.5;
+      font-size: 1rem;
+    }
+
+    .modal-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      font-size: 1rem;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      border: 2px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-button:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .facebook-modal .modal-icon { color: #1877F2; }
+    .youtube-modal .modal-icon { color: #FF0000; }
+    .whatsapp-modal .modal-icon { color: #25D366; }
+    .discord-modal .modal-icon { color: var(--accent); }
+
+    .facebook-modal .modal-button { background: #1877F2; }
+    .youtube-modal .modal-button { background: #FF0000; }
+    .whatsapp-modal .modal-button { background: #25D366; }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      .discord-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 768px) {
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .discord-features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
       .header h1 {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
       }
       
       .discord-info {
@@ -216,9 +544,84 @@
         text-align: center;
       }
       
-      .science-icon {
-        font-size: 3.5rem;
+      .header {
+        padding: 20px 15px;
       }
+      
+      .discord-section, .platforms {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .discord-features {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+      
+      .header h1 {
+        font-size: 1.4rem;
+      }
+      
+      .header p {
+        font-size: 0.9rem;
+      }
+      
+      .discord-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      
+      .modal-content {
+        max-width: 100%;
+      }
+      
+      .stat-number {
+        font-size: 1.6rem;
+      }
+      
+      .discord-info-text h2 {
+        font-size: 1.4rem;
+      }
+      
+      .platforms h2 {
+        font-size: 1.4rem;
+      }
+      
+      .stat-card, .feature, .platform-card {
+        padding: 15px 10px;
+      }
+      
+      .feature i, .platform-icon {
+        font-size: 1.6rem;
+      }
+      
+      .feature h3, .platform-card h3 {
+        font-size: 0.95rem;
+      }
+      
+      .feature p, .platform-card p {
+        font-size: 0.8rem;
+      }
+    }
+
+    /* Performance optimizations */
+    .header, .stat-card, .discord-section, .feature, .platform-card, .discord-btn, .modal-button {
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.1);
     }
   </style>
 </head>
@@ -228,7 +631,7 @@
     <div class="header">
       <div class="science-icon">🔬</div>
       <h1>Sarvwigyan SciCom</h1>
-      <p>Scientific Community • Research Discussions • Real-time Chat</p>
+      <p>Join our global scientific community for research discussions, knowledge sharing, and real-time collaboration</p>
     </div>
 
     <!-- Stats -->
@@ -257,77 +660,105 @@
         <div class="discord-icon">
           <i class="fab fa-discord"></i>
         </div>
-        <div>
-          <h2 style="margin-bottom: 10px;">Join Our Live Discord</h2>
-          <p style="opacity: 0.8;">Click below to join our community chat on Discord</p>
+        <div class="discord-info-text">
+          <h2>Join Our Live Discord</h2>
+          <p>Connect with scientists, researchers, and science enthusiasts in real-time</p>
         </div>
       </div>
 
-      <!-- Single Discord Join Button -->
-      <a href="https://discord.gg/qRnVfBsT" class="discord-btn" target="_blank">
-        <i class="fab fa-discord"></i>
-        JOIN DISCORD COMMUNITY
-      </a>
+      <!-- Discord Button -->
+      <div class="discord-btn-container">
+        <button class="discord-btn" data-modal="discord">
+          <i class="fab fa-discord"></i>
+          JOIN DISCORD COMMUNITY
+        </button>
+      </div>
 
       <div class="discord-features">
         <div class="feature">
           <i class="fas fa-comments"></i>
           <h3>Real-time Chat</h3>
-          <p>Live discussions with community members</p>
+          <p>Live discussions with community members across the globe</p>
         </div>
         <div class="feature">
           <i class="fas fa-users"></i>
           <h3>Active Community</h3>
-          <p>Connect with science enthusiasts</p>
+          <p>Connect with thousands of science enthusiasts and experts</p>
         </div>
         <div class="feature">
           <i class="fas fa-share-alt"></i>
           <h3>Share Research</h3>
-          <p>Discuss papers and projects</p>
+          <p>Discuss papers, projects, and scientific discoveries</p>
         </div>
         <div class="feature">
           <i class="fas fa-rocket"></i>
           <h3>Instant Access</h3>
-          <p>Start chatting immediately</p>
+          <p>Start chatting and collaborating immediately</p>
         </div>
       </div>
     </div>
 
     <!-- Other Platforms -->
     <div class="platforms">
-      <h2>Connect With Us</h2>
-      <p style="opacity: 0.8; margin-top: 10px;">Follow our community on other platforms</p>
+      <div class="platforms-header">
+        <h2>Connect With Us</h2>
+        <p>Follow our community across multiple platforms for updates and content</p>
+      </div>
       
       <div class="platforms-grid">
-        <a href="https://facebook.com/your-page" class="platform-card facebook-card" target="_blank">
+        <button class="platform-card facebook-card" data-modal="facebook">
           <div class="platform-icon facebook-icon">
             <i class="fab fa-facebook"></i>
           </div>
           <h3>Facebook</h3>
-          <p style="opacity: 0.8;">Community Updates</p>
-        </a>
+          <p>Community updates, events, and announcements</p>
+        </button>
         
-        <a href="https://youtube.com/your-channel" class="platform-card youtube-card" target="_blank">
+        <button class="platform-card youtube-card" data-modal="youtube">
           <div class="platform-icon youtube-icon">
             <i class="fab fa-youtube"></i>
           </div>
           <h3>YouTube</h3>
-          <p style="opacity: 0.8;">Science Content</p>
-        </a>
+          <p>Science tutorials, research presentations, and content</p>
+        </button>
         
-        <a href="https://wa.me/yournumber" class="platform-card whatsapp-card" target="_blank">
+        <button class="platform-card whatsapp-card" data-modal="whatsapp">
           <div class="platform-icon whatsapp-icon">
             <i class="fab fa-whatsapp"></i>
           </div>
           <h3>WhatsApp</h3>
-          <p style="opacity: 0.8;">Quick Updates</p>
-        </a>
+          <p>Quick updates and direct communication</p>
+        </button>
       </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-      <p>🔬 <strong>Sarvwigyan SciCom</strong> - Scientific Community Platform</p>
+      <p>🔬 <strong>Sarvwigyan SciCom</strong> - Global Scientific Community Platform</p>
+    </div>
+  </div>
+
+  <!-- Modal Structure -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          <i class="fab" id="modal-platform-icon"></i>
+          <span id="modal-platform-name">Platform</span>
+        </div>
+        <button class="modal-close" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="modal-icon">
+          <i class="fab" id="modal-large-icon"></i>
+        </div>
+        <h2 id="modal-title">Join Our Community</h2>
+        <p class="modal-description" id="modal-description">Connect with us on this platform to stay updated with our latest content and discussions.</p>
+        <a href="#" class="modal-button" id="modal-link" target="_blank">
+          <i class="fab" id="modal-button-icon"></i>
+          <span id="modal-button-text">Visit Platform</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -338,13 +769,143 @@
       channel: '1442192332123279534',
       theme: 'dark'
     })
+  </script>
+
+  <!-- Scripts -->
+  <script>
+    // Modal functionality
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalLink = document.getElementById('modal-link');
+    const modalPlatformName = document.getElementById('modal-platform-name');
+    const modalPlatformIcon = document.getElementById('modal-platform-icon');
+    const modalLargeIcon = document.getElementById('modal-large-icon');
+    const modalTitle = document.getElementById('modal-title');
+    const modalDescription = document.getElementById('modal-description');
+    const modalButtonIcon = document.getElementById('modal-button-icon');
+    const modalButtonText = document.getElementById('modal-button-text');
+
+    // Platform data
+    const platforms = {
+      discord: {
+        name: 'Discord',
+        icon: 'fa-discord',
+        title: 'Join Our Discord Community',
+        description: 'Connect with science enthusiasts, participate in live discussions, and share your research with our active community of scientists and researchers from around the world.',
+        buttonText: 'Join Discord Community',
+        url: 'https://discord.gg/qRnVfBsT'
+      },
+      facebook: {
+        name: 'Facebook',
+        icon: 'fa-facebook',
+        title: 'Follow Us on Facebook',
+        description: 'Get the latest community updates, event announcements, science news, and research highlights on our Facebook page.',
+        buttonText: 'Visit Facebook Page',
+        url: 'https://facebook.com/your-page'
+      },
+      youtube: {
+        name: 'YouTube',
+        icon: 'fa-youtube',
+        title: 'Subscribe to Our Channel',
+        description: 'Watch our science content, tutorials, research presentations, expert interviews, and community highlights on YouTube.',
+        buttonText: 'Visit YouTube Channel',
+        url: 'https://youtube.com/your-channel'
+      },
+      whatsapp: {
+        name: 'WhatsApp',
+        icon: 'fa-whatsapp',
+        title: 'Join Our WhatsApp Group',
+        description: 'Get quick updates, announcements, and connect directly with community members through our WhatsApp group for instant communication.',
+        buttonText: 'Join WhatsApp Group',
+        url: 'https://wa.me/yournumber'
+      }
+    };
+
+    // Open modal function
+    function openModal(platform) {
+      const data = platforms[platform];
+      
+      // Set modal content
+      modalPlatformName.textContent = data.name;
+      modalPlatformIcon.className = `fab ${data.icon}`;
+      modalLargeIcon.className = `fab ${data.icon}`;
+      modalTitle.textContent = data.title;
+      modalDescription.textContent = data.description;
+      modalButtonIcon.className = `fab ${data.icon}`;
+      modalButtonText.textContent = data.buttonText;
+      modalLink.href = data.url;
+      
+      // Set modal class for styling
+      modal.className = `modal active ${platform}-modal`;
+      
+      // Add to browser history
+      history.pushState({ modal: platform }, '', `#${platform}`);
+      
+      // Show modal
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal function
+    function closeModal() {
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      
+      // Remove from browser history if we're at a modal state
+      if (history.state && history.state.modal) {
+        history.back();
+      }
+    }
+
+    // Event listeners for platform buttons
+    document.querySelectorAll('[data-modal]').forEach(button => {
+      button.addEventListener('click', () => {
+        openModal(button.getAttribute('data-modal'));
+      });
+    });
+
+    // Close modal when clicking close button
+    modalClose.addEventListener('click', closeModal);
+
+    // Close modal when clicking outside content
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Handle browser back button
+    window.addEventListener('popstate', (e) => {
+      if (e.state && e.state.modal) {
+        openModal(e.state.modal);
+      } else {
+        closeModal();
+      }
+    });
+
+    // Performance optimization for resize
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => document.body.style.overflow = 'auto', 50);
+      }, 100);
+    });
 
     // Auto update online count every 8 sec
     setInterval(() => {
       fetch('https://discord.com/api/guilds/1442192331112579217/widget.json')
         .then(r => r.json())
         .then(d => document.getElementById('onlineCount').textContent = d.presence_count)
+        .catch(err => console.log('Error fetching online count:', err));
     }, 8000);
+    
+    // Initial fetch for online count
+    fetch('https://discord.com/api/guilds/1442192331112579217/widget.json')
+      .then(r => r.json())
+      .then(d => document.getElementById('onlineCount').textContent = d.presence_count)
+      .catch(err => document.getElementById('onlineCount').textContent = '250+');
   </script>
 </body>
 </html>
