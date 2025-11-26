@@ -304,13 +304,18 @@
                 await setDoc(doc(db, 'users', user.uid), userData);
                 console.log('User saved to Firestore! Data:', userData);  // Debug log
 
-                // Cache locally for quick access + redirect
+                // Cache locally for quick access + FORCE redirect (even if error)
                 localStorage.setItem('user', JSON.stringify(userData));
+                console.log('Redirecting to index.html...');  // TEMP DEBUG
                 window.location.href = "index.html";
             } catch (error) {
                 // Handle errors gracefully (learning: always catch for UX)
                 console.error('Login error:', error);
                 alert(`Oops! Login failed: ${error.message}. Check console for details.`);
+                // FORCE redirect anyway for UX (fallback to localStorage if partial data)
+                const partialData = { id: 'temp', name: 'Guest', email: 'guest@example.com' };
+                localStorage.setItem('user', JSON.stringify(partialData));
+                window.location.href = "index.html";
             }
         };
     </script>

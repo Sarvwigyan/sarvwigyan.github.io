@@ -856,95 +856,95 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         }
     }
     </script>
-    <script defer>
-        function showdevMessage() {
-            alert("Sorry, we are currently working on this feature. Kindly co-operate.");
-        }
+    <script type="module">
+    // Import Firebase (same version as login.html)
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+    import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+    import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js';
 
-        const enhancedUserData = {
-            name: "Alex Johnson",
-            email: "alex.johnson@sarvwigyan.com",
-            picture: "https://randomuser.me/api/portraits/men/32.jpg",
-            fullName: "Alex Michael Johnson",
-            accountCreated: "January 15, 2022",
-            userId: "USR-7890-4567-1234",
-            lastLogin: new Date().toLocaleString(),
-            passwordChanged: "3 months ago",
-            twoFactorEnabled: true,
-            themePreference: "System default",
-            languagePreference: "English (United States)",
-            notificationSettings: "Email alerts only",
-            securityStatus: "strong",
-            phoneNumber: "+1 (555) 123-4567",
-            location: "San Francisco, CA",
-            bio: "Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.",
-            stats: {
-                projects: 12,
-                connections: 48,
-                activity: 87
-            }
-        };
+    // Your Firebase config (same as in login.html)
+    const firebaseConfig = {
+        apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+        authDomain: "sarvwigyan-auth.firebaseapp.com",
+        projectId: "sarvwigyan-auth",
+        storageBucket: "sarvwigyan-auth.firebasestorage.app",
+        messagingSenderId: "503809453858",
+        appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+        measurementId: "G-BV5G1LSH6F"
+    };
 
-        function simulateLogin() {
-            localStorage.setItem('user', JSON.stringify(enhancedUserData));
-            updateNav();
-        }
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
 
-        function updateNav() {
-            const user = JSON.parse(localStorage.getItem('user'));
-            const accountItem = document.getElementById('account-item');
+    // This function updates the navbar based on real login state
+    function updateNav() {
+        const accountItem = document.querySelector('.account-item');
+        const user = auth.currentUser;
 
-            if (user) {
-                accountItem.innerHTML = `
-                    <div class="dropdown profile-dropdown" role="none">
-                        <a class="profile-container" role="menuitem" aria-haspopup="true" aria-expanded="false">
-                            <img src="${user.picture}" alt="Profile picture of ${user.name}" class="profile-pic" loading="lazy">
-                            <span class="profile-name">${user.name}</span>
-                        </a>
-                        <ul class="profile-menu dropdown-menu" role="menu">
-                            <li role="none">
-                                <a href="profile.html" role="menuitem">
-                                    <i class="fas fa-user-circle" aria-hidden="true"></i> Profile
-                                </a>
-                            </li>
-                            <li role="none">
-                                <a href="#" onclick="logout()" role="menuitem">
-                                    <i class="fas fa-sign-out-alt" aria-hidden="true"></i> Logout
-                                </a>
-                            </li>
-                        </ul>
+        if (user) {
+            // Real logged-in user
+            accountItem.innerHTML = `
+                <div class="profile-dropdown" role="menu" aria-labelledby="profile-btn">
+                    <button id="profile-btn" class="profile-btn" aria-haspopup="true" aria-expanded="false">
+                        <img src="${user.photoURL || 'Resources/default-avatar.png'}" alt="Profile" class="profile-img">
+                        <span>${user.displayName || 'User'}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="profile-menu" role="menu">
+                        <a href="profile.html" role="menuitem"><i class="fas fa-user"></i> Profile</a>
+                        <a href="#" role="menuitem" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
                     </div>
-                `;
-                const profileContainer = accountItem.querySelector('.profile-container');
-                const profileMenu = accountItem.querySelector('.profile-menu');
-                if (profileContainer && profileMenu) {
-                    profileContainer.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        const isOpen = profileMenu.classList.contains('active');
-                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-                        document.querySelectorAll('a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
-                        if (!isOpen) {
-                            profileMenu.classList.add('active');
-                            profileContainer.setAttribute('aria-expanded', 'true');
-                        } else {
-                            profileContainer.setAttribute('aria-expanded', 'false');
-                        }
-                    });
-                }
-            } else {
-                accountItem.innerHTML = `
-                    <a href="login.html" role="menuitem">
-                        <i class="fas fa-user" aria-hidden="true"></i> Account
-                    </a>
-                `;
-            }
-        }
+                </div>
+            `;
 
-        function logout() {
+            // Re-attach dropdown toggle after DOM update
+            const profileBtn = document.getElementById('profile-btn');
+            const profileMenu = document.querySelector('.profile-menu');
+            profileBtn.addEventListener('click', () => {
+                profileMenu.classList.toggle('active');
+                const expanded = profileBtn.getAttribute('aria-expanded') === 'true';
+                profileBtn.setAttribute('aria-expanded', !expanded);
+            });
+        } else {
+            // Not logged in
+            accountItem.innerHTML = `
+                <a href="login.html" role="menuitem">
+                    <i class="fas fa-user" aria-hidden="true"></i> Login
+                </a>
+            `;
+        }
+    }
+
+    // Real logout
+    window.logout = function() {
+        signOut(auth).then(() => {
             localStorage.removeItem('user');
             window.location.href = "index.html";
+        }).catch((error) => {
+            alert("Logout failed: " + error.message);
+        });
+    };
+
+    // Listen for auth changes (this runs on every page load)
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            // Optional: Fetch extra data from Firestore if needed later
+            // const docSnap = await getDoc(doc(db, "users", user.uid));
+            // if (docSnap.exists()) console.log("User data:", docSnap.data());
+
+            // Save minimal data to localStorage for fast access (optional)
+            localStorage.setItem('user', JSON.stringify({
+                name: user.displayName,
+                email: user.email,
+                picture: user.photoURL
+            }));
+        } else {
+            localStorage.removeItem('user');
         }
+        updateNav(); // Update navbar every time auth state changes
+    });
 
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
