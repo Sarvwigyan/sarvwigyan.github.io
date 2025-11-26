@@ -198,6 +198,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             font-size: 0.875rem;
         }
 
+        .profile-dropdown {
+            position: relative;
+        }
+
         .profile-container {
             padding: 0.625rem 1rem;
             border-radius: 25px;
@@ -206,6 +210,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             display: flex;
             align-items: center;
             font-size: 0.9375rem;
+            text-decoration: none;
+            color: var(--light-text);
         }
 
         .profile-container:hover,
@@ -218,10 +224,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             width: 2rem;
             height: 2rem;
             border-radius: 50%;
+            object-fit: cover;
         }
 
         .profile-name {
             margin-left: 0.5rem;
+            margin-right: 0.5rem;
         }
 
         .hamburger {
@@ -481,6 +489,27 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             transform: rotate(180deg);
         }
 
+        /* Profile dropdown specific styles */
+        .profile-menu {
+            right: 0;
+            left: auto;
+            min-width: 160px;
+        }
+
+        .profile-menu a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: var(--transition-base);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-menu a:hover {
+            background: var(--menu-hover-bg);
+            color: var(--accent-color);
+        }
+
         /* Tablet and smaller screens */
         @media (max-width: 1024px) {
             .nav-menu {
@@ -518,6 +547,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 box-shadow: none;
                 margin: 0.5rem auto;
                 width: 90%;
+            }
+
+            .profile-menu {
+                right: auto;
+                left: 50%;
+                transform: translateX(-50%);
             }
 
             .hero-slider {
@@ -879,107 +914,205 @@ provider.setCustomParameters({
     prompt: 'select_account'
 });
 
-function updateNav() {
-        const accountItem = document.querySelector('#account-item');
-        const user = auth.currentUser;
+// Function to toggle profile menu
+function toggleProfileMenu(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileMenu) {
+        profileMenu.classList.toggle('active');
+    }
+}
 
-        if (user && accountItem) {
-            accountItem.innerHTML = `
-                <a class="profile-container">
-                    <img src="${user.photoURL}" class="profile-pic">
-                    <span class="profile-name">${user.displayName}</span>
+// Close profile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const profileMenu = document.getElementById('profileMenu');
+    if (profileMenu && !event.target.closest('.profile-dropdown')) {
+        profileMenu.classList.remove('active');
+    }
+});
+
+function updateNav() {
+    const accountItem = document.querySelector('#account-item');
+    const user = auth.currentUser;
+
+    if (user && accountItem) {
+        accountItem.innerHTML = `
+            <div class="profile-dropdown">
+                <a href="#" class="profile-container" onclick="toggleProfileMenu(event)">
+                    <img src="${user.photoURL || 'https://via.placeholder.com/32'}" class="profile-pic" alt="Profile">
+                    <span class="profile-name">${user.displayName || 'User'}</span>
+                    <i class="fas fa-chevron-down arrow"></i>
                 </a>
-                <ul class="profile-menu active">
+                <ul class="profile-menu" id="profileMenu">
                     <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
                     <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                 </ul>
-            `;
+            </div>
+        `;
 
-            const logoutBtn = document.querySelector("#logoutBtn");
-            logoutBtn?.addEventListener("click", async () => {
+        const logoutBtn = document.querySelector("#logoutBtn");
+        logoutBtn?.addEventListener("click", async (e) => {
+            e.preventDefault();
+            try {
                 await signOut(auth);
-                localStorage.removeItem('user'); // Clear localStorage on logout
+                localStorage.removeItem('user');
                 window.location.href = "index.html";
-            });
-        } else if (accountItem) {
-            accountItem.innerHTML = `
-                <a href="login.html"><i class="fas fa-user"></i> Account</a>
-            `;
-        }
+            } catch (error) {
+                console.error("Logout error:", error);
+            }
+        });
+    } else if (accountItem) {
+        accountItem.innerHTML = `
+            <a href="login.html" role="menuitem">
+                <i class="fas fa-user" aria-hidden="true"></i> Account
+            </a>
+        `;
     }
+}
 
-    onAuthStateChanged(auth, () => {
+// Enhanced auth state listener
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // User is signed in
+        console.log("User is signed in:", user.email);
         updateNav();
-    });
+        
+        // Ensure user data is in localStorage for profile page
+        const storedUser = JSON.parse(localStorage.getItem('user'));
+        if (!storedUser || storedUser.userId !== user.uid) {
+            // Update localStorage with current user data
+            const userData = {
+                name: user.displayName,
+                email: user.email,
+                picture: user.photoURL,
+                lastLogin: new Date().toISOString(),
+                userId: user.uid,
+                fullName: user.displayName,
+                accountCreated: user.metadata.creationTime || new Date().toISOString(),
+                passwordChanged: 'Never (Google Auth)',
+                phoneNumber: 'Not provided',
+                location: 'Not specified',
+                bio: 'Technology enthusiast and lifelong learner. Passionate about AI, web development, and open-source projects. Currently working on building innovative solutions at Sarvwigyan.',
+                stats: { projects: 12, connections: 48, activity: 87 },
+                twoFactorEnabled: false,
+                securityStatus: 'strong',
+                themePreference: 'System default',
+                languagePreference: 'English',
+                notificationSettings: 'All notifications'
+            };
+            localStorage.setItem('user', JSON.stringify(userData));
+        }
+    } else {
+        // User is signed out
+        console.log("User is signed out");
+        localStorage.removeItem('user');
+        updateNav();
+    }
+});
 
-    // Force update on load to handle redirection timing
-    window.addEventListener('load', updateNav);
+// Make functions globally available
+window.toggleProfileMenu = toggleProfileMenu;
+window.updateNav = updateNav;
 </script>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.has('login') && urlParams.get('login') === 'success') {
-                simulateLogin();
-            }
-            
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.has('login') && urlParams.get('login') === 'success') {
+            // simulateLogin function if needed
+            console.log('Login success detected');
+        }
+        
+        // Initial nav update
+        if (typeof updateNav === 'function') {
             updateNav();
-            
-            const hamburger = document.querySelector('.hamburger');
-            const navMenu = document.querySelector('.nav-menu');
-            const dropdowns = document.querySelectorAll('.dropdown');
+        }
+        
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        const dropdowns = document.querySelectorAll('.dropdown');
 
+        // Hamburger menu functionality
+        if (hamburger) {
             hamburger.addEventListener('click', () => {
                 const isActive = hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 document.body.style.overflow = isActive ? 'hidden' : '';
                 hamburger.setAttribute('aria-expanded', isActive);
             });
+        }
 
-            dropdowns.forEach(dropdown => {
-                const link = dropdown.querySelector('a');
-                const submenu = dropdown.querySelector('.dropdown-menu');
-                if (link && submenu) {
-                    link.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        const isOpen = submenu.classList.contains('active');
-                        document.querySelectorAll('.dropdown-menu').forEach(s => s.classList.remove('active'));
-                        document.querySelectorAll('a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
-                        if (!isOpen) {
-                            submenu.classList.add('active');
-                            link.setAttribute('aria-expanded', 'true');
+        // Dropdown menu functionality
+        dropdowns.forEach(dropdown => {
+            const link = dropdown.querySelector('a');
+            const submenu = dropdown.querySelector('.dropdown-menu');
+            if (link && submenu) {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const isOpen = submenu.classList.contains('active');
+                    // Close all other dropdowns
+                    document.querySelectorAll('.dropdown-menu').forEach(s => {
+                        if (s !== submenu) {
+                            s.classList.remove('active');
                         }
                     });
-                }
-            });
-
-            document.addEventListener('click', (e) => {
-                if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
-                    document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
-                    document.querySelectorAll('a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
-                }
-            });
-
-            document.getElementById('backToTop').addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+                    document.querySelectorAll('a[aria-expanded="true"]').forEach(a => {
+                        if (a !== link) {
+                            a.setAttribute('aria-expanded', 'false');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    if (!isOpen) {
+                        submenu.classList.add('active');
+                        link.setAttribute('aria-expanded', 'true');
+                    } else {
+                        submenu.classList.remove('active');
+                        link.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
         });
 
-        window.onscroll = function() {
-            const backToTop = document.querySelector('.back-to-top');
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.dropdown') && !e.target.closest('.profile-dropdown')) {
+                document.querySelectorAll('.dropdown-menu').forEach(submenu => submenu.classList.remove('active'));
+                document.querySelectorAll('a[aria-expanded="true"]').forEach(a => a.setAttribute('aria-expanded', 'false'));
+            }
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        }
+    });
+
+    // Scroll event for back to top button
+    window.onscroll = function() {
+        const backToTop = document.querySelector('.back-to-top');
+        if (backToTop) {
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 backToTop.style.display = 'flex';
             } else {
                 backToTop.style.display = 'none';
             }
-        };
+        }
+    };
 
-        let currentSlide = 0;
-        let autoSlideInterval;
-        const slides = document.querySelectorAll('.slide');
-        const dotsContainer = document.querySelector('#slider-dots');
-        const slider = document.querySelector('.hero-slider');
+    // Slider functionality
+    let currentSlide = 0;
+    let autoSlideInterval;
+    const slides = document.querySelectorAll('.slide');
+    const dotsContainer = document.querySelector('#slider-dots');
+    const slider = document.querySelector('.hero-slider');
 
+    // Initialize slider dots
+    if (slides.length > 0 && dotsContainer) {
         slides.forEach((_, index) => {
             const dot = document.createElement('button');
             dot.classList.add('slider-dot');
@@ -990,36 +1123,49 @@ function updateNav() {
             dot.addEventListener('click', () => showSlide(index));
             dotsContainer.appendChild(dot);
         });
+    }
 
-        function showSlide(index) {
-            if (index >= slides.length) index = 0;
-            if (index < 0) index = slides.length - 1;
-            slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-            const dots = document.querySelectorAll('.slider-dot');
-            dots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === index);
-                dot.setAttribute('aria-selected', i === index);
-            });
-            currentSlide = index;
-            restartAutoSlide();
-        }
+    function showSlide(index) {
+        if (index >= slides.length) index = 0;
+        if (index < 0) index = slides.length - 1;
+        
+        slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
+        
+        const dots = document.querySelectorAll('.slider-dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+            dot.setAttribute('aria-selected', i === index);
+        });
+        
+        currentSlide = index;
+        restartAutoSlide();
+    }
 
-        function nextSlide() {
-            showSlide(currentSlide + 1);
-        }
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
 
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
+    function prevSlide() {
+        showSlide(currentSlide - 1);
+    }
 
-        function restartAutoSlide() {
-            clearInterval(autoSlideInterval);
+    function restartAutoSlide() {
+        clearInterval(autoSlideInterval);
+        if (slides.length > 0) {
             autoSlideInterval = setInterval(nextSlide, 5000);
         }
+    }
 
+    // Initialize auto-slide if slider exists
+    if (slider && slides.length > 0) {
         restartAutoSlide();
         slider.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
         slider.addEventListener('mouseleave', restartAutoSlide);
-    </script>
+    }
+
+    // Make slider functions globally available
+    window.nextSlide = nextSlide;
+    window.prevSlide = prevSlide;
+</script>
 </body>
 </html>
