@@ -857,79 +857,61 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }
     </script>
     <script type="module">
-    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
-    import { getAuth, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js';
+import { getAuth, onAuthStateChanged, signOut, GoogleAuthProvider, signInWithPopup } 
+from 'https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js';
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
-        authDomain: "sarvwigyan-auth.firebaseapp.com",
-        projectId: "sarvwigyan-auth",
-        storageBucket: "sarvwigyan-auth.firebasestorage.app",
-        messagingSenderId: "503809453858",
-        appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
-        measurementId: "G-BV5G1LSH6F"
-    };
+const firebaseConfig = {
+    apiKey: "AIzaSyCIGRKHyP60pqyrmoERdWqnO6vCTGT4JsI",
+    authDomain: "sarvwigyan-auth.firebaseapp.com",
+    projectId: "sarvwigyan-auth",
+    storageBucket: "sarvwigyan-auth.firebasestorage.app",
+    messagingSenderId: "503809453858",
+    appId: "1:503809453858:web:8507f6c59d854a67f57f7b",
+    measurementId: "G-BV5G1LSH6F"
+};
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
-    const provider = new GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
-    // ←←← THIS FIXES BOTH PROBLEMS ←←←
-    provider.setCustomParameters({
-        prompt: 'select_account'  // Forces Google account chooser EVERY time
-    });
+provider.setCustomParameters({
+    prompt: 'select_account'
+});
 
-    function updateNav() {
-        const accountItem = document.querySelector('.account-item');
-        const user = auth.currentUser;
+function updateNav() {
+    const accountItem = document.querySelector('#account-item'); // ✔ FIXED ID SELECTOR
+    const user = auth.currentUser;
 
-        if (user && accountItem) {
-            accountItem.innerHTML = `
-                <div class="profile-dropdown">
-                    <button id="profile-btn" class="profile-btn" aria-haspopup="true" aria-expanded="false">
-                        <img src="${user.photoURL || 'Resources/default-avatar.png'}" alt="Profile" class="profile-img">
-                        <span>${user.displayName || 'User'}</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="profile-menu">
-                        <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
-                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
-                    </div>
-                </div>
-            `;
+    if (user && accountItem) {
+        accountItem.innerHTML = `
+            <a class="profile-container">
+                <img src="${user.photoURL}" class="profile-pic">
+                <span class="profile-name">${user.displayName}</span>
+            </a>
+            <ul class="profile-menu active">
+                <li><a href="profile.html"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        `;
 
-            // Re-attach dropdown
-            document.getElementById('profile-btn')?.addEventListener('click', (e) => {
-                e.stopPropagation();
-                document.querySelector('.profile-menu').classList.toggle('active');
-            });
-        } else if (accountItem) {
-            accountItem.innerHTML = `<a href="login.html"><i class="fas fa-user"></i> Login</a>`;
-        }
-    }
-
-    window.logout = async function() {
-        try {
+        const logoutBtn = document.querySelector("#logoutBtn");
+        logoutBtn?.addEventListener("click", async () => {
             await signOut(auth);
-            localStorage.clear();
             window.location.href = "index.html";
-        } catch (e) { console.error(e); }
-    };
-
-    // ←←← THIS FIXES THE "NO UPDATE AFTER LOGIN" BUG ←←←
-    document.addEventListener('DOMContentLoaded', () => {
-        // Wait for auth to fully initialize + DOM ready
-        onAuthStateChanged(auth, (user) => {
-            updateNav();  // This now runs at the right time
         });
+    } else if (accountItem) {
+        accountItem.innerHTML = `
+            <a href="login.html"><i class="fas fa-user"></i> Account</a>
+        `;
+    }
+}
 
-        // Run once immediately in case user is already signed in
-        if (auth.currentUser) updateNav();
-    });
-
-    // Keep all your existing non-Firebase code (hamburger, slider, etc.) below
-    // → Just move your old DOMContentLoaded code here, outside the module
+onAuthStateChanged(auth, () => {
+    updateNav();
+});
 </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const urlParams = new URLSearchParams(window.location.search);
