@@ -1,0 +1,74 @@
+[
+  {
+    "id": "p1",
+    "title": "Task Manager",
+    "type": "Productivity",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Organize your tasks.",
+    "longDesc": "Stay organized with this powerful task manager.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Task Manager app"],
+    "file": "taskmanager.apk"
+  },
+  {
+    "id": "p2",
+    "title": "Note Taker",
+    "type": "Productivity",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Take notes easily.",
+    "longDesc": "Capture your thoughts with this simple note-taking app.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Note Taker app"],
+    "file": "notetaker.apk"
+  },
+  {
+    "id": "p3",
+    "title": "Time Tracker",
+    "type": "Productivity",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Track your time.",
+    "longDesc": "Monitor your productivity with this tool.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Time Tracker app"],
+    "file": "timetracker.apk"
+  },
+  {
+    "id": "p4",
+    "title": "Goal Setter",
+    "type": "Productivity",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Set your goals.",
+    "longDesc": "Plan and achieve your objectives.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Goal Setter app"],
+    "file": "goalsetter.apk"
+  },
+  {
+    "id": "p5",
+    "title": "Calendar Pro",
+    "type": "Productivity",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Manage events.",
+    "longDesc": "Keep your schedule in check.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Calendar Pro app"],
+    "file": "calendarpro.apk"
+  },
+  {
+    "id": "p6",
+    "title": "Focus Timer",
+    "type": "Productivity",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Boost focus.",
+    "longDesc": "Use Pomodoro technique to stay focused.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Focus Timer app"],
+    "file": "focustimer.apk"
+  }
+]

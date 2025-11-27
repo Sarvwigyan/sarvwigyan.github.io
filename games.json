@@ -1,0 +1,74 @@
+[
+  {
+    "id": "g1",
+    "title": "Puzzle Master",
+    "type": "Games",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Challenging puzzles.",
+    "longDesc": "Test your brain with these challenging puzzles.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Puzzle Master game"],
+    "file": "puzzle.apk"
+  },
+  {
+    "id": "g2",
+    "title": "Adventure Quest",
+    "type": "Games",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Epic adventures await.",
+    "longDesc": "Embark on epic adventures in this RPG game.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Adventure Quest game"],
+    "file": "adventure.apk"
+  },
+  {
+    "id": "g3",
+    "title": "Space Shooter",
+    "type": "Games",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Shoot aliens!",
+    "longDesc": "Defend the galaxy in this action-packed shooter.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Space Shooter game"],
+    "file": "spaceshooter.apk"
+  },
+  {
+    "id": "g4",
+    "title": "Racing Rush",
+    "type": "Games",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Race to win.",
+    "longDesc": "Speed through tracks in this racing game.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Racing Rush game"],
+    "file": "racingrush.apk"
+  },
+  {
+    "id": "g5",
+    "title": "Trivia King",
+    "type": "Games",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Test your knowledge.",
+    "longDesc": "Challenge yourself with trivia questions.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Trivia King game"],
+    "file": "triviaking.apk"
+  },
+  {
+    "id": "g6",
+    "title": "Platform Jumper",
+    "type": "Games",
+    "verified": false,
+    "logo": "https://via.placeholder.com/64",
+    "shortDesc": "Jump to survive.",
+    "longDesc": "Navigate platforms in this fun game.",
+    "images": ["https://via.placeholder.com/200x120"],
+    "imageAlts": ["Screenshot of Platform Jumper game"],
+    "file": "platformjumper.apk"
+  }
+]

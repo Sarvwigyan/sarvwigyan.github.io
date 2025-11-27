@@ -1,0 +1,15 @@
+{
+  "name": "Sarvstore",
+  "short_name": "Sarvstore",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a192f",
+  "icons": [
+    {
+      "src": "https://sarvwigyan.github.io/resources/Sarvstore.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
