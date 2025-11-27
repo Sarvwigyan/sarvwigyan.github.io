@@ -1,40 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset 
-  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <!-- Main Home Page -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://sarvstore.netlify.app/</loc>
-    <lastmod>2025-07-02</lastmod>
+    <loc>https://sarvwigyan.github.io/</loc>
+    <lastmod>2025-04-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Books -->
-  <url>
-    <loc>https://sarvstore.netlify.app/Books/TheArtOfBeingPerfectSanskrit.html</loc>
-    <lastmod>2025-07-02</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sarvstore.netlify.app/Books/TheArtOfBeingPerfectHindi.html</loc>
-    <lastmod>2025-07-02</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sarvstore.netlify.app/Books/Bhagwadgeeta.html</loc>
-    <lastmod>2025-07-02</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sarvstore.netlify.app/Books/Skandpuranhindi.html</loc>
-    <lastmod>2025-07-02</lastmod>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://sarvstore.netlify.app/Books/BhavishyaPuranHindi.html</loc>
-    <lastmod>2025-07-02</lastmod>
-    <priority>0.9</priority>
-  </url>
-
 </urlset>
