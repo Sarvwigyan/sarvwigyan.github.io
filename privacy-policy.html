@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Privacy Policy – Sarvwigyan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #00ffcc;
+            --dark-bg: #0a0a0a;
+            --dark-card: rgba(255, 255, 255, 0.08);
+            --light-bg: #f8f9fa;
+            --light-card: rgba(255, 255, 255, 0.95);
+            --text-dark: #e0e0e0;
+            --text-light: #333333;
+            --border-dark: rgba(255, 255, 255, 0.1);
+            --border-light: rgba(0, 0, 0, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.7;
+            background: var(--dark-bg);
+            color: var(--text-dark);
+            min-height: 100vh;
+            transition: all 0.3s ease;
+        }
+
+        body.light-theme {
+            background: var(--light-bg);
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 2rem 0;
+            background: var(--dark-card);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            border: 1px solid var(--border-dark);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .light-theme .header {
+            background: var(--light-card);
+            border: 1px solid var(--border-light);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient);
+        }
+
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            font-weight: 400;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--dark-card);
+            border: 1px solid var(--border-dark);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+        }
+
+        .light-theme .theme-toggle {
+            background: var(--light-card);
+            border: 1px solid var(--border-light);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        /* Content Styles */
+        .content-card {
+            background: var(--dark-card);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-dark);
+            box-shadow: var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .light-theme .content-card {
+            background: var(--light-card);
+            border: 1px solid var(--border-light);
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            margin: 2rem 0 1rem 0;
+            color: var(--secondary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 1rem;
+        }
+
+        .light-theme h2 {
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .light-theme h3 {
+            color: var(--text-light);
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+
+        li::before {
+            content: '▸';
+            color: var(--secondary);
+            font-weight: bold;
+            position: absolute;
+            left: -1.2rem;
+        }
+
+        .light-theme li::before {
+            color: var(--primary);
+        }
+
+        strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .light-theme strong {
+            color: var(--primary);
+        }
+
+        /* Last Updated */
+        .last-updated {
+            background: var(--gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            padding: 2rem;
+            background: var(--gradient);
+            border-radius: 20px;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .contact-email {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            color: white;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .contact-email:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Back to Top */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            visibility: hidden;
+            z-index: 1000;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .header {
+                padding: 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 1.5rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.4rem;
+            }
+            
+            .theme-toggle {
+                top: 1rem;
+                right: 1rem;
+                width: 45px;
+                height: 45px;
+            }
+            
+            .back-to-top {
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem;
+            }
+            
+            .logo {
+                font-size: 1.6rem;
+            }
+            
+            .content-card {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.5rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                Sarvwigyan
+            </div>
+            <div class="subtitle">Privacy Policy & Data Protection</div>
+        </div>
+
+        <!-- Last Updated -->
+        <div class="last-updated">
+            <i class="fas fa-calendar-alt"></i>
+            Last Updated: 28 November 2025
+        </div>
+
+        <!-- Main Content -->
+        <div class="content-card">
+            <h1>Privacy Policy for Sarvwigyan</h1>
+            
+            <p>Welcome to <strong>Sarvwigyan</strong>. This Privacy Policy explains how we collect, use, and protect your information when you use any of our services, including:</p>
+            
+            <ul>
+                <li><strong>Sarvwigyan (Main Platform)</strong> – Knowledge hub, articles, books, tools.</li>
+                <li><strong>SarvStore</strong> – Digital store for books, resources, products.</li>
+                <li><strong>SarvPedia</strong> – Encyclopedia-style knowledge platform.</li>
+                <li>Any other apps, websites, or tools developed under the <strong>Sarvwigyan Ecosystem</strong>.</li>
+            </ul>
+
+            <h2>1. Information We Collect</h2>
+            
+            <h3>A. Information You Provide Directly</h3>
+            <ul>
+                <li>Name</li>
+                <li>Email Address</li>
+                <li>Account Credentials (for login)</li>
+                <li>Feedback, form submissions, comments</li>
+                <li>Any data you upload or store in our services</li>
+            </ul>
+
+            <h3>B. Information We Collect Automatically</h3>
+            <ul>
+                <li>Device information (browser, OS, device type)</li>
+                <li>IP Address (for security & analytics)</li>
+                <li>Usage patterns (pages visited, clicks, actions)</li>
+                <li>Cookies and local storage data</li>
+            </ul>
+
+            <h3>C. Third‑Party Data</h3>
+            <p>If you sign in using Google or any third‑party service, we may receive basic profile information they provide.</p>
+
+            <h2>2. How We Use Your Information</h2>
+            <ul>
+                <li>To create and manage your account across all Sarvwigyan platforms (Single Unified Login)</li>
+                <li>To personalize your experience and content</li>
+                <li>To recommend books, posts, tools and resources</li>
+                <li>To improve our services and user interface</li>
+                <li>To store your preferences, history, and saved items from SarvStore, SarvPedia, etc.</li>
+                <li>To ensure security and prevent misuse</li>
+            </ul>
+
+            <h2>3. How We Share Your Information</h2>
+            <p>We <strong>do not sell</strong> your personal data.</p>
+            <p>Your data may be shared with:</p>
+            <ul>
+                <li>Our internal Sarvwigyan services (SarvStore, SarvPedia, AI tools)</li>
+                <li>Trusted third‑party tools used for hosting, authentication or analytics (e.g., Firebase)</li>
+                <li>Legal authorities if required by law</li>
+            </ul>
+
+            <h2>4. Cookies & Tracking</h2>
+            <p>We use cookies, local storage, and session storage to:</p>
+            <ul>
+                <li>Keep you signed in</li>
+                <li>Save your preferences</li>
+                <li>Track usage to improve the platform</li>
+            </ul>
+
+            <h2>5. Data Security</h2>
+            <p>We use standard industry methods like HTTPS, encryption where needed, and secure authentication (e.g., Firebase Auth) to protect your data.</p>
+
+            <h2>6. Your Rights</h2>
+            <ul>
+                <li>Access your data</li>
+                <li>Request deletion of your data</li>
+                <li>Change or update your account information</li>
+                <li>Opt out of analytics or tracking cookies</li>
+            </ul>
+
+            <h2>7. Children's Privacy</h2>
+            <p>We do not knowingly collect data from children under 13. If you think such data exists, contact us and we will remove it.</p>
+
+            <h2>8. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy. Any major changes will be shown on this page.</p>
+        </div>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h2>Contact Us</h2>
+            <p>If you have questions or want your data modified or deleted:</p>
+            <a href="mailto:trust.int.org@gmail.com" class="contact-email">
+                <i class="fas fa-envelope"></i>
+                trust.int.org@gmail.com
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2025 Sarvwigyan – All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const themeIcon = themeToggle.querySelector('i');
+
+        // Check for saved theme preference or prefer-color-scheme
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const savedTheme = localStorage.getItem('theme');
+
+        if (savedTheme === 'light' || (!savedTheme && !prefersDark)) {
+            body.classList.add('light-theme');
+            themeIcon.className = 'fas fa-sun';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            
+            if (body.classList.contains('light-theme')) {
+                themeIcon.className = 'fas fa-sun';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeIcon.className = 'fas fa-moon';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // Back to Top Button
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add subtle animation to content cards when they come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all content cards
+        document.querySelectorAll('.content-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
