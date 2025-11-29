@@ -1,567 +1,562 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-KL2QFHCJ');</script>
-<!-- End Google Tag Manager -->
-    <!-- Character encoding & responsive design -->
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- Title (under 60 characters) -->
-    <title>About Sarvwigyan – Vision, Mission & Team</title>
-
-    <!-- Meta Description (under 160 characters) -->
-    <meta name="description" content="Learn about Sarvwigyan's mission to revolutionize knowledge through platforms like Sarvpedia and Sarvstore. Meet our visionaries and team.">
-
-    <!-- Keywords -->
-    <meta name="keywords" content="About Sarvwigyan, Sarvpedia, Sarvstore, Knowledge Platform, Education, Science, Technology, Innovation, Vision, Team">
-
-    <!-- Author -->
-    <meta name="author" content="Sarvwigyan Team">
-
-    <!-- SEO Robots -->
-    <meta name="robots" content="index, follow">
-
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://sarvwigyan.github.io/about.html" />
-
-    <!-- Open Graph for social sharing -->
-    <meta property="og:title" content="About Sarvwigyan – Our Mission and Team">
-    <meta property="og:description" content="Discover Sarvwigyan's purpose, values, and team behind the platform shaping the future of learning and technology.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://sarvwigyan.github.io/about.html">
-    <meta property="og:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="About Sarvwigyan – Our Mission and Team">
-    <meta name="twitter:description" content="Get to know the minds behind Sarvwigyan and the values driving our educational innovation.">
-    <meta name="twitter:image" content="https://sarvwigyan.github.io/Resources/Sarvwigyan.png">
-
-    <!-- Fonts and Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>About - Sarvstore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
-    <!-- Optional: Favicon -->
-    <link rel="icon" href="https://sarvwigyan.github.io/Resources/Sarvwigyan.png" type="image/png">
     <style>
+        /* Import your existing CSS variables and base styles */
         :root {
-            --primary-color: #1e3a8a;
-            --accent-color: #00b4d8;
-            --dark-bg: #0f172a;
-            --light-text: #f8f9fa;
-            --menu-hover-bg: rgba(255, 255, 255, 0.1);
-            --gradient-bg: linear-gradient(135deg, #1e3a8a, #00b4d8);
+            /* Colors */
+            --background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            --card-bg: rgba(255, 255, 255, 0.25);
+            --text: #e0e0e0;
+            --secondary-text: rgba(224, 224, 224, 0.8);
+            --primary: #1a73e8;
+            --highlight: #00ffcc;
+            --shadow: rgba(0, 0, 0, 0.3);
+            
+            /* Spacing & Timing */
+            --spacing-unit: 1rem;
+            --transition-speed: 0.3s;
+            
+            /* Effects */
+            --blur: blur(10px);
+            --border: 1px solid rgba(255, 255, 255, 0.18);
+            
+            /* Z-index System */
+            --z-base: 1;
+            --z-header: 100;
+            --z-tabs: 90;
+            --z-dropdown: 200;
+            --z-overlay: 300;
+            --z-modal: 400;
+            --z-max: 999;
         }
 
+        [data-theme="light"] {
+            --background: linear-gradient(135deg, #f0f0f0 0%, #e3f2fd 50%, #bbdefb 100%);
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --text: #222222;
+            --secondary-text: rgba(34, 34, 34, 0.8);
+            --primary: #1a73e8;
+            --highlight: #00aa88;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        [data-theme="pure"] {
+            --background: linear-gradient(135deg, #fff6e6 0%, #ffeccc 50%, #ffdd99 100%);
+            --card-bg: rgba(255, 240, 204, 0.85);
+            --text: #3a1400;
+            --secondary-text: rgba(58, 20, 0, 0.9);
+            --primary: #cc3300;
+            --highlight: #e67300;
+            --shadow: rgba(204, 102, 0, 0.3);
+            --border: 1px solid rgba(255, 153, 0, 0.3);
+        }
+
+        /* Reset & Base Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Roboto', sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--dark-bg);
-            color: var(--light-text);
-            line-height: 1.8;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
             overflow-x: hidden;
+            transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+            -webkit-user-select: none;
+            user-select: none;
+            min-height: 100vh;
         }
 
-        /* Navbar */
-        .navbar {
-            background: var(--gradient-bg);
-            padding: 1rem 0;
+        /* Apple-style glass background */
+        body::before {
+            content: '';
             position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            z-index: 1000;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .nav-container {
-            max-width: 1300px;
-            margin: 0 auto;
+        /* Scrollbar */
+        body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, var(--primary), var(--highlight));
+            border-radius: 3px;
+        }
+
+        body::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 0 1.5rem;
+            justify-content: space-between;
+            background: var(--card-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border-bottom: var(--border);
+            box-shadow: 
+                0 4px 16px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: var(--z-header);
+            gap: var(--spacing-unit);
+            min-height: 80px;
         }
 
-        .logo {
-            font-size: 1.8rem;
+        .header-logo {
+            font-size: 1.5rem;
             font-weight: 700;
-            color: var(--light-text);
-            text-decoration: none;
+            background: linear-gradient(135deg, var(--primary), var(--highlight));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            min-width: 0;
         }
 
-        .logo:hover {
+        .header-logo img {
+            height: 2rem;
+            flex-shrink: 0;
+        }
+
+        .header-logo h1 {
+            font-size: inherit;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .back-button {
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border-radius: 50%;
+            width: 3rem;
+            height: 3rem;
+            transition: transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
+            border: var(--border);
+        }
+
+        .back-button:hover {
+            background: rgba(255, 255, 255, 0.2);
             transform: scale(1.05);
         }
 
-        .logo::before {
-            content: '';
-            width: 30px;
-            height: 30px;
-            background-image: url('Resources/Sarvwigyan.png');
-            background-size: cover;
+        /* Main Content */
+        .content {
+            padding: calc(var(--spacing-unit) * 2);
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
         }
 
-        .nav-menu {
+        /* Page Title */
+        .page-title {
+            text-align: center;
+            margin-bottom: calc(var(--spacing-unit) * 2);
+        }
+
+        .page-title h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: calc(var(--spacing-unit) * 0.5);
+            background: linear-gradient(135deg, var(--primary), var(--highlight));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .page-title p {
+            color: var(--secondary-text);
+            font-size: 1.1rem;
+        }
+
+        /* About Sections */
+        .about-section {
+            background: var(--card-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            border-radius: 16px;
+            padding: calc(var(--spacing-unit) * 2);
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            box-shadow: 
+                0 8px 32px rgba(0, 0, 0, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.07);
+            border: var(--border);
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 600;
+            margin-bottom: calc(var(--spacing-unit) * 1.5);
+            color: var(--text);
+            background: linear-gradient(135deg, var(--primary), var(--highlight));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Mission Section */
+        .mission-content {
             display: flex;
-            gap: 1rem;
-            list-style: none;
+            flex-direction: column;
+            gap: calc(var(--spacing-unit) * 1.5);
         }
 
-        .nav-menu a {
-            color: var(--light-text);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.6rem 1.2rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
+        .mission-text {
+            flex: 1;
+        }
+
+        .mission-image {
+            flex: 1;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 250px;
+            background: rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            justify-content: center;
+            color: var(--secondary-text);
+            font-style: italic;
         }
 
-        .nav-menu a:hover {
-            background: var(--menu-hover-bg);
-            color: var(--accent-color);
-            transform: translateY(-2px);
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: calc(var(--spacing-unit) * 1.5);
+            text-align: center;
         }
 
-        .hamburger {
-            display: none;
-            font-size: 1.8rem;
-            background: none;
-            border: none;
-            color: var(--light-text);
-            cursor: pointer;
+        .stat-item {
+            padding: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+
+        /* Values Section */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: calc(var(--spacing-unit) * 1.5);
+        }
+
+        .value-item {
+            padding: calc(var(--spacing-unit) * 1.5);
+            border-left: 4px solid var(--primary);
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 12px 12px 0;
+        }
+
+        .value-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--text);
         }
 
         /* Content Section */
         .content-section {
-            padding: 7rem 1rem 4rem;
-            background: linear-gradient(to bottom, rgba(30, 58, 138, 0.1), var(--dark-bg));
+            margin-bottom: calc(var(--spacing-unit) * 2);
         }
 
-        .section-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .section-container h1 {
-            font-size: 2.5rem;
-            color: var(--accent-color);
-            text-align: center;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .intro-text {
-            font-size: 1.2rem;
-            text-align: center;
-            margin-bottom: 2.5rem;
-            color: #d1d5db;
-        }
-
-        .ab-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .ab-section:hover {
-            transform: translateY(-5px);
-        }
-
-        .ab-section h2 {
-            font-size: 1.8rem;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .ab-section h2::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--accent-color);
-        }
-
-        .ab-section h3 {
+        .content-section h3 {
             font-size: 1.4rem;
-            color: var(--light-text);
-            margin: 1rem 0 0.5rem;
+            margin-bottom: calc(var(--spacing-unit) * 1);
+            color: var(--highlight);
         }
 
-        .ab-section p, .ab-section ul li {
-            font-size: 1rem;
-            color: #d1d5db;
-            margin-bottom: 0.75rem;
-        }
-
-        .ab-section ul {
-            list-style: none;
-            padding-left: 1.5rem;
-        }
-
-        .ab-section ul li {
-            position: relative;
-        }
-
-        .ab-section ul li::before {
-            content: "➤";
-            color: var(--accent-color);
-            position: absolute;
-            left: -1.5rem;
-            font-size: 1rem;
-        }
-
-        .ab-section i {
-            font-style: italic;
-            color: #a1a1aa;
-        }
-
-        .ab-section a {
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .ab-section a:hover {
-            color: #0288a0;
+        .content-section p {
+            margin-bottom: calc(var(--spacing-unit) * 1);
         }
 
         /* Footer */
         footer {
-            background: var(--primary-color);
-            padding: 1.5rem;
+            background: var(--card-bg);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
+            padding: calc(var(--spacing-unit) * 2);
             text-align: center;
+            color: var(--secondary-text);
+            font-size: 0.875rem;
+            margin-top: calc(var(--spacing-unit) * 2);
+            border-top: var(--border);
         }
 
-        footer p {
-            font-size: 0.9rem;
+        footer nav {
+            margin-top: 0.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        /* Back to Top */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent-color);
-            color: var(--light-text);
-            padding: 0.6rem;
-            border-radius: 50%;
-            cursor: pointer;
-            display: none;
-            transition: all 0.3s ease;
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: color var(--transition-speed) ease;
+            padding: 0.5rem 1rem;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: var(--blur);
+            -webkit-backdrop-filter: var(--blur);
         }
 
-        .back-to-top:hover {
-            transform: scale(1.1);
+        footer a:hover {
+            color: var(--highlight);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Media Queries */
-        @media (max-width: 1024px) {
-            .nav-container {
-                padding: 0 1rem;
-            }
-
-            .section-container {
-                padding: 1.5rem;
-            }
-
-            .section-container h1 {
-                font-size: 2.2rem;
-            }
-
-            .intro-text {
-                font-size: 1.1rem;
-            }
-
-            .ab-section h2 {
-                font-size: 1.6rem;
+        /* Responsive Styles */
+        @media (min-width: 768px) {
+            .mission-content {
+                flex-direction: row;
+                align-items: center;
             }
         }
 
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
+            .header {
+                padding: var(--spacing-unit);
+                gap: 0.75rem;
+                min-height: 70px;
             }
-
-            .nav-menu {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background: var(--primary-color);
-                flex-direction: column;
-                padding: 1rem 0;
+            
+            .header-logo {
+                font-size: 1.3rem;
             }
-
-            .nav-menu.active {
-                display: flex;
+            
+            .header-logo img {
+                height: 1.75rem;
             }
-
-            .nav-menu a {
-                padding: 1rem;
-                width: 100%;
-                text-align: center;
-            }
-
-            .section-container {
+            
+            .content {
                 padding: 1rem;
             }
+            
+            .page-title h1 {
+                font-size: 2rem;
+            }
+            
+            .about-section {
+                padding: 1.5rem;
+            }
+        }
 
-            .section-container h1 {
+        @media (max-width: 600px) {
+            .page-title h1 {
                 font-size: 1.8rem;
             }
-
-            .intro-text {
-                font-size: 1rem;
+            
+            .about-section {
+                padding: 1rem;
             }
-
-            .ab-section h2 {
-                font-size: 1.4rem;
-            }
-
-            .ab-section h3 {
-                font-size: 1.2rem;
+            
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 480px) {
-            .logo {
-                font-size: 1.5rem;
+            .header-logo h1 {
+                max-width: 80px;
+                font-size: 1rem;
             }
-
-            .logo::before {
-                width: 25px;
-                height: 25px;
+            
+            .page-title h1 {
+                font-size: 1.6rem;
             }
-
-            .content-section {
-                padding: 5rem 0.5rem 2rem;
-            }
-
-            .section-container {
-                padding: 0.8rem;
-            }
-
-            .section-container h1 {
-                font-size: 1.5rem;
-            }
-
-            .intro-text {
-                font-size: 0.9rem;
-            }
-
-            .ab-section {
-                padding: 1rem;
-            }
-
-            .ab-section h2 {
-                font-size: 1.2rem;
-            }
-
-            .ab-section h3 {
-                font-size: 1.1rem;
-            }
-
-            .ab-section p, .ab-section ul li {
-                font-size: 0.9rem;
-            }
-
-            footer p {
-                font-size: 0.8rem;
-            }
-
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                padding: 0.5rem;
+            
+            .stats-container {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KL2QFHCJ"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Sarvwigyan</a>
-            <button class="hamburger"><i class="fas fa-bars"></i></button>
-            <ul class="nav-menu">
-                <li><a style="cursor: pointer;" onclick="window.open('index.html', '_self')"><i class="fas fa-home"></i> Home</a></li>
-            </ul>
+    <!-- Header -->
+    <div class="header">
+        <a href="index.html" class="header-logo">
+            <img src="https://sarvwigyan.github.io/resources/Sarvstore.png" style="width: auto; height: 1.5em;" alt="Sarvstore logo">
+            <h1 style="font-size: larger;">Sarvstore</h1>
+        </a>
+        <div class="back-button" onclick="window.history.back()" role="button" aria-label="Go back">
+            <i class="fas fa-arrow-left"></i>
         </div>
-    </nav>
+    </div>
 
-    <!-- Main Content Sections -->
-    <section class="content-section" id="about">
-        <div class="section-container">
-            <h1>About Sarvwigyan</h1>
-            <p class="intro-text">Learn about our mission, vision, and commitment to making knowledge accessible to all.</p>
-
-            <div class="ab-section">
-                <h2>Introduction</h2>
-                <p>
-                    Sarvwigyan is more than just a platform—it’s a movement dedicated to the pursuit of universal knowledge. We believe wisdom belongs to everyone, and we’re committed to breaking down barriers, sparking intellectual curiosity, and ensuring education is accessible to all, regardless of background or resources. Our vision is a world where learning knows no limits, curiosity is celebrated, and innovation thrives through shared knowledge.
-                </p>
-            </div>
-
-            <div class="ab-section">
-                <h2>Our Mission</h2>
-                <p><i>At Sarvwigyan, our mission is simple yet profound:</i></p>
-                <ul>
-                    <li>Provide free, high-quality knowledge to everyone.</li>
-                    <li>Inspire and nurture intellectual curiosity among learners of all ages.</li>
-                    <li>Create an ecosystem where scientific temper, technological advancements, and critical thinking lead the way.</li>
-                    <li>Bridge the gap between theory and practice with interactive tools, discussions, and hands-on projects.</li>
-                </ul>
-            </div>
-
-            <div class="ab-section">
-                <h2>Our Vision</h2>
-                <p>
-                    Knowledge is the foundation of progress. We aim to empower individuals with the information and skills needed to contribute meaningfully to science, technology, and society. By removing educational barriers, we strive to create a world where innovation and wisdom are accessible to everyone—not just a privileged few.
-                </p>
-            </div>
-
-            <div class="ab-section">
-                <h2>Core Values</h2>
-                <ul>
-                    <li><b>Universal Accessibility:</b> Knowledge should be free and available to all, everywhere.</li>
-                    <li><b>Scientific Integrity:</b> We prioritize accurate, research-backed, and unbiased information.</li>
-                    <li><b>Innovation & Creativity:</b> We encourage new ideas and environments where innovation can flourish.</li>
-                    <li><b>Empowerment through Education:</b> An educated mind is the most powerful tool for societal change.</li>
-                    <li><b>Community-Driven Learning:</b> We believe learning is best when it’s collective, built on shared insights and collaboration.</li>
-                </ul>
-            </div>
-
-            <div class="ab-section">
-                <h2>What We Offer</h2>
-                <h3>Educational Content</h3>
-                <ul>
-                    <li><b>Articles & Research Papers:</b> In-depth insights into science, technology, and more.</li>
-                    <li><b>Interactive Courses:</b> Structured modules to master complex topics.</li>
-                    <li><b>Infographics & Visual Learning:</b> Engaging visuals to simplify intricate concepts.</li>
-                    <li><b>Latest Breakthroughs:</b> Updates on cutting-edge scientific advancements.</li>
-                </ul>
-                <h3>Technology & Innovation</h3>
-                <ul>
-                    <li><b>AI & Machine Learning:</b> Explore the future of artificial intelligence.</li>
-                    <li><b>Quantum Technology:</b> Dive into the possibilities of quantum mechanics.</li>
-                    <li><b>Biotechnology & Medical Sciences:</b> Discover advancements in healthcare and genetics.</li>
-                    <li><b>Robotics & Automation:</b> Learn how automation is shaping tomorrow.</li>
-                </ul>
-                <h3>Open-Source Learning Tools</h3>
-                <ul>
-                    <li><b>Simulations & Models:</b> Hands-on projects for practical understanding.</li>
-                    <li><b>Coding & Development Resources:</b> Guides and software for tech enthusiasts.</li>
-                    <li><b>DIY Projects & Experiments:</b> Step-by-step guides for tech-driven innovations.</li>
-                </ul>
-            </div>
-
-            <div class="ab-section">
-                <h2>Our Commitment to Society</h2>
-                <p>
-                    Sarvwigyan isn’t just about learning—it’s about impact. By making knowledge universally accessible, we aim to:
-                </p>
-                <ul>
-                    <li><b>Empower Youth:</b> Encourage young minds to explore, create, and innovate.</li>
-                    <li><b>Advance Technology:</b> Equip individuals and organizations for progress.</li>
-                    <li><b>Promote Sustainability:</b> Align with global betterment through science and tech.</li>
-                    <li><b>Ensure Ethical Innovation:</b> Keep technology humane, ethical, and sustainable.</li>
-                </ul>
-            </div>
-
-            <div class="ab-section">
-                <h2>Join the Movement</h2>
-                <p>
-                    Sarvwigyan is a revolution of knowledge. Whether you’re a student, researcher, scientist, or enthusiast, there’s a place for you here. Connect with us:
-                </p>
-                <p><b>Subscribe to Our YouTube Channel:</b> <a href="https://youtube.com/@sarvwigyan?si=_6xJqq9jNw_sgCNt"><i class="fa-brands fa-youtube fa-beat"></i> Sarvwigyan Youtube</a></p>
-                <p><b>Join Our Facebook Page:</b> <a href="https://www.facebook.com/profile.php?id=61570026324353"><i class="fa-brands fa-facebook fa-beat"></i> Sarvwigyan Facebook</a></p>
-                <ul>
-                    <li><b>Engage:</b> Join our forums and learning sessions.</li>
-                    <li><b>Contribute:</b> Share your knowledge and ideas.</li>
-                    <li><b>Stay Updated:</b> Follow us for the latest insights.</li>
-                </ul>
-            </div>
-
-            <div class="ab-section">
-                <h2>Final Words: Knowledge Without Limits</h2>
-                <p>
-                    At Sarvwigyan, we believe in the boundless power of knowledge. With the right information, minds are freed, societies evolve, and the future transforms. Join us on this journey of enlightenment—where wisdom is free, innovation is limitless, and learning never ends.
-                </p>
-            </div>
+    <!-- Main Content -->
+    <div class="content">
+        <div class="page-title">
+            <h1>About Sarvstore</h1>
+            <p>Your gateway to knowledge and wisdom</p>
         </div>
-    </section>
+
+        <!-- Mission Section -->
+        <section class="about-section">
+            <h2 class="section-title">Our Mission</h2>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>Sarvstore is an educational platform dedicated to providing free access to knowledge, books, and research materials. Our mission is to democratize education and make learning resources accessible to everyone, regardless of their background or location.</p>
+                    <p>We believe that knowledge should be free, open, and collaborative. Our platform brings together educational content from various domains, making it easy for learners, researchers, and enthusiasts to discover and access valuable resources.</p>
+                    <p>Through our carefully curated collection of books, research journals, and educational materials, we aim to support lifelong learning and intellectual growth for people around the world.</p>
+                </div>
+                <div class="mission-image">
+                    <i class="fas fa-book-open" style="font-size: 4rem;"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- What We Offer Section -->
+        <section class="about-section">
+            <h2 class="section-title">What We Offer</h2>
+            <div class="content-section">
+                <h3>📚 Extensive Book Collection</h3>
+                <p>Access a wide range of books covering various subjects including science, literature, philosophy, and spiritual texts. Our collection includes both classic works and contemporary publications.</p>
+            </div>
+            
+            <div class="content-section">
+                <h3>🔬 Research Journals</h3>
+                <p>Explore academic papers and research journals from different fields. We provide access to valuable scientific and academic resources for students, researchers, and professionals.</p>
+            </div>
+            
+            <div class="content-section">
+                <h3>🌐 Multi-language Content</h3>
+                <p>Our platform features content in multiple languages including English, Hindi, and Sanskrit, making knowledge accessible to diverse audiences.</p>
+            </div>
+            
+            <div class="content-section">
+                <h3>📱 User-Friendly Interface</h3>
+                <p>Enjoy a seamless browsing experience with our responsive design that works perfectly on both desktop and mobile devices.</p>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="about-section">
+            <h2 class="section-title">By The Numbers</h2>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Books & Journals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Languages</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Accessibility</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Free</div>
+                    <div class="stat-label">Always Free</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="about-section">
+            <h2 class="section-title">Our Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-title">Accessibility</div>
+                    <p>We believe knowledge should be available to everyone, everywhere, without barriers.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-title">Quality</div>
+                    <p>We curate and verify content to ensure high-quality, reliable educational resources.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-title">Innovation</div>
+                    <p>We continuously improve our platform to provide the best user experience.</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-title">Community</div>
+                    <p>We foster a community of learners, educators, and knowledge seekers.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Sarvwigyan Section -->
+        <section class="about-section">
+            <h2 class="section-title">About Sarvwigyan</h2>
+            <div class="mission-content">
+                <div class="mission-text">
+                    <p>Sarvstore is part of the Sarvwigyan initiative, dedicated to spreading knowledge and wisdom through accessible digital platforms. Our name "Sarvwigyan" translates to "All Knowledge" in Sanskrit, reflecting our commitment to comprehensive learning.</p>
+                    <p>We are passionate about preserving traditional knowledge while embracing modern educational approaches. Our collection includes ancient texts alongside contemporary research, creating a bridge between traditional wisdom and modern science.</p>
+                    <p>Through Sarvstore and other initiatives, we aim to contribute to the global knowledge ecosystem and support the intellectual growth of individuals worldwide.</p>
+                </div>
+                <div class="mission-image">
+                    <i class="fas fa-graduation-cap" style="font-size: 4rem;"></i>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>© 2025 Sarvwigyan. All rights reserved.</p>
+        <p>© 2023 Sarvstore. All rights reserved.</p>
+        <nav>
+            <a href="https://sarvwigyan.github.io/sarvstore">Home</a>
+            <a href="https://sarvwigyan.github.io/sarvstore/about.html">About</a>
+            <a href="https://sarvwigyan.github.io/feedback.html">Contact</a>
+            <a href="https://sarvwigyan.github.io/privacy-policy.html">Privacy Policy</a>
+            <a href="https://sarvwigyan.github.io/Community/community.html">Community</a>
+        </nav>
     </footer>
 
-    <!-- Back to Top Button -->
-    <div class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></div>
-
     <script>
-        // Toggle mobile menu
-        const hamburger = document.querySelector('.hamburger');
-        const navMenu = document.querySelector('.nav-menu');
-
-        hamburger.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Show/hide Back to Top button
-        window.onscroll = function() {
-            const backToTop = document.getElementById('backToTop');
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTop.style.display = 'block';
-            } else {
-                backToTop.style.display = 'none';
-            }
-        };
-
-        // Scroll to top
-        document.getElementById('backToTop').addEventListener('click', function() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Initialize theme from localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.body.dataset.theme = theme;
         });
     </script>
 </body>
