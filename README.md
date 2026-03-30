@@ -39,7 +39,7 @@ Sarvwigyan covers a wide range of topics, including but not limited to:
 Feel free to reach out for collaborations, suggestions, or just to share your thoughts:
 
 - 📺 **YouTube Channel:** [Sarvwigyan](https://youtube.com/@sarvwigyan?si=33s6wmisL4Sy4c1j)
-- ✉️ **Email:** [Mail Sarvwigyan](mailto:ttrust.int.org@gmail.com)  
+- ✉️ **Email:** [Mail Sarvwigyan](mailto:sarvwigyan@zohomail.in)  
 
 ---
 
