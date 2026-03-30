@@ -40,7 +40,6 @@ Feel free to reach out for collaborations, suggestions, or just to share your th
 
 - 📺 **YouTube Channel:** [Sarvwigyan](https://youtube.com/@sarvwigyan?si=33s6wmisL4Sy4c1j)
 - ✉️ **Email:** [Mail Sarvwigyan](mailto:ttrust.int.org@gmail.com)  
-- 🕺 **Social Media:** [Facebook](https://www.facebook.com/profile.php?id=61570026324353)
 
 ---
 
