@@ -1,156 +1,156 @@
-# 🔐 सर्वविज्ञान के लिए सुरक्षा नीति (Security Policy for Sarvwigyan)
+# 🔐 Security Policy for Sarvwigyan
 
-सर्वविज्ञान एक मुक्त ज्ञान पारिस्थितिकी तंत्र (open knowledge ecosystem) है जिसका उद्देश्य विज्ञान, प्रौद्योगिकी, दर्शन और सत्य के माध्यम से मानवता की सेवा करना है। इसलिए, इस मंच (प्लेटफ़ॉर्म) और इसके उपयोगकर्ताओं की **सुरक्षा, अखंडता और बचाव हमारे लिए सर्वोपरि है**।
+Sarvwigyan is an open knowledge ecosystem aiming to serve humanity through science, technology, philosophy, and truth. As such, the **security, integrity, and safety of the platform and its users are of paramount importance**.
 
-यह दस्तावेज़ रेखांकित करता है कि आप **भेद्यता (vulnerabilities) की रिपोर्ट** कैसे कर सकते हैं, हम किन प्रकार के खतरों की निगरानी करते हैं, और हम सुरक्षा संबंधी समस्याओं को किस प्रकार जिम्मेदारी से संभालते और उजागर करते हैं।
+This document outlines how you can **report vulnerabilities**, what kinds of threats we monitor, and how we responsibly handle and disclose security issues.
 
 ---
 
-## 📅 समर्थित संस्करण (Supported Versions)
+## 📅 Supported Versions
 
-| संस्करण (Version) | समर्थित (Supported) | सुरक्षा अपडेट (Security Updates) |
+| Version        | Supported          | Security Updates |
 |----------------|--------------------|------------------|
-| `main` ब्रांच | ✅ हाँ | ✅ हाँ |
-| संग्रहित/पुरानी ब्रांच | ❌ नहीं | ❌ नहीं |
+| `main` branch  | ✅ Yes              | ✅ Yes           |
+| Archived/Old branches | ❌ No             | ❌ No            |
 
-हम केवल सर्वविज्ञान के नवीनतम संस्करण का समर्थन करते हैं और सक्रिय रूप से `main` ब्रांच का रखरखाव करते हैं। कृपया सुनिश्चित करें कि भेद्यता की रिपोर्ट करते समय आप अद्यतित (up-to-date) कोड पर कार्य कर रहे हैं।
-
----
-
-## 📢 सुरक्षा समस्या की रिपोर्ट कैसे करें
-
-यदि आपको लगता है कि आपने **सर्वविज्ञान**, इसकी वेबसाइट, सेवाओं, कोड या डेटा में कोई सुरक्षा भेद्यता (security vulnerability) पाई है:
-
-- 🚨 **कृपया इस समस्या को सार्वजनिक रूप से उजागर न करें**।
-- 📧 **हमें इस पते पर निजी तौर पर ईमेल करें:** `sarvwigyan@protonmail.com`  
-- 📄 कृपया अपनी रिपोर्ट में निम्नलिखित जानकारी शामिल करें:
-  - भेद्यता का विस्तृत विवरण
-  - इसे पुन: उत्पन्न (reproduce) करने के चरण
-  - इसका दायरा (scope) और संभावित प्रभाव
-  - कोई भी लॉग, स्क्रीनशॉट, या प्रूफ़-ऑफ़-कॉन्सेप्ट (Proof-of-Concept) कोड (यदि लागू हो)
-
-> हम जिम्मेदार प्रकटीकरण (responsible disclosures) की सराहना करते हैं और हमारा लक्ष्य **48 घंटों** के भीतर जवाब देना है।
+We only support the latest version of Sarvwigyan and actively maintain the `main` branch. Please ensure you're working on up-to-date code when reporting vulnerabilities.
 
 ---
 
-## 🛡️ सुरक्षा संबंधी समस्याएँ जिन पर हम विशेष ध्यान देते हैं
+## 📢 How to Report a Security Issue
 
-हम विशेष रूप से उन समस्याओं को लेकर चिंतित हैं जो निम्नलिखित को प्रभावित कर सकती हैं:
+If you believe you’ve found a security vulnerability in **Sarvwigyan**, its website, services, code, or data:
 
-### 1. 🧠 उपयोगकर्ता डेटा और गोपनीयता (User Data and Privacy)
-- उपयोगकर्ता द्वारा सबमिट की गई सामग्री तक अनधिकृत पहुँच (Unauthorized access)
-- व्यक्तिगत या संवेदनशील डेटा का उजागर होना
-- फ़ाइलों या टेक्स्ट का असुरक्षित भंडारण
-- निजी फ़ाइलों की अनुक्रमणिका (Indexing)
+- 🚨 **DO NOT publicly disclose the issue**.
+- 📧 **Privately email us at:** `sarvwigyan@protonmail.com`  
+- 📄 Please include:
+  - A detailed description of the vulnerability
+  - Steps to reproduce
+  - The scope and potential impact
+  - Any logs, screenshots, or proof-of-concept code (if applicable)
 
-### 2. 🔐 प्रमाणीकरण और प्राधिकरण (Authentication and Authorization)
-- लॉगिन सिस्टम को बायपास करना (यदि भविष्य में लागू किया गया हो)
-- त्रुटिपूर्ण पहुँच नियंत्रण (Broken access controls)
-- सेशन हाईजैकिंग या असुरक्षित कुकीज़
-
-### 3. ⚙️ कोड भेद्यता (Code Vulnerabilities)
-- कोड इंजेक्शन (XSS, SQLi, Shell Injection)
-- रिमोट कोड एक्ज़ीक्यूशन (RCE)
-- असुरक्षित डिसीरियलाइज़ेशन (Insecure deserialization)
-- ज्ञात CVEs के साथ अप्रचलित (deprecated) लाइब्रेरी का उपयोग
-- बैकएंड कोड या व्यावसायिक नियमों में तार्किक खामियाँ (Logic flaws)
-
-### 4. 🌐 फ्रंटएंड/वेब खतरे (Frontend/Web Threats)
-- क्रॉस-साइट स्क्रिप्टिंग (XSS)
-- क्रॉस-साइट रिक्वेस्ट फोर्जरी (CSRF)
-- क्लिकजैकिंग (Clickjacking)
-- असुरक्षित CORS हेडर या नीतियाँ
-
-### 5. 🧬 AI/ML जोखिम (वर्तमान या भविष्य)
-- प्रॉम्प्ट इंजेक्शन (Prompt injections)
-- मॉडल पॉइज़निंग या जेलब्रेक (Model poisoning or jailbreaks)
-- प्रशिक्षण डेटा (training data) या एम्बेडिंग का रिसाव
-
-### 6. 📦 आपूर्ति श्रृंखला की समस्याएँ (Supply Chain Issues)
-- दुर्भावनापूर्ण या समझौता की गई निर्भरताएँ (Malicious/compromised dependencies)
-- पैकेज मैनेजर्स में टाइपोस्क्वाटिंग (Typosquatting)
-- असुरक्षित GitHub Actions या CI/CD वर्कफ़्लो
-
-### 7. 💣 इंफ्रास्ट्रक्चर या होस्टिंग जोखिम (Infrastructure or Hosting Risks)
-- GitHub Secrets / API Keys का उजागर होना
-- आंतरिक कॉन्फ़िगरेशन तक सार्वजनिक पहुँच
-- डिनायल-ऑफ़-सर्विस (DoS) भेद्यता
+> We appreciate responsible disclosures and aim to respond within **48 hours**.
 
 ---
 
-## ❌ कार्यक्षेत्र से बाहर (Out of Scope)
+## 🛡️ Types of Security Issues We Care About
 
-यद्यपि हम आपकी जिज्ञासा और रचनात्मकता की सराहना करते हैं, निम्नलिखित को **सुरक्षा समस्या नहीं माना जाता है** जब तक कि वे किसी वास्तविक हमले के वेक्टर (attack vector) को प्रदर्शित न करें:
+We are especially concerned about issues that may affect:
 
-- `security.txt` का न होना
-- CAPTCHA का अभाव
-- वास्तविक प्रभाव के बिना रेट लिमिटिंग या ब्रूट-फ़ोर्स प्रयास
-- शोषण योग्य (exploitable) CVEs के **बिना** पुरानी लाइब्रेरी का उपयोग
-- बिना किसी कार्यशील एक्सप्लॉइट के ईमेल स्पूफिंग
-- UI/UX बग्स या टाइपिंग संबंधी अशुद्धियाँ
+### 1. 🧠 User Data and Privacy
+- Unauthorized access to user-submitted content
+- Exposure of personal or sensitive data
+- Insecure storage of files or text
+- Indexing of private files
 
----
+### 2. 🔐 Authentication and Authorization
+- Bypass of login systems (if implemented in the future)
+- Broken access controls
+- Session hijacking or insecure cookies
 
-## 🧭 जिम्मेदार प्रकटीकरण और पुरस्कार (Responsible Disclosure & Rewards)
+### 3. ⚙️ Code Vulnerabilities
+- Code injection (XSS, SQLi, Shell Injection)
+- Remote Code Execution (RCE)
+- Insecure deserialization
+- Use of deprecated libraries with known CVEs
+- Logic flaws in backend code or business rules
 
-हम उन शोधकर्ताओं को महत्व देते हैं जो हमारे सिस्टम को सुरक्षित करने में मदद करते हैं। यदि आप किसी **वैध और प्रभावशाली भेद्यता** की रिपोर्ट करते हैं, तो हम:
+### 4. 🌐 Frontend/Web Threats
+- Cross-Site Scripting (XSS)
+- Cross-Site Request Forgery (CSRF)
+- Clickjacking
+- Insecure CORS headers or policies
 
-- आपके योगदान को सार्वजनिक रूप से स्वीकार करेंगे (यदि आप चाहें)
-- नैतिक योगदान का बैज या प्रमाण पत्र प्रदान करेंगे
-- अपने प्रोजेक्ट में छोटे मौद्रिक पुरस्कारों या विशेष उल्लेख (feature shout-outs) पर विचार करेंगे
+### 5. 🧬 AI/ML Risks (Present or Future)
+- Prompt injections
+- Model poisoning or jailbreaks
+- Leakage of training data or embeddings
 
-हम प्रकटीकरण (disclosure) की समय-सीमा के लिए [RFPolicy](https://github.com/bugcrowd/disclosure-policy) मानक का पालन करते हैं।
+### 6. 📦 Supply Chain Issues
+- Malicious or compromised dependencies
+- Typosquatting in package managers
+- Insecure GitHub Actions or CI/CD workflows
 
----
-
-## 🔐 हमारी आंतरिक सुरक्षा पद्धतियाँ (Our Internal Security Practices)
-
-हम कठोर आंतरिक सुरक्षा प्रोटोकॉल का पालन करते हैं, जिनमें शामिल हैं:
-
-- 🔒 हर जगह HTTPS/TLS एन्क्रिप्शन
-- 🧪 हर PR (Pull Request) के लिए कोड लिंटिंग और स्थैतिक विश्लेषण (static analysis)
-- 🛑 GitHub Security का उपयोग करके सीक्रेट्स स्कैनिंग (Secrets scanning)
-- 👥 सभी सहयोगियों के लिए भूमिका-आधारित पहुँच नियंत्रण (Role-based access control)
-- 🔄 नियमित निर्भरता ऑडिट (`npm audit`, `pip-audit`, `Dependabot`)
-- 🧬 भविष्य की सुविधाओं के लिए ML मॉडल सुरक्षा की योजना
-- 🧭 पारदर्शी और ट्रेस करने योग्य कमिट लॉग (commit logs)
-
----
-
-## 🛠 सुरक्षा के लिए हम जिन उपकरणों का उपयोग करते हैं
-
-- **[Dependabot](https://docs.github.com/en/code-security/dependabot)** निर्भरता अलर्ट (dependency alerts) के लिए
-- **[CodeQL](https://codeql.github.com/)** कोड स्कैनिंग के लिए
-- **[Bandit](https://bandit.readthedocs.io/)** पायथन सुरक्षा समस्याओं के लिए
-- **[OWASP ZAP](https://www.zaproxy.org/)** मैनुअल वेब ऐप स्कैनिंग के लिए
-- **कस्टम बैश/पायथन स्क्रिप्ट (Custom Bash/Python Scripts)** सामग्री और लॉग को स्कैन करने के लिए
+### 7. 💣 Infrastructure or Hosting Risks
+- Exposure of GitHub Secrets/API Keys
+- Public access to internal configurations
+- Denial-of-Service vulnerabilities
 
 ---
 
-## 🌐 निर्भरताओं (Dependencies) में सुरक्षा की रिपोर्ट करना
+## ❌ Out of Scope
 
-यदि सर्वविज्ञान में उपयोग की गई किसी **थर्ड-पार्टी लाइब्रेरी** में भेद्यता मौजूद है:
+While we appreciate curiosity and creativity, the following are **not considered security issues** unless they demonstrate a realistic attack vector:
 
-1. सबसे पहले अपस्ट्रीम मेंटेनर (जैसे, लाइब्रेरी रिपॉजिटरी) को इसकी रिपोर्ट करें।
-2. फिर हमें सूचित करें यदि यह सर्वविज्ञान की कार्यक्षमता या उपयोगकर्ता सुरक्षा को प्रभावित करता है।
-
----
-
-## 📜 लाइसेंसिंग और कानूनी जानकारी (Licensing and Legal)
-
-सर्वविज्ञान पर सभी सुरक्षा शोध निम्नलिखित के अनुरूप होने चाहिए:
-- [GitHub की स्वीकार्य उपयोग नीतियां (Acceptable Use Policies)](https://docs.github.com/en/site-policy/github-terms/github-acceptable-use-policies)
-- [भारतीय आईटी अधिनियम (Indian IT Act)](https://en.wikipedia.org/wiki/Information_Technology_Act,_2000)
-- आपके स्थानीय साइबर अपराध कानून
-
-सक्रिय (live) उपयोगकर्ताओं पर विनाशकारी परीक्षण, DoS हमले या डेटा स्क्रैपिंग **न** करें।
+- Missing `security.txt`
+- Lack of CAPTCHA
+- Rate limiting or brute-force attempts without real impact
+- Use of outdated libraries **without** exploitable CVEs
+- Email spoofing without a working exploit
+- UI/UX bugs or typos
 
 ---
 
-## 🙏 सर्वविज्ञान को सुरक्षित रखने के लिए धन्यवाद
+## 🧭 Responsible Disclosure & Rewards
 
-सुरक्षा एक **सामुदायिक प्रयास** है, और सर्वविज्ञान को ज्ञान और विकास के लिए एक सुरक्षित, नैतिक और खुला मंच बनाने में हम आपकी मदद की गहराई से सराहना करते हैं।
+We value researchers who help secure our systems. If you report a **valid and impactful vulnerability**, we will:
 
-आइए हम सब मिलकर एक ऐसा मंच बनाएं जिस पर आने वाली पीढ़ियां भरोसा कर सकें।
+- Publicly acknowledge your contribution (if you wish)
+- Offer a badge or certificate of ethical contribution
+- Consider small monetary rewards or feature shout-outs in our project
 
-— *सर्वविज्ञान कोर टीम (Sarvwigyan Core Team)*
+We follow the [RFPolicy](https://github.com/bugcrowd/disclosure-policy) standard for disclosure timelines.
+
+---
+
+## 🔐 Our Internal Security Practices
+
+We follow strict internal security protocols including:
+
+- 🔒 HTTPS/TLS encryption everywhere
+- 🧪 Code linting and static analysis for every PR
+- 🛑 Secrets scanning using GitHub Security
+- 👥 Role-based access control for all collaborators
+- 🔄 Regular dependency audits (`npm audit`, `pip-audit`, `Dependabot`)
+- 🧬 Planning ML model security for future features
+- 🧭 Transparent and traceable commit logs
+
+---
+
+## 🛠 Tools We Use for Security
+
+- **[Dependabot](https://docs.github.com/en/code-security/dependabot)** for dependency alerts
+- **[CodeQL](https://codeql.github.com/)** for code scanning
+- **[Bandit](https://bandit.readthedocs.io/)** for Python security issues
+- **[OWASP ZAP](https://www.zaproxy.org/)** for manual web app scanning
+- **Custom Bash/Python Scripts** for scanning content and logs
+
+---
+
+## 🌐 Reporting Security in Dependencies
+
+If the vulnerability exists in a **third-party library** used in Sarvwigyan:
+
+1. First report it to the upstream maintainer (e.g., library repo).
+2. Then notify us if it affects Sarvwigyan’s functionality or user safety.
+
+---
+
+## 📜 Licensing and Legal
+
+All security research on Sarvwigyan must follow:
+- [GitHub's Acceptable Use Policies](https://docs.github.com/en/site-policy/github-terms/github-acceptable-use-policies)
+- [Indian IT Act](https://en.wikipedia.org/wiki/Information_Technology_Act,_2000)
+- Your local cybercrime laws
+
+Do **not** perform destructive testing, DoS attacks, or data scraping on live users.
+
+---
+
+## 🙏 Thanks for Keeping Sarvwigyan Safe
+
+Security is a **community effort**, and we deeply appreciate your help in making Sarvwigyan a secure, ethical, and open platform for knowledge and evolution.
+
+Let us work together to build a platform that future generations can trust.
+
+— *Sarvwigyan Core Team*

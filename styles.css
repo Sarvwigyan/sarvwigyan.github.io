@@ -1,24 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap');
 
 :root {
     /* Colors */
     --background: #f8fafc;
     --card-bg: #ffffff;
     --text: #0f172a;
-    --secondary-text: #475569;
-    --primary: #0066cc;
-    --highlight: #0066cc;
-    --cta-gold: #ffd814;
-    --cta-gold-hover: #f7ca00;
-    --cta-gold-border: #fcd200;
-    --shadow: rgba(0, 0, 0, 0.05);
+    --secondary-text: #334155;
+    --primary: #1e40af;
+    --primary-hover: #1d4ed8;
+    --highlight: #2563eb;
+    --accent-color: #1e40af;
+    --shadow: rgba(15, 23, 42, 0.05);
     
     /* Spacing & Timing */
     --spacing-unit: 1rem;
     --transition-speed: 0.25s;
     
     /* Effects */
-    --blur: blur(10px);
+    --blur: blur(12px);
     --border: 1px solid #e2e8f0;
     
     /* Z-index System */
@@ -35,10 +34,10 @@
     --background: #f8fafc;
     --card-bg: #ffffff;
     --text: #0f172a;
-    --secondary-text: #475569;
-    --primary: #0066cc;
-    --highlight: #0066cc;
-    --shadow: rgba(0, 0, 0, 0.05);
+    --secondary-text: #334155;
+    --primary: #1e40af;
+    --highlight: #2563eb;
+    --shadow: rgba(15, 23, 42, 0.05);
     --border: 1px solid #e2e8f0;
 }
 
@@ -1673,24 +1672,91 @@ body.modal-open {
 
         .cta-button {
             padding: 0.75rem 2.5rem;
-            background: var(--accent-color);
-            color: var(--light-text);
-            border-radius: 30px;
+            background: var(--primary);
+            color: #ffffff;
+            border-radius: 9999px;
             text-decoration: none;
             font-weight: 600;
+            font-size: 0.95rem;
             transition: var(--transition-base);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
             animation: fadeInUp 1s ease 0.4s both;
-            box-shadow: 0 4px 15px rgba(0, 180, 216, 0.3);
+            box-shadow: 0 2px 4px rgba(30, 64, 175, 0.2);
+        }
+
+        /* Stats Bar Section */
+        .stats-bar-section {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 1rem;
+            box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .stat-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            background: #eff6ff;
+            padding: 0.75rem;
+            border-radius: 12px;
+            border: 1px solid #bfdbfe;
+        }
+
+        .stat-item strong {
+            display: block;
+            font-size: 1rem;
+            color: var(--text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .stat-item span {
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+        }
+
+        .platform-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+            color: var(--primary);
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            width: fit-content;
+        }
+
+        .platform-icon {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
 
         @media (hover: hover) {
             .cta-button:hover {
-                background: #0288a0;
-                transform: translateY(-3px);
-                box-shadow: 0 8px 25px rgba(0, 180, 216, 0.5);
+                background: var(--primary-hover);
+                transform: translateY(-2px);
+                box-shadow: 0 4px 10px rgba(30, 64, 175, 0.3);
             }
         }
 
