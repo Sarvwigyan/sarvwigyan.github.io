@@ -1,128 +1,79 @@
-# Contributor Covenant Code of Conduct
+# योगदानकर्ता अनुबंध आचार संहिता (Contributor Covenant Code of Conduct)
 
-## Our Pledge
+## हमारी प्रतिज्ञा (Our Pledge)
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity
-and orientation.
+सदस्य, योगदानकर्ता और लीडर्स (leaders) के रूप में, हम यह प्रतिज्ञा करते हैं कि हमारे समुदाय में भाग लेना सभी के लिए उत्पीड़न-मुक्त (harassment-free) अनुभव होगा, चाहे उनकी आयु, शरीर का आकार, दृश्य या अदृश्य विकलांगता (disability), राष्ट्रीयता (ethnicity), यौन विशेषताएँ, जेंडर पहचान और अभिव्यक्ति, अनुभव का स्तर, शिक्षा, सामाजिक-आर्थिक स्थिति, राष्ट्रीयता, व्यक्तिगत रूप-रंग, नस्ल, धर्म, या यौन पहचान और झुकाव कुछ भी हो।
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+हम इस तरह से कार्य करने और बातचीत करने की प्रतिज्ञा करते हैं जो एक खुले, स्वागत करने वाले (welcoming), विविध (diverse), समावेशी (inclusive) और स्वस्थ समुदाय के निर्माण में योगदान दे।
 
-## Our Standards
+## हमारे मानक (Our Standards)
 
-Examples of behavior that contributes to a positive environment for our
-community include:
+सकारात्मक वातावरण में योगदान देने वाले व्यवहार के उदाहरणों में शामिल हैं:
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the
-  overall community
+* अन्य लोगों के प्रति सहानुभूति (empathy) और दयालुता दिखाना
+* भिन्न राय, दृष्टिकोण और अनुभवों का सम्मान करना
+* रचनात्मक प्रतिक्रिया (constructive feedback) देना और उसे शालीनता से स्वीकार करना
+* जिम्मेदारी स्वीकार करना और हमारी गलतियों से प्रभावित लोगों से माफी मांगना, और अनुभव से सीखना
+* न केवल एक व्यक्ति के रूप में हमारे लिए, बल्कि समग्र समुदाय के लिए जो सर्वोत्तम है उस पर ध्यान केंद्रित करना
 
-Examples of unacceptable behavior include:
+अस्वीकार्य व्यवहार (unacceptable behavior) के उदाहरणों में शामिल हैं:
 
-* The use of sexualized language or imagery, and sexual attention or
-  advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email
-  address, without their explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+* यौन भाषा या इमेजरी (sexualized language or imagery) का उपयोग, और किसी भी प्रकार का अवांछित यौन ध्यान या प्रस्ताव
+* ट्रोलिंग (Trolling), अपमानजनक या निंदात्मक टिप्पणियां, और व्यक्तिगत या राजनीतिक हमले
+* सार्वजनिक या निजी उत्पीड़न (harassment)
+* बिना स्पष्ट अनुमति के दूसरों की निजी जानकारी, जैसे भौतिक या ईमेल पता, प्रकाशित करना
+* अन्य आचरण जिसे एक पेशेवर माहौल (professional setting) में अनुचित माना जा सकता है
 
-## Enforcement Responsibilities
+## प्रवर्तन की जिम्मेदारियां (Enforcement Responsibilities)
 
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
-response to any behavior that they deem inappropriate, threatening, offensive,
-or harmful.
+कम्युनिटी लीडर्स स्वीकार्य व्यवहार के हमारे मानकों को स्पष्ट करने और लागू करने (enforcing) के लिए जिम्मेदार हैं। वे किसी भी ऐसे व्यवहार के जवाब में उचित और निष्पक्ष सुधारात्मक कार्रवाई (corrective action) करेंगे जिसे वे अनुचित, धमकी भरा, अपमानजनक या हानिकारक मानते हैं।
 
-Community leaders have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct, and will communicate reasons for moderation
-decisions when appropriate.
+कम्युनिटी लीडर्स के पास उन टिप्पणियों (comments), कमिट्स (commits), कोड, विकी संपादन (wiki edits), समस्याओं (issues) और अन्य योगदानों को हटाने, संपादित करने या अस्वीकार करने का अधिकार और जिम्मेदारी है जो इस आचार संहिता (Code of Conduct) के अनुरूप नहीं हैं, और जब भी उचित होगा वे मॉडरेशन निर्णयों के कारणों को स्पष्ट करेंगे।
 
-## Scope
+## कार्यक्षेत्र (Scope)
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
-Examples of representing our community include using an official e-mail address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
+यह आचार संहिता समुदाय के सभी स्थानों (community spaces) के भीतर लागू होती है, और यह तब भी लागू होती है जब कोई व्यक्ति सार्वजनिक स्थानों पर आधिकारिक रूप से समुदाय का प्रतिनिधित्व (representing) कर रहा हो। हमारे समुदाय का प्रतिनिधित्व करने के उदाहरणों में आधिकारिक ई-मेल पते का उपयोग करना, आधिकारिक सोशल मीडिया अकाउंट के माध्यम से पोस्ट करना, या किसी ऑनलाइन या ऑफ़लाइन ईवेंट में नियुक्त प्रतिनिधि (appointed representative) के रूप में कार्य करना शामिल है।
 
-## Enforcement
+## प्रवर्तन (Enforcement)
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-https://sarvwigyan.github.io/feedback.html.
-All complaints will be reviewed and investigated promptly and fairly.
+अपमानजनक, परेशान करने वाले, या अन्यथा अस्वीकार्य व्यवहार के मामलों की रिपोर्ट प्रवर्तन के लिए जिम्मेदार कम्युनिटी लीडर्स को https://sarvwigyan.github.io/feedback.html पर की जा सकती है। सभी शिकायतों की तुरंत और निष्पक्ष रूप से समीक्षा (review) और जांच की जाएगी।
 
-All community leaders are obligated to respect the privacy and security of the
-reporter of any incident.
+सभी कम्युनिटी लीडर्स किसी भी घटना की रिपोर्ट करने वाले की गोपनीयता (privacy) और सुरक्षा का सम्मान करने के लिए बाध्य हैं।
 
-## Enforcement Guidelines
+## प्रवर्तन दिशानिर्देश (Enforcement Guidelines)
 
-Community leaders will follow these Community Impact Guidelines in determining
-the consequences for any action they deem in violation of this Code of Conduct:
+कम्युनिटी लीडर्स इस आचार संहिता के उल्लंघन में किसी भी कार्रवाई के परिणामों का निर्धारण करने में इन सामुदायिक प्रभाव दिशानिर्देशों (Community Impact Guidelines) का पालन करेंगे:
 
-### 1. Correction
+### 1. सुधार (Correction)
 
-**Community Impact**: Use of inappropriate language or other behavior deemed
-unprofessional or unwelcome in the community.
+**सामुदायिक प्रभाव (Community Impact):** अनुचित भाषा या अन्य व्यवहार का उपयोग जिसे समुदाय में गैर-पेशेवर या अवांछित माना जाता है।
 
-**Consequence**: A private, written warning from community leaders, providing
-clarity around the nature of the violation and an explanation of why the
-behavior was inappropriate. A public apology may be requested.
+**परिणाम (Consequence):** कम्युनिटी लीडर्स की ओर से एक निजी, लिखित चेतावनी (private, written warning), जिसमें उल्लंघन की प्रकृति के बारे में स्पष्टता और व्यवहार अनुचित क्यों था, इसका स्पष्टीकरण दिया गया हो। सार्वजनिक माफी (public apology) का अनुरोध किया जा सकता है।
 
-### 2. Warning
+### 2. चेतावनी (Warning)
 
-**Community Impact**: A violation through a single incident or series
-of actions.
+**सामुदायिक प्रभाव (Community Impact):** किसी एक घटना या कार्यों की श्रृंखला के माध्यम से उल्लंघन।
 
-**Consequence**: A warning with consequences for continued behavior. No
-interaction with the people involved, including unsolicited interaction with
-those enforcing the Code of Conduct, for a specified period of time. This
-includes avoiding interactions in community spaces as well as external channels
-like social media. Violating these terms may lead to a temporary or
-permanent ban.
+**परिणाम (Consequence):** निरंतर व्यवहार के परिणामों के साथ एक चेतावनी। निर्दिष्ट समय अवधि के लिए शामिल लोगों के साथ कोई बातचीत नहीं, जिसमें आचार संहिता लागू करने वालों के साथ अनचाही बातचीत (unsolicited interaction) भी शामिल है। इसमें सामुदायिक स्थानों के साथ-साथ सोशल मीडिया जैसे बाहरी चैनलों में बातचीत से बचना शामिल है। इन शर्तों का उल्लंघन करने पर अस्थायी या स्थायी प्रतिबंध लग सकता है।
 
-### 3. Temporary Ban
+### 3. अस्थायी प्रतिबंध (Temporary Ban)
 
-**Community Impact**: A serious violation of community standards, including
-sustained inappropriate behavior.
+**सामुदायिक प्रभाव (Community Impact):** निरंतर अनुचित व्यवहार सहित सामुदायिक मानकों का एक गंभीर उल्लंघन।
 
-**Consequence**: A temporary ban from any sort of interaction or public
-communication with the community for a specified period of time. No public or
-private interaction with the people involved, including unsolicited interaction
-with those enforcing the Code of Conduct, is allowed during this period.
-Violating these terms may lead to a permanent ban.
+**परिणाम (Consequence):** एक निर्दिष्ट समय अवधि के लिए समुदाय के साथ किसी भी प्रकार की बातचीत या सार्वजनिक संचार से अस्थायी प्रतिबंध (temporary ban)। इस अवधि के दौरान शामिल लोगों के साथ कोई सार्वजनिक या निजी बातचीत की अनुमति नहीं है। इन शर्तों का उल्लंघन करने पर स्थायी प्रतिबंध लग सकता है।
 
-### 4. Permanent Ban
+### 4. स्थायी प्रतिबंध (Permanent Ban)
 
-**Community Impact**: Demonstrating a pattern of violation of community
-standards, including sustained inappropriate behavior,  harassment of an
-individual, or aggression toward or disparagement of classes of individuals.
+**सामुदायिक प्रभाव (Community Impact):** सामुदायिक मानकों के उल्लंघन का एक पैटर्न प्रदर्शित करना, जिसमें निरंतर अनुचित व्यवहार, किसी व्यक्ति का उत्पीड़न, या व्यक्तियों के वर्गों के प्रति आक्रामकता या अपमान शामिल है।
 
-**Consequence**: A permanent ban from any sort of public interaction within
-the community.
+**परिणाम (Consequence):** समुदाय के भीतर किसी भी प्रकार की सार्वजनिक बातचीत से स्थायी प्रतिबंध (permanent ban)।
 
-## Attribution
+## श्रेय (Attribution)
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
-version 2.0, available at
-https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
+यह आचार संहिता [योगदानकर्ता अनुबंध (Contributor Covenant)][homepage], संस्करण 2.0 से अनुकूलित है, जो https://www.contributor-covenant.org/version/2/0/code_of_conduct.html पर उपलब्ध है।
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct
-enforcement ladder](https://github.com/mozilla/diversity).
+सामुदायिक प्रभाव दिशानिर्देश (Community Impact Guidelines) [Mozilla's code of conduct enforcement ladder](https://github.com/mozilla/diversity) से प्रेरित थे।
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see the FAQ at
-https://www.contributor-covenant.org/faq. Translations are available at
-https://www.contributor-covenant.org/translations.
+इस आचार संहिता के बारे में सामान्य प्रश्नों के उत्तर के लिए, https://www.contributor-covenant.org/faq पर FAQ देखें। अनुवाद https://www.contributor-covenant.org/translations पर उपलब्ध हैं।
