@@ -1,78 +1,201 @@
-# 📜 प्रमाण अनुज्ञप्ति (Pramana License)
-संस्करण 2.0, जनवरी 2026
+                                 Apache License
+                           Version 2.0, January 2004
+                        http://www.apache.org/licenses/
 
-**उपयोग, पुनरुत्पादन और वितरण के लिए नियम एवं शर्तें (TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION)**
+   TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
-### 1. परिभाषाएँ (Definitions)
+   1. Definitions.
 
-"अनुज्ञप्ति" (License) का अर्थ इस दस्तावेज़ की धारा 1 से 9 तक परिभाषित उपयोग, पुनरुत्पादन और वितरण के नियम एवं शर्तों से होगा।
+      "License" shall mean the terms and conditions for use, reproduction,
+      and distribution as defined by Sections 1 through 9 of this document.
 
-"अनुज्ञापक" (Licensor) का अर्थ उस कॉपीराइट स्वामी या कॉपीराइट स्वामी द्वारा अधिकृत इकाई से होगा जो यह अनुज्ञप्ति प्रदान कर रहा है।
+      "Licensor" shall mean the copyright owner or entity authorized by
+      the copyright owner that is granting the License.
 
-"विधिक इकाई" (Legal Entity) का अर्थ कार्य करने वाली इकाई और उन सभी अन्य इकाइयों के संघ से होगा जो उस इकाई को नियंत्रित करती हैं, उसके द्वारा नियंत्रित होती हैं, या उसके साथ साझा नियंत्रण में हैं। इस परिभाषा के प्रयोजनों के लिए, "नियंत्रण" (control) का अर्थ है (i) अनुबंध या अन्य माध्यमों से ऐसी इकाई के निर्देशन या प्रबंधन का प्रत्यक्ष या अप्रत्यक्ष अधिकार, या (ii) बकाया शेयरों के पचास प्रतिशत (50%) या उससे अधिक का स्वामित्व, या (iii) ऐसी इकाई का लाभकारी स्वामित्व।
+      "Legal Entity" shall mean the union of the acting entity and all
+      other entities that control, are controlled by, or are under common
+      control with that entity. For the purposes of this definition,
+      "control" means (i) the power, direct or indirect, to cause the
+      direction or management of such entity, whether by contract or
+      otherwise, or (ii) ownership of fifty percent (50%) or more of the
+      outstanding shares, or (iii) beneficial ownership of such entity.
 
-"आप" (You या Your) का अर्थ इस अनुज्ञप्ति द्वारा दी गई अनुमतियों का उपयोग करने वाले किसी व्यक्ति या विधिक इकाई से होगा।
+      "You" (or "Your") shall mean an individual or Legal Entity
+      exercising permissions granted by this License.
 
-"स्रोत रूप" (Source form) का अर्थ संशोधन करने के लिए सबसे उपयुक्त रूप से होगा, जिसमें सॉफ्टवेयर स्रोत कोड (source code), दस्तावेज़ीकरण स्रोत (documentation), और कॉन्फ़िगरेशन फ़ाइलें (configuration files) शामिल हैं, लेकिन यह इन्हीं तक सीमित नहीं है।
+      "Source" form shall mean the preferred form for making modifications,
+      including but not limited to software source code, documentation
+      source, and configuration files.
 
-"वस्तु रूप" (Object form) का अर्थ स्रोत रूप के यांत्रिक परिवर्तन या अनुवाद से उत्पन्न किसी भी रूप से होगा, जिसमें संकलित ऑब्जेक्ट कोड (compiled object code), उत्पन्न दस्तावेज़ीकरण, और अन्य मीडिया प्रकारों में रूपांतरण शामिल हैं, लेकिन यह इन्हीं तक सीमित नहीं है।
+      "Object" form shall mean any form resulting from mechanical
+      transformation or translation of a Source form, including but
+      not limited to compiled object code, generated documentation,
+      and conversions to other media types.
 
-"कृति" (Work) का अर्थ स्रोत या वस्तु रूप में किसी भी लेखकीय कार्य से होगा, जिसे इस अनुज्ञप्ति के तहत उपलब्ध कराया गया है, जैसा कि कृति में शामिल या संलग्न कॉपीराइट नोटिस द्वारा इंगित किया गया है।
+      "Work" shall mean the work of authorship, whether in Source or
+      Object form, made available under the License, as indicated by a
+      copyright notice that is included in or attached to the work
+      (an example is provided in the Appendix below).
 
-"व्युत्पन्न कृतियाँ" (Derivative Works) का अर्थ स्रोत या वस्तु रूप में किसी भी ऐसे कार्य से होगा जो मूल कृति पर आधारित (या उससे व्युत्पन्न) है, और जिसके संपादकीय संशोधन, एनोटेशन, विस्तार, या अन्य संशोधन समग्र रूप से एक मूल लेखकीय कार्य का प्रतिनिधित्व करते हैं। इस अनुज्ञप्ति के प्रयोजनों के लिए, व्युत्पन्न कृतियों में वे कार्य शामिल नहीं होंगे जो कृति और उसकी व्युत्पन्न कृतियों के इंटरफेस से अलग रहते हैं, या केवल उनसे लिंक (या नाम से बाइंड) होते हैं।
+      "Derivative Works" shall mean any work, whether in Source or Object
+      form, that is based on (or derived from) the Work and for which the
+      editorial revisions, annotations, elaborations, or other modifications
+      represent, as a whole, an original work of authorship. For the purposes
+      of this License, Derivative Works shall not include works that remain
+      separable from, or merely link (or bind by name) to the interfaces of,
+      the Work and Derivative Works thereof.
 
-"योगदान" (Contribution) का अर्थ किसी भी लेखकीय कार्य से होगा, जिसमें कृति का मूल संस्करण और उस कृति या उसकी व्युत्पन्न कृतियों में कोई संशोधन या परिवर्धन शामिल है, जिसे कॉपीराइट स्वामी या उसकी ओर से अधिकृत व्यक्ति/इकाई द्वारा जानबूझकर अनुज्ञापक (Licensor) को प्रस्तुत किया गया हो।
+      "Contribution" shall mean any work of authorship, including
+      the original version of the Work and any modifications or additions
+      to that Work or Derivative Works thereof, that is intentionally
+      submitted to Licensor for inclusion in the Work by the copyright owner
+      or by an individual or Legal Entity authorized to submit on behalf of
+      the copyright owner. For the purposes of this definition, "submitted"
+      means any form of electronic, verbal, or written communication sent
+      to the Licensor or its representatives, including but not limited to
+      communication on electronic mailing lists, source code control systems,
+      and issue tracking systems that are managed by, or on behalf of, the
+      Licensor for the purpose of discussing and improving the Work, but
+      excluding communication that is conspicuously marked or otherwise
+      designated in writing by the copyright owner as "Not a Contribution."
 
-"योगदानकर्ता" (Contributor) का अर्थ अनुज्ञापक और किसी भी ऐसे व्यक्ति या विधिक इकाई से होगा जिसकी ओर से अनुज्ञापक को योगदान प्राप्त हुआ है और जिसे बाद में कृति में शामिल किया गया है।
+      "Contributor" shall mean Licensor and any individual or Legal Entity
+      on behalf of whom a Contribution has been received by Licensor and
+      subsequently incorporated within the Work.
 
-### 2. कॉपीराइट अनुज्ञप्ति का अनुदान (Grant of Copyright License)
-इस अनुज्ञप्ति के नियमों और शर्तों के अधीन, प्रत्येक योगदानकर्ता एतद्द्वारा आपको एक स्थायी (perpetual), विश्वव्यापी (worldwide), गैर-अनन्य (non-exclusive), निःशुल्क (no-charge), रॉयल्टी-मुक्त (royalty-free), अपरिवर्तनीय (irrevocable) कॉपीराइट अनुज्ञप्ति प्रदान करता है, जिसके तहत आप स्रोत या वस्तु रूप में कृति और ऐसी व्युत्पन्न कृतियों का पुनरुत्पादन, व्युत्पन्न कृतियाँ तैयार करना, सार्वजनिक रूप से प्रदर्शित करना, सार्वजनिक रूप से प्रदर्शन करना, उप-लाइसेंस (sublicense) देना और वितरित कर सकते हैं।
+   2. Grant of Copyright License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      copyright license to reproduce, prepare Derivative Works of,
+      publicly display, publicly perform, sublicense, and distribute the
+      Work and such Derivative Works in Source or Object form.
 
-### 3. पेटेंट अनुज्ञप्ति का अनुदान (Grant of Patent License)
-इस अनुज्ञप्ति के नियमों और शर्तों के अधीन, प्रत्येक योगदानकर्ता एतद्द्वारा आपको एक स्थायी, विश्वव्यापी, गैर-अनन्य, निःशुल्क, रॉयल्टी-मुक्त, अपरिवर्तनीय पेटेंट अनुज्ञप्ति प्रदान करता है, जिसके तहत आप कृति को बना सकते हैं, उपयोग कर सकते हैं, बेचने की पेशकश कर सकते हैं, बेच सकते हैं, आयात कर सकते हैं और अन्यथा स्थानांतरित कर सकते हैं। यदि आप किसी भी इकाई के खिलाफ पेटेंट उल्लंघन (patent infringement) का दावा करते हुए पेटेंट मुकदमा दायर करते हैं, तो उस कृति के लिए इस अनुज्ञप्ति के तहत आपको दी गई कोई भी पेटेंट अनुज्ञप्ति मुकदमा दायर करने की तिथि से समाप्त हो जाएगी।
+   3. Grant of Patent License. Subject to the terms and conditions of
+      this License, each Contributor hereby grants to You a perpetual,
+      worldwide, non-exclusive, no-charge, royalty-free, irrevocable
+      (except as stated in this section) patent license to make, have made,
+      use, offer to sell, sell, import, and otherwise transfer the Work,
+      where such license applies only to those patent claims licensable
+      by such Contributor that are necessarily infringed by their
+      Contribution(s) alone or by combination of their Contribution(s)
+      with the Work to which such Contribution(s) was submitted. If You
+      institute patent litigation against any entity (including a
+      cross-claim or counterclaim in a lawsuit) alleging that the Work
+      or a Contribution incorporated within the Work constitutes direct
+      or contributory patent infringement, then any patent licenses
+      granted to You under this License for that Work shall terminate
+      as of the date such litigation is filed.
 
-### 4. पुनर्वितरण (Redistribution)
-आप किसी भी माध्यम में कृति या उसकी व्युत्पन्न कृतियों की प्रतियों को, संशोधनों के साथ या बिना, और स्रोत या वस्तु रूप में पुनरुत्पादित और वितरित कर सकते हैं, बशर्ते आप निम्नलिखित शर्तों को पूरा करें:
+   4. Redistribution. You may reproduce and distribute copies of the
+      Work or Derivative Works thereof in any medium, with or without
+      modifications, and in Source or Object form, provided that You
+      meet the following conditions:
 
-(क) आपको कृति या व्युत्पन्न कृतियों के किसी भी अन्य प्राप्तकर्ता को इस अनुज्ञप्ति की एक प्रति देनी होगी; और
-(ख) आपको किसी भी संशोधित फ़ाइल में प्रमुख नोटिस (prominent notices) लगाने होंगे जिनमें यह बताया गया हो कि आपने फ़ाइलों में परिवर्तन किया है; और
-(ग) आपके द्वारा वितरित किसी भी व्युत्पन्न कृति के स्रोत रूप में, आपको कृति के स्रोत रूप से सभी कॉपीराइट, पेटेंट, ट्रेडमार्क, और श्रेय (attribution) नोटिस बनाए रखने होंगे; और
-(घ) यदि कृति के वितरण के हिस्से के रूप में "NOTICE" टेक्स्ट फ़ाइल शामिल है, तो आपके द्वारा वितरित किसी भी व्युत्पन्न कृति में उस NOTICE फ़ाइल में निहित श्रेय नोटिस की एक पठनीय (readable) प्रति शामिल होनी चाहिए।
+      (a) You must give any other recipients of the Work or
+          Derivative Works a copy of this License; and
 
-आप अपने संशोधनों में अपना स्वयं का कॉपीराइट कथन जोड़ सकते हैं और अपने संशोधनों के उपयोग, पुनरुत्पादन या वितरण के लिए अतिरिक्त या भिन्न अनुज्ञप्ति नियम और शर्तें प्रदान कर सकते हैं।
+      (b) You must cause any modified files to carry prominent notices
+          stating that You changed the files; and
 
-### 5. योगदान प्रस्तुत करना (Submission of Contributions)
-जब तक आप स्पष्ट रूप से अन्यथा न कहें, आपके द्वारा अनुज्ञापक को कृति में शामिल करने के लिए जानबूझकर प्रस्तुत किया गया कोई भी योगदान, बिना किसी अतिरिक्त नियम या शर्तों के, इस अनुज्ञप्ति के नियमों और शर्तों के अधीन होगा।
+      (c) You must retain, in the Source form of any Derivative Works
+          that You distribute, all copyright, patent, trademark, and
+          attribution notices from the Source form of the Work,
+          excluding those notices that do not pertain to any part of
+          the Derivative Works; and
 
-### 6. ट्रेडमार्क (Trademarks)
-यह अनुज्ञप्ति अनुज्ञापक के व्यापार नाम (trade names), ट्रेडमार्क, सेवा चिह्न (service marks), या उत्पाद नामों का उपयोग करने की अनुमति नहीं देती है, सिवाय कृति की उत्पत्ति का वर्णन करने और NOTICE फ़ाइल की सामग्री को पुनरुत्पादित करने के लिए उचित और प्रथागत उपयोग के।
+      (d) If the Work includes a "NOTICE" text file as part of its
+          distribution, then any Derivative Works that You distribute must
+          include a readable copy of the attribution notices contained
+          within such NOTICE file, excluding those notices that do not
+          pertain to any part of the Derivative Works, in at least one
+          of the following places: within a NOTICE text file distributed
+          as part of the Derivative Works; within the Source form or
+          documentation, if provided along with the Derivative Works; or,
+          within a display generated by the Derivative Works, if and
+          wherever such third-party notices normally appear. The contents
+          of the NOTICE file are for informational purposes only and
+          do not modify the License. You may add Your own attribution
+          notices within Derivative Works that You distribute, alongside
+          or as an addendum to the NOTICE text from the Work, provided
+          that such additional attribution notices cannot be construed
+          as modifying the License.
 
-### 7. वारंटी का अस्वीकरण (Disclaimer of Warranty)
-लागू कानून द्वारा आवश्यक या लिखित रूप में सहमत होने के अलावा, अनुज्ञापक कृति को "जैसा है" (AS IS) आधार पर प्रदान करता है, बिना किसी भी प्रकार की वारंटी या शर्तों के, चाहे वह व्यक्त हो या निहित (express or implied)। कृति का उपयोग करने या पुनर्वितरित करने की उपयुक्तता निर्धारित करने के लिए आप पूरी तरह से जिम्मेदार हैं।
+      You may add Your own copyright statement to Your modifications and
+      may provide additional or different license terms and conditions
+      for use, reproduction, or distribution of Your modifications, or
+      for any such Derivative Works as a whole, provided Your use,
+      reproduction, and distribution of the Work otherwise complies with
+      the conditions stated in this License.
 
-### 8. दायित्व की सीमा (Limitation of Liability)
-किसी भी स्थिति में और किसी भी विधिक सिद्धांत (legal theory) के तहत, कोई भी योगदानकर्ता आपके प्रति किसी भी नुकसान के लिए उत्तरदायी (liable) नहीं होगा, जिसमें इस अनुज्ञप्ति के परिणामस्वरूप या कृति का उपयोग करने में असमर्थता से उत्पन्न होने वाले प्रत्यक्ष, अप्रत्यक्ष, विशेष, आकस्मिक या परिणामी नुकसान शामिल हैं।
+   5. Submission of Contributions. Unless You explicitly state otherwise,
+      any Contribution intentionally submitted for inclusion in the Work
+      by You to the Licensor shall be under the terms and conditions of
+      this License, without any additional terms or conditions.
+      Notwithstanding the above, nothing herein shall supersede or modify
+      the terms of any separate license agreement you may have executed
+      with Licensor regarding such Contributions.
 
-### 9. वारंटी या अतिरिक्त दायित्व स्वीकार करना (Accepting Warranty or Additional Liability)
-कृति या उसकी व्युत्पन्न कृतियों को पुनर्वितरित करते समय, आप इस अनुज्ञप्ति के अनुरूप समर्थन, वारंटी, क्षतिपूर्ति, या अन्य दायित्व दायित्वों को स्वीकार करने के लिए शुल्क ले सकते हैं। हालाँकि, ऐसा करते समय, आप केवल अपनी ओर से और अपनी एकमात्र जिम्मेदारी पर कार्य कर सकते हैं, न कि किसी अन्य योगदानकर्ता की ओर से।
+   6. Trademarks. This License does not grant permission to use the trade
+      names, trademarks, service marks, or product names of the Licensor,
+      except as required for reasonable and customary use in describing the
+      origin of the Work and reproducing the content of the NOTICE file.
 
----
-**नियम एवं शर्तों का अंत (END OF TERMS AND CONDITIONS)**
+   7. Disclaimer of Warranty. Unless required by applicable law or
+      agreed to in writing, Licensor provides the Work (and each
+      Contributor provides its Contributions) on an "AS IS" BASIS,
+      WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+      implied, including, without limitation, any warranties or conditions
+      of TITLE, NON-INFRINGEMENT, MERCHANTABILITY, or FITNESS FOR A
+      PARTICULAR PURPOSE. You are solely responsible for determining the
+      appropriateness of using or redistributing the Work and assume any
+      risks associated with Your exercise of permissions under this License.
 
-### परिशिष्ट (APPENDIX): अपने कार्य पर प्रमाण अनुज्ञप्ति (Pramana License) कैसे लागू करें।
+   8. Limitation of Liability. In no event and under no legal theory,
+      whether in tort (including negligence), contract, or otherwise,
+      unless required by applicable law (such as deliberate and grossly
+      negligent acts) or agreed to in writing, shall any Contributor be
+      liable to You for damages, including any direct, indirect, special,
+      incidental, or consequential damages of any character arising as a
+      result of this License or out of the use or inability to use the
+      Work (including but not limited to damages for loss of goodwill,
+      work stoppage, computer failure or malfunction, or any and all
+      other commercial damages or losses), even if such Contributor
+      has been advised of the possibility of such damages.
 
-अपने कार्य पर प्रमाण अनुज्ञप्ति लागू करने के लिए, निम्नलिखित मानक नोटिस (boilerplate notice) संलग्न करें, जिसमें कोष्ठक "[]" से घिरे फ़ील्ड को अपनी पहचान संबंधी जानकारी से बदलें। (कोष्ठक शामिल न करें!)
+   9. Accepting Warranty or Additional Liability. While redistributing
+      the Work or Derivative Works thereof, You may choose to offer,
+      and charge a fee for, acceptance of support, warranty, indemnity,
+      or other liability obligations and/or rights consistent with this
+      License. However, in accepting such obligations, You may act only
+      on Your own behalf and on Your sole responsibility, not on behalf
+      of any other Contributor, and only if You agree to indemnify,
+      defend, and hold each Contributor harmless for any liability
+      incurred by, or claims asserted against, such Contributor by reason
+      of your accepting any such warranty or additional liability.
 
-> Copyright [yyyy] [name of copyright owner / कॉपीराइट स्वामी का नाम]
->
-> Licensed under the Pramana License, Version 2.0 (the "License");
-> you may not use this file except in compliance with the License.
-> You may obtain a copy of the License at
->
->    https://sarvwigyan.github.io/licenses/PRAMANA-2.0
->
-> Unless required by applicable law or agreed to in writing, software
-> distributed under the License is distributed on an "AS IS" BASIS,
-> WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-> See the License for the specific language governing permissions and
-> limitations under the License.
+   END OF TERMS AND CONDITIONS
+
+   APPENDIX: How to apply the Apache License to your work.
+
+      To apply the Apache License to your work, attach the following
+      boilerplate notice, with the fields enclosed by brackets "[]"
+      replaced with your own identifying information. (Don't include
+      the brackets!)  The text should be enclosed in the appropriate
+      comment syntax for the file format. We also recommend that a
+      file or class name and description of purpose be included on the
+      same "printed page" as the copyright notice for easier
+      identification within third-party archives.
+
+   Copyright [yyyy] [name of copyright owner]
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
