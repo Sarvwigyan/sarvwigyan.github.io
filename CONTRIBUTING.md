@@ -1,31 +1,32 @@
-# 🙌 Contributing to Sarvwigyan
+# 🙌 सर्वविज्ञान में योगदान (Contributing to Sarvwigyan)
 
-Welcome to **Sarvwigyan** — a platform dedicated to spreading knowledge, science, and spirituality to all of humanity. We’re thrilled you want to contribute! This document will guide you on how to contribute effectively to the project.
+**सर्वविज्ञान (Sarvwigyan)** में आपका स्वागत है — एक ऐसा मंच जो पूरी मानवता तक ज्ञान, विज्ञान और आध्यात्मिकता (spirituality) फैलाने के लिए समर्पित है। हमें बहुत खुशी है कि आप योगदान देना चाहते हैं! यह दस्तावेज़ आपको प्रोजेक्ट में प्रभावी ढंग से योगदान करने के तरीके के बारे में मार्गदर्शन करेगा।
 
-## 🚀 Our Mission
+## 🚀 हमारा मिशन (Our Mission)
 
-Sarvwigyan aims to become a multilingual, multidisciplinary open platform that combines science, technology, philosophy, and culture. We believe in the power of knowledge for collective human upliftment.
-
----
-
-## 📌 How You Can Contribute
-
-We welcome **all types of contributions**, including but not limited to:
-
-- 🧠 Writing content (articles, tutorials, explanations)
-- 💻 Coding (frontend/backend/features/bug fixes)
-- 🌐 Translations (especially Indian languages)
-- 🧪 Scientific models, AI systems, simulations
-- 🎨 Design (UI/UX, logos, diagrams)
-- 🗂 Organizing content and structure
-- 📜 Proofreading and editing content
-- 🔎 Reporting issues and suggesting features
+सर्वविज्ञान का उद्देश्य एक बहुभाषी (multilingual), बहु-विषयक (multidisciplinary) खुला मंच (open platform) बनना है जो विज्ञान, प्रौद्योगिकी, दर्शन और संस्कृति को जोड़ता है। हम सामूहिक मानव उत्थान (collective human upliftment) के लिए ज्ञान की शक्ति में विश्वास करते हैं।
 
 ---
 
-## 🛠 Setting Up Your Environment (For Developers)
+## 📌 आप कैसे योगदान कर सकते हैं (How You Can Contribute)
 
-1. **Fork the repository** and clone it:
+हम **सभी प्रकार के योगदानों** का स्वागत करते हैं, जिनमें मुख्य रूप से शामिल हैं:
+
+- 🧠 सामग्री लेखन (लेख, ट्यूटोरियल, स्पष्टीकरण)
+- 💻 कोडिंग (फ्रंटएंड / बैकएंड / सुविधाएँ / बग फिक्स)
+- 🌐 अनुवाद (विशेष रूप से भारतीय भाषाएँ)
+- 🧪 वैज्ञानिक मॉडल, AI सिस्टम, सिमुलेशन (simulations)
+- 🎨 डिज़ाइन (UI/UX, लोगो, आरेख/diagrams)
+- 🗂 सामग्री और संरचना को व्यवस्थित करना
+- 📜 सामग्री की प्रूफ़रीडिंग और संपादन
+- 🔎 समस्याओं (issues) की रिपोर्ट करना और सुविधाओं (features) का सुझाव देना
+
+---
+
+## 🛠 अपना वातावरण स्थापित करना (डेवलपर्स के लिए / Setting Up Your Environment)
+
+1. **रिपॉजिटरी को फ़ोर्क (Fork) करें** और इसे क्लोन (clone) करें:
    ```bash
    git clone https://github.com/YOUR_USERNAME/sarvwigyan.git
    cd sarvwigyan
+   ```
