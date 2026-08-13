@@ -406,20 +406,20 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
     <div class="container">
-        <h1>Share Your Feedback</h1>
-        <h5><strong>Your opinion helps us improve!</strong></h5>
+        <h1>अपनी प्रतिक्रिया एवं सुझाव साझा करें</h1>
+        <h5><strong>आपकी सम्मति हमारे मंच को और उत्कृष्ट बनाने में सहायक है!</strong></h5>
         <form id="contactForm">
             <div>
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required aria-required="true">
+                <label for="name">पूरा नाम</label>
+                <input type="text" id="name" name="name" required aria-required="true" placeholder="अपना नाम दर्ज करें">
             </div>
             <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required aria-required="true">
+                <label for="email">ईमेल पता</label>
+                <input type="email" id="email" name="email" required aria-required="true" placeholder="अपना ईमेल दर्ज करें">
             </div>
             <div>
-                <label for="rating">Rating</label>
-                <div class="rating-container" role="radiogroup" aria-label="Rating">
+                <label for="rating">मूल्यांकन (रेटिंग)</label>
+                <div class="rating-container" role="radiogroup" aria-label="मूल्यांकन">
                     <i class="fas fa-star star" data-value="1" tabindex="0" role="radio" aria-checked="false"></i>
                     <i class="fas fa-star star" data-value="2" tabindex="0" role="radio" aria-checked="false"></i>
                     <i class="fas fa-star star" data-value="3" tabindex="0" role="radio" aria-checked="false"></i>
@@ -428,35 +428,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <span class="rating-tooltip" id="ratingTooltip">0</span>
                 </div>
                 <div class="rating-actions">
-                    <button type="button" class="clear-rating" id="clearRating"><i class="fas fa-times"></i> Clear Rating</button>
+                    <button type="button" class="clear-rating" id="clearRating"><i class="fas fa-times"></i> मूल्यांकन साफ़ करें</button>
                 </div>
-                <div class="error-message" id="ratingError">Please select a rating.</div>
+                <div class="error-message" id="ratingError">कृपया अपना मूल्यांकन चुनें।</div>
                 <input type="hidden" id="rating" name="rating" value="0">
             </div>
             <div>
-                <label for="message">Message/Feedback</label>
-                <textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="charCounter">Deep regards!</textarea>
-                <div class="char-counter" id="charCounter">0/500 characters</div>
+                <label for="message">संदेश / विस्तृत प्रतिक्रिया</label>
+                <textarea id="message" name="message" rows="5" maxlength="500" aria-describedby="charCounter">सादर सधन्यवाद!</textarea>
+                <div class="char-counter" id="charCounter">0/500 अक्षर</div>
             </div>
             <div class="g-recaptcha" data-sitekey="6LeLQ8oqAAAAABaKcrO-TcGpWtuij7tTf-KqjJtA"></div>
-            <button type="submit" id="submitButton"><i class="fas fa-message"></i> Send Message</button>
+            <button type="submit" id="submitButton"><i class="fas fa-message"></i> संदेश प्रेषित करें</button>
         </form>
     </div>
     <div class="container">
-        <em>Help us improve by providing your valuable feedback to deliver the best resources.</em>
+        <em>सर्वविज्ञान मंच को और अधिक उपयोगी बनाने हेतु अपने बहुमूल्य सुझाव अवश्य प्रदान करें।</em>
         <div class="button-group">
-            <button class="secondary-button" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</button>
-            <button class="secondary-button" onclick="window.location.reload()"><i class="fas fa-rotate-right"></i> Reload</button>
+            <button class="secondary-button" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> मुख्य पृष्ठ</button>
+            <button class="secondary-button" onclick="window.location.reload()"><i class="fas fa-rotate-right"></i> पुनः लोड करें</button>
         </div>
     </div>
 
     <div class="modal" id="confirmationModal">
         <div class="modal-content">
-            <h3>Thank You!</h3>
-            <p id="modalSummary">Your feedback has been submitted successfully.</p>
-            <button onclick="closeModal()">OK</button>
+            <h3>हार्दिक धन्यवाद!</h3>
+            <p id="modalSummary">आपकी प्रतिक्रिया सफलतापूर्वक प्राप्त हो गई है।</p>
+            <button onclick="closeModal()">ठीक है</button>
         </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 
     <script>
         (function () {
@@ -478,7 +480,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Character counter
         messageInput.addEventListener('input', () => {
             const length = messageInput.value.length;
-            charCounter.textContent = `${length}/500 characters`;
+            charCounter.textContent = `${length}/500 अक्षर`;
             charCounter.classList.toggle('warning', length > 450);
         });
 
@@ -532,10 +534,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // Modal handling
         function openModal(name, email, rating, message) {
             modalSummary.innerHTML = `
-                <strong>Name:</strong> ${name}<br>
-                <strong>Email:</strong> ${email}<br>
-                <strong>Rating:</strong> ${rating}/5 stars<br>
-                <strong>Message:</strong> ${message}
+                <strong>नाम:</strong> ${name}<br>
+                <strong>ईमेल:</strong> ${email}<br>
+                <strong>मूल्यांकन:</strong> ${rating}/5 स्टार<br>
+                <strong>संदेश:</strong> ${message}
             `;
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -559,16 +561,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             }
 
             submitButton.disabled = true;
-            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> भेजा जा रहा है...';
 
-            const feedback = messageInput.value.trim() || 'Deep regards!';
+            const feedback = messageInput.value.trim() || 'सादर सधन्यवाद!';
             messageInput.value = feedback;
 
             const captchaResponse = grecaptcha.getResponse();
             if (!captchaResponse) {
-                alert('Please verify that you are a human.');
+                alert('कृपया सिद्ध करें कि आप मानव हैं।');
                 submitButton.disabled = false;
-                submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                submitButton.innerHTML = '<i class="fas fa-message"></i> संदेश प्रेषित करें';
                 return;
             }
 
@@ -582,11 +584,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 .then(() => {
                     openModal(name, email, rating, message);
                     submitButton.disabled = false;
-                    submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                    submitButton.innerHTML = '<i class="fas fa-message"></i> संदेश प्रेषित करें';
                 }, (error) => {
-                    alert('Sorry, there was an error sending your message. Please try again.');
+                    alert('क्षमा करें, संदेश भेजने में त्रुटि हुई। कृपया पुनः प्रयास करें।');
                     submitButton.disabled = false;
-                    submitButton.innerHTML = '<i class="fas fa-message"></i> Send Message';
+                    submitButton.innerHTML = '<i class="fas fa-message"></i> संदेश प्रेषित करें';
                 });
         });
 
