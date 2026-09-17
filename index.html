@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Analytics (kept) -->
+    <script>document.documentElement.classList.add('js-ready');</script>
+
     <script src="https://cdn-in.pagesense.io/js/sarvwigyan/385c5d7f52514bb485e2e0edabbf2db5.js" defer></script>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="04ad064b-7188-4873-aba9-dec57fe13e9d" async></script>
     <script async>
@@ -21,8 +22,8 @@
     })(window,document,'script','dataLayer','GTM-KL2QFHCJ');</script>
 
     <title>Sarvwigyan – Explore Science & Innovation</title>
-    <meta name="description" content="Sarvwigyan — a premier platform for science, technology, education, and innovation. Discover Sarvpedia, Sarvstore, and more.">
-    <meta name="keywords" content="Sarvwigyan, Sarvpedia, Sarvstore, Science, Technology, Education, Innovation">
+    <meta name="description" content="Sarvwigyan — a premier platform for science, technology, education, and innovation. Discover Sarvpedia, Kosh, and more.">
+    <meta name="keywords" content="Sarvwigyan, Sarvpedia, Kosh, Science, Technology, Education, Innovation">
     <meta name="author" content="Sarvwigyan Team">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <link rel="canonical" href="https://sarvwigyan.github.io/">
@@ -75,7 +76,7 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="https://sarvwigyan.github.io/sarvpedia"><i class="fas fa-book"></i> सर्वज्ञानकोश (सर्वपीडिया)</a></li>
-                            <li><a href="https://sarvwigyan.github.io/sarvstore/"><i class="fas fa-store"></i> सर्व-भंडार</a></li>
+                            <li><a href="https://sarvwigyan.github.io/sarvstore/"><i class="fas fa-store"></i> कोष</a></li>
                             <li><a href="https://sarvwigyan.github.io/Community/community.html"><i class="fas fa-users"></i> शिक्षार्थी संघ</a></li>
                         </ul>
                     </li>
@@ -165,7 +166,6 @@
                 </div>
             </div>
 
-            <!-- Molecule overlay -->
             <div class="hero-molecule-layer" aria-hidden="true">
                 <svg class="hero-molecule" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid meet" focusable="false">
                     <defs>
@@ -305,12 +305,12 @@
                     </article>
 
                     <article class="card reveal">
-                        <span class="platform-badge"><i class="fas fa-store"></i> डिजिटल ग्रंथालय</span>
+                        <span class="platform-badge"><i class="fas fa-store"></i> ज्ञान का कोष</span>
                         <div class="card-icon-wrap card-icon-teal"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="card-heading">सर्व-भंडार</h3>
-                        <p class="card-desc">खुले अनुप्रयोग, वैज्ञानिक ग्रंथ तथा तकनीकी साधन अध्ययन एवं प्रयोग हेतु प्राप्त करें।</p>
+                        <h3 class="card-heading">कोष</h3>
+                        <p class="card-desc">कोष में संग्रहित ग्रंथ, पुस्तकें एवं शोध-पत्रिकाएँ — निःशुल्क अध्ययन हेतु।</p>
                         <a href="https://sarvwigyan.github.io/sarvstore/" class="btn btn-success btn-block">
-                            <i class="fas fa-arrow-right"></i> भंडार देखें
+                            <i class="fas fa-arrow-right"></i> कोष देखें
                         </a>
                     </article>
 
@@ -367,7 +367,7 @@
                     <span class="status-dot" aria-hidden="true"></span>
                     <span>सभी प्रणालियाँ सक्रिय</span>
                 </div>
-                <span class="footer-build">build <code>v3.2</code> · 2026</span>
+                <span class="footer-build">build <code>v3.4</code> · 2026</span>
             </div>
 
             <div class="footer-grid">
@@ -389,7 +389,7 @@
                     <h3 class="footer-heading">हमारे प्रमुख मंच</h3>
                     <ul class="footer-links">
                         <li><a href="https://sarvwigyan.github.io/sarvpedia"><i class="fas fa-angle-right"></i> सर्वज्ञानकोश</a></li>
-                        <li><a href="https://sarvwigyan.github.io/sarvstore/"><i class="fas fa-angle-right"></i> सर्व-भंडार</a></li>
+                        <li><a href="https://sarvwigyan.github.io/sarvstore/"><i class="fas fa-angle-right"></i> कोष</a></li>
                         <li><a href="https://sarvwigyan.github.io/Community/community.html"><i class="fas fa-angle-right"></i> शिक्षार्थी संघ</a></li>
                     </ul>
                 </div>
@@ -457,9 +457,7 @@
         var $ = function (s, c) { return (c || document).querySelector(s); };
         var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-        /* =========================================================
-           1. THEME TOGGLE (robust, runs immediately)
-           ========================================================= */
+        /* =========== 1. THEME =========== */
         var THEME_KEY = 'sarvwigyan-theme';
 
         function readStoredTheme() {
@@ -476,23 +474,19 @@
             try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
         }
 
-        // Apply stored theme IMMEDIATELY (before paint)
         setTheme(readStoredTheme());
 
         function initTheme() {
             var btn = document.getElementById('themeToggle');
-            if (!btn) { console.warn('[Sarvwigyan] theme toggle button not found'); return; }
+            if (!btn) return;
             btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 var current = document.documentElement.getAttribute('data-theme') || 'light';
-                var next = (current === 'dark') ? 'light' : 'dark';
-                setTheme(next);
+                setTheme(current === 'dark' ? 'light' : 'dark');
             });
         }
 
-        /* =========================================================
-           2. NAVIGATION (mobile drawer + dropdowns)
-           ========================================================= */
+        /* =========== 2. NAV =========== */
         function initNav() {
             var hamburger = $('.hamburger');
             var navMenu = $('.nav-menu');
@@ -527,23 +521,9 @@
                     dropdowns.forEach(function (d) { d.classList.remove('active'); });
                 }
             });
-
-            if (navMenu) {
-                navMenu.addEventListener('click', function (e) {
-                    var a = e.target.closest ? e.target.closest('a') : null;
-                    if (!a) return;
-                    if (a.getAttribute('aria-haspopup') === 'true') return;
-                    if (window.innerWidth <= 1024) {
-                        navMenu.classList.remove('active');
-                        if (hamburger) hamburger.classList.remove('active');
-                    }
-                });
-            }
         }
 
-        /* =========================================================
-           3. HERO SLIDER (auto-advance + manual controls)
-           ========================================================= */
+        /* =========== 3. HERO SLIDER =========== */
         function initHeroSlider() {
             var slides = $$('.slide');
             var dotsContainer = document.getElementById('slider-dots');
@@ -553,7 +533,6 @@
             var autoTimer = null;
             var AUTO_MS = 6000;
 
-            // Build dots
             slides.forEach(function (_, i) {
                 var dot = document.createElement('button');
                 dot.type = 'button';
@@ -567,58 +546,39 @@
             function goTo(index) {
                 if (index >= slides.length) index = 0;
                 if (index < 0) index = slides.length - 1;
-
-                slides.forEach(function (s, i) {
-                    s.classList.toggle('is-active', i === index);
-                });
-                dots.forEach(function (d, i) {
-                    d.classList.toggle('is-active', i === index);
-                });
+                slides.forEach(function (s, i) { s.classList.toggle('is-active', i === index); });
+                dots.forEach(function (d, i) { d.classList.toggle('is-active', i === index); });
                 currentSlide = index;
                 resetAuto();
             }
 
             function resetAuto() {
                 if (autoTimer) clearInterval(autoTimer);
-                autoTimer = setInterval(function () {
-                    goTo(currentSlide + 1);
-                }, AUTO_MS);
+                autoTimer = setInterval(function () { goTo(currentSlide + 1); }, AUTO_MS);
             }
 
-            // Wire up arrow buttons
             var prevBtn = document.querySelector('[data-slide="prev"]');
             var nextBtn = document.querySelector('[data-slide="next"]');
             if (prevBtn) prevBtn.addEventListener('click', function () { goTo(currentSlide - 1); });
             if (nextBtn) nextBtn.addEventListener('click', function () { goTo(currentSlide + 1); });
 
-            // Pause on hover, resume on leave (only if mouse leaves the whole slider)
             var sliderEl = document.querySelector('.hero-slider');
             if (sliderEl) {
-                sliderEl.addEventListener('mouseenter', function () {
-                    if (autoTimer) clearInterval(autoTimer);
-                });
+                sliderEl.addEventListener('mouseenter', function () { if (autoTimer) clearInterval(autoTimer); });
                 sliderEl.addEventListener('mouseleave', function () { resetAuto(); });
             }
 
-            // Pause when tab is hidden (save battery)
             document.addEventListener('visibilitychange', function () {
-                if (document.hidden) {
-                    if (autoTimer) clearInterval(autoTimer);
-                } else {
-                    resetAuto();
-                }
+                if (document.hidden) { if (autoTimer) clearInterval(autoTimer); }
+                else { resetAuto(); }
             });
 
             resetAuto();
         }
 
-        /* =========================================================
-           4. SCROLL REVEAL (robust — never leaves content hidden)
-           ========================================================= */
+        /* =========== 4. SCROLL REVEAL =========== */
         function initReveal() {
             var els = $$('.reveal');
-
-            // No observer? Just make sure everything is visible. The CSS handles the rest.
             if (!('IntersectionObserver' in window)) {
                 els.forEach(function (el) { el.classList.add('is-visible'); });
                 return;
@@ -635,19 +595,14 @@
 
             els.forEach(function (el) { observer.observe(el); });
 
-            // Safety net: after 3s, force everything visible
             setTimeout(function () {
                 els.forEach(function (el) {
-                    if (!el.classList.contains('is-visible')) {
-                        el.classList.add('is-visible');
-                    }
+                    if (!el.classList.contains('is-visible')) el.classList.add('is-visible');
                 });
             }, 3000);
         }
 
-        /* =========================================================
-           5. BACK TO TOP
-           ========================================================= */
+        /* =========== 5. BACK TO TOP =========== */
         function initBackToTop() {
             var btn = document.getElementById('backToTop');
             if (!btn) return;
@@ -667,9 +622,7 @@
             });
         }
 
-        /* =========================================================
-           6. COMMAND PALETTE
-           ========================================================= */
+        /* =========== 6. COMMAND PALETTE =========== */
         function initCommandPalette() {
             var overlay = document.getElementById('cmdOverlay');
             var input = document.getElementById('cmdInput');
@@ -678,7 +631,7 @@
 
             var ITEMS = [
                 { title: 'सर्वज्ञानकोश', sub: 'मुक्त ज्ञानकोश', url: 'https://sarvwigyan.github.io/sarvpedia', icon: 'fa-book', group: 'मंच' },
-                { title: 'सर्व-भंडार', sub: 'डिजिटल ग्रंथालय', url: 'https://sarvwigyan.github.io/sarvstore/', icon: 'fa-store', group: 'मंच' },
+                { title: 'कोष', sub: 'ज्ञान का भंडार', url: 'https://sarvwigyan.github.io/sarvstore/', icon: 'fa-store', group: 'मंच' },
                 { title: 'शिक्षार्थी संघ', sub: 'समुदाय', url: 'https://sarvwigyan.github.io/Community/community.html', icon: 'fa-users', group: 'मंच' },
                 { title: 'मुख्य पृष्ठ', sub: 'होम', url: 'index.html', icon: 'fa-house', group: 'पृष्ठ' },
                 { title: 'हमारे विषय में', sub: 'परिचय', url: 'about.html', icon: 'fa-circle-info', group: 'पृष्ठ' },
@@ -805,9 +758,7 @@
             });
         }
 
-        /* =========================================================
-           7. BOOT
-           ========================================================= */
+        /* =========== 7. BOOT =========== */
         function boot() {
             initTheme();
             initNav();
